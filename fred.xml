@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.clivern</groupId>
+  <artifactId>fred</artifactId>
+  <version>1.0.0-SNAPSHOT</version>
+  <name>Fred</name>
+  <description>A Java Framework for Building Slack Bots.</description>
+  <url>https://github.com/clivern/fred</url>
+  <licenses>
+    <license>
+      <name>MIT License</name>
+      <url>https://raw.githubusercontent.com/Clivern/fred/master/LICENSE</url>
+      <distribution>repo</distribution>
+    </license>
+  </licenses>
+  <developers>
+    <developer>
+      <id>clivern</id>
+      <name>AF</name>
+      <email>hello@clivern.com</email>
+      <url>http://clivern.com</url>
+      <roles>
+        <role>Software Developer</role>
+      </roles>
+    </developer>
+  </developers>
+  <scm>
+    <connection>scm:git:git://github.com/clivern/fred.git</connection>
+    <developerConnection>scm:git:git@github.com:clivern/fred.git</developerConnection>
+    <url>https://github.com/clivern/fred</url>
+  </scm>
+  <dependencies>
+    <dependency>
+      <groupId>com.mashape.unirest</groupId>
+      <artifactId>unirest-java</artifactId>
+      <version>1.4.9</version>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.json</groupId>
+      <artifactId>json</artifactId>
+      <version>20170516</version>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>4.12</version>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
+</project>

@@ -1,0 +1,27 @@
+POM_GROUP_ID=com.clivern
+POM_ARTIFACT_ID=fred
+POM_VERSION=1.0.0-SNAPSHOT
+POM_NAME=Fred
+POM_DESCRIPTION=A Java Framework for Building Slack Bots.
+POM_URL=https://github.com/clivern/fred
+POM_LICENSE_NAME=MIT License
+POM_LICENSE_URL=https://raw.githubusercontent.com/Clivern/fred/master/LICENSE
+POM_LICENSE_DISTRIBUTION=repo
+POM_DEVELOPER_ID=clivern
+POM_DEVELOPER_NAME=AF
+POM_DEVELOPER_EMAIL=hello@clivern.com
+POM_DEVELOPER_URL=http://clivern.com
+POM_DEVELOPER_ROLE=Software Developer
+POM_SCM_URL=https://github.com/clivern/fred
+POM_SCM_CONNECTION=scm:git:git://github.com/clivern/fred.git
+POM_SCM_DEVELOPER_CONNECTION=scm:git:git@github.com:clivern/fred.git
+
+NEXUS_USERNAME=nexus username here
+NEXUS_PASSWORD=nexus password here
+
+SNAPSHOT_REPOSITORY_URL=https://oss.sonatype.org/content/repositories/snapshots
+RELEASE_REPOSITORY_URL=https://oss.sonatype.org/service/local/staging/deploy/maven2
+
+signing.keyId=key id here
+signing.password=
+signing.secretKeyRingFile=/home/ahmed/.gnupg/secring.gpg
