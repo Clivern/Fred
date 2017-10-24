@@ -22,12 +22,12 @@ public class BotPlatform {
     /**
      * Class Constructor
      *
-     * @param  poperties_file_path
+     * @param  popertiesFilePath
      */
-    public BotPlatform(String poperties_file_path) throws IOException
+    public BotPlatform(String popertiesFilePath) throws IOException
     {
         this.configs = new Config();
-        this.configs.loadPropertiesFile(poperties_file_path);
+        this.configs.loadPropertiesFile(popertiesFilePath);
         this.log = new Log(this.configs);
     }
 
