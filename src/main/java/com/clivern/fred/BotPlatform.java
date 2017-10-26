@@ -18,7 +18,6 @@ public class BotPlatform {
 
     protected Log log;
 
-
     /**
      * Class Constructor
      *
