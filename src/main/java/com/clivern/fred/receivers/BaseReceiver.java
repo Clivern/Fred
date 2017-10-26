@@ -3,7 +3,6 @@
  */
 package com.clivern.fred.receivers;
 
-import com.clivern.fred.receivers.webhook.*;
 import java.util.HashMap;
 import java.util.Map;
 import com.clivern.fred.utils.Config;
