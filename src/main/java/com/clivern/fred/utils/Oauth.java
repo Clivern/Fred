@@ -29,6 +29,7 @@ public class Oauth {
 	protected String redirectURL;
 	protected String clientId;
 	protected String clientSecret;
+    protected String verificationToken;
 	protected String scope;
 	protected String redirectUri;
 	protected String stateType;
@@ -51,6 +52,7 @@ public class Oauth {
 
         this.clientId = this.configs.get("client_id", "");
         this.clientSecret = this.configs.get("client_secret", "");
+        this.verificationToken = this.configs.get("verification_token", "");
         this.scope = this.configs.get("scope", "");
         this.redirectUri = this.configs.get("redirect_uri", "");
         this.stateType = this.configs.get("state_type", "");
