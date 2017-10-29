@@ -42,7 +42,7 @@ public class Log {
      */
     public void fine(String message)
     {
-        log.fine(message);
+        this.log.fine(message);
     }
 
     /**
@@ -52,7 +52,7 @@ public class Log {
      */
     public void finer(String message)
     {
-        log.finer(message);
+        this.log.finer(message);
     }
 
     /**
@@ -62,7 +62,7 @@ public class Log {
      */
     public void finest(String message)
     {
-        log.finest(message);
+        this.log.finest(message);
     }
 
     /**
@@ -72,7 +72,7 @@ public class Log {
      */
     public void info(String message)
     {
-        log.info(message);
+        this.log.info(message);
     }
 
     /**
@@ -82,7 +82,7 @@ public class Log {
      */
     public void severe(String message)
     {
-        log.severe(message);
+        this.log.severe(message);
     }
 
     /**
@@ -92,7 +92,7 @@ public class Log {
      */
     public void warning(String message)
     {
-        log.warning(message);
+        this.log.warning(message);
     }
 
     /**
@@ -100,8 +100,8 @@ public class Log {
      */
     public void close()
     {
-        if( fileHandler != null ){
-            fileHandler.close();
+        if( this.fileHandler != null ){
+            this.fileHandler.close();
         }
     }
 
@@ -113,54 +113,54 @@ public class Log {
     protected void config() throws IOException
     {
         if( Boolean.parseBoolean(this.config.get("log_console_status", "false")) ){
-            consoleHandler = new ConsoleHandler();
-            log.addHandler(consoleHandler);
+            this.consoleHandler = new ConsoleHandler();
+            this.log.addHandler(this.consoleHandler);
             if( this.config.get("log_console_level", "SEVERE").equals("ALL") ){
-                consoleHandler.setLevel(Level.ALL);
+                this.consoleHandler.setLevel(Level.ALL);
             }else if( this.config.get("log_console_level", "SEVERE").equals("CONFIG") ){
-                consoleHandler.setLevel(Level.CONFIG);
+                this.consoleHandler.setLevel(Level.CONFIG);
             }else if( this.config.get("log_console_level", "SEVERE").equals("FINE") ){
-                consoleHandler.setLevel(Level.FINE);
+                this.consoleHandler.setLevel(Level.FINE);
             }else if( this.config.get("log_console_level", "SEVERE").equals("FINER") ){
-                consoleHandler.setLevel(Level.FINER);
+                this.consoleHandler.setLevel(Level.FINER);
             }else if( this.config.get("log_console_level", "SEVERE").equals("FINEST") ){
-                consoleHandler.setLevel(Level.FINEST);
+                this.consoleHandler.setLevel(Level.FINEST);
             }else if( this.config.get("log_console_level", "SEVERE").equals("INFO") ){
-                consoleHandler.setLevel(Level.INFO);
+                this.consoleHandler.setLevel(Level.INFO);
             }else if( this.config.get("log_console_level", "SEVERE").equals("OFF") ){
-                consoleHandler.setLevel(Level.OFF);
+                this.consoleHandler.setLevel(Level.OFF);
             }else if( this.config.get("log_console_level", "SEVERE").equals("SEVERE") ){
-                consoleHandler.setLevel(Level.SEVERE);
+                this.consoleHandler.setLevel(Level.SEVERE);
             }else if( this.config.get("log_console_level", "SEVERE").equals("WARNING") ){
-                consoleHandler.setLevel(Level.WARNING);
+                this.consoleHandler.setLevel(Level.WARNING);
             }
         }
 
         if( Boolean.parseBoolean(this.config.get("log_file_status", "false")) ){
-            fileHandler  = new FileHandler(this.config.get("log_file_path", "src/main/java/resources/app.log"),
+            this.fileHandler  = new FileHandler(this.config.get("log_file_path", "src/main/java/resources/app.log"),
                 Integer.parseInt(this.config.get("log_file_limit", "1")),
                 Integer.parseInt(this.config.get("log_file_count", "200000")),
                 Boolean.parseBoolean(this.config.get("log_file_append", "true"))
             );
-            log.addHandler(fileHandler);
+            this.log.addHandler(this.fileHandler);
             if( this.config.get("log_file_level", "SEVERE").equals("ALL") ){
-                fileHandler.setLevel(Level.ALL);
+                this.fileHandler.setLevel(Level.ALL);
             }else if( this.config.get("log_file_level", "SEVERE").equals("CONFIG") ){
-                fileHandler.setLevel(Level.CONFIG);
+                this.fileHandler.setLevel(Level.CONFIG);
             }else if( this.config.get("log_file_level", "SEVERE").equals("FINE") ){
-                fileHandler.setLevel(Level.FINE);
+                this.fileHandler.setLevel(Level.FINE);
             }else if( this.config.get("log_file_level", "SEVERE").equals("FINER") ){
-                fileHandler.setLevel(Level.FINER);
+                this.fileHandler.setLevel(Level.FINER);
             }else if( this.config.get("log_file_level", "SEVERE").equals("FINEST") ){
-                fileHandler.setLevel(Level.FINEST);
+                this.fileHandler.setLevel(Level.FINEST);
             }else if( this.config.get("log_file_level", "SEVERE").equals("INFO") ){
-                fileHandler.setLevel(Level.INFO);
+                this.fileHandler.setLevel(Level.INFO);
             }else if( this.config.get("log_file_level", "SEVERE").equals("OFF") ){
-                fileHandler.setLevel(Level.OFF);
+                this.fileHandler.setLevel(Level.OFF);
             }else if( this.config.get("log_file_level", "SEVERE").equals("SEVERE") ){
-                fileHandler.setLevel(Level.SEVERE);
+                this.fileHandler.setLevel(Level.SEVERE);
             }else if( this.config.get("log_file_level", "SEVERE").equals("WARNING") ){
-                fileHandler.setLevel(Level.WARNING);
+                this.fileHandler.setLevel(Level.WARNING);
             }
         }
     }
