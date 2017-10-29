@@ -6,8 +6,18 @@
 apply plugin: 'java-library'
 apply plugin: 'maven'
 
+// ###############################
+// ## REMOVE AFTER BETA RELEASE ##
+apply plugin: 'application'
+// ###############################
+
 archivesBaseName = "fred"
 version = '1.0.0-SNAPSHOT'
+
+// ####################################
+// ## REMOVE AFTER BETA RELEASE #######
+mainClassName = "com.clivern.fred.Main"
+// ####################################
 
 // In this section you declare where to find the dependencies of your project
 repositories {
@@ -58,6 +68,14 @@ task updatePom {
 }
 
 dependencies {
+
+    // ####################################
+    // ## REMOVE AFTER BETA RELEASE #######
+    compile 'com.sparkjava:spark-core:2.6.0'
+    compile 'org.slf4j:slf4j-api:1.7.13'
+    compile 'org.slf4j:slf4j-simple:1.7.13'
+    // ####################################
+
     testImplementation 'junit:junit:4.12'
     compile 'com.mashape.unirest:unirest-java:1.4.9'
     compile 'org.json:json:20170516'
