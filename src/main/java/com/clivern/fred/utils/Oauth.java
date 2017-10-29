@@ -68,7 +68,7 @@ public class Oauth {
      */
     public Boolean setState(String state)
     {
-    	if( this.stateType != "vary" ){
+    	if( !this.stateType.equals("vary") ){
     		return false;
     	}
 
@@ -87,7 +87,7 @@ public class Oauth {
      */
     public String getState()
     {
-    	if( this.stateType != "vary" ){
+    	if( !this.stateType.equals("vary") ){
     		return this.state;
     	}
 
@@ -188,7 +188,7 @@ public class Oauth {
     	this.setIncomingState(incomingState);
     	this.setIncomingError(incomingError);
 
-    	if( this.state != this.getIncomingState() ){
+    	if( !this.state.equals(this.getIncomingState()) ){
     		return false;
     	}
 
@@ -260,14 +260,14 @@ public class Oauth {
      *
      * @return Boolean
      */
-    public Boolean fetchAccessToken() throws UnirestException
+    public String fetchAccessToken() throws UnirestException
     {
         String url = Basic.methodURL(Basic.oauthAccessMethod);
         String body = "client_id=" + this.clientId + "&client_secret=" + this.clientSecret + "&code=" + this.incomingCode + "&redirect_uri=" + this.redirectUri;
         this.log.info("curl -X POST -H \"Content-Type: application/x-www-form-urlencoded\" -d '" + body + "' \"" + url + "\"");
-        HttpResponse<String> response = Unirest.post(url).header("Content-Type", "application/json").body(body).asString();
+        HttpResponse<String> response = Unirest.post(url).header("Content-Type", "application/x-www-form-urlencoded").body(body).asString();
 
-        return true;
+        return response.getBody();
     }
 
     /**
