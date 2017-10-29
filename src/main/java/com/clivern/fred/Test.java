@@ -35,7 +35,28 @@ public class Test {
             Boolean fetch = oauth.fetchAccessToken();
 
             if( fetch ){
-                return oauth.getIncomingAccessToken();
+
+                return  "State: " +  oauth.getState() + "<br/>" +
+                        "Client ID: " +  oauth.getClientId() + "<br/>" +
+                        "Client Secret: " +  oauth.getClientSecret() + "<br/>" +
+                        "Scope: " +  oauth.getScope() + "<br/>" +
+                        "Redirect Uri: " +  oauth.getRedirectUri() + "<br/>" +
+                        "State Type: " +  oauth.getStateType() + "<br/>" +
+                        "Team: " +  oauth.getTeam() + "<br/>" +
+                        "Incoming Code: " +  oauth.getIncomingCode() + "<br/>" +
+                        "Incoming State: " +  oauth.getIncomingState() + "<br/>" +
+                        "Incoming Error: " +  oauth.getIncomingError() + "<br/>" +
+                        "Incoming Access Token: " +  oauth.getIncomingAccessToken() + "<br/>" +
+                        "Incoming Scope: " +  oauth.getIncomingScope() + "<br/>" +
+                        "Incoming User ID: " +  oauth.getIncomingUserId() + "<br/>" +
+                        "Incoming Team Name: " +  oauth.getIncomingTeamName() + "<br/>" +
+                        "Incoming Team ID: " +  oauth.getIncomingTeamId() + "<br/>" +
+                        "Incoming Webhook URL: " +  oauth.getIncomingWebhookUrl() + "<br/>" +
+                        "Incoming Webhook Channel: " +  oauth.getIncomingWebhookChannel() + "<br/>" +
+                        "Incoming Webhook Config URL: " +  oauth.getIncomingWebhookConfigUrl() + "<br/>" +
+                        "Incoming Bot User ID: " +  oauth.getIncomingBotUserId() + "<br/>" +
+                        "Incoming Bot Access Token: " +  oauth.getIncomingBotAccessToken() + "<br/>";
+
             }else{
                 return "Error";
             }

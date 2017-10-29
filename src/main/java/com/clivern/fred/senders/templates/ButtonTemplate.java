@@ -20,7 +20,7 @@ public class ButtonTemplate {
      *
      * @param  url
      */
-    public String setURL(String url)
+    public void setURL(String url)
     {
         this.url = url;
     }
@@ -30,7 +30,7 @@ public class ButtonTemplate {
      *
      * @param  body
      */
-    public String setBody(String body)
+    public void setBody(String body)
     {
         this.body = body;
     }
@@ -58,7 +58,7 @@ public class ButtonTemplate {
     /**
      * Build Message Body
      */
-    public Boolean build()
+    public void build()
     {
         this.body = "";
     }

@@ -55,7 +55,7 @@ public class TextTemplate {
      *
      * @param  url
      */
-    public String setURL(String url)
+    public void setURL(String url)
     {
         this.url = url;
     }
@@ -65,7 +65,7 @@ public class TextTemplate {
      *
      * @param  body
      */
-    public String setBody(String body)
+    public void setBody(String body)
     {
         this.body = body;
     }
@@ -93,7 +93,7 @@ public class TextTemplate {
     /**
      * Build Message Body
      */
-    public Boolean build()
+    public void build()
     {
         this.body = "";
     }
