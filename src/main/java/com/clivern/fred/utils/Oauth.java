@@ -17,6 +17,9 @@ import com.mashape.unirest.request.HttpRequest;
 import java.util.Random;
 import java.lang.StringBuilder;
 
+import org.json.JSONObject;
+import org.json.JSONArray;
+
 /**
  * Oauth Utils Class
  *
@@ -39,6 +42,21 @@ public class Oauth {
 	protected String incomingState;
 	protected String incomingError;
 
+    protected Boolean incomingOk;
+    protected String incomingAccessToken;
+    protected String incomingScope;
+    protected String incomingUserId;
+    protected String incomingTeamName;
+    protected String incomingTeamId;
+
+    protected String incomingWebhookUrl;
+    protected String incomingWebhookChannel;
+    protected String incomingWebhookConfigUrl;
+
+    protected String incomingBotUserId;
+    protected String incomingBotAccessToken;
+
+
     /**
      * Class Constructor
      *
@@ -58,104 +76,6 @@ public class Oauth {
         this.stateType = this.configs.get("state_type", "");
         this.state = this.configs.get("state", "");
         this.team = this.configs.get("team", "");
-    }
-
-    /**
-     * Set State
-     *
-     * @param  state
-     * @return String
-     */
-    public Boolean setState(String state)
-    {
-    	if( !this.stateType.equals("vary") ){
-    		return false;
-    	}
-
-    	if( state.isEmpty() ){
-    		state = this.buildState();
-    	}
-    	this.state = state;
-
-    	return true;
-    }
-
-    /**
-     * Get State
-     *
-     * @return String
-     */
-    public String getState()
-    {
-    	if( !this.stateType.equals("vary") ){
-    		return this.state;
-    	}
-
-    	if( this.state.isEmpty() ){
-    		this.state = this.buildState();
-    	}
-
-    	return this.state;
-    }
-
-    /**
-     * Get Client ID
-     *
-     * @return String
-     */
-    public String getClientId()
-    {
-    	return this.clientId;
-    }
-
-    /**
-     * Get Client Secret
-     *
-     * @return String
-     */
-    public String getClientSecret()
-    {
-    	return this.clientSecret;
-    }
-
-    /**
-     * Get Scope
-     *
-     * @return String
-     */
-    public String getScope()
-    {
-    	return this.scope;
-    }
-
-    /**
-     * Get Redirect Uri
-     *
-     * @return String
-     */
-    public String getRedirectUri()
-    {
-    	return this.redirectUri;
-    }
-
-    /**
-     * Get State Type
-     *
-     * @return String
-     */
-    public String getStateType()
-    {
-    	return this.stateType;
-    }
-
-    /**
-     * Get Team
-     *
-     * @return String
-     */
-    public String getTeam()
-    {
-    	return this.team;
     }
 
     /**
@@ -196,6 +116,48 @@ public class Oauth {
     }
 
     /**
+     * Fetch Access Token
+     *
+     * @return Boolean
+     */
+    public Boolean fetchAccessToken() throws UnirestException
+    {
+        String url = Basic.methodURL(Basic.oauthAccessMethod);
+        String body = "client_id=" + this.clientId + "&client_secret=" + this.clientSecret + "&code=" + this.incomingCode + "&redirect_uri=" + this.redirectUri;
+        this.log.info("curl -X POST -H \"Content-Type: application/x-www-form-urlencoded\" -d '" + body + "' \"" + url + "\"");
+        HttpResponse<String> responseObj = Unirest.post(url).header("Content-Type", "application/x-www-form-urlencoded").body(body).asString();
+
+        String responseStr = responseObj.getBody();
+
+        this.parseResponse(responseStr);
+        if( responseStr.indexOf("\"ok\":true") > 0 ){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+    /**
+     * Set State
+     *
+     * @param  state
+     * @return String
+     */
+    public Boolean setState(String state)
+    {
+        if( !this.stateType.equals("vary") ){
+            return false;
+        }
+
+        if( state.isEmpty() ){
+            state = this.buildState();
+        }
+        this.state = state;
+
+        return true;
+    }
+
+    /**
      * Set Incoming Code
      *
      * @param incomingCode
@@ -223,6 +185,84 @@ public class Oauth {
     public void setIncomingError(String incomingError)
     {
     	this.incomingError = incomingError;
+    }
+
+    /**
+     * Get State
+     *
+     * @return String
+     */
+    public String getState()
+    {
+        if( !this.stateType.equals("vary") ){
+            return this.state;
+        }
+
+        if( this.state.isEmpty() ){
+            this.state = this.buildState();
+        }
+
+        return this.state;
+    }
+
+    /**
+     * Get Client ID
+     *
+     * @return String
+     */
+    public String getClientId()
+    {
+        return this.clientId;
+    }
+
+    /**
+     * Get Client Secret
+     *
+     * @return String
+     */
+    public String getClientSecret()
+    {
+        return this.clientSecret;
+    }
+
+    /**
+     * Get Scope
+     *
+     * @return String
+     */
+    public String getScope()
+    {
+        return this.scope;
+    }
+
+    /**
+     * Get Redirect Uri
+     *
+     * @return String
+     */
+    public String getRedirectUri()
+    {
+        return this.redirectUri;
+    }
+
+    /**
+     * Get State Type
+     *
+     * @return String
+     */
+    public String getStateType()
+    {
+        return this.stateType;
+    }
+
+    /**
+     * Get Team
+     *
+     * @return String
+     */
+    public String getTeam()
+    {
+        return this.team;
     }
 
     /**
@@ -256,18 +296,143 @@ public class Oauth {
     }
 
     /**
-     * Fetch Access Token
+     * Get Incoming Ok Flag
      *
-     * @return Boolean
+     * @return String
      */
-    public String fetchAccessToken() throws UnirestException
+    public Boolean getIncomingOk()
     {
-        String url = Basic.methodURL(Basic.oauthAccessMethod);
-        String body = "client_id=" + this.clientId + "&client_secret=" + this.clientSecret + "&code=" + this.incomingCode + "&redirect_uri=" + this.redirectUri;
-        this.log.info("curl -X POST -H \"Content-Type: application/x-www-form-urlencoded\" -d '" + body + "' \"" + url + "\"");
-        HttpResponse<String> response = Unirest.post(url).header("Content-Type", "application/x-www-form-urlencoded").body(body).asString();
+        return this.incomingOk;
+    }
 
-        return response.getBody();
+    /**
+     * Get Incoming Access Token
+     *
+     * @return String
+     */
+    public String getIncomingAccessToken()
+    {
+        return this.incomingAccessToken;
+    }
+
+    /**
+     * Get Incoming Scope
+     *
+     * @return String
+     */
+    public String getIncomingScope()
+    {
+        return this.incomingScope;
+    }
+
+    /**
+     * Get Incoming User ID
+     *
+     * @return String
+     */
+    public String getIncomingUserId()
+    {
+        return this.incomingUserId;
+    }
+
+    /**
+     * Get Incoming Team Name
+     *
+     * @return String
+     */
+    public String getIncomingTeamName()
+    {
+        return this.incomingTeamName;
+    }
+
+    /**
+     * Get Incoming Team ID
+     *
+     * @return String
+     */
+    public String getIncomingTeamId()
+    {
+        return this.incomingTeamId;
+    }
+
+    /**
+     * Get Incoming Webhook URL
+     *
+     * @return String
+     */
+    public String getIncomingWebhookUrl()
+    {
+        return this.incomingWebhookUrl;
+    }
+
+    /**
+     * Get Incoming Webhook Channel
+     *
+     * @return String
+     */
+    public String getIncomingWebhookChannel()
+    {
+        return this.incomingWebhookChannel;
+    }
+
+    /**
+     * Get Incoming Webhook Config URL
+     *
+     * @return String
+     */
+    public String getIncomingWebhookConfigUrl()
+    {
+        return this.incomingWebhookConfigUrl;
+    }
+
+    /**
+     * Get Incoming Bot User ID
+     *
+     * @return String
+     */
+    public String getIncomingBotUserId()
+    {
+        return this.incomingBotUserId;
+    }
+
+    /**
+     * Get Incoming Bot Access Token
+     *
+     * @return String
+     */
+    public String getIncomingBotAccessToken()
+    {
+        return this.incomingBotAccessToken;
+    }
+
+    /**
+     * Parse Response
+     *
+     * @param response
+     */
+    protected void parseResponse(String response)
+    {
+        JSONObject responseObj = new JSONObject(response);
+
+        this.incomingOk = (responseObj.has("ok")) ? responseObj.getBoolean("ok") : false;
+        this.incomingAccessToken = (responseObj.has("access_token")) ? responseObj.getString("access_token") : "";
+        this.incomingScope = (responseObj.has("scope")) ? responseObj.getString("scope") : "";
+        this.incomingUserId = (responseObj.has("user_id")) ? responseObj.getString("user_id") : "";
+        this.incomingTeamName = (responseObj.has("team_name")) ? responseObj.getString("team_name") : "";
+        this.incomingTeamId = (responseObj.has("team_id")) ? responseObj.getString("team_id") : "";
+
+        if( responseObj.has("incoming_webhook") ){
+            JSONObject incomingWebhook = responseObj.getJSONObject("incoming_webhook");
+            this.incomingWebhookUrl = (incomingWebhook.has("url")) ? incomingWebhook.getString("url") : "";
+            this.incomingWebhookChannel = (incomingWebhook.has("channel")) ? incomingWebhook.getString("channel") : "";
+            this.incomingWebhookConfigUrl = (incomingWebhook.has("configuration_url")) ? incomingWebhook.getString("configuration_url") : "";
+        }
+
+        if( responseObj.has("bot") ){
+            JSONObject bot = responseObj.getJSONObject("bot");
+            this.incomingBotUserId = (bot.has("bot_user_id")) ? bot.getString("bot_user_id") : "";
+            this.incomingBotAccessToken = (bot.has("bot_access_token")) ? bot.getString("bot_access_token") : "";
+        }
     }
 
     /**
