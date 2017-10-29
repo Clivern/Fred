@@ -15,5 +15,3 @@ gradle-app.setting
 
 gradle.properties
 .phpintel
-
-src/main/java/com/clivern/fred/Main.java

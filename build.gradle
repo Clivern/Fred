@@ -16,7 +16,7 @@ version = '1.0.0-SNAPSHOT'
 
 // ####################################
 // ## REMOVE AFTER BETA RELEASE #######
-mainClassName = "com.clivern.fred.Main"
+mainClassName = "com.clivern.fred.Test"
 // ####################################
 
 // In this section you declare where to find the dependencies of your project
