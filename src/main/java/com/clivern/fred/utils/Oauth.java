@@ -27,20 +27,20 @@ import org.json.JSONArray;
  */
 public class Oauth {
 
-	protected Config configs;
-	protected Log log;
-	protected String redirectURL;
-	protected String clientId;
-	protected String clientSecret;
+    protected Config configs;
+    protected Log log;
+    protected String redirectURL;
+    protected String clientId;
+    protected String clientSecret;
     protected String verificationToken;
-	protected String scope;
-	protected String redirectUri;
-	protected String stateType;
-	protected String state;
-	protected String team;
-	protected String incomingCode;
-	protected String incomingState;
-	protected String incomingError;
+    protected String scope;
+    protected String redirectUri;
+    protected String stateType;
+    protected String state;
+    protected String team;
+    protected String incomingCode;
+    protected String incomingState;
+    protected String incomingError;
 
     protected Boolean incomingOk;
     protected String incomingAccessToken;
@@ -85,13 +85,13 @@ public class Oauth {
      */
     public String getRedirectURL()
     {
-    	this.redirectURL  = Basic.authorizeURL + "?client_id=" + this.clientId;
-    	this.redirectURL += (!this.scope.isEmpty()) ? "&scope=" + this.scope : "";
-    	this.redirectURL += (!this.redirectUri.isEmpty()) ? "&redirect_uri=" + this.redirectUri : "";
-    	this.redirectURL += (!this.state.isEmpty()) ? "&state=" + this.state : "";
-    	this.redirectURL += (!this.team.isEmpty()) ? "&team=" + this.team : "";
+        this.redirectURL  = Basic.authorizeURL + "?client_id=" + this.clientId;
+        this.redirectURL += (!this.scope.isEmpty()) ? "&scope=" + this.scope : "";
+        this.redirectURL += (!this.redirectUri.isEmpty()) ? "&redirect_uri=" + this.redirectUri : "";
+        this.redirectURL += (!this.state.isEmpty()) ? "&state=" + this.state : "";
+        this.redirectURL += (!this.team.isEmpty()) ? "&team=" + this.team : "";
 
-    	return this.redirectURL;
+        return this.redirectURL;
     }
 
     /**
@@ -104,15 +104,15 @@ public class Oauth {
      */
     public Boolean issueToken(String incomingCode, String incomingState, String incomingError)
     {
-    	this.setIncomingCode(incomingCode);
-    	this.setIncomingState(incomingState);
-    	this.setIncomingError(incomingError);
+        this.setIncomingCode(incomingCode);
+        this.setIncomingState(incomingState);
+        this.setIncomingError(incomingError);
 
-    	if( !this.state.equals(this.getIncomingState()) ){
-    		return false;
-    	}
+        if( !this.state.equals(this.getIncomingState()) ){
+            return false;
+        }
 
-    	return (this.incomingError.isEmpty()) ? true : false;
+        return (this.incomingError.isEmpty()) ? true : false;
     }
 
     /**
@@ -164,7 +164,7 @@ public class Oauth {
      */
     public void setIncomingCode(String incomingCode)
     {
-    	this.incomingCode = incomingCode;
+        this.incomingCode = incomingCode;
     }
 
     /**
@@ -174,7 +174,7 @@ public class Oauth {
      */
     public void setIncomingState(String incomingState)
     {
-    	this.incomingState = incomingState;
+        this.incomingState = incomingState;
     }
 
     /**
@@ -184,7 +184,7 @@ public class Oauth {
      */
     public void setIncomingError(String incomingError)
     {
-    	this.incomingError = incomingError;
+        this.incomingError = incomingError;
     }
 
     /**
@@ -272,7 +272,7 @@ public class Oauth {
      */
     public String getIncomingCode()
     {
-    	return this.incomingCode;
+        return this.incomingCode;
     }
 
     /**
@@ -282,7 +282,7 @@ public class Oauth {
      */
     public String getIncomingState()
     {
-    	return this.incomingState;
+        return this.incomingState;
     }
 
     /**
@@ -292,7 +292,7 @@ public class Oauth {
      */
     public String getIncomingError()
     {
-    	return this.incomingError;
+        return this.incomingError;
     }
 
     /**
