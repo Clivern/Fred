@@ -47,4 +47,54 @@ public class TextTemplate {
         }' https://hooks.slack.com/services/T00000000/B0000000000/XXXXXXXXXXXX
     */
 
+    protected String url;
+    protected String body;
+
+    /**
+     * Set URL
+     *
+     * @param  url
+     */
+    public String setURL(String url)
+    {
+        this.url = url;
+    }
+
+    /**
+     * Set Message Body
+     *
+     * @param  body
+     */
+    public String setBody(String body)
+    {
+        this.body = body;
+    }
+
+    /**
+     * Get URL
+     *
+     * @return String
+     */
+    public String getURL()
+    {
+        return this.url;
+    }
+
+    /**
+     * Get Body
+     *
+     * @return String
+     */
+    public String getBody()
+    {
+        return this.body;
+    }
+
+    /**
+     * Build Message Body
+     */
+    public Boolean build()
+    {
+        this.body = "";
+    }
 }
