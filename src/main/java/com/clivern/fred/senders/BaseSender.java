@@ -51,7 +51,7 @@ public class BaseSender {
 
         HttpResponse<String> responseObj = Unirest.post(basicTemplate.getURL()).header("Content-Type", basicTemplate.getContentType()).body(basicTemplate.getBody()).asString();
 
-        String this.response = responseObj.getBody();
+        this.response = responseObj.getBody();
 
         this.log.info(this.response);
         if( this.response.indexOf("\"ok\":true") > 0 ){
