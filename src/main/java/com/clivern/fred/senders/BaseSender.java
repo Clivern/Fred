@@ -23,6 +23,8 @@ public class BaseSender {
 
     protected Log log;
 
+    protected String response;
+
 
     /**
      * Class Constructor
@@ -49,14 +51,23 @@ public class BaseSender {
 
         HttpResponse<String> responseObj = Unirest.post(basicTemplate.getURL()).header("Content-Type", basicTemplate.getContentType()).body(basicTemplate.getBody()).asString();
 
-        String responseStr = responseObj.getBody();
+        String this.response = responseObj.getBody();
 
-        this.log.info(responseStr);
-
-        if( responseStr.indexOf("\"ok\":true") > 0 ){
+        this.log.info(this.response);
+        if( this.response.indexOf("\"ok\":true") > 0 ){
             return true;
         }else{
             return false;
         }
+    }
+
+    /**
+     * Get Response
+     *
+     * @return String
+     */
+    public String getResponse()
+    {
+        return this.response;
     }
 }
