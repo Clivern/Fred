@@ -12,6 +12,7 @@ import com.mashape.unirest.http.exceptions.UnirestException;
 import com.mashape.unirest.http.options.Options;
 import com.mashape.unirest.request.GetRequest;
 import com.mashape.unirest.request.HttpRequest;
+import com.clivern.fred.contract.templates.BasicTemplate;
 
 /**
  * Base Sender Class
@@ -36,18 +37,26 @@ public class BaseSender {
     }
 
     /**
-     * Send Plain Message JSON
+     * Send Basic Template
      *
-     * @param  body
+     * @param  basicTemplate
      * @return Boolean
      * @throws UnirestException
      */
-    public Boolean send(String body) throws UnirestException
+    public Boolean send(BasicTemplate basicTemplate) throws UnirestException
     {
-        String url = "";
-        this.log.info("curl -X POST -H \"Content-Type: application/json\" -d '" + body + "' \"" + url + "\"");
-        HttpResponse<String> response = Unirest.post(url).header("Content-Type", "application/json").body(body).asString();
+        this.log.info(basicTemplate.debug());
 
-        return true;
+        HttpResponse<String> responseObj = Unirest.post(basicTemplate.getURL()).header("Content-Type", basicTemplate.getContentType()).body(basicTemplate.getBody()).asString();
+
+        String responseStr = responseObj.getBody();
+
+        this.log.info(responseStr);
+
+        if( responseStr.indexOf("\"ok\":true") > 0 ){
+            return true;
+        }else{
+            return false;
+        }
     }
 }

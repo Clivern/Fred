@@ -6,6 +6,10 @@ package com.clivern.fred;
 import static spark.Spark.*;
 
 import com.clivern.fred.utils.*;
+
+import com.clivern.fred.senders.BaseSender;
+import com.clivern.fred.senders.templates.RemindersAdd;
+
 import com.mashape.unirest.http.exceptions.UnirestException;
 
 public class Test {
@@ -34,7 +38,22 @@ public class Test {
 
             Boolean fetch = oauth.fetchAccessToken();
 
-            if( fetch ){
+            if( status && fetch ){
+
+
+                BaseSender baseSender = new BaseSender(config, log);
+
+                // Build & Send A Reminder
+                RemindersAdd remindersAdd = new RemindersAdd();
+                remindersAdd.setToken(oauth.getIncomingAccessToken());
+                remindersAdd.setText("Thumb Up Task :+1:");
+                remindersAdd.setTime("in 5 minutes");
+                remindersAdd.setUser(oauth.getIncomingUserId());
+                remindersAdd.build();
+                Boolean remindersAddSent = false;
+                if( remindersAdd.isValid() ){
+                    remindersAddSent = baseSender.send(remindersAdd);
+                }
 
                 return  "State: " +  oauth.getState() + "<br/>" +
                         "Client ID: " +  oauth.getClientId() + "<br/>" +
@@ -55,7 +74,8 @@ public class Test {
                         "Incoming Webhook Channel: " +  oauth.getIncomingWebhookChannel() + "<br/>" +
                         "Incoming Webhook Config URL: " +  oauth.getIncomingWebhookConfigUrl() + "<br/>" +
                         "Incoming Bot User ID: " +  oauth.getIncomingBotUserId() + "<br/>" +
-                        "Incoming Bot Access Token: " +  oauth.getIncomingBotAccessToken() + "<br/>";
+                        "Incoming Bot Access Token: " +  oauth.getIncomingBotAccessToken() + "<br/>" +
+                        "RSent: " + ((remindersAddSent) ? "Sent" : "Not Sent");
 
             }else{
                 return "Error";
