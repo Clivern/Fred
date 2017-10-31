@@ -16,7 +16,7 @@ import com.clivern.fred.contract.templates.BasicTemplate;
  */
 public class ChannelsInfo implements BasicTemplate {
 
-    protected String url = Basic.methodURL(Basic.channelsArchiveMethod);
+    protected String url = Basic.methodURL(Basic.channelsInfoMethod);
     protected String body = "";
     protected String contentType = "application/x-www-form-urlencoded";
     protected String method = "POST";

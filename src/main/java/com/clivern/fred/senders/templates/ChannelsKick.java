@@ -16,7 +16,7 @@ import com.clivern.fred.contract.templates.BasicTemplate;
  */
 public class ChannelsKick implements BasicTemplate {
 
-    protected String url = Basic.methodURL(Basic.channelsLeaveMethod);
+    protected String url = Basic.methodURL(Basic.channelsKickMethod);
     protected String body = "";
     protected String contentType = "application/x-www-form-urlencoded";
     protected String method = "POST";
