@@ -22,7 +22,10 @@ import com.clivern.fred.contract.templates.BasicTemplate;
 /**
  * Channels Replies Template Class
  *
- * For More Info, Please Visit <https://api.slack.com/methods/channels.replies>
+ * <a href="https://api.slack.com/methods/channels.replies">For More Info</a>
+ *
+ * @author A.F
+ * @since 1.0.0
  */
 public class ChannelsReplies implements BasicTemplate {
 

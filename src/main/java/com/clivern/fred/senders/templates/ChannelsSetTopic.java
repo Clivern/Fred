@@ -22,7 +22,10 @@ import com.clivern.fred.contract.templates.BasicTemplate;
 /**
  * Channels Set Topic Template Class
  *
- * For More Info, Please Visit <https://api.slack.com/methods/channels.setTopic>
+ * <a href="https://api.slack.com/methods/channels.setTopic">For More Info</a>
+ *
+ * @author A.F
+ * @since 1.0.0
  */
 public class ChannelsSetTopic implements BasicTemplate {
 

@@ -24,7 +24,10 @@ import com.clivern.fred.contract.templates.BasicTemplate;
  *
  * This Class Moves the read cursor in a private channel.
  *
- * For More Info, Please Visit <https://api.slack.com/methods/groups.mark>
+ * <a href="https://api.slack.com/methods/groups.mark">For More Info</a>
+ *
+ * @author A.F
+ * @since 1.0.0
  */
 public class GroupsMark implements BasicTemplate {
 

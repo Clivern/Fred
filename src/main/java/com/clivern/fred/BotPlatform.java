@@ -21,6 +21,9 @@ import com.clivern.fred.utils.Log;
 
 /**
  * Bot Platform Base Class
+ *
+ * @author A.F
+ * @since 1.0.0
  */
 public class BotPlatform {
 

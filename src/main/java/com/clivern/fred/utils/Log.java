@@ -25,6 +25,9 @@ import java.util.logging.Logger;
 
 /**
  * Logger Utils Class
+ *
+ * @author A.F
+ * @since 1.0.0
  */
 public class Log {
 

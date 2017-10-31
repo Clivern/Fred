@@ -22,7 +22,10 @@ import com.clivern.fred.contract.templates.BasicTemplate;
 /**
  * Channels Archive Template Class
  *
- * For More Info, Please Visit <https://api.slack.com/methods/channels.archive>
+ * <a href="https://api.slack.com/methods/channels.archive">For More Info</a>
+ *
+ * @author A.F
+ * @since 1.0.0
  */
 public class ChannelsArchive implements BasicTemplate {
 

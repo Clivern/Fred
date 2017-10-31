@@ -24,7 +24,10 @@ import com.clivern.fred.contract.templates.BasicTemplate;
  *
  * It is used to leave a private channel.
  *
- * For More Info, Please Visit <https://api.slack.com/methods/groups.leave>
+ * <a href="https://api.slack.com/methods/groups.leave">For More Info</a>
+ *
+ * @author A.F
+ * @since 1.0.0
  */
 public class ChannelsLeave implements BasicTemplate {
 

@@ -24,7 +24,10 @@ import com.clivern.fred.contract.templates.BasicTemplate;
  *
  * It Opens a private channel.
  *
- * For More Info, Please Visit <https://api.slack.com/methods/groups.open>
+ * <a href="https://api.slack.com/methods/groups.open">For More Info</a>
+ *
+ * @author A.F
+ * @since 1.0.0
  */
 public class GroupsOpen implements BasicTemplate {
 

@@ -22,7 +22,10 @@ import com.clivern.fred.contract.templates.BasicTemplate;
 /**
  * Channels Create Template Class
  *
- * For More Info, Please Visit <https://api.slack.com/methods/channels.create>
+ * <a href="https://api.slack.com/methods/channels.create">For More Info</a>
+ *
+ * @author A.F
+ * @since 1.0.0
  */
 public class ChannelsCreate implements BasicTemplate {
 

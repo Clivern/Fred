@@ -24,7 +24,10 @@ import com.clivern.fred.contract.templates.BasicTemplate;
  *
  * It returns an entire thread (a message plus all the messages in reply to it).
  *
- * For More Info, Please Visit <https://api.slack.com/methods/groups.replies>
+ * <a href="https://api.slack.com/methods/groups.replies">For More Info</a>
+ *
+ * @author A.F
+ * @since 1.0.0
  */
 public class GroupsReplies implements BasicTemplate {
 

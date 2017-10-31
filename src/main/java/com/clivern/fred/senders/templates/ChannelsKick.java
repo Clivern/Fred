@@ -22,7 +22,10 @@ import com.clivern.fred.contract.templates.BasicTemplate;
 /**
  * Channels Kick Template Class
  *
- * For More Info, Please Visit <https://api.slack.com/methods/channels.kick>
+ * <a href="https://api.slack.com/methods/channels.kick">For More Info</a>
+ *
+ * @author A.F
+ * @since 1.0.0
  */
 public class ChannelsKick implements BasicTemplate {
 

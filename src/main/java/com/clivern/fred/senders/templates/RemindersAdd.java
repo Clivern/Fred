@@ -22,7 +22,10 @@ import com.clivern.fred.contract.templates.BasicTemplate;
 /**
  * Reminders Add Template Class
  *
- * For More Info, Please Visit <https://api.slack.com/methods/reminders.add>
+ * <a href="https://api.slack.com/methods/reminders.add">For More Info</a>
+ *
+ * @author A.F
+ * @since 1.0.0
  */
 public class RemindersAdd implements BasicTemplate {
 

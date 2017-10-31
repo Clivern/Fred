@@ -24,7 +24,10 @@ import com.clivern.fred.contract.templates.BasicTemplate;
  *
  * It is used to change the topic of a private channel. The calling user must be a member of the private channel.
  *
- * For More Info, Please Visit <https://api.slack.com/methods/groups.setTopic>
+ * <a href="https://api.slack.com/methods/groups.setTopic">For More Info</a>
+ *
+ * @author A.F
+ * @since 1.0.0
  */
 public class GroupsSetTopic implements BasicTemplate {
 

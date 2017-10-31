@@ -22,7 +22,10 @@ import com.clivern.fred.contract.templates.BasicTemplate;
 /**
  * Channels Join Template Class
  *
- * For More Info, Please Visit <https://slack.com/api/channels.join>
+ * <a href="https://api.slack.com/methods/channels.join">For More Info</a>
+ *
+ * @author A.F
+ * @since 1.0.0
  */
 public class ChannelsJoin implements BasicTemplate {
 

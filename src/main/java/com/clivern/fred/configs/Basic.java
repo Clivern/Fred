@@ -13,7 +13,12 @@
  */
 package com.clivern.fred.configs;
 
-
+/**
+ * Slack API Endpoints and API Methods
+ *
+ * @author A.F
+ * @since 1.0.0
+ */
 public final class Basic  {
 
     // Slack Authorize URL

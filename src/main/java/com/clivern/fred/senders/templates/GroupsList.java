@@ -25,7 +25,10 @@ import com.clivern.fred.contract.templates.BasicTemplate;
  * It returns a list of private channels in the team that the caller is in and archived groups that the caller was in.
  * The list of (non-deactivated) members in each private channel is also returned.
  *
- * For More Info, Please Visit <https://api.slack.com/methods/groups.list>
+ * <a href="https://api.slack.com/methods/groups.list">For More Info</a>
+ *
+ * @author A.F
+ * @since 1.0.0
  */
 public class GroupsList implements BasicTemplate {
 

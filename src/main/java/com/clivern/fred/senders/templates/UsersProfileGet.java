@@ -22,7 +22,10 @@ import com.clivern.fred.contract.templates.BasicTemplate;
 /**
  * Users Profile Get Template Class
  *
- * For More Info, Please Visit <https://api.slack.com/methods/users.profile.get>
+ * <a href="https://api.slack.com/methods/users.profile.get">For More Info</a>
+ *
+ * @author A.F
+ * @since 1.0.0
  */
 public class UsersProfileGet implements BasicTemplate {
 

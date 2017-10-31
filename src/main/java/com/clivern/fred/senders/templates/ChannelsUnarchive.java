@@ -22,7 +22,10 @@ import com.clivern.fred.contract.templates.BasicTemplate;
 /**
  * Channels Unarchive Template Class
  *
- * For More Info, Please Visit <https://api.slack.com/methods/channels.unarchive>
+ * <a href="https://api.slack.com/methods/channels.unarchive">For More Info</a>
+ *
+ * @author A.F
+ * @since 1.0.0
  */
 public class ChannelsUnarchive implements BasicTemplate {
 

@@ -15,6 +15,9 @@ package com.clivern.fred.contract.templates;
 
 /**
  * Basic Template Interface
+ *
+ * @author A.F
+ * @since 1.0.0
  */
 public interface BasicTemplate {
 

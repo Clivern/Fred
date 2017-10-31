@@ -24,7 +24,10 @@ import com.clivern.fred.contract.templates.BasicTemplate;
  *
  * It renames a private channel.
  *
- * For More Info, Please Visit <https://api.slack.com/methods/groups.rename>
+ * <a href="https://api.slack.com/methods/groups.rename">For More Info</a>
+ *
+ * @author A.F
+ * @since 1.0.0
  */
 public class GroupsRename implements BasicTemplate {
 

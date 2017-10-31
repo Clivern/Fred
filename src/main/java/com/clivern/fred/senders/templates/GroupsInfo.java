@@ -24,7 +24,10 @@ import com.clivern.fred.contract.templates.BasicTemplate;
  *
  * It returns information about a private channel.
  *
- * For More Info, Please Visit <https://slack.com/api/groups.info>
+ * <a href="https://api.slack.com/methods/groups.info">For More Info</a>
+ *
+ * @author A.F
+ * @since 1.0.0
  */
 public class GroupsInfo implements BasicTemplate {
 

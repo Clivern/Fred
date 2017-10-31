@@ -24,6 +24,9 @@ import java.io.InputStream;
 
 /**
  * Config Utils Class
+ *
+ * @author A.F
+ * @since 1.0.0
  */
 public class Config {
 

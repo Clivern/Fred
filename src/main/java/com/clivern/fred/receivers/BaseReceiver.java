@@ -22,6 +22,9 @@ import org.json.JSONArray;
 
 /**
  * Base Receiver Class
+ *
+ * @author A.F
+ * @since 1.0.0
  */
 public class BaseReceiver {
 

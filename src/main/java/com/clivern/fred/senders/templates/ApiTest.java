@@ -24,7 +24,10 @@ import com.clivern.fred.contract.templates.BasicTemplate;
  *
  * It helps you test your calling code.
  *
- * For More Info, Please Visit <https://api.slack.com/methods/api.test>
+ * <a href="https://api.slack.com/methods/api.test">For More Info</a>
+ *
+ * @author A.F
+ * @since 1.0.0
  */
 public class ApiTest implements BasicTemplate {
 

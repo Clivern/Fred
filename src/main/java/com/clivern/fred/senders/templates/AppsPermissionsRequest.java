@@ -22,7 +22,10 @@ import com.clivern.fred.contract.templates.BasicTemplate;
 /**
  * Apps Permissions Request Template Class
  *
- * For More Info, Please Visit <https://api.slack.com/methods/apps.permissions.request>
+ * <a href="https://api.slack.com/methods/apps.permissions.request">For More Info</a>
+ *
+ * @author A.F
+ * @since 1.0.0
  */
 public class AppsPermissionsRequest implements BasicTemplate {
 

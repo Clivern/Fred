@@ -22,7 +22,10 @@ import com.clivern.fred.contract.templates.BasicTemplate;
 /**
  * Auth Revoke Template Class
  *
- * For More Info, Please Visit <https://api.slack.com/methods/auth.revoke>
+ * <a href="https://api.slack.com/methods/auth.revoke">For More Info</a>
+ *
+ * @author A.F
+ * @since 1.0.0
  */
 public class AuthRevoke implements BasicTemplate {
 

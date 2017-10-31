@@ -24,7 +24,10 @@ import com.clivern.fred.contract.templates.BasicTemplate;
  *
  * It Fetches history of messages and events from a private channel.
  *
- * For More Info, Please Visit <https://api.slack.com/methods/groups.history>
+ * <a href="https://api.slack.com/methods/groups.history">For More Info</a>
+ *
+ * @author A.F
+ * @since 1.0.0
  */
 public class GroupsHistory implements BasicTemplate {
 

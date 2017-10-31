@@ -24,7 +24,10 @@ import com.clivern.fred.contract.templates.BasicTemplate;
  *
  * It Clones and archives a private channel.
  *
- * For More Info, Please Visit <https://api.slack.com/methods/groups.createChild>
+ * <a href="https://api.slack.com/methods/groups.createChild">For More Info</a>
+ *
+ * @author A.F
+ * @since 1.0.0
  */
 public class GroupsCreateChild implements BasicTemplate {
 

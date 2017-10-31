@@ -22,7 +22,10 @@ import com.clivern.fred.contract.templates.BasicTemplate;
 /**
  * Channels Rename Template Class
  *
- * For More Info, Please Visit <https://slack.com/api/channels.rename>
+ * <a href="https://api.slack.com/methods/channels.rename">For More Info</a>
+ *
+ * @author A.F
+ * @since 1.0.0
  */
 public class ChannelsRename implements BasicTemplate {
 

@@ -26,6 +26,9 @@ import com.clivern.fred.contract.templates.BasicTemplate;
 
 /**
  * Base Sender Class
+ *
+ * @author A.F
+ * @since 1.0.0
  */
 public class BaseSender {
 

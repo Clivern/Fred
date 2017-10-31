@@ -22,7 +22,10 @@ import com.clivern.fred.contract.templates.BasicTemplate;
 /**
  * Channels Mark Template Class
  *
- * For More Info, Please Visit <https://api.slack.com/methods/channels.mark>
+ * <a href="https://api.slack.com/methods/channels.mark">For More Info</a>
+ *
+ * @author A.F
+ * @since 1.0.0
  */
 public class ChannelsMark implements BasicTemplate {
 

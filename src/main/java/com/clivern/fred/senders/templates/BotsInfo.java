@@ -22,7 +22,10 @@ import com.clivern.fred.contract.templates.BasicTemplate;
 /**
  * Bots Info Template Class
  *
- * For More Info, Please Visit <https://api.slack.com/methods/bots.info>
+ * <a href="https://api.slack.com/methods/bots.info">For More Info</a>
+ *
+ * @author A.F
+ * @since 1.0.0
  */
 public class BotsInfo implements BasicTemplate {
 

@@ -22,7 +22,10 @@ import com.clivern.fred.contract.templates.BasicTemplate;
 /**
  * Channels Invite Template Class
  *
- * For More Info, Please Visit <https://slack.com/api/channels.invite>
+ * <a href="https://api.slack.com/methods/channels.invite">For More Info</a>
+ *
+ * @author A.F
+ * @since 1.0.0
  */
 public class ChannelsInvite implements BasicTemplate {
 

@@ -14,14 +14,17 @@
 package com.clivern.fred;
 
 import static spark.Spark.*;
-
 import com.clivern.fred.utils.*;
-
 import com.clivern.fred.senders.BaseSender;
 import com.clivern.fred.senders.templates.RemindersAdd;
-
 import com.mashape.unirest.http.exceptions.UnirestException;
 
+/**
+ * Test Package
+ *
+ * @author A.F
+ * @since 1.0.0
+ */
 public class Test {
 
     public static void main(String[] args) throws UnirestException

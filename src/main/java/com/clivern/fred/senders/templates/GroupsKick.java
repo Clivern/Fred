@@ -24,7 +24,10 @@ import com.clivern.fred.contract.templates.BasicTemplate;
  *
  * It allows a user to remove another member from a private channel.
  *
- * For More Info, Please Visit <https://api.slack.com/methods/channels.kick>
+ * <a href="https://api.slack.com/methods/groups.kick">For More Info</a>
+ *
+ * @author A.F
+ * @since 1.0.0
  */
 public class GroupsKick implements BasicTemplate {
 
