@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017 Clivern. <https://clivern.com>.
+ * Copyright (C) 2017 A.F <http://clivern.com>
  */
 
 // ./gradlew -b maven-push.gradle uploadArchives
