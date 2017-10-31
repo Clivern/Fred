@@ -159,4 +159,14 @@ public class RemindersList implements BasicTemplate {
     {
         return "curl -X " + this.method + " -H \"Content-Type: " + this.contentType + "\" -d '" + this.body + "' \"" + this.url + "\"";
     }
+
+    /**
+     * Debug The Request
+     *
+     * @return String
+     */
+    public String toString()
+    {
+        return this.debug();
+    }
 }

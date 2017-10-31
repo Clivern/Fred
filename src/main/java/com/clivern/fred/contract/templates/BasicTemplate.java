@@ -82,4 +82,11 @@ public interface BasicTemplate {
      * @return String
      */
     public String debug();
+
+    /**
+     * Debug The Request
+     *
+     * @return String
+     */
+    public String toString();
 }
