@@ -17,7 +17,7 @@ import com.clivern.fred.contract.templates.BasicTemplate;
 public class ApiTest implements BasicTemplate {
 
     protected String url = Basic.methodURL(Basic.apiTestMethod);
-    protected String body;
+    protected String body = "";
     protected String contentType = "application/x-www-form-urlencoded";
     protected String method = "POST";
     protected String arg = "Test";
@@ -131,8 +131,6 @@ public class ApiTest implements BasicTemplate {
         if( this.arg.isEmpty() ){
             return "";
         }
-
-        this.body = "";
 
         if( !this.arg.isEmpty() ){
             this.body += "arg=" + this.arg;

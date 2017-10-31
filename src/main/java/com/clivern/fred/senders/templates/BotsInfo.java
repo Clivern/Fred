@@ -17,7 +17,7 @@ import com.clivern.fred.contract.templates.BasicTemplate;
 public class BotsInfo implements BasicTemplate {
 
     protected String url = Basic.methodURL(Basic.botsInfoMethod);
-    protected String body;
+    protected String body = "";
     protected String contentType = "application/x-www-form-urlencoded";
     protected String method = "POST";
     protected String token;
@@ -152,8 +152,6 @@ public class BotsInfo implements BasicTemplate {
         if( this.token.isEmpty() ){
             return "";
         }
-
-        this.body = "";
 
         if( !this.token.isEmpty() ){
             this.body += "token=" + this.token;

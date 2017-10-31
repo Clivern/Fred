@@ -17,7 +17,7 @@ import com.clivern.fred.contract.templates.BasicTemplate;
 public class RemindersAdd implements BasicTemplate {
 
     protected String url = Basic.methodURL(Basic.remindersAddMethod);
-    protected String body;
+    protected String body = "";
     protected String contentType = "application/x-www-form-urlencoded";
     protected String method = "POST";
     protected String token;
@@ -215,8 +215,6 @@ public class RemindersAdd implements BasicTemplate {
         if( this.token.isEmpty() || this.text.isEmpty() || (this.time.isEmpty() && this.timestamp != null) ){
             return "";
         }
-
-        this.body = "";
 
         if( !this.token.isEmpty() ){
             this.body += "token=" + this.token;

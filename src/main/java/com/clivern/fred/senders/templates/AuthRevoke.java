@@ -17,7 +17,7 @@ import com.clivern.fred.contract.templates.BasicTemplate;
 public class AuthRevoke implements BasicTemplate {
 
     protected String url = Basic.methodURL(Basic.authRevokeMethod);
-    protected String body;
+    protected String body = "";
     protected String contentType = "application/x-www-form-urlencoded";
     protected String method = "POST";
     protected String token;
@@ -131,8 +131,6 @@ public class AuthRevoke implements BasicTemplate {
         if( this.token.isEmpty() ){
             return "";
         }
-
-        this.body = "";
 
         if( !this.token.isEmpty() ){
             this.body += "token=" + this.token;

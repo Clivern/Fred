@@ -17,7 +17,7 @@ import com.clivern.fred.contract.templates.BasicTemplate;
 public class AppsPermissionsRequest implements BasicTemplate {
 
     protected String url = Basic.methodURL(Basic.appsPermissionsRequestMethod);
-    protected String body;
+    protected String body = "";
     protected String contentType = "application/x-www-form-urlencoded";
     protected String method = "POST";
     protected String token;
@@ -173,8 +173,6 @@ public class AppsPermissionsRequest implements BasicTemplate {
         if( this.token.isEmpty() || this.scopes.isEmpty() || this.triggerId.isEmpty() ){
             return "";
         }
-
-        this.body = "";
 
         if( !this.token.isEmpty() ){
             this.body += "token=" + this.token;
