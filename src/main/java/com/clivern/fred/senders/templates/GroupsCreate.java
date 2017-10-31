@@ -12,6 +12,8 @@ import com.clivern.fred.contract.templates.BasicTemplate;
 /**
  * Groups Create Template Class
  *
+ * It creates a private channel.
+ *
  * For More Info, Please Visit <https://api.slack.com/methods/groups.create>
  */
 public class GroupsCreate implements BasicTemplate {

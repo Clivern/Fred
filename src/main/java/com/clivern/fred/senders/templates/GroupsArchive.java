@@ -12,6 +12,8 @@ import com.clivern.fred.contract.templates.BasicTemplate;
 /**
  * Groups Archive Template Class
  *
+ * It archives a private channel.
+ *
  * For More Info, Please Visit <https://api.slack.com/methods/groups.archive>
  */
 public class GroupsArchive implements BasicTemplate {
