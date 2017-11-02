@@ -31,7 +31,7 @@ import com.clivern.fred.contract.templates.BasicTemplate;
  */
 public class ChatMeMessage implements BasicTemplate {
 
-    protected String url = Basic.methodURL(Basic.chatDeleteMethod);
+    protected String url = Basic.methodURL(Basic.chatMeMessageMethod);
     protected String body = "";
     protected String contentType = "application/x-www-form-urlencoded";
     protected String method = "POST";
