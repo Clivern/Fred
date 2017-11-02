@@ -22,6 +22,8 @@ import com.clivern.fred.contract.templates.BasicTemplate;
 /**
  * Users Profile Get Template Class
  *
+ * It Retrieves a user's profile information.
+ *
  * <a href="https://api.slack.com/methods/users.profile.get">For More Info</a>
  *
  * @author A.F
@@ -34,7 +36,7 @@ public class UsersProfileGet implements BasicTemplate {
     protected String contentType = "application/x-www-form-urlencoded";
     protected String method = "POST";
     protected String token;
-    protected String includeLabels;
+    protected Boolean includeLabels;
     protected String user;
     protected Boolean valid;
 
@@ -93,7 +95,7 @@ public class UsersProfileGet implements BasicTemplate {
      *
      * @param includeLabels
      */
-    public void setIncludeLabels(String includeLabels)
+    public void setIncludeLabels(Boolean includeLabels)
     {
         this.includeLabels = includeLabels;
     }
@@ -173,7 +175,7 @@ public class UsersProfileGet implements BasicTemplate {
      *
      * @return String
      */
-    public String getIncludeLabels()
+    public Boolean getIncludeLabels()
     {
         return this.includeLabels;
     }
@@ -192,7 +194,7 @@ public class UsersProfileGet implements BasicTemplate {
         }
 
         if( !this.includeLabels.isEmpty() ){
-            this.includeLabels += "&include_labels=" + this.includeLabels;
+            this.includeLabels += "&include_labels=" + ((this.includeLabels) ? "true" : "false");
         }
 
         if( !this.user.isEmpty() ){
