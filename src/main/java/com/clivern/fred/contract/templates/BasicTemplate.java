@@ -14,92 +14,131 @@
 package com.clivern.fred.contract.templates;
 
 /**
- * Basic Template Interface
+ * Basic Template Class
  *
  * @author A.F
  * @since 1.0.0
  */
-public interface BasicTemplate {
+public abstract class BasicTemplate {
+
+    protected String url = "";
+    protected String body = "";
+    protected String contentType = "application/x-www-form-urlencoded";
+    protected String method = "POST";
+    protected Boolean valid;
 
     /**
      * Set URL
      *
      * @param  url
      */
-    public void setURL(String url);
+    public void setURL(String url)
+    {
+        this.url = url;
+    }
 
     /**
      * Set Message Body
      *
      * @param  body
      */
-    public void setBody(String body);
+    public void setBody(String body)
+    {
+        this.body = body;
+    }
 
     /**
      * Set Content Type
      *
      * @param contentType
      */
-    public void setContentType(String contentType);
+    public void setContentType(String contentType)
+    {
+        this.contentType = contentType;
+    }
 
     /**
      * Set Method
      *
      * @param method
      */
-    public void setMethod(String method);
+    public void setMethod(String method)
+    {
+        this.method = method;
+    }
 
     /**
      * Get URL
      *
      * @return String
      */
-    public String getURL();
+    public String getURL()
+    {
+        return this.url;
+    }
 
     /**
      * Get Body
      *
      * @return String
      */
-    public String getBody();
+    public String getBody()
+    {
+        return this.body;
+    }
 
     /**
      * Get Content Type
      *
      * @return String
      */
-    public String getContentType();
+    public String getContentType()
+    {
+        return this.contentType;
+    }
 
     /**
      * Get Method
      *
      * @return String
      */
-    public String getMethod();
-
-    /**
-     * Build Message Body
-     */
-    public String build();
+    public String getMethod()
+    {
+        return this.method;
+    }
 
     /**
      * Check if All Required Data is Provided
      *
      * @return Boolean
      */
-    public Boolean isValid();
+    public Boolean isValid()
+    {
+        return (!this.method.isEmpty() && !this.contentType.isEmpty() && !this.body.isEmpty() && !this.url.isEmpty());
+    }
 
     /**
      * Debug The Request
      *
      * @return String
      */
-    public String debug();
+    public String debug()
+    {
+        return "curl -X " + this.method + " -H \"Content-Type: " + this.contentType + "\" -d '" + this.body + "' \"" + this.url + "\"";
+    }
 
     /**
      * Debug The Request
      *
      * @return String
      */
-    public String toString();
+    public String toString()
+    {
+        return this.debug();
+    }
+
+    /**
+     * Build Message Body
+     */
+    abstract String build();
 }
