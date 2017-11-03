@@ -22,61 +22,22 @@ import com.clivern.fred.contract.templates.BasicTemplate;
 /**
  * Apps Permissions Request Template Class
  *
+ * It Allows an app to request additional scopes. It is used to request additional permissions with a team.
+ * It's a part of the Permissions API made available to workspace token-based applications.
+ *
+ * Supported token types: workspace
+ *
  * <a href="https://api.slack.com/methods/apps.permissions.request">For More Info</a>
  *
  * @author A.F
  * @since 1.0.0
  */
-public class AppsPermissionsRequest implements BasicTemplate {
+public class AppsPermissionsRequest extends BasicTemplate {
 
     protected String url = Basic.methodURL(Basic.appsPermissionsRequestMethod);
-    protected String body = "";
-    protected String contentType = "application/x-www-form-urlencoded";
-    protected String method = "POST";
     protected String token;
     protected String scopes;
     protected String triggerId;
-    protected Boolean valid;
-
-    /**
-     * Set URL
-     *
-     * @param  url
-     */
-    public void setURL(String url)
-    {
-        this.url = url;
-    }
-
-    /**
-     * Set Message Body
-     *
-     * @param  body
-     */
-    public void setBody(String body)
-    {
-        this.body = body;
-    }
-
-    /**
-     * Set Content Type
-     *
-     * @param contentType
-     */
-    public void setContentType(String contentType)
-    {
-        this.contentType = contentType;
-    }
-
-    /**
-     * Set Method
-     *
-     * @param method
-     */
-    public void setMethod(String method)
-    {
-        this.method = method;
-    }
 
     /**
      * Set Token
@@ -106,46 +67,6 @@ public class AppsPermissionsRequest implements BasicTemplate {
     public void setTriggerId(String triggerId)
     {
         this.triggerId = triggerId;
-    }
-
-    /**
-     * Get URL
-     *
-     * @return String
-     */
-    public String getURL()
-    {
-        return this.url;
-    }
-
-    /**
-     * Get Body
-     *
-     * @return String
-     */
-    public String getBody()
-    {
-        return this.body;
-    }
-
-    /**
-     * Get Content Type
-     *
-     * @return String
-     */
-    public String getContentType()
-    {
-        return this.contentType;
-    }
-
-    /**
-     * Get Method
-     *
-     * @return String
-     */
-    public String getMethod()
-    {
-        return this.method;
     }
 
     /**
@@ -200,35 +121,5 @@ public class AppsPermissionsRequest implements BasicTemplate {
         }
 
         return this.body;
-    }
-
-    /**
-     * Check if All Required Data is Provided
-     *
-     * @return Boolean
-     */
-    public Boolean isValid()
-    {
-        return (!this.method.isEmpty() && !this.contentType.isEmpty() && !this.body.isEmpty() && !this.url.isEmpty());
-    }
-
-    /**
-     * Debug The Request
-     *
-     * @return String
-     */
-    public String debug()
-    {
-        return "curl -X " + this.method + " -H \"Content-Type: " + this.contentType + "\" -d '" + this.body + "' \"" + this.url + "\"";
-    }
-
-    /**
-     * Debug The Request
-     *
-     * @return String
-     */
-    public String toString()
-    {
-        return this.debug();
     }
 }

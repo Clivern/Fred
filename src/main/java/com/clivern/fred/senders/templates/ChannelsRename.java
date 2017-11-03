@@ -22,7 +22,8 @@ import com.clivern.fred.contract.templates.BasicTemplate;
 /**
  * Channels Rename Template Class
  *
- * It Renames a channel. The only people who can rename a channel are Team Admins, or the person that originally created the channel. Others will receive a "not_authorized" error.
+ * It Renames a channel. The only people who can rename a channel are Team Admins, or the person that originally created the channel.
+ * Others will receive a "not_authorized" error.
  *
  * Supported token types: workspace, user
  * Expected scopes: channels:write, post
