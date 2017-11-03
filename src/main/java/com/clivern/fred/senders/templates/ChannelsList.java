@@ -22,64 +22,29 @@ import com.clivern.fred.contract.templates.BasicTemplate;
 /**
  * Channels List Template Class
  *
+ * It Lists all channels in a Slack team. returns a list of all channels in the team. This includes channels the caller is in,
+ * channels they are not currently in, and archived channels but does not include private channels.
+ * The number of (non-deactivated) members in each channel is also returned.
+ *
+ * Having trouble getting a HTTP 200 response from this method?
+ * Try excluding the members list from each channel object using the exclude_members parameter.
+ *
+ * Supported token types: bot, workspace, user
+ * Expected scopes: channels:read, read
+ *
  * <a href="https://api.slack.com/methods/channels.list">For More Info</a>
  *
  * @author A.F
  * @since 1.0.0
  */
-public class ChannelsList implements BasicTemplate {
+public class ChannelsList extends BasicTemplate {
 
     protected String url = Basic.methodURL(Basic.channelsListMethod);
-    protected String body = "";
-    protected String contentType = "application/x-www-form-urlencoded";
-    protected String method = "POST";
     protected String token;
     protected String cursor;
     protected Boolean excludeArchived;
     protected Boolean excludeMembers;
     protected Integer limit;
-    protected Boolean valid;
-
-
-    /**
-     * Set URL
-     *
-     * @param  url
-     */
-    public void setURL(String url)
-    {
-        this.url = url;
-    }
-
-    /**
-     * Set Message Body
-     *
-     * @param  body
-     */
-    public void setBody(String body)
-    {
-        this.body = body;
-    }
-
-    /**
-     * Set Content Type
-     *
-     * @param contentType
-     */
-    public void setContentType(String contentType)
-    {
-        this.contentType = contentType;
-    }
-
-    /**
-     * Set Method
-     *
-     * @param method
-     */
-    public void setMethod(String method)
-    {
-        this.method = method;
-    }
 
     /**
      * Set Token
@@ -129,46 +94,6 @@ public class ChannelsList implements BasicTemplate {
     public void setLimit(Integer limit)
     {
         this.limit = limit;
-    }
-
-    /**
-     * Get URL
-     *
-     * @return String
-     */
-    public String getURL()
-    {
-        return this.url;
-    }
-
-    /**
-     * Get Body
-     *
-     * @return String
-     */
-    public String getBody()
-    {
-        return this.body;
-    }
-
-    /**
-     * Get Content Type
-     *
-     * @return String
-     */
-    public String getContentType()
-    {
-        return this.contentType;
-    }
-
-    /**
-     * Get Method
-     *
-     * @return String
-     */
-    public String getMethod()
-    {
-        return this.method;
     }
 
     /**
@@ -251,35 +176,5 @@ public class ChannelsList implements BasicTemplate {
         }
 
         return this.body;
-    }
-
-    /**
-     * Check if All Required Data is Provided
-     *
-     * @return Boolean
-     */
-    public Boolean isValid()
-    {
-        return (!this.method.isEmpty() && !this.contentType.isEmpty() && !this.body.isEmpty() && !this.url.isEmpty());
-    }
-
-    /**
-     * Debug The Request
-     *
-     * @return String
-     */
-    public String debug()
-    {
-        return "curl -X " + this.method + " -H \"Content-Type: " + this.contentType + "\" -d '" + this.body + "' \"" + this.url + "\"";
-    }
-
-    /**
-     * Debug The Request
-     *
-     * @return String
-     */
-    public String toString()
-    {
-        return this.debug();
     }
 }

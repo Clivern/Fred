@@ -22,17 +22,23 @@ import com.clivern.fred.contract.templates.BasicTemplate;
 /**
  * Channels History Template Class
  *
+ * It Fetches history of messages and events from a channel.
+ * It returns a portion of message events from the specified public channel.
+ * To read the entire history for a channel, call the method with no latest or oldest arguments,
+ * and then continue paging using the instructions below.
+ * To retrieve a single message, specify its ts value as latest, set inclusive to true, and dial your count down to 1.
+ *
+ * Supported token types: bot, workspace, user
+ * Expected scopes: channels:history, read
+ *
  * <a href="https://api.slack.com/methods/channels.history">For More Info</a>
  *
  * @author A.F
  * @since 1.0.0
  */
-public class ChannelsHistory implements BasicTemplate {
+public class ChannelsHistory extends BasicTemplate {
 
     protected String url = Basic.methodURL(Basic.channelsHistoryMethod);
-    protected String body = "";
-    protected String contentType = "application/x-www-form-urlencoded";
-    protected String method = "POST";
     protected String token;
     protected String channel;
     protected Integer count;
@@ -40,48 +46,6 @@ public class ChannelsHistory implements BasicTemplate {
     protected String latest;
     protected String oldest;
     protected Boolean unreads;
-    protected Boolean valid;
-
-
-    /**
-     * Set URL
-     *
-     * @param  url
-     */
-    public void setURL(String url)
-    {
-        this.url = url;
-    }
-
-    /**
-     * Set Message Body
-     *
-     * @param  body
-     */
-    public void setBody(String body)
-    {
-        this.body = body;
-    }
-
-    /**
-     * Set Content Type
-     *
-     * @param contentType
-     */
-    public void setContentType(String contentType)
-    {
-        this.contentType = contentType;
-    }
-
-    /**
-     * Set Method
-     *
-     * @param method
-     */
-    public void setMethod(String method)
-    {
-        this.method = method;
-    }
 
     /**
      * Set Token
@@ -151,46 +115,6 @@ public class ChannelsHistory implements BasicTemplate {
     public void setUnreads(Boolean unreads)
     {
         this.unreads = unreads;
-    }
-
-    /**
-     * Get URL
-     *
-     * @return String
-     */
-    public String getURL()
-    {
-        return this.url;
-    }
-
-    /**
-     * Get Body
-     *
-     * @return String
-     */
-    public String getBody()
-    {
-        return this.body;
-    }
-
-    /**
-     * Get Content Type
-     *
-     * @return String
-     */
-    public String getContentType()
-    {
-        return this.contentType;
-    }
-
-    /**
-     * Get Method
-     *
-     * @return String
-     */
-    public String getMethod()
-    {
-        return this.method;
     }
 
     /**
@@ -301,35 +225,5 @@ public class ChannelsHistory implements BasicTemplate {
         }
 
         return this.body;
-    }
-
-    /**
-     * Check if All Required Data is Provided
-     *
-     * @return Boolean
-     */
-    public Boolean isValid()
-    {
-        return (!this.method.isEmpty() && !this.contentType.isEmpty() && !this.body.isEmpty() && !this.url.isEmpty());
-    }
-
-    /**
-     * Debug The Request
-     *
-     * @return String
-     */
-    public String debug()
-    {
-        return "curl -X " + this.method + " -H \"Content-Type: " + this.contentType + "\" -d '" + this.body + "' \"" + this.url + "\"";
-    }
-
-    /**
-     * Debug The Request
-     *
-     * @return String
-     */
-    public String toString()
-    {
-        return this.debug();
     }
 }

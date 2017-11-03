@@ -22,62 +22,23 @@ import com.clivern.fred.contract.templates.BasicTemplate;
 /**
  * Channels Rename Template Class
  *
+ * It Renames a channel. The only people who can rename a channel are Team Admins, or the person that originally created the channel. Others will receive a "not_authorized" error.
+ *
+ * Supported token types: workspace, user
+ * Expected scopes: channels:write, post
+ *
  * <a href="https://api.slack.com/methods/channels.rename">For More Info</a>
  *
  * @author A.F
  * @since 1.0.0
  */
-public class ChannelsRename implements BasicTemplate {
+public class ChannelsRename extends BasicTemplate {
 
     protected String url = Basic.methodURL(Basic.channelsRenameMethod);
-    protected String body = "";
-    protected String contentType = "application/x-www-form-urlencoded";
-    protected String method = "POST";
     protected String token;
     protected String channel;
     protected String name;
     protected Boolean validate;
-    protected Boolean valid;
-
-    /**
-     * Set URL
-     *
-     * @param  url
-     */
-    public void setURL(String url)
-    {
-        this.url = url;
-    }
-
-    /**
-     * Set Message Body
-     *
-     * @param  body
-     */
-    public void setBody(String body)
-    {
-        this.body = body;
-    }
-
-    /**
-     * Set Content Type
-     *
-     * @param contentType
-     */
-    public void setContentType(String contentType)
-    {
-        this.contentType = contentType;
-    }
-
-    /**
-     * Set Method
-     *
-     * @param method
-     */
-    public void setMethod(String method)
-    {
-        this.method = method;
-    }
 
     /**
      * Set Token
@@ -87,16 +48,6 @@ public class ChannelsRename implements BasicTemplate {
     public void setToken(String token)
     {
         this.token = token;
-    }
-
-    /**
-     * Set Name
-     *
-     * @param name
-     */
-    public void setName(String name)
-    {
-        this.name = name;
     }
 
     /**
@@ -110,6 +61,16 @@ public class ChannelsRename implements BasicTemplate {
     }
 
     /**
+     * Set Name
+     *
+     * @param name
+     */
+    public void setName(String name)
+    {
+        this.name = name;
+    }
+
+    /**
      * Set Validate
      *
      * @param validate
@@ -117,46 +78,6 @@ public class ChannelsRename implements BasicTemplate {
     public void setValidate(Boolean validate)
     {
         this.validate = validate;
-    }
-
-    /**
-     * Get URL
-     *
-     * @return String
-     */
-    public String getURL()
-    {
-        return this.url;
-    }
-
-    /**
-     * Get Body
-     *
-     * @return String
-     */
-    public String getBody()
-    {
-        return this.body;
-    }
-
-    /**
-     * Get Content Type
-     *
-     * @return String
-     */
-    public String getContentType()
-    {
-        return this.contentType;
-    }
-
-    /**
-     * Get Method
-     *
-     * @return String
-     */
-    public String getMethod()
-    {
-        return this.method;
     }
 
     /**
@@ -225,35 +146,5 @@ public class ChannelsRename implements BasicTemplate {
         }
 
         return this.body;
-    }
-
-    /**
-     * Check if All Required Data is Provided
-     *
-     * @return Boolean
-     */
-    public Boolean isValid()
-    {
-        return (!this.method.isEmpty() && !this.contentType.isEmpty() && !this.body.isEmpty() && !this.url.isEmpty());
-    }
-
-    /**
-     * Debug The Request
-     *
-     * @return String
-     */
-    public String debug()
-    {
-        return "curl -X " + this.method + " -H \"Content-Type: " + this.contentType + "\" -d '" + this.body + "' \"" + this.url + "\"";
-    }
-
-    /**
-     * Debug The Request
-     *
-     * @return String
-     */
-    public String toString()
-    {
-        return this.debug();
     }
 }

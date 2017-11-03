@@ -22,61 +22,23 @@ import com.clivern.fred.contract.templates.BasicTemplate;
 /**
  * Channels Info Template Class
  *
+ * It Gets information about a channel. it returns information about a team channel.
+ * To retrieve information on a private channel, use groups.info.
+ *
+ * Supported token types: bot, workspace, user
+ * Expected scopes: channels:read, read
+ *
  * <a href="https://api.slack.com/methods/channels.info">For More Info</a>
  *
  * @author A.F
  * @since 1.0.0
  */
-public class ChannelsInfo implements BasicTemplate {
+public class ChannelsInfo extends BasicTemplate {
 
     protected String url = Basic.methodURL(Basic.channelsInfoMethod);
-    protected String body = "";
-    protected String contentType = "application/x-www-form-urlencoded";
-    protected String method = "POST";
     protected String token;
     protected String channel;
     protected Boolean includeLocale;
-    protected Boolean valid;
-
-    /**
-     * Set URL
-     *
-     * @param  url
-     */
-    public void setURL(String url)
-    {
-        this.url = url;
-    }
-
-    /**
-     * Set Message Body
-     *
-     * @param  body
-     */
-    public void setBody(String body)
-    {
-        this.body = body;
-    }
-
-    /**
-     * Set Content Type
-     *
-     * @param contentType
-     */
-    public void setContentType(String contentType)
-    {
-        this.contentType = contentType;
-    }
-
-    /**
-     * Set Method
-     *
-     * @param method
-     */
-    public void setMethod(String method)
-    {
-        this.method = method;
-    }
 
     /**
      * Set Token
@@ -106,46 +68,6 @@ public class ChannelsInfo implements BasicTemplate {
     public void setIncludeLocale(Boolean includeLocale)
     {
         this.includeLocale = includeLocale;
-    }
-
-    /**
-     * Get URL
-     *
-     * @return String
-     */
-    public String getURL()
-    {
-        return this.url;
-    }
-
-    /**
-     * Get Body
-     *
-     * @return String
-     */
-    public String getBody()
-    {
-        return this.body;
-    }
-
-    /**
-     * Get Content Type
-     *
-     * @return String
-     */
-    public String getContentType()
-    {
-        return this.contentType;
-    }
-
-    /**
-     * Get Method
-     *
-     * @return String
-     */
-    public String getMethod()
-    {
-        return this.method;
     }
 
     /**
@@ -200,35 +122,5 @@ public class ChannelsInfo implements BasicTemplate {
         }
 
         return this.body;
-    }
-
-    /**
-     * Check if All Required Data is Provided
-     *
-     * @return Boolean
-     */
-    public Boolean isValid()
-    {
-        return (!this.method.isEmpty() && !this.contentType.isEmpty() && !this.body.isEmpty() && !this.url.isEmpty());
-    }
-
-    /**
-     * Debug The Request
-     *
-     * @return String
-     */
-    public String debug()
-    {
-        return "curl -X " + this.method + " -H \"Content-Type: " + this.contentType + "\" -d '" + this.body + "' \"" + this.url + "\"";
-    }
-
-    /**
-     * Debug The Request
-     *
-     * @return String
-     */
-    public String toString()
-    {
-        return this.debug();
     }
 }
