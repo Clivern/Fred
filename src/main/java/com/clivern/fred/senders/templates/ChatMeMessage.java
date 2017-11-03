@@ -32,7 +32,7 @@ import com.clivern.fred.contract.templates.BasicTemplate;
  * @author A.F
  * @since 1.0.0
  */
-public class ChatMeMessage implements BasicTemplate {
+public class ChatMeMessage extends BasicTemplate {
 
     protected String url = Basic.methodURL(Basic.chatMeMessageMethod);
     protected String token;

@@ -35,7 +35,7 @@ import com.clivern.fred.contract.templates.BasicTemplate;
  * @author A.F
  * @since 1.0.0
  */
-public class ChatDelete implements BasicTemplate {
+public class ChatDelete extends BasicTemplate {
 
     protected String url = Basic.methodURL(Basic.chatDeleteMethod);
     protected String token;
