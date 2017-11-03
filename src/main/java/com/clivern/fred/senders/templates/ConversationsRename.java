@@ -22,63 +22,23 @@ import com.clivern.fred.contract.templates.BasicTemplate;
 /**
  * Conversations Rename Template Class
  *
- * It Renames a conversation.
+ * It Renames a conversation. Some types of conversations cannot be renamed.
+ * The only the user that originally created a channel or an admin may rename it. Others will receive a not_authorized error.
+ *
+ * Supported token types: user
+ * Expected scopes: channels:write, groups:write, im:write, mpim:write, post
  *
  * <a href="https://api.slack.com/methods/conversations.rename">For More Info</a>
  *
  * @author A.F
  * @since 1.0.0
  */
-public class ConversationsRename implements BasicTemplate {
+public class ConversationsRename extends BasicTemplate {
 
     protected String url = Basic.methodURL(Basic.conversationsRenameMethod);
-    protected String body = "";
-    protected String contentType = "application/x-www-form-urlencoded";
-    protected String method = "POST";
     protected String token;
     protected String channel;
     protected String name;
-    protected Boolean valid;
-
-    /**
-     * Set URL
-     *
-     * @param  url
-     */
-    public void setURL(String url)
-    {
-        this.url = url;
-    }
-
-    /**
-     * Set Message Body
-     *
-     * @param  body
-     */
-    public void setBody(String body)
-    {
-        this.body = body;
-    }
-
-    /**
-     * Set Content Type
-     *
-     * @param contentType
-     */
-    public void setContentType(String contentType)
-    {
-        this.contentType = contentType;
-    }
-
-    /**
-     * Set Method
-     *
-     * @param method
-     */
-    public void setMethod(String method)
-    {
-        this.method = method;
-    }
 
     /**
      * Set Token
@@ -108,46 +68,6 @@ public class ConversationsRename implements BasicTemplate {
     public void setChannel(String channel)
     {
         this.channel = channel;
-    }
-
-    /**
-     * Get URL
-     *
-     * @return String
-     */
-    public String getURL()
-    {
-        return this.url;
-    }
-
-    /**
-     * Get Body
-     *
-     * @return String
-     */
-    public String getBody()
-    {
-        return this.body;
-    }
-
-    /**
-     * Get Content Type
-     *
-     * @return String
-     */
-    public String getContentType()
-    {
-        return this.contentType;
-    }
-
-    /**
-     * Get Method
-     *
-     * @return String
-     */
-    public String getMethod()
-    {
-        return this.method;
     }
 
     /**
@@ -202,35 +122,5 @@ public class ConversationsRename implements BasicTemplate {
         }
 
         return this.body;
-    }
-
-    /**
-     * Check if All Required Data is Provided
-     *
-     * @return Boolean
-     */
-    public Boolean isValid()
-    {
-        return (!this.method.isEmpty() && !this.contentType.isEmpty() && !this.body.isEmpty() && !this.url.isEmpty());
-    }
-
-    /**
-     * Debug The Request
-     *
-     * @return String
-     */
-    public String debug()
-    {
-        return "curl -X " + this.method + " -H \"Content-Type: " + this.contentType + "\" -d '" + this.body + "' \"" + this.url + "\"";
-    }
-
-    /**
-     * Debug The Request
-     *
-     * @return String
-     */
-    public String toString()
-    {
-        return this.debug();
     }
 }
