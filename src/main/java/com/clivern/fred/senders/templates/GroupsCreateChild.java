@@ -24,60 +24,30 @@ import com.clivern.fred.contract.templates.BasicTemplate;
  *
  * It Clones and archives a private channel.
  *
+ * It takes an existing private channel and performs the following steps:
+ * - Renames the existing private channel (from "example" to "example-archived").
+ * - Archives the existing private channel.
+ * - Creates a new private channel with the name of the existing private channel.
+ * - Adds all members of the existing private channel to the new private channel.
+ * - This is useful when inviting a new member to an existing private channel while hiding all previous chat history from them.
+ *   In this scenario you can call groups.createChild followed by groups.invite.
+ *
+ * The new private channel will have a special parent_group property pointing to the original archived private channel.
+ * This will only be returned for members of both private channels, so will not be visible to any newly invited members.
+ *
+ * Supported token types: workspace, user
+ * Expected scopes: groups:write, post
+ *
  * <a href="https://api.slack.com/methods/groups.createChild">For More Info</a>
  *
  * @author A.F
  * @since 1.0.0
  */
-public class GroupsCreateChild implements BasicTemplate {
+public class GroupsCreateChild extends BasicTemplate {
 
     protected String url = Basic.methodURL(Basic.groupsCreateChildMethod);
-    protected String body = "";
-    protected String contentType = "application/x-www-form-urlencoded";
-    protected String method = "POST";
     protected String token;
     protected String channel;
-    protected Boolean valid;
-
-    /**
-     * Set URL
-     *
-     * @param  url
-     */
-    public void setURL(String url)
-    {
-        this.url = url;
-    }
-
-    /**
-     * Set Message Body
-     *
-     * @param  body
-     */
-    public void setBody(String body)
-    {
-        this.body = body;
-    }
-
-    /**
-     * Set Content Type
-     *
-     * @param contentType
-     */
-    public void setContentType(String contentType)
-    {
-        this.contentType = contentType;
-    }
-
-    /**
-     * Set Method
-     *
-     * @param method
-     */
-    public void setMethod(String method)
-    {
-        this.method = method;
-    }
 
     /**
      * Set Token
@@ -97,46 +67,6 @@ public class GroupsCreateChild implements BasicTemplate {
     public void setChannel(String channel)
     {
         this.channel = channel;
-    }
-
-    /**
-     * Get URL
-     *
-     * @return String
-     */
-    public String getURL()
-    {
-        return this.url;
-    }
-
-    /**
-     * Get Body
-     *
-     * @return String
-     */
-    public String getBody()
-    {
-        return this.body;
-    }
-
-    /**
-     * Get Content Type
-     *
-     * @return String
-     */
-    public String getContentType()
-    {
-        return this.contentType;
-    }
-
-    /**
-     * Get Method
-     *
-     * @return String
-     */
-    public String getMethod()
-    {
-        return this.method;
     }
 
     /**
@@ -177,35 +107,5 @@ public class GroupsCreateChild implements BasicTemplate {
         }
 
         return this.body;
-    }
-
-    /**
-     * Check if All Required Data is Provided
-     *
-     * @return Boolean
-     */
-    public Boolean isValid()
-    {
-        return (!this.method.isEmpty() && !this.contentType.isEmpty() && !this.body.isEmpty() && !this.url.isEmpty());
-    }
-
-    /**
-     * Debug The Request
-     *
-     * @return String
-     */
-    public String debug()
-    {
-        return "curl -X " + this.method + " -H \"Content-Type: " + this.contentType + "\" -d '" + this.body + "' \"" + this.url + "\"";
-    }
-
-    /**
-     * Debug The Request
-     *
-     * @return String
-     */
-    public String toString()
-    {
-        return this.debug();
     }
 }

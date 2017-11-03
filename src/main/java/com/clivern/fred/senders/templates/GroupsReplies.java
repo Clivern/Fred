@@ -22,63 +22,23 @@ import com.clivern.fred.contract.templates.BasicTemplate;
 /**
  * Channels Replies Template Class
  *
+ * It Retrieve a thread of messages posted to a private channel.
  * It returns an entire thread (a message plus all the messages in reply to it).
+ *
+ * Supported token types: workspace, user
+ * Expected scopes: groups:history, read
  *
  * <a href="https://api.slack.com/methods/groups.replies">For More Info</a>
  *
  * @author A.F
  * @since 1.0.0
  */
-public class GroupsReplies implements BasicTemplate {
+public class GroupsReplies extends BasicTemplate {
 
     protected String url = Basic.methodURL(Basic.groupsRepliesMethod);
-    protected String body = "";
-    protected String contentType = "application/x-www-form-urlencoded";
-    protected String method = "POST";
     protected String token;
     protected String channel;
     protected String threadTs;
-    protected Boolean valid;
-
-    /**
-     * Set URL
-     *
-     * @param  url
-     */
-    public void setURL(String url)
-    {
-        this.url = url;
-    }
-
-    /**
-     * Set Message Body
-     *
-     * @param  body
-     */
-    public void setBody(String body)
-    {
-        this.body = body;
-    }
-
-    /**
-     * Set Content Type
-     *
-     * @param contentType
-     */
-    public void setContentType(String contentType)
-    {
-        this.contentType = contentType;
-    }
-
-    /**
-     * Set Method
-     *
-     * @param method
-     */
-    public void setMethod(String method)
-    {
-        this.method = method;
-    }
 
     /**
      * Set Token
@@ -108,46 +68,6 @@ public class GroupsReplies implements BasicTemplate {
     public void setThreadTs(String threadTs)
     {
         this.threadTs = threadTs;
-    }
-
-    /**
-     * Get URL
-     *
-     * @return String
-     */
-    public String getURL()
-    {
-        return this.url;
-    }
-
-    /**
-     * Get Body
-     *
-     * @return String
-     */
-    public String getBody()
-    {
-        return this.body;
-    }
-
-    /**
-     * Get Content Type
-     *
-     * @return String
-     */
-    public String getContentType()
-    {
-        return this.contentType;
-    }
-
-    /**
-     * Get Method
-     *
-     * @return String
-     */
-    public String getMethod()
-    {
-        return this.method;
     }
 
     /**
@@ -202,35 +122,5 @@ public class GroupsReplies implements BasicTemplate {
         }
 
         return this.body;
-    }
-
-    /**
-     * Check if All Required Data is Provided
-     *
-     * @return Boolean
-     */
-    public Boolean isValid()
-    {
-        return (!this.method.isEmpty() && !this.contentType.isEmpty() && !this.body.isEmpty() && !this.url.isEmpty());
-    }
-
-    /**
-     * Debug The Request
-     *
-     * @return String
-     */
-    public String debug()
-    {
-        return "curl -X " + this.method + " -H \"Content-Type: " + this.contentType + "\" -d '" + this.body + "' \"" + this.url + "\"";
-    }
-
-    /**
-     * Debug The Request
-     *
-     * @return String
-     */
-    public String toString()
-    {
-        return this.debug();
     }
 }
