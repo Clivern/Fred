@@ -94,7 +94,7 @@ public class GroupsInvite extends BasicTemplate {
      *
      * @return String
      */
-    public void getUser()
+    public String getUser()
     {
         return this.user;
     }

@@ -116,7 +116,7 @@ public class UsergroupsDisable extends BasicTemplate {
             this.body += "&usergroup=" + this.usergroup;
         }
 
-        if( !this.includeCount !== null ){
+        if( this.includeCount != null ){
             this.body += "&include_count=" + ((this.includeCount) ? "true" : "false");
         }
 

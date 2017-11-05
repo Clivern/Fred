@@ -94,7 +94,7 @@ public class ChannelsSetPurpose extends BasicTemplate {
      *
      * @return String
      */
-    public void getPurpose()
+    public String getPurpose()
     {
         return this.purpose;
     }

@@ -72,7 +72,7 @@ public class UsersSetPhoto extends BasicTemplate {
      *
      * @param cropW
      */
-    public void setCropW(String cropW)
+    public void setCropW(Integer cropW)
     {
         this.cropW = cropW;
     }
@@ -82,7 +82,7 @@ public class UsersSetPhoto extends BasicTemplate {
      *
      * @param cropX
      */
-    public void setCropX(String cropX)
+    public void setCropX(Integer cropX)
     {
         this.cropX = cropX;
     }
@@ -92,7 +92,7 @@ public class UsersSetPhoto extends BasicTemplate {
      *
      * @param cropY
      */
-    public void setCropY(String cropY)
+    public void setCropY(Integer cropY)
     {
         this.cropY = cropY;
     }
@@ -164,15 +164,15 @@ public class UsersSetPhoto extends BasicTemplate {
             this.body += "&image=" + this.image;
         }
 
-        if( !this.cropW.isEmpty() ){
+        if( this.cropW != null ){
             this.body += "&crop_w=" + this.cropW;
         }
 
-        if( !this.cropX.isEmpty() ){
+        if( this.cropX != null ){
             this.body += "&crop_x=" + this.cropX;
         }
 
-        if( !this.cropY.isEmpty() ){
+        if( this.cropY != null ){
             this.body += "&crop_y=" + this.cropY;
         }
 

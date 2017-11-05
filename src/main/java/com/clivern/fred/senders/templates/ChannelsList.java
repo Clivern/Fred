@@ -163,15 +163,15 @@ public class ChannelsList extends BasicTemplate {
             this.body += "&cursor=" + this.cursor;
         }
 
-        if( !this.excludeArchived !== null ){
+        if( this.excludeArchived != null ){
             this.body += "&exclude_archived=" + ((this.excludeArchived) ? "true" : "false");
         }
 
-        if( !this.excludeMembers !== null ){
+        if( this.excludeMembers != null ){
             this.body += "&exclude_members=" + ((this.excludeMembers) ? "true" : "false");
         }
 
-        if( !this.limit.isEmpty() ){
+        if( this.limit != null ){
             this.body += "&limit=" + this.limit;
         }
 

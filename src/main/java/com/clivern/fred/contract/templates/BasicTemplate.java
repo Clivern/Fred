@@ -140,5 +140,5 @@ public abstract class BasicTemplate {
     /**
      * Build Message Body
      */
-    abstract String build();
+    abstract public String build();
 }

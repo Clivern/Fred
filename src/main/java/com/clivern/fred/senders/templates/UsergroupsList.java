@@ -133,15 +133,15 @@ public class UsergroupsList extends BasicTemplate {
             this.body += "token=" + this.token;
         }
 
-        if( !this.includeCount !== null ){
+        if( this.includeCount != null ){
             this.body += "&include_count=" + ((this.includeCount) ? "true" : "false");
         }
 
-        if( !this.includeDisabled !== null ){
+        if( this.includeDisabled != null ){
             this.body += "&include_disabled=" + ((this.includeDisabled) ? "true" : "false");
         }
 
-        if( !this.includeUsers !== null ){
+        if( this.includeUsers != null ){
             this.body += "&include_users=" + ((this.includeUsers) ? "true" : "false");
         }
 

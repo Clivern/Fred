@@ -94,7 +94,7 @@ public class ChatMeMessage extends BasicTemplate {
      *
      * @return String
      */
-    public void getText()
+    public String getText()
     {
         return this.text;
     }

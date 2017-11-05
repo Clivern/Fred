@@ -95,7 +95,7 @@ public class GroupsReplies extends BasicTemplate {
      *
      * @return String
      */
-    public void getThreadTs()
+    public String getThreadTs()
     {
         return this.threadTs;
     }

@@ -116,7 +116,7 @@ public class UsersInfo extends BasicTemplate {
             this.body += "&user=" + this.user;
         }
 
-        if( !this.includeLocale !== null ){
+        if( this.includeLocale != null ){
             this.body += "&include_locale=" + ((this.includeLocale) ? "true" : "false");
         }
 

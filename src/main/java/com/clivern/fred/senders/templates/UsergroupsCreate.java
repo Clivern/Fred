@@ -191,7 +191,7 @@ public class UsergroupsCreate extends BasicTemplate {
             this.body += "&handle=" + this.handle;
         }
 
-        if( !this.includeCount !== null ){
+        if( this.includeCount != null ){
             this.body += "&include_count=" + ((this.includeCount) ? "true" : "false");
         }
 

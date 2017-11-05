@@ -108,7 +108,7 @@ public class ChatDelete extends BasicTemplate {
      *
      * @return String
      */
-    public void getTs()
+    public String getTs()
     {
         return this.ts;
     }
@@ -144,7 +144,7 @@ public class ChatDelete extends BasicTemplate {
             this.body += "&ts=" + this.ts;
         }
 
-        if( !this.asUser !== null ){
+        if( this.asUser != null ){
             this.body += "&as_user=" + ((this.asUser) ? "true" : "false");
         }
 

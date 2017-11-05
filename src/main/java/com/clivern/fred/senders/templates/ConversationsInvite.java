@@ -95,7 +95,7 @@ public class ConversationsInvite extends BasicTemplate {
      *
      * @return String
      */
-    public void getUsers()
+    public String getUsers()
     {
         return this.users;
     }

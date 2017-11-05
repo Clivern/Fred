@@ -116,7 +116,7 @@ public class ChannelsCreate extends BasicTemplate {
             this.body += "&name=" + this.name;
         }
 
-        if( !this.validate !== null ){
+        if( this.validate != null ){
             this.body += "&validate=" + ((this.validate) ? "true" : "false");
         }
 

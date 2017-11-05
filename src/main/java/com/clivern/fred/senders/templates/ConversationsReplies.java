@@ -166,7 +166,7 @@ public class ConversationsReplies extends BasicTemplate {
             this.body += "&cursor=" + this.cursor;
         }
 
-        if( !this.limit.isEmpty() ){
+        if( this.limit != null ){
             this.body += "&limit=" + this.limit;
         }
 

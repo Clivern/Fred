@@ -115,7 +115,7 @@ public class ConversationsOpen extends BasicTemplate {
      *
      * @return String
      */
-    public void getUsers()
+    public String getUsers()
     {
         return this.users;
     }
@@ -137,7 +137,7 @@ public class ConversationsOpen extends BasicTemplate {
             this.body += "&channel=" + this.channel;
         }
 
-        if( !this.returnIm.isEmpty() ){
+        if( this.returnIm != null ){
             this.body += "&return_im=" + ((this.returnIm) ? "true" : "false");
         }
 

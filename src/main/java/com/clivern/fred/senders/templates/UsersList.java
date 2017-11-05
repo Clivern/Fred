@@ -158,15 +158,15 @@ public class UsersList extends BasicTemplate {
             this.body += "&cursor=" + this.cursor;
         }
 
-        if( !this.includeLocale !== null ){
+        if( this.includeLocale != null ){
             this.body += "&include_locale=" + ((this.includeLocale) ? "true" : "false");
         }
 
-        if( !this.limit !== null ){
+        if( this.limit != null ){
             this.body += "&limit=" + this.limit;
         }
 
-        if( !this.presence !== null ){
+        if( this.presence != null ){
             this.body += "&presence=" + ((this.presence) ? "true" : "false");
         }
 

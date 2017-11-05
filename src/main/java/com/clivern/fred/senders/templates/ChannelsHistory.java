@@ -204,23 +204,23 @@ public class ChannelsHistory extends BasicTemplate {
             this.body += "&channel=" + this.channel;
         }
 
-        if( !this.count.isEmpty() ){
+        if( this.count != null ){
             this.body += "&count=" + this.count;
         }
 
-        if( !this.inclusive !== null ){
+        if( this.inclusive != null ){
             this.body += "&inclusive=" + ((this.inclusive) ? "true" : "false");
         }
 
-        if( !this.latest !== null ){
+        if( this.latest != null ){
             this.body += "&latest=" + this.latest;
         }
 
-        if( !this.oldest !== null ){
+        if( this.oldest != null ){
             this.body += "&oldest=" + this.oldest;
         }
 
-        if( !this.unreads !== null ){
+        if( this.unreads != null ){
             this.body += "&unreads=" + ((this.unreads) ? "true" : "false");
         }
 

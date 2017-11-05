@@ -183,15 +183,15 @@ public class ConversationsHistory extends BasicTemplate {
             this.body += "&cursor=" + this.cursor;
         }
 
-        if( !this.latest !== null ){
+        if( this.latest != null ){
             this.body += "&latest=" + this.latest;
         }
 
-        if( !this.limit !== null ){
+        if( this.limit != null ){
             this.body += "&limit=" + this.limit;
         }
 
-        if( !this.oldest !== null ){
+        if( this.oldest != null ){
             this.body += "&oldest=" + this.oldest;
         }
 

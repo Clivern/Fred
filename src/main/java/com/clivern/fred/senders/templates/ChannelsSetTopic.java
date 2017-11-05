@@ -94,7 +94,7 @@ public class ChannelsSetTopic extends BasicTemplate {
      *
      * @return String
      */
-    public void getTopic()
+    public String getTopic()
     {
         return this.topic;
     }

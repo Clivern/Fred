@@ -32,7 +32,7 @@ import com.clivern.fred.contract.templates.BasicTemplate;
  * @author A.F
  * @since 1.0.0
  */
-public class UsersProfileGet implements BasicTemplate {
+public class UsersProfileGet extends BasicTemplate {
 
     protected String url = Basic.methodURL(Basic.usersProfileGetMethod);
     protected String token;
@@ -112,8 +112,8 @@ public class UsersProfileGet implements BasicTemplate {
             this.body += "token=" + this.token;
         }
 
-        if( !this.includeLabels.isEmpty() ){
-            this.includeLabels += "&include_labels=" + ((this.includeLabels) ? "true" : "false");
+        if( this.includeLabels != null ){
+            this.body += "&include_labels=" + ((this.includeLabels) ? "true" : "false");
         }
 
         if( !this.user.isEmpty() ){

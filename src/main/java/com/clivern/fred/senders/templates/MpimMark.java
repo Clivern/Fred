@@ -94,7 +94,7 @@ public class MpimMark extends BasicTemplate {
      *
      * @return String
      */
-    public void getTs()
+    public String getTs()
     {
         return this.ts;
     }

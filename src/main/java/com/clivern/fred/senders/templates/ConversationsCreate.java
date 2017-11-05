@@ -116,7 +116,7 @@ public class ConversationsCreate extends BasicTemplate {
             this.body += "&name=" + this.name;
         }
 
-        if( !this.isPrivate !== null ){
+        if( this.isPrivate != null ){
             this.body += "&is_private=" + ((this.isPrivate) ? "true" : "false");
         }
 

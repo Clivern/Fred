@@ -158,15 +158,15 @@ public class ConversationsList extends BasicTemplate {
             this.body += "&cursor=" + this.cursor;
         }
 
-        if( !this.excludeArchived !== null ){
+        if( this.excludeArchived != null ){
             this.body += "&exclude_archived=" + ((this.excludeArchived) ? "true" : "false");
         }
 
-        if( !this.types !== null ){
+        if( this.types != null ){
             this.body += "&types=" + this.types;
         }
 
-        if( !this.limit.isEmpty() ){
+        if( this.limit != null ){
             this.body += "&limit=" + this.limit;
         }
 

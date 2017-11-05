@@ -113,11 +113,11 @@ public class GroupsList extends BasicTemplate {
             this.body += "token=" + this.token;
         }
 
-        if( !this.excludeArchived !== null ){
+        if( this.excludeArchived != null ){
             this.body += "&exclude_archived=" + ((this.excludeArchived) ? "true" : "false");
         }
 
-        if( !this.excludeMembers !== null ){
+        if( this.excludeMembers != null ){
             this.body += "&exclude_members=" + ((this.excludeMembers) ? "true" : "false");
         }
 

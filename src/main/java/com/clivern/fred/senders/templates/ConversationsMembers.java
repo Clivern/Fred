@@ -141,7 +141,7 @@ public class ConversationsMembers extends BasicTemplate {
             this.body += "&cursor=" + this.cursor;
         }
 
-        if( !this.limit !== null ){
+        if( this.limit != null ){
             this.body += "&limit=" + this.limit;
         }
 

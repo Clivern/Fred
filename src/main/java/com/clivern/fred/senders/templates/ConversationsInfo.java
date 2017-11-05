@@ -116,7 +116,7 @@ public class ConversationsInfo extends BasicTemplate {
             this.body += "&channel=" + this.channel;
         }
 
-        if( !this.includeLocale !== null ){
+        if( this.includeLocale != null ){
             this.body += "&include_locale=" + ((this.includeLocale) ? "true" : "false");
         }
 
