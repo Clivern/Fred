@@ -35,12 +35,66 @@ import com.clivern.fred.contract.templates.BasicTemplate;
 public class TeamProfileGet extends BasicTemplate {
 
     protected String url = Basic.methodURL(Basic.teamProfileGetMethod);
+    protected String token;
+    protected String visibility;
+
+    /**
+     * Set Token
+     *
+     * @param token
+     */
+    public void setToken(String token)
+    {
+        this.token = token;
+    }
+
+    /**
+     * Set Visibility
+     *
+     * @param visibility
+     */
+    public void setVisibility(String visibility)
+    {
+        this.visibility = visibility;
+    }
+
+    /**
+     * Get Token
+     *
+     * @return String
+     */
+    public String getToken()
+    {
+        return this.token;
+    }
+
+    /**
+     * Get Visibility
+     *
+     * @return String
+     */
+    public String getVisibility()
+    {
+        return this.visibility;
+    }
 
     /**
      * Build Message Body
      */
     public String build()
     {
-        return "";
+        if( this.token.isEmpty() ){
+            return "";
+        }
+
+        if( !this.token.isEmpty() ){
+            this.body += "token=" + this.token;
+        }
+
+        if( !this.visibility.isEmpty() ){
+            this.body += "&visibility=" + this.visibility;
+        }
+
+        return this.body;
     }
 }
