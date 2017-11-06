@@ -154,7 +154,7 @@ public class ReactionsList extends BasicTemplate {
             this.body += "token=" + this.token;
         }
 
-        if( !this.count.isEmpty() ){
+        if( this.count != null ){
             this.body += "count=" + this.count;
         }
 
@@ -162,7 +162,7 @@ public class ReactionsList extends BasicTemplate {
             this.body += "&full=" + ((this.full) ? "true" : "false");
         }
 
-        if( !this.page.isEmpty() ){
+        if( this.page != null ){
             this.body += "page=" + this.page;
         }
 
