@@ -3,11 +3,9 @@ Fred
 
 Fred is a Java Framework for Building Slack Bots.
 
-*Current Version: 1.0.0-SNAPSHOT*
+*Current Version: Under Development*
 
 [![Build Status](https://travis-ci.org/Clivern/Fred.svg?branch=master)](https://travis-ci.org/Clivern/Fred)
-![](https://img.shields.io/maven-central/v/com.clivern/fred.svg)
-[![Javadocs](http://www.javadoc.io/badge/com.clivern/fred.svg)](http://www.javadoc.io/doc/com.clivern/fred)
 ![](https://img.shields.io/github/license/clivern/fred.svg)
 
 
