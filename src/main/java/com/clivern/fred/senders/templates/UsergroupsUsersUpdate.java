@@ -20,17 +20,27 @@ import com.clivern.fred.configs.Basic;
 import com.clivern.fred.contract.templates.BasicTemplate;
 
 /**
- * Chat Update Template Class
+ * User groups Users Update Template Class
  *
- * It Updates a message.
+ * It Update the list of users for a User Group.
  *
- * <a href="https://api.slack.com/methods/chat.update">For More Info</a>
+ * Supported token types: workspace, user
+ * Expected scopes: usergroups:write, post
+ *
+ * <a href="https://api.slack.com/methods/usergroups.users.update">For More Info</a>
  *
  * @author A.F
  * @since 1.0.0
  */
-public class ChatUpdate extends BasicTemplate {
+public class UsergroupsUsersUpdate extends BasicTemplate {
 
-    protected String url = Basic.methodURL(Basic.chatUpdateMethod);
+    protected String url = Basic.methodURL(Basic.usergroupsUsersUpdateMethod);
 
+    /**
+     * Build Message Body
+     */
+    public String build()
+    {
+        return "";
+    }
 }

@@ -19,18 +19,29 @@ import java.util.Map;
 import com.clivern.fred.configs.Basic;
 import com.clivern.fred.contract.templates.BasicTemplate;
 
+
 /**
- * Chat Update Template Class
+ * Users Profile Set Template Class
  *
- * It Updates a message.
+ * It Set the profile information for a user.
  *
- * <a href="https://api.slack.com/methods/chat.update">For More Info</a>
+ * Supported token types: user
+ * Expected scopes: users.profile:write, post
+ *
+ * <a href="https://api.slack.com/methods/users.profile.set">For More Info</a>
  *
  * @author A.F
  * @since 1.0.0
  */
-public class ChatUpdate extends BasicTemplate {
+public class UsersProfileSet extends BasicTemplate {
 
-    protected String url = Basic.methodURL(Basic.chatUpdateMethod);
+    protected String url = Basic.methodURL(Basic.usersProfileSetMethod);
 
+    /**
+     * Build Message Body
+     */
+    public String build()
+    {
+        return "";
+    }
 }
