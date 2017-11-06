@@ -35,12 +35,91 @@ import com.clivern.fred.contract.templates.BasicTemplate;
 public class ImMark extends BasicTemplate {
 
     protected String url = Basic.methodURL(Basic.imMarkMethod);
+    protected String token;
+    protected String channel;
+    protected String ts;
+
+    /**
+     * Set Token
+     *
+     * @param token
+     */
+    public void setToken(String token)
+    {
+        this.token = token;
+    }
+
+    /**
+     * Set Channel
+     *
+     * @param channel
+     */
+    public void setChannel(String channel)
+    {
+        this.channel = channel;
+    }
+
+    /**
+     * Set Ts
+     *
+     * @param ts
+     */
+    public void setTs(String ts)
+    {
+        this.ts = ts;
+    }
+
+    /**
+     * Get Token
+     *
+     * @return String
+     */
+    public String getToken()
+    {
+        return this.token;
+    }
+
+    /**
+     * Get Channel
+     *
+     * @return String
+     */
+    public String getChannel()
+    {
+        return this.channel;
+    }
+
+    /**
+     * Get Ts
+     *
+     * @return String
+     */
+    public String getTs()
+    {
+        return this.ts;
+    }
 
     /**
      * Build Message Body
      */
     public String build()
     {
-        return "";
+        if( this.token.isEmpty() || this.channel.isEmpty() || this.ts.isEmpty() ){
+            return "";
+        }
+
+        if( !this.token.isEmpty() ){
+            this.body += "token=" + this.token;
+        }
+
+        if( !this.channel.isEmpty() ){
+            this.body += "&channel=" + this.channel;
+        }
+
+        if( !this.ts.isEmpty() ){
+            this.body += "&ts=" + this.ts;
+        }
+
+        return this.body;
     }
 }
