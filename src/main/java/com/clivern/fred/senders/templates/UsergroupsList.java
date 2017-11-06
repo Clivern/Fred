@@ -101,7 +101,7 @@ public class UsergroupsList extends BasicTemplate {
     }
 
     /**
-     * Get Include Count
+     * Get Include Disabled
      *
      * @return Boolean
      */

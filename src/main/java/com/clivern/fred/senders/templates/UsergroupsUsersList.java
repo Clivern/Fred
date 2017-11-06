@@ -35,12 +35,92 @@ import com.clivern.fred.contract.templates.BasicTemplate;
 public class UsergroupsUsersList extends BasicTemplate {
 
     protected String url = Basic.methodURL(Basic.usergroupsUsersListMethod);
+    protected String token;
+    protected String usergroup;
+    protected Boolean includeDisabled;
+
+
+    /**
+     * Set Token
+     *
+     * @param token
+     */
+    public void setToken(String token)
+    {
+        this.token = token;
+    }
+
+    /**
+     * Set User Group
+     *
+     * @param usergroup
+     */
+    public void setUserGroup(String usergroup)
+    {
+        this.usergroup = usergroup;
+    }
+
+    /**
+     * Set Include Disabled
+     *
+     * @param includeDisabled
+     */
+    public void setIncludeDisabled(Boolean includeDisabled)
+    {
+        this.includeDisabled = includeDisabled;
+    }
+
+    /**
+     * Get Token
+     *
+     * @return String
+     */
+    public String getToken()
+    {
+        return this.token;
+    }
+
+    /**
+     * Get User Group
+     *
+     * @return String
+     */
+    public String getUserGroup()
+    {
+        return this.usergroup;
+    }
+
+    /**
+     * Get Include Disabled
+     *
+     * @return Boolean
+     */
+    public Boolean getIncludeDisabled()
+    {
+        return this.includeDisabled;
+    }
 
     /**
      * Build Message Body
      */
     public String build()
     {
-        return "";
+        if( this.token.isEmpty() || this.usergroup.isEmpty() ){
+            return "";
+        }
+
+        if( !this.token.isEmpty() ){
+            this.body += "token=" + this.token;
+        }
+
+        if( !this.usergroup.isEmpty() ){
+            this.body += "usergroup=" + this.usergroup;
+        }
+
+        if( this.includeDisabled != null ){
+            this.body += "&include_disabled=" + ((this.includeDisabled) ? "true" : "false");
+        }
+
+        return this.body;
     }
 }
