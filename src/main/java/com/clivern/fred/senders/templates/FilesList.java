@@ -221,11 +221,11 @@ public class FilesList extends BasicTemplate {
             this.body += "&channel=" + this.channel;
         }
 
-        if( !this.count.isEmpty() ){
+        if( this.count != null ){
             this.body += "&count=" + this.count;
         }
 
-        if( !this.page.isEmpty() ){
+        if( this.page != null ){
             this.body += "&page=" + this.page;
         }
 
