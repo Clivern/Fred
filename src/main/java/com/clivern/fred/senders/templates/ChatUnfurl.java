@@ -36,4 +36,11 @@ public class ChatUnfurl extends BasicTemplate {
 
     protected String url = Basic.methodURL(Basic.chatUnfurlMethod);
 
+    /**
+     * Build Message Body
+     */
+    public String build()
+    {
+        return "";
+    }
 }

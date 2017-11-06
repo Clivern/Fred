@@ -36,4 +36,11 @@ public class ChatPostMessage extends BasicTemplate {
 
     protected String url = Basic.methodURL(Basic.chatPostMessageMethod);
 
+    /**
+     * Build Message Body
+     */
+    public String build()
+    {
+        return "";
+    }
 }

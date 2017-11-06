@@ -36,4 +36,11 @@ public class ChatPostEphemeral extends BasicTemplate {
 
     protected String url = Basic.methodURL(Basic.chatPostEphemeralMethod);
 
+    /**
+     * Build Message Body
+     */
+    public String build()
+    {
+        return "";
+    }
 }

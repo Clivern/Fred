@@ -36,4 +36,11 @@ public class ChatUpdate extends BasicTemplate {
 
     protected String url = Basic.methodURL(Basic.chatUpdateMethod);
 
+    /**
+     * Build Message Body
+     */
+    public String build()
+    {
+        return "";
+    }
 }
