@@ -19,7 +19,6 @@ import java.util.Map;
 import com.clivern.fred.configs.Basic;
 import com.clivern.fred.contract.templates.BasicTemplate;
 
-
 /**
  * Users Profile Set Template Class
  *
