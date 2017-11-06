@@ -35,12 +35,91 @@ import com.clivern.fred.contract.templates.BasicTemplate;
 public class ImReplies extends BasicTemplate {
 
     protected String url = Basic.methodURL(Basic.imRepliesMethod);
+    protected String token;
+    protected String channel;
+    protected String threadTs;
+
+    /**
+     * Set Token
+     *
+     * @param token
+     */
+    public void setToken(String token)
+    {
+        this.token = token;
+    }
+
+    /**
+     * Set Channel
+     *
+     * @param channel
+     */
+    public void setChannel(String channel)
+    {
+        this.channel = channel;
+    }
+
+    /**
+     * Set Thread Ts
+     *
+     * @param threadTs
+     */
+    public void setThreadTs(String threadTs)
+    {
+        this.threadTs = threadTs;
+    }
+
+    /**
+     * Get Token
+     *
+     * @return String
+     */
+    public String getToken()
+    {
+        return this.token;
+    }
+
+    /**
+     * Get Channel
+     *
+     * @return String
+     */
+    public String getChannel()
+    {
+        return this.channel;
+    }
+
+    /**
+     * Get Thread Ts
+     *
+     * @return String
+     */
+    public String getThreadTs()
+    {
+        return this.threadTs;
+    }
 
     /**
      * Build Message Body
      */
     public String build()
     {
-        return "";
+        if( this.token.isEmpty() || this.channel.isEmpty() || this.threadTs.isEmpty() ){
+            return "";
+        }
+
+        if( !this.token.isEmpty() ){
+            this.body += "token=" + this.token;
+        }
+
+        if( !this.channel.isEmpty() ){
+            this.body += "&channel=" + this.channel;
+        }
+
+        if( !this.threadTs.isEmpty() ){
+            this.body += "&thread_ts=" + this.threadTs;
+        }
+
+        return this.body;
     }
 }
