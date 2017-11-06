@@ -35,12 +35,91 @@ import com.clivern.fred.contract.templates.BasicTemplate;
 public class ImList extends BasicTemplate {
 
     protected String url = Basic.methodURL(Basic.imListMethod);
+    protected String token;
+    protected String cursor;
+    protected Integer limit;
+
+    /**
+     * Set Token
+     *
+     * @param token
+     */
+    public void setToken(String token)
+    {
+        this.token = token;
+    }
+
+    /**
+     * Set Cursor
+     *
+     * @param cursor
+     */
+    public void setCursor(String cursor)
+    {
+        this.cursor = cursor;
+    }
+
+    /**
+     * Set Limit
+     *
+     * @param limit
+     */
+    public void setLimit(Integer limit)
+    {
+        this.limit = limit;
+    }
+
+    /**
+     * Get Token
+     *
+     * @return String
+     */
+    public String getToken()
+    {
+        return this.token;
+    }
+
+    /**
+     * Get Cursor
+     *
+     * @return String
+     */
+    public String getCursor()
+    {
+        return this.cursor;
+    }
+
+    /**
+     * Get Limit
+     *
+     * @return Integer
+     */
+    public Integer getLimit()
+    {
+        return this.limit;
+    }
 
     /**
      * Build Message Body
      */
     public String build()
     {
-        return "";
+        if( this.token.isEmpty() ){
+            return "";
+        }
+
+        if( !this.token.isEmpty() ){
+            this.body += "token=" + this.token;
+        }
+
+        if( !this.cursor.isEmpty() ){
+            this.body += "&cursor=" + this.cursor;
+        }
+
+        if( this.limit != null ){
+            this.body += "&limit=" + this.limit;
+        }
+
+        return this.body;
     }
 }
