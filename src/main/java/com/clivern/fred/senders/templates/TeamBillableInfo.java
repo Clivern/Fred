@@ -35,12 +35,66 @@ import com.clivern.fred.contract.templates.BasicTemplate;
 public class TeamBillableInfo extends BasicTemplate {
 
     protected String url = Basic.methodURL(Basic.teamBillableInfoMethod);
+    protected String token;
+    protected String user;
+
+    /**
+     * Set Token
+     *
+     * @param token
+     */
+    public void setToken(String token)
+    {
+        this.token = token;
+    }
+
+    /**
+     * Set User
+     *
+     * @param user
+     */
+    public void setUser(String user)
+    {
+        this.user = user;
+    }
+
+    /**
+     * Get Token
+     *
+     * @return String
+     */
+    public String getToken()
+    {
+        return this.token;
+    }
+
+    /**
+     * Get User
+     *
+     * @return String
+     */
+    public String getUser()
+    {
+        return this.user;
+    }
 
     /**
      * Build Message Body
      */
     public String build()
     {
-        return "";
+        if( this.token.isEmpty() ){
+            return "";
+        }
+
+        if( !this.token.isEmpty() ){
+            this.body += "token=" + this.token;
+        }
+
+        if( !this.user.isEmpty() ){
+            this.body += "&user=" + this.user;
+        }
+
+        return this.body;
     }
 }
