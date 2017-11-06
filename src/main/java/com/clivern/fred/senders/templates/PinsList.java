@@ -35,12 +35,66 @@ import com.clivern.fred.contract.templates.BasicTemplate;
 public class PinsList extends BasicTemplate {
 
     protected String url = Basic.methodURL(Basic.pinsListMethod);
+    protected String token;
+    protected String channel;
+
+    /**
+     * Set Token
+     *
+     * @param token
+     */
+    public void setToken(String token)
+    {
+        this.token = token;
+    }
+
+    /**
+     * Set Channel
+     *
+     * @param channel
+     */
+    public void setChannel(String channel)
+    {
+        this.channel = channel;
+    }
+
+    /**
+     * Get Token
+     *
+     * @return String
+     */
+    public String getToken()
+    {
+        return this.token;
+    }
+
+    /**
+     * Get Channel
+     *
+     * @return String
+     */
+    public String getChannel()
+    {
+        return this.channel;
+    }
 
     /**
      * Build Message Body
      */
     public String build()
     {
-        return "";
+        if( this.token.isEmpty() || this.channel.isEmpty() ){
+            return "";
+        }
+
+        if( !this.token.isEmpty() ){
+            this.body += "token=" + this.token;
+        }
+
+        if( !this.channel.isEmpty() ){
+            this.body += "channel=" + this.channel;
+        }
+
+        return this.body;
     }
 }
