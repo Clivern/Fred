@@ -134,7 +134,7 @@ public class ImOpen extends BasicTemplate {
         }
 
         if( !this.user.isEmpty() ){
-            this.body += "user=" + this.user;
+            this.body += "&user=" + this.user;
         }
 
         if( this.includeLocale != null ){

@@ -176,15 +176,15 @@ public class ReactionsGet extends BasicTemplate {
         }
 
         if( !this.channel.isEmpty() ){
-            this.body += "channel=" + this.channel;
+            this.body += "&channel=" + this.channel;
         }
 
         if( !this.file.isEmpty() ){
-            this.body += "file=" + this.file;
+            this.body += "&file=" + this.file;
         }
 
         if( !this.fileComment.isEmpty() ){
-            this.body += "file_comment=" + this.fileComment;
+            this.body += "&file_comment=" + this.fileComment;
         }
 
         if( this.full != null ){
@@ -192,7 +192,7 @@ public class ReactionsGet extends BasicTemplate {
         }
 
         if( !this.timestamp.isEmpty() ){
-            this.body += "timestamp=" + this.timestamp;
+            this.body += "&timestamp=" + this.timestamp;
         }
 
         return this.body;

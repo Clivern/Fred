@@ -114,7 +114,7 @@ public class UsergroupsUsersList extends BasicTemplate {
         }
 
         if( !this.usergroup.isEmpty() ){
-            this.body += "usergroup=" + this.usergroup;
+            this.body += "&usergroup=" + this.usergroup;
         }
 
         if( this.includeDisabled != null ){

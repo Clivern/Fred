@@ -138,7 +138,7 @@ public class UsergroupsUsersUpdate extends BasicTemplate {
         }
 
         if( !this.users.isEmpty() ){
-            this.body += "users=" + this.users;
+            this.body += "&users=" + this.users;
         }
 
         if( this.includeCount != null ){

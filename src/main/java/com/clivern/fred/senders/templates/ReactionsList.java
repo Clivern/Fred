@@ -155,7 +155,7 @@ public class ReactionsList extends BasicTemplate {
         }
 
         if( this.count != null ){
-            this.body += "count=" + this.count;
+            this.body += "&count=" + this.count;
         }
 
         if( this.full != null ){
@@ -163,11 +163,11 @@ public class ReactionsList extends BasicTemplate {
         }
 
         if( this.page != null ){
-            this.body += "page=" + this.page;
+            this.body += "&page=" + this.page;
         }
 
         if( !this.user.isEmpty() ){
-            this.body += "user=" + this.user;
+            this.body += "&user=" + this.user;
         }
 
         return this.body;

@@ -92,7 +92,7 @@ public class PinsList extends BasicTemplate {
         }
 
         if( !this.channel.isEmpty() ){
-            this.body += "channel=" + this.channel;
+            this.body += "&channel=" + this.channel;
         }
 
         return this.body;
