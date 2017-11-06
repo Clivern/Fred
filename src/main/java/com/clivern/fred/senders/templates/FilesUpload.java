@@ -109,7 +109,7 @@ public class FilesUpload extends BasicTemplate {
      *
      * @param initialComment
      */
-    public void setFilename(String initialComment)
+    public void setInitialComment(String initialComment)
     {
         this.initialComment = initialComment;
     }
