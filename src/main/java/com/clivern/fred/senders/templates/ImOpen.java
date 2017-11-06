@@ -35,12 +35,116 @@ import com.clivern.fred.contract.templates.BasicTemplate;
 public class ImOpen extends BasicTemplate {
 
     protected String url = Basic.methodURL(Basic.imOpenMethod);
+    protected String token;
+    protected String user;
+    protected Boolean includeLocale;
+    protected Boolean returnIm;
+
+    /**
+     * Set Token
+     *
+     * @param token
+     */
+    public void setToken(String token)
+    {
+        this.token = token;
+    }
+
+    /**
+     * Set User
+     *
+     * @param user
+     */
+    public void setUser(String user)
+    {
+        this.user = user;
+    }
+
+    /**
+     * Set Include Locale
+     *
+     * @param includeLocale
+     */
+    public void setIncludeLocale(Boolean includeLocale)
+    {
+        this.includeLocale = includeLocale;
+    }
+
+    /**
+     * Set Return Im
+     *
+     * @param returnIm
+     */
+    public void setReturnIm(Boolean returnIm)
+    {
+        this.returnIm = returnIm;
+    }
+
+    /**
+     * Get Token
+     *
+     * @return String
+     */
+    public String getToken()
+    {
+        return this.token;
+    }
+
+    /**
+     * Get User
+     *
+     * @return String
+     */
+    public String getUser()
+    {
+        return this.user;
+    }
+
+    /**
+     * Get Include Locale
+     *
+     * @return Boolean
+     */
+    public Boolean getIncludeLocale()
+    {
+        return this.includeLocale;
+    }
+
+    /**
+     * Get Return Im
+     *
+     * @return Boolean
+     */
+    public Boolean getReturnIm()
+    {
+        return this.returnIm;
+    }
 
     /**
      * Build Message Body
      */
     public String build()
     {
-        return "";
+        if( this.token.isEmpty() || this.user.isEmpty() ){
+            return "";
+        }
+
+        if( !this.token.isEmpty() ){
+            this.body += "token=" + this.token;
+        }
+
+        if( !this.user.isEmpty() ){
+            this.body += "user=" + this.user;
+        }
+
+        if( this.includeLocale != null ){
+            this.body += "&include_locale=" + ((this.includeLocale) ? "true" : "false");
+        }
+
+        if( this.returnIm != null ){
+            this.body += "&return_im=" + ((this.returnIm) ? "true" : "false");
+        }
+
+        return this.body;
     }
 }
