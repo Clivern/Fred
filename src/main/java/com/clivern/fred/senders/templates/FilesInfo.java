@@ -35,12 +35,116 @@ import com.clivern.fred.contract.templates.BasicTemplate;
 public class FilesInfo extends BasicTemplate {
 
     protected String url = Basic.methodURL(Basic.filesInfoMethod);
+    protected String token;
+    protected String file;
+    protected Integer count;
+    protected Integer page;
+
+    /**
+     * Set Token
+     *
+     * @param token
+     */
+    public void setToken(String token)
+    {
+        this.token = token;
+    }
+
+    /**
+     * Set File
+     *
+     * @param file
+     */
+    public void setFile(String file)
+    {
+        this.file = file;
+    }
+
+    /**
+     * Set Count
+     *
+     * @param count
+     */
+    public void setCount(Integer count)
+    {
+        this.count = count;
+    }
+
+    /**
+     * Set Page
+     *
+     * @param page
+     */
+    public void setPage(Integer page)
+    {
+        this.page = page;
+    }
+
+    /**
+     * Get Token
+     *
+     * @return String
+     */
+    public String getToken()
+    {
+        return this.token;
+    }
+
+    /**
+     * Get File
+     *
+     * @return String
+     */
+    public String getFile()
+    {
+        return this.file;
+    }
+
+    /**
+     * Get Count
+     *
+     * @return Integer
+     */
+    public Integer getCount()
+    {
+        return this.count;
+    }
+
+    /**
+     * Get Page
+     *
+     * @return Integer
+     */
+    public Integer getPage()
+    {
+        return this.page;
+    }
 
     /**
      * Build Message Body
      */
     public String build()
     {
-        return "";
+        if( this.token.isEmpty() || this.file.isEmpty() ){
+            return "";
+        }
+
+        if( !this.token.isEmpty() ){
+            this.body += "token=" + this.token;
+        }
+
+        if( !this.file.isEmpty() ){
+            this.body += "&file=" + this.file;
+        }
+
+        if( this.count != null ){
+            this.body += "&count=" + this.count;
+        }
+
+        if( this.page != null ){
+            this.body += "&page=" + this.page;
+        }
+
+        return this.body;
     }
 }
