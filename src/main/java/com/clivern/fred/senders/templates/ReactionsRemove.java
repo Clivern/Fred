@@ -35,12 +35,166 @@ import com.clivern.fred.contract.templates.BasicTemplate;
 public class ReactionsRemove extends BasicTemplate {
 
     protected String url = Basic.methodURL(Basic.reactionsRemoveMethod);
+    protected String token;
+    protected String name;
+    protected String channel;
+    protected String file;
+    protected String fileComment;
+    protected String timestamp;
+
+    /**
+     * Set Token
+     *
+     * @param token
+     */
+    public void setToken(String token)
+    {
+        this.token = token;
+    }
+
+    /**
+     * Set Name
+     *
+     * @param name
+     */
+    public void setName(String name)
+    {
+        this.name = name;
+    }
+
+    /**
+     * Set Channel
+     *
+     * @param channel
+     */
+    public void setChannel(String channel)
+    {
+        this.channel = channel;
+    }
+
+    /**
+     * Set File
+     *
+     * @param file
+     */
+    public void setFile(String file)
+    {
+        this.file = file;
+    }
+
+    /**
+     * Set File Comment
+     *
+     * @param fileComment
+     */
+    public void setFileComment(String fileComment)
+    {
+        this.fileComment = fileComment;
+    }
+
+    /**
+     * Set Timestamp
+     *
+     * @param timestamp
+     */
+    public void setTimestamp(String timestamp)
+    {
+        this.timestamp = timestamp;
+    }
+
+    /**
+     * Get Token
+     *
+     * @return String
+     */
+    public String getToken()
+    {
+        return this.token;
+    }
+
+    /**
+     * Get Name
+     *
+     * @return String
+     */
+    public String getName()
+    {
+        return this.name;
+    }
+
+    /**
+     * Get Channel
+     *
+     * @return String
+     */
+    public String getChannel()
+    {
+        return this.channel;
+    }
+
+    /**
+     * Get File
+     *
+     * @return String
+     */
+    public String getFile()
+    {
+        return this.file;
+    }
+
+    /**
+     * Get File Comment
+     *
+     * @return String
+     */
+    public String getFileComment()
+    {
+        return this.fileComment;
+    }
+
+    /**
+     * Get Timestamp
+     *
+     * @return String
+     */
+    public String getTimestamp()
+    {
+        return this.timestamp;
+    }
 
     /**
      * Build Message Body
      */
     public String build()
     {
-        return "";
+        if( this.token.isEmpty() || this.name.isEmpty() ){
+            return "";
+        }
+
+        if( !this.token.isEmpty() ){
+            this.body += "token=" + this.token;
+        }
+
+        if( !this.name.isEmpty() ){
+            this.body += "name=" + this.name;
+        }
+
+        if( !this.channel.isEmpty() ){
+            this.body += "channel=" + this.channel;
+        }
+
+        if( !this.file.isEmpty() ){
+            this.body += "file=" + this.file;
+        }
+
+        if( !this.fileComment.isEmpty() ){
+            this.body += "file_comment=" + this.fileComment;
+        }
+
+        if( !this.timestamp.isEmpty() ){
+            this.body += "timestamp=" + this.timestamp;
+        }
+
+        return this.body;
     }
 }
