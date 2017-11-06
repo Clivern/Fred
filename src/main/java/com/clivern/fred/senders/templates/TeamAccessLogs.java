@@ -35,12 +35,116 @@ import com.clivern.fred.contract.templates.BasicTemplate;
 public class TeamAccessLogs extends BasicTemplate {
 
     protected String url = Basic.methodURL(Basic.teamAccessLogsMethod);
+    protected String token;
+    protected String before;
+    protected Integer count;
+    protected Integer page;
+
+    /**
+     * Set Token
+     *
+     * @param token
+     */
+    public void setToken(String token)
+    {
+        this.token = token;
+    }
+
+    /**
+     * Set Before
+     *
+     * @param before
+     */
+    public void setBefore(String before)
+    {
+        this.before = before;
+    }
+
+    /**
+     * Set Count
+     *
+     * @param count
+     */
+    public void setCount(Integer count)
+    {
+        this.count = count;
+    }
+
+    /**
+     * Set Page
+     *
+     * @param page
+     */
+    public void setPage(Integer page)
+    {
+        this.page = page;
+    }
+
+    /**
+     * Get Token
+     *
+     * @return String
+     */
+    public String getToken()
+    {
+        return this.token;
+    }
+
+    /**
+     * Get Before
+     *
+     * @return String
+     */
+    public String getBefore()
+    {
+        return this.before;
+    }
+
+    /**
+     * Get Count
+     *
+     * @return Integer
+     */
+    public Integer getCount()
+    {
+        return this.count;
+    }
+
+    /**
+     * Get Page
+     *
+     * @return Integer
+     */
+    public Integer getPage()
+    {
+        return this.page;
+    }
 
     /**
      * Build Message Body
      */
     public String build()
     {
-        return "";
+        if( this.token.isEmpty() ){
+            return "";
+        }
+
+        if( !this.token.isEmpty() ){
+            this.body += "token=" + this.token;
+        }
+
+        if( !this.before.isEmpty() ){
+            this.body += "&before=" + this.before;
+        }
+
+        if( this.count != null ){
+            this.body += "&count=" + this.count;
+        }
+
+        if( this.page != null ){
+            this.body += "&page=" + this.page;
+        }
+
+        return this.body;
     }
 }
