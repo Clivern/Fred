@@ -35,12 +35,66 @@ import com.clivern.fred.contract.templates.BasicTemplate;
 public class DndSetSnooze extends BasicTemplate {
 
     protected String url = Basic.methodURL(Basic.dndSetSnoozeMethod);
+    protected String token;
+    protected Integer numMinutes;
+
+    /**
+     * Set Token
+     *
+     * @param token
+     */
+    public void setToken(String token)
+    {
+        this.token = token;
+    }
+
+    /**
+     * Set Num Minutes
+     *
+     * @param numMinutes
+     */
+    public void setNumMinutes(Integer numMinutes)
+    {
+        this.numMinutes = numMinutes;
+    }
+
+    /**
+     * Get Token
+     *
+     * @return String
+     */
+    public String getToken()
+    {
+        return this.token;
+    }
+
+    /**
+     * Get Num Minutes
+     *
+     * @return Integer
+     */
+    public Integer getNumMinutes()
+    {
+        return this.numMinutes;
+    }
 
     /**
      * Build Message Body
      */
     public String build()
     {
-        return "";
+        if( this.token.isEmpty() || this.numMinutes == null ){
+            return "";
+        }
+
+        if( !this.token.isEmpty() ){
+            this.body += "token=" + this.token;
+        }
+
+        if( this.numMinutes != null ){
+            this.body += "&num_minutes=" + this.numMinutes;
+        }
+
+        return this.body;
     }
 }
