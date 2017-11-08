@@ -35,12 +35,66 @@ import com.clivern.fred.contract.templates.BasicTemplate;
 public class DndTeamInfo extends BasicTemplate {
 
     protected String url = Basic.methodURL(Basic.dndTeamInfoMethod);
+    protected String token;
+    protected String users;
+
+    /**
+     * Set Token
+     *
+     * @param token
+     */
+    public void setToken(String token)
+    {
+        this.token = token;
+    }
+
+    /**
+     * Set Users
+     *
+     * @param users
+     */
+    public void setUsers(String users)
+    {
+        this.users = users;
+    }
+
+    /**
+     * Get Token
+     *
+     * @return String
+     */
+    public String getToken()
+    {
+        return this.token;
+    }
+
+    /**
+     * Get Users
+     *
+     * @return String
+     */
+    public String getUsers()
+    {
+        return this.users;
+    }
 
     /**
      * Build Message Body
      */
     public String build()
     {
-        return "";
+        if( this.token.isEmpty() ){
+            return "";
+        }
+
+        if( !this.token.isEmpty() ){
+            this.body += "token=" + this.token;
+        }
+
+        if( !this.users.isEmpty() ){
+            this.body += "&users=" + this.users;
+        }
+
+        return this.body;
     }
 }
