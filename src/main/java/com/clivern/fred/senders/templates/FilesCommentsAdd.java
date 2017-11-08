@@ -35,12 +35,91 @@ import com.clivern.fred.contract.templates.BasicTemplate;
 public class FilesCommentsAdd extends BasicTemplate {
 
     protected String url = Basic.methodURL(Basic.filesCommentsAddMethod);
+    protected String token;
+    protected String comment;
+    protected String file;
+
+    /**
+     * Set Token
+     *
+     * @param token
+     */
+    public void setToken(String token)
+    {
+        this.token = token;
+    }
+
+    /**
+     * Set Comment
+     *
+     * @param comment
+     */
+    public void setComment(String comment)
+    {
+        this.comment = comment;
+    }
+
+    /**
+     * Set File
+     *
+     * @param file
+     */
+    public void setFile(String file)
+    {
+        this.file = file;
+    }
+
+    /**
+     * Get Token
+     *
+     * @return String
+     */
+    public String getToken()
+    {
+        return this.token;
+    }
+
+    /**
+     * Get Comment
+     *
+     * @return String
+     */
+    public String getComment()
+    {
+        return this.comment;
+    }
+
+    /**
+     * Get File
+     *
+     * @return String
+     */
+    public String getFile()
+    {
+        return this.file;
+    }
 
     /**
      * Build Message Body
      */
     public String build()
     {
-        return "";
+        if( this.token.isEmpty() || this.comment.isEmpty() || this.file.isEmpty() ){
+            return "";
+        }
+
+        if( !this.token.isEmpty() ){
+            this.body += "token=" + this.token;
+        }
+
+        if( !this.comment.isEmpty() ){
+            this.body += "&comment=" + this.comment;
+        }
+
+        if( !this.file.isEmpty() ){
+            this.body += "&file=" + this.file;
+        }
+
+        return this.body;
     }
 }
