@@ -35,12 +35,91 @@ import com.clivern.fred.contract.templates.BasicTemplate;
 public class FilesCommentsDelete extends BasicTemplate {
 
     protected String url = Basic.methodURL(Basic.filesCommentsDeleteMethod);
+    protected String token;
+    protected String id;
+    protected String file;
+
+    /**
+     * Set Token
+     *
+     * @param token
+     */
+    public void setToken(String token)
+    {
+        this.token = token;
+    }
+
+    /**
+     * Set Id
+     *
+     * @param id
+     */
+    public void setId(String id)
+    {
+        this.id = id;
+    }
+
+    /**
+     * Set File
+     *
+     * @param file
+     */
+    public void setFile(String file)
+    {
+        this.file = file;
+    }
+
+    /**
+     * Get Token
+     *
+     * @return String
+     */
+    public String getToken()
+    {
+        return this.token;
+    }
+
+    /**
+     * Get Id
+     *
+     * @return String
+     */
+    public String getId()
+    {
+        return this.id;
+    }
+
+    /**
+     * Get File
+     *
+     * @return String
+     */
+    public String getFile()
+    {
+        return this.file;
+    }
 
     /**
      * Build Message Body
      */
     public String build()
     {
-        return "";
+        if( this.token.isEmpty() || this.id.isEmpty() || this.file.isEmpty() ){
+            return "";
+        }
+
+        if( !this.token.isEmpty() ){
+            this.body += "token=" + this.token;
+        }
+
+        if( !this.id.isEmpty() ){
+            this.body += "&id=" + this.id;
+        }
+
+        if( !this.file.isEmpty() ){
+            this.body += "&file=" + this.file;
+        }
+
+        return this.body;
     }
 }
