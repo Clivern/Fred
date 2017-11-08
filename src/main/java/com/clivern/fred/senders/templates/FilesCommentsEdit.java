@@ -35,12 +35,116 @@ import com.clivern.fred.contract.templates.BasicTemplate;
 public class FilesCommentsEdit extends BasicTemplate {
 
     protected String url = Basic.methodURL(Basic.filesCommentsEditMethod);
+    protected String token;
+    protected String comment;
+    protected String file;
+    protected String id;
+
+    /**
+     * Set Token
+     *
+     * @param token
+     */
+    public void setToken(String token)
+    {
+        this.token = token;
+    }
+
+    /**
+     * Set Comment
+     *
+     * @param comment
+     */
+    public void setComment(String comment)
+    {
+        this.comment = comment;
+    }
+
+    /**
+     * Set File
+     *
+     * @param file
+     */
+    public void setFile(String file)
+    {
+        this.file = file;
+    }
+
+    /**
+     * Set Id
+     *
+     * @param id
+     */
+    public void setId(String id)
+    {
+        this.id = id;
+    }
+
+    /**
+     * Get Token
+     *
+     * @return String
+     */
+    public String getToken()
+    {
+        return this.token;
+    }
+
+    /**
+     * Get Comment
+     *
+     * @return String
+     */
+    public String getComment()
+    {
+        return this.comment;
+    }
+
+    /**
+     * Get File
+     *
+     * @return String
+     */
+    public String getFile()
+    {
+        return this.file;
+    }
+
+    /**
+     * Get Id
+     *
+     * @return String
+     */
+    public String getId()
+    {
+        return this.id;
+    }
 
     /**
      * Build Message Body
      */
     public String build()
     {
-        return "";
+        if( this.token.isEmpty() || this.comment.isEmpty() || this.file.isEmpty() || this.id.isEmpty() ){
+            return "";
+        }
+
+        if( !this.token.isEmpty() ){
+            this.body += "token=" + this.token;
+        }
+
+        if( !this.comment.isEmpty() ){
+            this.body += "&comment=" + this.comment;
+        }
+
+        if( !this.file.isEmpty() ){
+            this.body += "&file=" + this.file;
+        }
+
+        if( !this.id.isEmpty() ){
+            this.body += "&id=" + this.id;
+        }
+
+        return this.body;
     }
 }
