@@ -35,12 +35,66 @@ import com.clivern.fred.contract.templates.BasicTemplate;
 public class RtmConnect extends BasicTemplate {
 
     protected String url = Basic.methodURL(Basic.rtmConnectMethod);
+    protected String token;
+    protected Integer batchPresenceAware;
+
+    /**
+     * Set Token
+     *
+     * @param token
+     */
+    public void setToken(String token)
+    {
+        this.token = token;
+    }
+
+    /**
+     * Set Batch Presence Aware
+     *
+     * @param batchPresenceAware
+     */
+    public void setBatchPresenceAware(Integer batchPresenceAware)
+    {
+        this.batchPresenceAware = batchPresenceAware;
+    }
+
+    /**
+     * Get Token
+     *
+     * @return String
+     */
+    public String getToken()
+    {
+        return this.token;
+    }
+
+    /**
+     * Get Batch Presence Aware
+     *
+     * @return Integer
+     */
+    public Integer getBatchPresenceAware()
+    {
+        return this.batchPresenceAware;
+    }
 
     /**
      * Build Message Body
      */
     public String build()
     {
-        return "";
+        if( this.token.isEmpty() ){
+            return "";
+        }
+
+        if( !this.token.isEmpty() ){
+            this.body += "token=" + this.token;
+        }
+
+        if( this.batchPresenceAware != null ){
+            this.body += "&batch_presence_aware=" + this.batchPresenceAware;
+        }
+
+        return this.body;
     }
 }
