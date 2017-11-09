@@ -35,12 +35,191 @@ import com.clivern.fred.contract.templates.BasicTemplate;
 public class RtmStart extends BasicTemplate {
 
     protected String url = Basic.methodURL(Basic.rtmStartMethod);
+    protected String token;
+    protected Integer batchPresenceAware;
+    protected Integer noLatest;
+	protected Boolean includeLocale;
+	protected Boolean mpimAware;
+	protected Boolean noUnreads;
+	protected Boolean simpleLatest;
+
+
+    /**
+     * Set Token
+     *
+     * @param token
+     */
+    public void setToken(String token)
+    {
+        this.token = token;
+    }
+
+    /**
+     * Set Batch Presence Aware
+     *
+     * @param batchPresenceAware
+     */
+    public void setBatchPresenceAware(Integer batchPresenceAware)
+    {
+        this.batchPresenceAware = batchPresenceAware;
+    }
+
+    /**
+     * Set No Latest
+     *
+     * @param noLatest
+     */
+    public void setNoLatest(Integer noLatest)
+    {
+        this.noLatest = noLatest;
+    }
+
+    /**
+     * Set Include Locale
+     *
+     * @param includeLocale
+     */
+    public void setIncludeLocale(Boolean includeLocale)
+    {
+        this.includeLocale = includeLocale;
+    }
+
+    /**
+     * Set Mpim Aware
+     *
+     * @param mpimAware
+     */
+    public void setMpimAware(Boolean mpimAware)
+    {
+        this.mpimAware = mpimAware;
+    }
+
+    /**
+     * Set INo Unreads
+     *
+     * @param noUnreads
+     */
+    public void setNoUnreads(Boolean noUnreads)
+    {
+        this.noUnreads = noUnreads;
+    }
+
+    /**
+     * Set Simple Latest
+     *
+     * @param simpleLatest
+     */
+    public void setSimpleLatest(Boolean simpleLatest)
+    {
+        this.simpleLatest = simpleLatest;
+    }
+
+    /**
+     * Get Token
+     *
+     * @return String
+     */
+    public String getToken()
+    {
+        return this.token;
+    }
+
+    /**
+     * Get Batch Presence Aware
+     *
+     * @return Integer
+     */
+    public Integer getBatchPresenceAware()
+    {
+        return this.batchPresenceAware;
+    }
+
+    /**
+     * Get No Latest
+     *
+     * @return Integer
+     */
+    public Integer getNoLatest()
+    {
+        return this.noLatest;
+    }
+
+    /**
+     * Get Include Locale
+     *
+     * @return Boolean
+     */
+    public Boolean getIncludeLocale()
+    {
+        return this.includeLocale;
+    }
+
+    /**
+     * Get Mpim Aware
+     *
+     * @return Boolean
+     */
+    public Boolean getMpimAware()
+    {
+        return this.mpimAware;
+    }
+
+    /**
+     * Get No Unreads
+     *
+     * @return Boolean
+     */
+    public Boolean getNoUnreads()
+    {
+        return this.noUnreads;
+    }
+
+    /**
+     * Get Simple Latest
+     *
+     * @return Boolean
+     */
+    public Boolean getSimpleLatest()
+    {
+        return this.simpleLatest;
+    }
 
     /**
      * Build Message Body
      */
     public String build()
     {
-        return "";
+        if( this.token.isEmpty() ){
+            return "";
+        }
+
+        if( !this.token.isEmpty() ){
+            this.body += "token=" + this.token;
+        }
+
+        if( this.batchPresenceAware != null ){
+            this.body += "&batch_presence_aware=" + this.batchPresenceAware;
+        }
+
+        if( this.noLatest != null ){
+            this.body += "&no_latest=" + this.noLatest;
+        }
+
+        if( this.includeLocale != null ){
+            this.body += "&include_locale=" + ((this.includeLocale) ? "true" : "false");
+        }
+
+        if( this.mpimAware != null ){
+            this.body += "&mpim_aware=" + ((this.mpimAware) ? "true" : "false");
+        }
+
+        if( this.noUnreads != null ){
+            this.body += "&no_unreads=" + ((this.noUnreads) ? "true" : "false");
+        }
+        if( this.simpleLatest != null ){
+            this.body += "&simple_latest=" + ((this.simpleLatest) ? "true" : "false");
+        }
+
+        return this.body;
     }
 }
