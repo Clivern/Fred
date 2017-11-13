@@ -24,8 +24,6 @@ import java.util.Map;
  */
 public abstract class CommandTemplate {
 
-    protected String plainRequest;
-
     protected String command;
 
     protected String requestURL;
@@ -35,6 +33,8 @@ public abstract class CommandTemplate {
     protected String usageHint;
 
     protected Map<String, String> incomingData = new HashMap<String, String>();
+
+    protected String plainRequest;
 
 
     /**
