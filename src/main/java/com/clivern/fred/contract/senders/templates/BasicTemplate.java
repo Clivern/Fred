@@ -11,7 +11,7 @@
  * or implied. See the License for the specific language governing permissions and limitations under
  * the License.
  */
-package com.clivern.fred.contract.templates;
+package com.clivern.fred.contract.senders.templates;
 
 /**
  * Basic Template Class

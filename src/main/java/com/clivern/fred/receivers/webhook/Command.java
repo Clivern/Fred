@@ -11,36 +11,27 @@
  * or implied. See the License for the specific language governing permissions and limitations under
  * the License.
  */
-package com.clivern.fred.senders.templates;
+package com.clivern.fred.receivers.webhook;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import com.clivern.fred.configs.Basic;
-import com.clivern.fred.contract.senders.templates.BasicTemplate;
+import com.clivern.fred.contract.receivers.webhook.CommandTemplate;
 
 /**
- * Chat Unfurl Template Class
+ * App Defined Commands
  *
- * It Provide custom unfurl behavior for user-posted URLs.
- *
- * Supported token types: workspace, user
- * Expected scopes: links:write, post
- *
- * <a href="https://api.slack.com/methods/chat.unfurl">For More Info</a>
+ * <a href="https://api.slack.com/slash-commands">For More Info</a>
  *
  * @author A.F
  * @since 1.0.0
  */
-public class ChatUnfurl extends BasicTemplate {
+public class Command extends CommandTemplate {
 
-    protected String url = Basic.methodURL(Basic.chatUnfurlMethod);
-
-    /**
-     * Build Message Body
-     */
-    public String build()
+    public Boolean parse()
     {
-        return "";
+        return true;
     }
+
 }

@@ -22,7 +22,7 @@ import com.mashape.unirest.http.exceptions.UnirestException;
 import com.mashape.unirest.http.options.Options;
 import com.mashape.unirest.request.GetRequest;
 import com.mashape.unirest.request.HttpRequest;
-import com.clivern.fred.contract.templates.BasicTemplate;
+import com.clivern.fred.contract.senders.templates.BasicTemplate;
 
 /**
  * Base Sender Class

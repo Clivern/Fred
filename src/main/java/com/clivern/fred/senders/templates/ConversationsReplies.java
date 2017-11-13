@@ -17,7 +17,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import com.clivern.fred.configs.Basic;
-import com.clivern.fred.contract.templates.BasicTemplate;
+import com.clivern.fred.contract.senders.templates.BasicTemplate;
 
 /**
  * Conversations Replies Template Class
