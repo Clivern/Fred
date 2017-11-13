@@ -26,7 +26,13 @@ public abstract class CommandTemplate {
 
     protected String plainRequest;
 
-    protected String commnadName;
+    protected String command;
+
+    protected String requestURL;
+
+    protected String shortDescription;
+
+    protected String usageHint;
 
     protected Map<String, String> incomingData = new HashMap<String, String>();
 
@@ -34,21 +40,69 @@ public abstract class CommandTemplate {
     /**
      * Class Constructor
      *
-     * @param commnadName
+     * @param command
+     * @param requestURL
      */
-    public void Command(String commnadName)
+    public void Command(String command, String requestURL)
     {
-        this.commnadName = commnadName;
+        this.command = command;
+        this.requestURL = requestURL;
+    }
+
+    /**
+     * Class Constructor
+     *
+     * @param command
+     * @param requestURL
+     * @param shortDescription
+     * @param usageHint
+     */
+    public void Command(String command, String requestURL, String shortDescription, String usageHint)
+    {
+        this.command = command;
+        this.requestURL = requestURL;
+        this.shortDescription = shortDescription;
+        this.usageHint = usageHint;
     }
 
     /**
      * Set Command
      *
-     * @param commnadName
+     * @param command
      */
-    public void setCommand(String commnadName)
+    public void setCommand(String command)
     {
-        this.commnadName = commnadName;
+        this.command = command;
+    }
+
+    /**
+     * Set Request URL
+     *
+     * @param requestURL
+     */
+    public void setRequestURL(String requestURL)
+    {
+        this.requestURL = requestURL;
+    }
+
+    /**
+     * Set Short Description
+     *
+     * @param shortDescription
+     */
+    public void setShortDescription(String shortDescription)
+    {
+        this.shortDescription = shortDescription;
+    }
+
+    /**
+     * Set Usage Hint
+     *
+     * @param usageHint
+     */
+    public void setUsageHint(String usageHint)
+    {
+        this.usageHint = usageHint;
     }
 
     /**
@@ -56,9 +110,39 @@ public abstract class CommandTemplate {
      *
      * @return String
      */
-    public String getCommandName()
+    public String getCommand()
     {
-        return this.commnadName;
+        return this.command;
+    }
+
+    /**
+     * Get request URL
+     *
+     * @return String
+     */
+    public String getRequestURL()
+    {
+        return this.requestURL;
+    }
+
+    /**
+     * Get Short Description
+     *
+     * @return String
+     */
+    public String getShortDescription()
+    {
+        return this.shortDescription;
+    }
+
+    /**
+     * Get Usage Hint
+     *
+     * @return String
+     */
+    public String getUsageHint()
+    {
+        return this.usageHint;
     }
 
     /**
