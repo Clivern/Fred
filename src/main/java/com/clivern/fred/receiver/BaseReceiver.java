@@ -69,7 +69,7 @@ public class BaseReceiver {
      */
     public CommandTemplate getCommand(String command) throws CommandNotFound
     {
-        if( this.commands.containsKey(command) ){
+        if( this.commandExists(command) ){
             return this.commands.get(command);
         }
 
