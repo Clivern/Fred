@@ -19,6 +19,8 @@ import com.clivern.fred.util.Config;
 import com.clivern.fred.util.Log;
 import org.json.JSONObject;
 import org.json.JSONArray;
+import com.clivern.fred.exception.CommandNotFound;
+import com.clivern.fred.contract.receiver.command.CommandTemplate;
 
 /**
  * Base Receiver Class
@@ -32,6 +34,8 @@ public class BaseReceiver {
 
     protected Log log;
 
+    protected Map<String, CommandTemplate> commands = new HashMap<String, CommandTemplate>();
+
 
     /**
      * Class Constructor
@@ -43,5 +47,43 @@ public class BaseReceiver {
     {
         this.configs = configs;
         this.log = log;
+    }
+
+    /**
+     * Set Command
+     *
+     * @param command
+     * @param template
+     */
+    public void setCommand(String command, CommandTemplate template)
+    {
+        this.commands.put(command, template);
+    }
+
+    /**
+     * Get Command
+     *
+     * @param  command
+     * @return String
+     * @throws CommandNotFound
+     */
+    public CommandTemplate getCommand(String command) throws CommandNotFound
+    {
+        if( this.commands.containsKey(command) ){
+            return this.commands.get(command);
+        }
+
+        throw new CommandNotFound("Error! Slack Command Not Found.");
+    }
+
+    /**
+     * Check if Command Exists
+     *
+     * @param  command
+     * @return Boolean
+     */
+    public Boolean commandExists(String command)
+    {
+        return this.commands.containsKey(command);
     }
 }
