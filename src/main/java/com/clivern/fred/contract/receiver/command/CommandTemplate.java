@@ -19,6 +19,8 @@ import java.util.Map;
 /**
  * Command Template Class
  *
+ * <a href="https://api.slack.com/slash-commands">For More Info</a>
+ *
  * @author A.F
  * @since 1.0.0
  */
@@ -33,6 +35,8 @@ public abstract class CommandTemplate {
     protected String usageHint;
 
     protected String validationToken;
+
+    protected Boolean expandedText;
 
     protected Map<String, String> incomingData = new HashMap<String, String>();
 
@@ -118,6 +122,16 @@ public abstract class CommandTemplate {
     }
 
     /**
+     * Set Expanded Text
+     *
+     * @param expandedText
+     */
+    public void setExpandedText(Boolean expandedText)
+    {
+        this.expandedText = expandedText;
+    }
+
+    /**
      * Get Commnad Name
      *
      * @return String
@@ -165,6 +179,16 @@ public abstract class CommandTemplate {
     public String getValidationToken()
     {
         return this.validationToken;
+    }
+
+    /**
+     * Get Expanded Text
+     *
+     * @return Boolean
+     */
+    public Boolean getExpandedText()
+    {
+        return this.expandedText;
     }
 
     /**
@@ -474,6 +498,19 @@ public abstract class CommandTemplate {
         return this.getIncomingItem("trigger_id", "");
     }
 
+    /**
+     * Validate The Incoming Token
+     *
+     * @return Boolean
+     */
+    public Boolean validateRequest()
+    {
+        if( this.validationToken.equals(this.getIncomingItem("token", "")) ){
+            return true;
+        }else{
+            return false;
+        }
+    }
 
     /**
      * Parse the Incoming Request Data
