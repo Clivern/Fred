@@ -29,7 +29,7 @@ import com.clivern.fred.contract.receiver.command.CommandTemplate;
  */
 public class Command extends CommandTemplate {
 
-    public Boolean parse()
+    public Boolean parse(Map<String, String> incomingData)
     {
         return true;
     }

@@ -32,6 +32,8 @@ public abstract class CommandTemplate {
 
     protected String usageHint;
 
+    protected String validationToken;
+
     protected Map<String, String> incomingData = new HashMap<String, String>();
 
     protected String plainRequest;
@@ -106,6 +108,16 @@ public abstract class CommandTemplate {
     }
 
     /**
+     * Set Validation Token
+     *
+     * @param validationToken
+     */
+    public void setValidationToken(String validationToken)
+    {
+        this.validationToken = validationToken;
+    }
+
+    /**
      * Get Commnad Name
      *
      * @return String
@@ -143,6 +155,16 @@ public abstract class CommandTemplate {
     public String getUsageHint()
     {
         return this.usageHint;
+    }
+
+    /**
+     * Get Validation Token
+     *
+     * @return String
+     */
+    public String getValidationToken()
+    {
+        return this.validationToken;
     }
 
     /**
@@ -213,7 +235,250 @@ public abstract class CommandTemplate {
     }
 
     /**
-     * Parse the Incoming Request
+     * Set Token
+     *
+     * @param token
      */
-    abstract public Boolean parse();
+    public void setToken(String token)
+    {
+        this.setIncomingItem("token", token);
+    }
+
+    /**
+     * Set Team Id
+     *
+     * @param teamId
+     */
+    public void setTeamId(String teamId)
+    {
+        this.setIncomingItem("team_id", teamId);
+    }
+
+    /**
+     * Set Team Domain
+     *
+     * @param teamDomain
+     */
+    public void setTeamDomain(String teamDomain)
+    {
+        this.setIncomingItem("team_domain", teamDomain);
+    }
+
+    /**
+     * Set Enterprise Id
+     *
+     * @param enterpriseId
+     */
+    public void setEnterpriseId(String enterpriseId)
+    {
+        this.setIncomingItem("enterprise_id", enterpriseId);
+    }
+
+    /**
+     * Set Enterprise Name
+     *
+     * @param enterpriseName
+     */
+    public void setEnterpriseName(String enterpriseName)
+    {
+        this.setIncomingItem("enterprise_name", enterpriseName);
+    }
+
+    /**
+     * Set Channel Id
+     *
+     * @param channelId
+     */
+    public void setChannelId(String channelId)
+    {
+        this.setIncomingItem("channel_id", channelId);
+    }
+
+    /**
+     * Set Channel Name
+     *
+     * @param channelName
+     */
+    public void setChannelName(String channelName)
+    {
+        this.setIncomingItem("channel_name", channelName);
+    }
+
+    /**
+     * Set User Id
+     *
+     * @param userId
+     */
+    public void setUserId(String userId)
+    {
+        this.setIncomingItem("user_id", userId);
+    }
+
+    /**
+     * Set User Name
+     *
+     * @param userName
+     */
+    public void setUserName(String userName)
+    {
+        this.setIncomingItem("user_name", userName);
+    }
+
+    /**
+     * Set Text
+     *
+     * @param text
+     */
+    public void setText(String text)
+    {
+        this.setIncomingItem("text", text);
+    }
+
+    /**
+     * Set Response Url
+     *
+     * @param responseUrl
+     */
+    public void setResponseUrl(String responseUrl)
+    {
+        this.setIncomingItem("response_url", responseUrl);
+    }
+
+    /**
+     * Set Trigger Id
+     *
+     * @param triggerId
+     */
+    public void setTriggerId(String triggerId)
+    {
+        this.setIncomingItem("trigger_id", triggerId);
+    }
+
+    /**
+     * Get Token
+     *
+     * @return String
+     */
+    public String getToken()
+    {
+        return this.getIncomingItem("token", "");
+    }
+
+    /**
+     * Get Team ID
+     *
+     * @return String
+     */
+    public String getTeamId()
+    {
+        return this.getIncomingItem("team_id", "");
+    }
+
+    /**
+     * Get Team Domain
+     *
+     * @return String
+     */
+    public String getTeamDomain()
+    {
+        return this.getIncomingItem("team_domain", "");
+    }
+
+    /**
+     * Get Enterprise ID
+     *
+     * @return String
+     */
+    public String getEnterpriseId()
+    {
+        return this.getIncomingItem("enterprise_id", "");
+    }
+
+    /**
+     * Get Enterprise Name
+     *
+     * @return String
+     */
+    public String getEnterpriseName()
+    {
+        return this.getIncomingItem("enterprise_name", "");
+    }
+
+    /**
+     * Get Channel ID
+     *
+     * @return String
+     */
+    public String getChannelId()
+    {
+        return this.getIncomingItem("channel_id", "");
+    }
+
+    /**
+     * Get Channel Name
+     *
+     * @return String
+     */
+    public String getChannelName()
+    {
+        return this.getIncomingItem("channel_name", "");
+    }
+
+    /**
+     * Get User ID
+     *
+     * @return String
+     */
+    public String getUserId()
+    {
+        return this.getIncomingItem("user_id", "");
+    }
+
+    /**
+     * Get User Name
+     *
+     * @return String
+     */
+    public String getUserName()
+    {
+        return this.getIncomingItem("user_name", "");
+    }
+
+    /**
+     * Get Text
+     *
+     * @return String
+     */
+    public String getText()
+    {
+        return this.getIncomingItem("text", "");
+    }
+
+    /**
+     * Get Response URL
+     *
+     * @return String
+     */
+    public String getResponseUrl()
+    {
+        return this.getIncomingItem("response_url", "");
+    }
+
+    /**
+     * Get Trigger ID
+     *
+     * @return String
+     */
+    public String getTriggerId()
+    {
+        return this.getIncomingItem("trigger_id", "");
+    }
+
+
+    /**
+     * Parse the Incoming Request Data
+     *
+     * @param incomingData
+     */
+    abstract public Boolean parse(Map<String, String> incomingData);
 }
