@@ -14,9 +14,9 @@
 package com.clivern.fred;
 
 import static spark.Spark.*;
-import com.clivern.fred.utils.*;
-import com.clivern.fred.senders.BaseSender;
-import com.clivern.fred.senders.templates.RemindersAdd;
+import com.clivern.fred.util.*;
+import com.clivern.fred.sender.BaseSender;
+import com.clivern.fred.sender.template.RemindersAdd;
 import com.mashape.unirest.http.exceptions.UnirestException;
 
 /**

@@ -16,8 +16,8 @@ package com.clivern.fred;
 import java.util.HashMap;
 import java.util.Map;
 import java.io.IOException;
-import com.clivern.fred.utils.Config;
-import com.clivern.fred.utils.Log;
+import com.clivern.fred.util.Config;
+import com.clivern.fred.util.Log;
 
 /**
  * Bot Platform Base Class
