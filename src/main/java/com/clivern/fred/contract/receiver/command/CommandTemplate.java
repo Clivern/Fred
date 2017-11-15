@@ -48,11 +48,15 @@ public abstract class CommandTemplate {
      *
      * @param command
      * @param requestURL
+     * @param validationToken
+     * @param expandedText
      */
-    public void Command(String command, String requestURL)
+    public void Command(String command, String requestURL, String validationToken, Boolean expandedText)
     {
         this.command = command;
         this.requestURL = requestURL;
+        this.validationToken = validationToken;
+        this.expandedText = expandedText;
     }
 
     /**
@@ -60,13 +64,17 @@ public abstract class CommandTemplate {
      *
      * @param command
      * @param requestURL
+     * @param validationToken
+     * @param expandedText
      * @param shortDescription
      * @param usageHint
      */
-    public void Command(String command, String requestURL, String shortDescription, String usageHint)
+    public void Command(String command, String requestURL, String validationToken, Boolean expandedText, String shortDescription, String usageHint)
     {
         this.command = command;
         this.requestURL = requestURL;
+        this.validationToken = validationToken;
+        this.expandedText = expandedText;
         this.shortDescription = shortDescription;
         this.usageHint = usageHint;
     }
@@ -92,26 +100,6 @@ public abstract class CommandTemplate {
     }
 
     /**
-     * Set Short Description
-     *
-     * @param shortDescription
-     */
-    public void setShortDescription(String shortDescription)
-    {
-        this.shortDescription = shortDescription;
-    }
-
-    /**
-     * Set Usage Hint
-     *
-     * @param usageHint
-     */
-    public void setUsageHint(String usageHint)
-    {
-        this.usageHint = usageHint;
-    }
-
-    /**
      * Set Validation Token
      *
      * @param validationToken
@@ -129,6 +117,26 @@ public abstract class CommandTemplate {
     public void setExpandedText(Boolean expandedText)
     {
         this.expandedText = expandedText;
+    }
+
+    /**
+     * Set Short Description
+     *
+     * @param shortDescription
+     */
+    public void setShortDescription(String shortDescription)
+    {
+        this.shortDescription = shortDescription;
+    }
+
+    /**
+     * Set Usage Hint
+     *
+     * @param usageHint
+     */
+    public void setUsageHint(String usageHint)
+    {
+        this.usageHint = usageHint;
     }
 
     /**
@@ -152,26 +160,6 @@ public abstract class CommandTemplate {
     }
 
     /**
-     * Get Short Description
-     *
-     * @return String
-     */
-    public String getShortDescription()
-    {
-        return this.shortDescription;
-    }
-
-    /**
-     * Get Usage Hint
-     *
-     * @return String
-     */
-    public String getUsageHint()
-    {
-        return this.usageHint;
-    }
-
-    /**
      * Get Validation Token
      *
      * @return String
@@ -189,6 +177,26 @@ public abstract class CommandTemplate {
     public Boolean getExpandedText()
     {
         return this.expandedText;
+    }
+
+    /**
+     * Get Short Description
+     *
+     * @return String
+     */
+    public String getShortDescription()
+    {
+        return this.shortDescription;
+    }
+
+    /**
+     * Get Usage Hint
+     *
+     * @return String
+     */
+    public String getUsageHint()
+    {
+        return this.usageHint;
     }
 
     /**
@@ -216,6 +224,18 @@ public abstract class CommandTemplate {
         }
 
         return defaultValue;
+    }
+
+    /**
+     * Set All Incoming Data
+     *
+     * @return incomingData
+     */
+    public void setIncomigData(Map<String, String> incomingData)
+    {
+        for (Map.Entry<String, String> pair : incomingData.entrySet()) {
+            this.setIncomingItem(pair.getKey(), pair.getValue());
+        }
     }
 
     /**
@@ -517,5 +537,5 @@ public abstract class CommandTemplate {
      *
      * @param incomingData
      */
-    abstract public Boolean parse(Map<String, String> incomingData);
+    abstract public Boolean parse();
 }

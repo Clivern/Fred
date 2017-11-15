@@ -86,4 +86,30 @@ public class BaseReceiver {
     {
         return this.commands.containsKey(command);
     }
+
+    /**
+     * Get Current Command
+     *
+     * @param  command      [description]
+     * @param  incomingData [description]
+     * @return CommandTemplate
+     * @throws CommandNotFound
+     */
+    public CommandTemplate getCurrentCommand(String command, Map<String, String> incomingData) throws CommandNotFound
+    {
+        if( this.commandExists(command) ){
+
+            CommandTemplate currentCommand = this.getCommand(command);
+            currentCommand.setIncomigData(incomingData);
+
+            if( currentCommand.parse() ){
+                this.setCommand(command, currentCommand);
+                return currentCommand;
+            }
+
+            throw new CommandNotFound("Error! Slack Current Command Not Found.");
+        }
+
+        throw new CommandNotFound("Error! Slack Command Not Found.");
+    }
 }
