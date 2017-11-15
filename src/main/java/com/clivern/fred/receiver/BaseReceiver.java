@@ -17,9 +17,8 @@ import java.util.HashMap;
 import java.util.Map;
 import com.clivern.fred.util.Config;
 import com.clivern.fred.util.Log;
-import org.json.JSONObject;
-import org.json.JSONArray;
 import com.clivern.fred.exception.CommandNotFound;
+import com.clivern.fred.exception.CommandDataNotValid;
 import com.clivern.fred.contract.receiver.command.CommandTemplate;
 
 /**
@@ -94,11 +93,11 @@ public class BaseReceiver {
      * @param  incomingData
      * @return CommandTemplate
      * @throws CommandNotFound
+     * @throws CommandDataNotValid
      */
-    public CommandTemplate getCurrentCommand(String command, Map<String, String> incomingData) throws CommandNotFound
+    public CommandTemplate getCurrentCommand(String command, Map<String, String> incomingData) throws CommandNotFound, CommandDataNotValid
     {
         if( this.commandExists(command) ){
-
             CommandTemplate currentCommand = this.getCommand(command);
             currentCommand.setIncomigData(incomingData);
 
@@ -107,7 +106,7 @@ public class BaseReceiver {
                 return currentCommand;
             }
 
-            throw new CommandNotFound("Error! Slack Current Command Not Found.");
+            throw new CommandDataNotValid("Error! Command Data Cannot Be Parsed.");
         }
 
         throw new CommandNotFound("Error! Slack Command Not Found.");
