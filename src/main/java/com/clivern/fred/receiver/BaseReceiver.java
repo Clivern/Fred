@@ -90,8 +90,8 @@ public class BaseReceiver {
     /**
      * Get Current Command
      *
-     * @param  command      [description]
-     * @param  incomingData [description]
+     * @param  command
+     * @param  incomingData
      * @return CommandTemplate
      * @throws CommandNotFound
      */
