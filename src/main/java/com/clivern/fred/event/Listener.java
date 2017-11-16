@@ -28,13 +28,13 @@ public class Listener {
 
     protected Log log;
 
-	protected String requestURL;
+    protected String requestURL;
 
-	protected String verificationToken;
+    protected String verificationToken;
 
-	protected String verificationChallenge;
+    protected String verificationChallenge;
 
-	protected String verificationType;
+    protected String verificationType;
 
     /**
      * Class Constructor
@@ -55,7 +55,7 @@ public class Listener {
      */
     public void setVerificationToken(String verificationToken)
     {
-    	this.verificationToken = verificationToken;
+        this.verificationToken = verificationToken;
     }
 
     /**
@@ -65,7 +65,7 @@ public class Listener {
      */
     public void setVerificationChallenge(String verificationChallenge)
     {
-    	this.verificationChallenge = verificationChallenge;
+        this.verificationChallenge = verificationChallenge;
     }
 
     /**
@@ -75,7 +75,7 @@ public class Listener {
      */
     public void setVerificationType(String verificationType)
     {
-    	this.verificationType = verificationType;
+        this.verificationType = verificationType;
     }
 
     /**
@@ -85,7 +85,7 @@ public class Listener {
      */
     public String getVerificationToken()
     {
-    	return this.verificationToken;
+        return this.verificationToken;
     }
 
     /**
@@ -95,7 +95,7 @@ public class Listener {
      */
     public String getVerificationChallenge()
     {
-    	return this.verificationChallenge;
+        return this.verificationChallenge;
     }
 
     /**
@@ -105,6 +105,6 @@ public class Listener {
      */
     public String getVerificationType()
     {
-    	return this.verificationType;
+        return this.verificationType;
     }
 }
