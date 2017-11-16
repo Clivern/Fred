@@ -13,6 +13,9 @@
  */
 package com.clivern.fred.event;
 
+import com.clivern.fred.util.Config;
+import com.clivern.fred.util.Log;
+
 /**
  * Events Listener
  *
@@ -21,15 +24,87 @@ package com.clivern.fred.event;
  */
 public class Listener {
 
+    protected Config configs;
+
+    protected Log log;
+
 	protected String requestURL;
+
+	protected String verificationToken;
+
+	protected String verificationChallenge;
+
+	protected String verificationType;
 
     /**
      * Class Constructor
      *
      * @param requestURL
      */
-    public Listener(String requestURL)
+    public Listener(Config configs, Log log, String requestURL)
     {
+        this.configs = configs;
+        this.log = log;
         this.requestURL = requestURL;
+    }
+
+    /**
+     * Set Verification Token
+     *
+     * @param verificationToken
+     */
+    public void setVerificationToken(String verificationToken)
+    {
+    	this.verificationToken = verificationToken;
+    }
+
+    /**
+     * Set Verification Challenge
+     *
+     * @param verificationChallenge
+     */
+    public void setVerificationChallenge(String verificationChallenge)
+    {
+    	this.verificationChallenge = verificationChallenge;
+    }
+
+    /**
+     * Set Verification Type
+     *
+     * @param verificationType
+     */
+    public void setVerificationType(String verificationType)
+    {
+    	this.verificationType = verificationType;
+    }
+
+    /**
+     * Get Verification Token
+     *
+     * @return String
+     */
+    public String getVerificationToken()
+    {
+    	return this.verificationToken;
+    }
+
+    /**
+     * Get Verification Challenge
+     *
+     * @return String
+     */
+    public String getVerificationChallenge()
+    {
+    	return this.verificationChallenge;
+    }
+
+    /**
+     * Get Verification Type
+     *
+     * @return String
+     */
+    public String getVerificationType()
+    {
+    	return this.verificationType;
     }
 }
