@@ -13,8 +13,13 @@
  */
 package com.clivern.fred.event;
 
+import java.util.HashMap;
+import java.util.Map;
 import com.clivern.fred.util.Config;
 import com.clivern.fred.util.Log;
+import com.clivern.fred.exception.EventNotFound;
+import com.clivern.fred.exception.EventDataNotValid;
+import com.clivern.fred.contract.event.type.EventTemplate;
 
 /**
  * Events Listener
@@ -36,15 +41,27 @@ public class Listener {
 
     protected String verificationType;
 
+    protected Map<String, EventTemplate> events = new HashMap<String, EventTemplate>();
+
     /**
      * Class Constructor
      *
-     * @param requestURL
+     * @param configs
+     * @param log
      */
-    public Listener(Config configs, Log log, String requestURL)
+    public Listener(Config configs, Log log)
     {
         this.configs = configs;
         this.log = log;
+    }
+
+    /**
+     * Set Request URL
+     *
+     * @param requestURL
+     */
+    public void setRequestURL(String requestURL)
+    {
         this.requestURL = requestURL;
     }
 
@@ -79,6 +96,16 @@ public class Listener {
     }
 
     /**
+     * Get Request URL
+     *
+     * @return String
+     */
+    public String getRequestURL()
+    {
+        return this.requestURL;
+    }
+
+    /**
      * Get Verification Token
      *
      * @return String
@@ -106,5 +133,69 @@ public class Listener {
     public String getVerificationType()
     {
         return this.verificationType;
+    }
+
+    /**
+     * Set Event
+     *
+     * @param event
+     * @param template
+     */
+    public void setEvent(String event, EventTemplate template)
+    {
+        this.events.put(event, template);
+    }
+
+    /**
+     * Get Event
+     *
+     * @param  event
+     * @return String
+     * @throws EventNotFound
+     */
+    public EventTemplate getEvent(String event) throws EventNotFound
+    {
+        if( this.eventExists(event) ){
+            return this.events.get(event);
+        }
+
+        throw new EventNotFound("Error! Slack Event Not Found.");
+    }
+
+    /**
+     * Check if Event Exists
+     *
+     * @param  event
+     * @return Boolean
+     */
+    public Boolean eventExists(String event)
+    {
+        return this.events.containsKey(event);
+    }
+
+    /**
+     * Get Current Event
+     *
+     * @param  event
+     * @param  incomingData
+     * @return EventTemplate
+     * @throws EventNotFound
+     * @throws EventDataNotValid
+     */
+    public EventTemplate getCurrentEvent(String event, Map<String, String> incomingData) throws EventNotFound, EventDataNotValid
+    {
+        if( this.eventExists(event) ){
+            EventTemplate currentEvent = this.getEvent(event);
+            currentEvent.setIncomigData(incomingData);
+
+            if( currentEvent.parse() ){
+                this.setEvent(event, currentEvent);
+                return currentEvent;
+            }
+
+            throw new EventDataNotValid("Error! Event Data Cannot Be Parsed.");
+        }
+
+        throw new EventNotFound("Error! Slack Event Not Found.");
     }
 }
