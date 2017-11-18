@@ -24,9 +24,182 @@ import java.util.Map;
  */
 public abstract class EventTemplate {
 
+    protected String event;
+
     protected Map<String, String> incomingData = new HashMap<String, String>();
 
     protected String plainRequest;
+
+/*
+    {
+        "token": "XXYYZZ",
+        "team_id": "TXXXXXXXX",
+        "api_app_id": "AXXXXXXXXX",
+        "event": {
+                "type": "name_of_event",
+                "event_ts": "1234567890.123456",
+                "user": "UXXXXXXX1",
+                ...
+        },
+        "type": "event_callback",
+        "authed_users": [
+                "UXXXXXXX1",
+                "UXXXXXXX2"
+        ],
+        "event_id": "Ev08MFMKH6",
+        "event_time": 1234567890
+    }
+*/
+
+    /**
+     * Class Constructor
+     *
+     * @param event
+     */
+    public void EventTemplate(String event)
+    {
+        this.event = event;
+    }
+
+    /**
+     * Set Token
+     *
+     * @param token
+     */
+    public void setToken(String token)
+    {
+        this.setIncomingItem("token", token);
+    }
+
+    /**
+     * Set Team Id
+     *
+     * @param teamId
+     */
+    public void setTeamId(String teamId)
+    {
+        this.setIncomingItem("team_id", teamId);
+    }
+
+    /**
+     * Set API App ID
+     *
+     * @param apiAppId
+     */
+    public void setApiAppId(String apiAppId)
+    {
+        this.setIncomingItem("api_app_id", apiAppId);
+    }
+
+    /**
+     * Set Type
+     *
+     * @param type
+     */
+    public void setType(String type)
+    {
+        this.setIncomingItem("type", type);
+    }
+
+    /**
+     * Set Authed Users
+     *
+     * @param authedUsers
+     */
+    public void setAuthedUsers(String authedUsers)
+    {
+        this.setIncomingItem("authed_users", authedUsers);
+    }
+
+    /**
+     * Set Event Id
+     *
+     * @param eventId
+     */
+    public void setEventId(String eventId)
+    {
+        this.setIncomingItem("event_id", eventId);
+    }
+
+    /**
+     * Set Event Time
+     *
+     * @param eventTime
+     */
+    public void setEventTime(String eventTime)
+    {
+        this.setIncomingItem("event_time", eventTime);
+    }
+
+    /**
+     * Get Token
+     *
+     * @return String
+     */
+    public String getToken()
+    {
+        return this.getIncomingItem("token", "");
+    }
+
+    /**
+     * Get Team ID
+     *
+     * @return String
+     */
+    public String getTeamId()
+    {
+        return this.getIncomingItem("team_id", "");
+    }
+
+    /**
+     * Get API App ID
+     *
+     * @return String
+     */
+    public String getApiAppId()
+    {
+        return this.getIncomingItem("api_app_id", "");
+    }
+
+    /**
+     * Get Type
+     *
+     * @return String
+     */
+    public String getType()
+    {
+        return this.getIncomingItem("type", "");
+    }
+
+    /**
+     * Get Authed Users
+     *
+     * @return String
+     */
+    public String getAuthedUsers()
+    {
+        return this.getIncomingItem("authed_users", "");
+    }
+
+    /**
+     * Get Event Id
+     *
+     * @return String
+     */
+    public String getEventId()
+    {
+        return this.getIncomingItem("event_id", "");
+    }
+
+    /**
+     * Get Event Time
+     *
+     * @return String
+     */
+    public String getEventTime()
+    {
+        return this.getIncomingItem("event_time", "");
+    }
 
     /**
      * Set Incoming Item
