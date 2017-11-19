@@ -110,14 +110,12 @@ public abstract class EventTemplate {
     public void setAuthedUsers(ArrayList<String> authedUsers)
     {
         String authedUsersStr = "";
-        Integer i = 1;
 
         for (String authedUser : authedUsers) {
-            if( !i.equals(1) ){
+            if( !authedUsersStr.equals("") ){
                 authedUsersStr += ",";
             }
             authedUsersStr += authedUser;
-            i += 1;
         }
 
         this.setIncomingItem("authed_users", authedUsersStr);
