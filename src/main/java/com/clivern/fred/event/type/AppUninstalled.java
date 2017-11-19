@@ -13,12 +13,40 @@
  */
 package com.clivern.fred.event.type;
 
+import com.clivern.fred.contract.event.type.EventTemplate;
+
 /**
  * App Uninstalled Event
+ *
+ * <a href="https://api.slack.com/events/app_uninstalled">For More Info</a>
  *
  * @author A.F
  * @since 1.0.0
  */
-public class AppUninstalled {
+public class AppUninstalled extends EventTemplate {
 
+    /**
+     * Set Event Type. It should be app_uninstalled
+     *
+     * @param eventType
+     */
+    public void setEventType(String eventType)
+    {
+        this.setIncomingItem("event.type", eventType);
+    }
+
+    /**
+     * Get Event Type. It should be app_uninstalled
+     *
+     * @return String
+     */
+    public String getEventType()
+    {
+        return this.getIncomingItem("event.type", "");
+    }
+
+    public Boolean parse()
+    {
+        return true;
+    }
 }
