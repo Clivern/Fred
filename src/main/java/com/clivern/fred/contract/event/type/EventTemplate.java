@@ -15,6 +15,7 @@ package com.clivern.fred.contract.event.type;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.ArrayList;
 
 /**
  * Event Template Class
@@ -106,9 +107,20 @@ public abstract class EventTemplate {
      *
      * @param authedUsers
      */
-    public void setAuthedUsers(String authedUsers)
+    public void setAuthedUsers(ArrayList<String> authedUsers)
     {
-        this.setIncomingItem("authed_users", authedUsers);
+        String authedUsersStr = "";
+        Integer i = 1;
+
+        for (String authedUser : authedUsers) {
+            if( !i.equals(1) ){
+                authedUsersStr += ",";
+            }
+            authedUsersStr += authedUser;
+            i += 1;
+        }
+
+        this.setIncomingItem("authed_users", authedUsersStr);
     }
 
     /**
