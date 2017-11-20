@@ -45,6 +45,11 @@ public class AppUninstalled extends EventTemplate {
         return this.getIncomingItem("event.type", "");
     }
 
+    /**
+     * Parse Event Incoming Data
+     *
+     * @return Boolean
+     */
     public Boolean parse()
     {
         return true;
