@@ -16,13 +16,13 @@ package com.clivern.fred.sender.template;
 import junit.framework.TestCase;
 import java.io.IOException;
 
-public class AppsPermissionsInfoTest extends TestCase {
+public class AuthRevokeTest extends TestCase {
 
     public void testBuild() throws IOException
     {
-        AppsPermissionsInfo appsPermissionsInfo = new AppsPermissionsInfo();
-        appsPermissionsInfo.setToken("Token");
-        assertEquals(appsPermissionsInfo.getToken(), "Token");
-        assertEquals(appsPermissionsInfo.build(), "token=Token");
+        AuthRevoke authRevoke = new AuthRevoke();
+        authRevoke.setToken("Token");
+        assertEquals(authRevoke.getToken(), "Token");
+        assertEquals(authRevoke.build(), "token=Token");
     }
 }
