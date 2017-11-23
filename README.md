@@ -228,6 +228,7 @@ In case you want to share some love, Show your awesomeness in the following sub-
 2. :rocket: Web API `com.clivern.fred.sender`.
 3. :rocket: Slash Commands `com.clivern.fred.receiver`.
 4. :rocket: Events API `com.clivern.fred.event`.
+5. :rocket: Add More Test Cases.
 
 And then please do the following:
 
