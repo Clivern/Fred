@@ -224,9 +224,10 @@ Todo & Contributing
 -------------------
 In case you want to share some love, Show your awesomeness in the following sub-packages:
 
-1. :rocket: Web API `com.clivern.fred.sender`
-2. :rocket: Slash Commands `com.clivern.fred.receiver`
-3. :rocket: Events API `com.clivern.fred.event`
+1. :rocket: ~~Config and Oauth `com.clivern.fred.util`~~.
+2. :rocket: Web API `com.clivern.fred.sender`.
+3. :rocket: Slash Commands `com.clivern.fred.receiver`.
+4. :rocket: Events API `com.clivern.fred.event`.
 
 And then please do the following:
 
