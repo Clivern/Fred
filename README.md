@@ -39,7 +39,7 @@ After adding the package as a dependency, Please read the following steps:
 ### Basic Configurations
 In order to cofigure the package create `config.properties` file with the following data
 
-```
+```java
 client_id=Application Client ID
 client_secret=Application Client Secret
 scope=Application Scope
