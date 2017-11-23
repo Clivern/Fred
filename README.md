@@ -8,6 +8,15 @@ Fred is a Java Framework for Building Slack Bots.
 [![Build Status](https://travis-ci.org/Clivern/Fred.svg?branch=master)](https://travis-ci.org/Clivern/Fred)
 ![](https://img.shields.io/github/license/clivern/fred.svg)
 
+Todo
+-----
+In case you want to share some love, Show your awesomeness in the following sub-packages:
+
+1. :rocket: Web API `com.clivern.fred.sender`
+2. :rocket: Slash Commands `com.clivern.fred.receiver`
+3. :rocket: Events API `com.clivern.fred.event`
+
+You will need to check the [slack API documentations](https://api.slack.com/) first.
 
 Installation
 ------------
@@ -217,16 +226,6 @@ public class Main {
     }
 }
 ```
-
-Todo
-====
-
-:rocket: Web API `/com/clivern/fred/sender`
-
-:rocket: Slash Commands `/com/clivern/fred/receiver`
-
-:rocket: Events API `/com/clivern/fred/event`
-
 
 Misc
 ====
