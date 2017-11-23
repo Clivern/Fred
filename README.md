@@ -221,9 +221,11 @@ public class Main {
 Todo
 ====
 
-:black_square_button: Web API `/com/clivern/fred/sender`
-:black_square_button: Slash Commands `/com/clivern/fred/receiver`
-:black_square_button: Events API `/com/clivern/fred/event`
+:rocket: Web API `/com/clivern/fred/sender`
+
+:rocket: Slash Commands `/com/clivern/fred/receiver`
+
+:rocket: Events API `/com/clivern/fred/event`
 
 
 Misc
