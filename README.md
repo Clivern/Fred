@@ -232,7 +232,6 @@ In case you want to share some love, Show your awesomeness in the following sub-
 
 And then please do the following:
 
-1. Check the [slack API documentations](https://api.slack.com/).
 1. Fork the master branch.
 2. Create a feature branch `git checkout -b my-feature`.
 3. Commit your changes `git commit -am 'new awesome feature'`.
