@@ -20,13 +20,9 @@ public class DndEndSnoozeTest extends TestCase {
 
     public void testBuild() throws IOException
     {
-        ChannelsCreate channelsCreate = new ChannelsCreate();
-        channelsCreate.setToken("Token");
-        channelsCreate.setName("Channel");
-        channelsCreate.setValidate(true);
-        assertEquals(channelsCreate.getToken(), "Token");
-        assertEquals(channelsCreate.getName(), "Channel");
-        assertTrue(channelsCreate.getValidate());
-        assertEquals(channelsCreate.build(), "token=Token&name=Channel&validate=true");
+        DndEndSnooze dndEndSnooze = new DndEndSnooze();
+        dndEndSnooze.setToken("Token");
+        assertEquals(dndEndSnooze.getToken(), "Token");
+        assertEquals(dndEndSnooze.build(), "token=Token");
     }
 }
