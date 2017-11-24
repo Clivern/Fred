@@ -20,13 +20,13 @@ public class ConversationsSetPurposeTest extends TestCase {
 
     public void testBuild() throws IOException
     {
-        ChannelsCreate channelsCreate = new ChannelsCreate();
-        channelsCreate.setToken("Token");
-        channelsCreate.setName("Channel");
-        channelsCreate.setValidate(true);
-        assertEquals(channelsCreate.getToken(), "Token");
-        assertEquals(channelsCreate.getName(), "Channel");
-        assertTrue(channelsCreate.getValidate());
-        assertEquals(channelsCreate.build(), "token=Token&name=Channel&validate=true");
+        ConversationsSetPurpose conversationsSetPurpose = new ConversationsSetPurpose();
+        conversationsSetPurpose.setToken("Token");
+        conversationsSetPurpose.setChannel("Channel");
+        conversationsSetPurpose.setPurpose("Purpose");
+        assertEquals(conversationsSetPurpose.getToken(), "Token");
+        assertEquals(conversationsSetPurpose.getChannel(), "Channel");
+        assertEquals(conversationsSetPurpose.getPurpose(), "Purpose");
+        assertEquals(conversationsSetPurpose.build(), "token=Token&channel=Channel&purpose=Purpose");
     }
 }
