@@ -20,13 +20,13 @@ public class GroupsCreateTest extends TestCase {
 
     public void testBuild() throws IOException
     {
-        ChannelsCreate channelsCreate = new ChannelsCreate();
-        channelsCreate.setToken("Token");
-        channelsCreate.setName("Channel");
-        channelsCreate.setValidate(true);
-        assertEquals(channelsCreate.getToken(), "Token");
-        assertEquals(channelsCreate.getName(), "Channel");
-        assertTrue(channelsCreate.getValidate());
-        assertEquals(channelsCreate.build(), "token=Token&name=Channel&validate=true");
+        GroupsCreate groupsCreate = new GroupsCreate();
+        groupsCreate.setToken("Token");
+        groupsCreate.setName("Channel");
+        groupsCreate.setValidate(true);
+        assertEquals(groupsCreate.getToken(), "Token");
+        assertEquals(groupsCreate.getName(), "Channel");
+        assertTrue(groupsCreate.getValidate());
+        assertEquals(groupsCreate.build(), "token=Token&name=Channel&validate=true");
     }
 }
