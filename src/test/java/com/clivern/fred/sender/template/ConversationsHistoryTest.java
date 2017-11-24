@@ -20,13 +20,19 @@ public class ConversationsHistoryTest extends TestCase {
 
     public void testBuild() throws IOException
     {
-        ChannelsCreate channelsCreate = new ChannelsCreate();
-        channelsCreate.setToken("Token");
-        channelsCreate.setName("Channel");
-        channelsCreate.setValidate(true);
-        assertEquals(channelsCreate.getToken(), "Token");
-        assertEquals(channelsCreate.getName(), "Channel");
-        assertTrue(channelsCreate.getValidate());
-        assertEquals(channelsCreate.build(), "token=Token&name=Channel&validate=true");
+        ConversationsHistory conversationsHistory = new ConversationsHistory();
+        conversationsHistory.setToken("Token");
+        conversationsHistory.setChannel("Channel");
+        conversationsHistory.setCursor("Cursor");
+        conversationsHistory.setLatest("Latest");
+        conversationsHistory.setLimit(20);
+        conversationsHistory.setOldest("Oldest");
+        assertEquals(conversationsHistory.getToken(), "Token");
+        assertEquals(conversationsHistory.getChannel(), "Channel");
+        assertEquals(conversationsHistory.getCursor(), "Cursor");
+        assertEquals(conversationsHistory.getLatest(), "Latest");
+        assertEquals(conversationsHistory.getLimit(), new Integer(20));
+        assertEquals(conversationsHistory.getOldest(), "Oldest");
+        assertEquals(conversationsHistory.build(), "token=Token&channel=Channel&cursor=Cursor&latest=Latest&limit=20&oldest=Oldest");
     }
 }
