@@ -20,13 +20,13 @@ public class ConversationsRenameTest extends TestCase {
 
     public void testBuild() throws IOException
     {
-        ChannelsCreate channelsCreate = new ChannelsCreate();
-        channelsCreate.setToken("Token");
-        channelsCreate.setName("Channel");
-        channelsCreate.setValidate(true);
-        assertEquals(channelsCreate.getToken(), "Token");
-        assertEquals(channelsCreate.getName(), "Channel");
-        assertTrue(channelsCreate.getValidate());
-        assertEquals(channelsCreate.build(), "token=Token&name=Channel&validate=true");
+        ConversationsRename conversationsRename = new ConversationsRename();
+        conversationsRename.setToken("Token");
+        conversationsRename.setName("Name");
+        conversationsRename.setChannel("Channel");
+        assertEquals(conversationsRename.getToken(), "Token");
+        assertEquals(conversationsRename.getName(), "Name");
+        assertEquals(conversationsRename.getChannel(), "Channel");
+        assertEquals(conversationsRename.build(), "token=Token&channel=Channel&name=Name");
     }
 }
