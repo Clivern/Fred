@@ -20,13 +20,9 @@ public class DndEndDndTest extends TestCase {
 
     public void testBuild() throws IOException
     {
-        ChannelsCreate channelsCreate = new ChannelsCreate();
-        channelsCreate.setToken("Token");
-        channelsCreate.setName("Channel");
-        channelsCreate.setValidate(true);
-        assertEquals(channelsCreate.getToken(), "Token");
-        assertEquals(channelsCreate.getName(), "Channel");
-        assertTrue(channelsCreate.getValidate());
-        assertEquals(channelsCreate.build(), "token=Token&name=Channel&validate=true");
+        DndEndDnd dndEndDnd = new DndEndDnd();
+        dndEndDnd.setToken("Token");
+        assertEquals(dndEndDnd.getToken(), "Token");
+        assertEquals(dndEndDnd.build(), "token=Token");
     }
 }
