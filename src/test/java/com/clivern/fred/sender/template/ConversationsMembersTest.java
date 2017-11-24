@@ -20,13 +20,15 @@ public class ConversationsMembersTest extends TestCase {
 
     public void testBuild() throws IOException
     {
-        ChannelsCreate channelsCreate = new ChannelsCreate();
-        channelsCreate.setToken("Token");
-        channelsCreate.setName("Channel");
-        channelsCreate.setValidate(true);
-        assertEquals(channelsCreate.getToken(), "Token");
-        assertEquals(channelsCreate.getName(), "Channel");
-        assertTrue(channelsCreate.getValidate());
-        assertEquals(channelsCreate.build(), "token=Token&name=Channel&validate=true");
+        ConversationsMembers conversationsMembers = new ConversationsMembers();
+        conversationsMembers.setToken("Token");
+        conversationsMembers.setChannel("Channel");
+        conversationsMembers.setCursor("Cursor");
+        conversationsMembers.setLimit(6);
+        assertEquals(conversationsMembers.getToken(), "Token");
+        assertEquals(conversationsMembers.getChannel(), "Channel");
+        assertEquals(conversationsMembers.getCursor(), "Cursor");
+        assertEquals(conversationsMembers.getLimit(), new Integer(6));
+        assertEquals(conversationsMembers.build(), "token=Token&channel=Channel&cursor=Cursor&limit=6");
     }
 }
