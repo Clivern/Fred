@@ -20,13 +20,11 @@ public class DndTeamInfoTest extends TestCase {
 
     public void testBuild() throws IOException
     {
-        ChannelsCreate channelsCreate = new ChannelsCreate();
-        channelsCreate.setToken("Token");
-        channelsCreate.setName("Channel");
-        channelsCreate.setValidate(true);
-        assertEquals(channelsCreate.getToken(), "Token");
-        assertEquals(channelsCreate.getName(), "Channel");
-        assertTrue(channelsCreate.getValidate());
-        assertEquals(channelsCreate.build(), "token=Token&name=Channel&validate=true");
+        DndTeamInfo dndTeamInfo = new DndTeamInfo();
+        dndTeamInfo.setToken("Token");
+        dndTeamInfo.setUsers("Users");
+        assertEquals(dndTeamInfo.getToken(), "Token");
+        assertEquals(dndTeamInfo.getUsers(), "Users");
+        assertEquals(dndTeamInfo.build(), "token=Token&users=Users");
     }
 }
