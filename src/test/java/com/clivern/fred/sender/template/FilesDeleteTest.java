@@ -20,13 +20,11 @@ public class FilesDeleteTest extends TestCase {
 
     public void testBuild() throws IOException
     {
-        ChannelsCreate channelsCreate = new ChannelsCreate();
-        channelsCreate.setToken("Token");
-        channelsCreate.setName("Channel");
-        channelsCreate.setValidate(true);
-        assertEquals(channelsCreate.getToken(), "Token");
-        assertEquals(channelsCreate.getName(), "Channel");
-        assertTrue(channelsCreate.getValidate());
-        assertEquals(channelsCreate.build(), "token=Token&name=Channel&validate=true");
+        FilesDelete filesDelete = new FilesDelete();
+        filesDelete.setToken("Token");
+        filesDelete.setFile("File");
+        assertEquals(filesDelete.getToken(), "Token");
+        assertEquals(filesDelete.getFile(), "File");
+        assertEquals(filesDelete.build(), "token=Token&file=File");
     }
 }
