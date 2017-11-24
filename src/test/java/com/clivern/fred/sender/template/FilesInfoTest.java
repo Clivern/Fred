@@ -20,13 +20,15 @@ public class FilesInfoTest extends TestCase {
 
     public void testBuild() throws IOException
     {
-        ChannelsCreate channelsCreate = new ChannelsCreate();
-        channelsCreate.setToken("Token");
-        channelsCreate.setName("Channel");
-        channelsCreate.setValidate(true);
-        assertEquals(channelsCreate.getToken(), "Token");
-        assertEquals(channelsCreate.getName(), "Channel");
-        assertTrue(channelsCreate.getValidate());
-        assertEquals(channelsCreate.build(), "token=Token&name=Channel&validate=true");
+        FilesInfo filesInfo = new FilesInfo();
+        filesInfo.setToken("Token");
+        filesInfo.setFile("File");
+        filesInfo.setCount(5);
+        filesInfo.setPage(6);
+        assertEquals(filesInfo.getToken(), "Token");
+        assertEquals(filesInfo.getFile(), "File");
+        assertEquals(filesInfo.getCount(), new Integer(5));
+        assertEquals(filesInfo.getPage(), new Integer(6));
+        assertEquals(filesInfo.build(), "token=Token&file=File&count=5&page=6");
     }
 }
