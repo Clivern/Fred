@@ -20,13 +20,11 @@ public class FilesSharedPublicURLTest extends TestCase {
 
     public void testBuild() throws IOException
     {
-        ChannelsCreate channelsCreate = new ChannelsCreate();
-        channelsCreate.setToken("Token");
-        channelsCreate.setName("Channel");
-        channelsCreate.setValidate(true);
-        assertEquals(channelsCreate.getToken(), "Token");
-        assertEquals(channelsCreate.getName(), "Channel");
-        assertTrue(channelsCreate.getValidate());
-        assertEquals(channelsCreate.build(), "token=Token&name=Channel&validate=true");
+        FilesSharedPublicURL filesSharedPublicURL = new FilesSharedPublicURL();
+        filesSharedPublicURL.setToken("Token");
+        filesSharedPublicURL.setFile("File");
+        assertEquals(filesSharedPublicURL.getToken(), "Token");
+        assertEquals(filesSharedPublicURL.getFile(), "File");
+        assertEquals(filesSharedPublicURL.build(), "token=Token&file=File");
     }
 }
