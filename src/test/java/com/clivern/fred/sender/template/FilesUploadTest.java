@@ -20,13 +20,23 @@ public class FilesUploadTest extends TestCase {
 
     public void testBuild() throws IOException
     {
-        ChannelsCreate channelsCreate = new ChannelsCreate();
-        channelsCreate.setToken("Token");
-        channelsCreate.setName("Channel");
-        channelsCreate.setValidate(true);
-        assertEquals(channelsCreate.getToken(), "Token");
-        assertEquals(channelsCreate.getName(), "Channel");
-        assertTrue(channelsCreate.getValidate());
-        assertEquals(channelsCreate.build(), "token=Token&name=Channel&validate=true");
+        FilesUpload filesUpload = new FilesUpload();
+        filesUpload.setToken("Token");
+        filesUpload.setChannels("Channel");
+        filesUpload.setContent("Content");
+        filesUpload.setFile("File");
+        filesUpload.setFilename("FileName");
+        filesUpload.setFiletype("FileType");
+        filesUpload.setInitialComment("InitialComment");
+        filesUpload.setTitle("Title");
+        assertEquals(filesUpload.getToken(), "Token");
+        assertEquals(filesUpload.getChannels(), "Channel");
+        assertEquals(filesUpload.getContent(), "Content");
+        assertEquals(filesUpload.getFile(), "File");
+        assertEquals(filesUpload.getFilename(), "FileName");
+        assertEquals(filesUpload.getFiletype(), "FileType");
+        assertEquals(filesUpload.getInitialComment(), "InitialComment");
+        assertEquals(filesUpload.getTitle(), "Title");
+        assertEquals(filesUpload.build(), "token=Token&channels=Channel&content=Content&file=File&filename=FileName&filetype=FileType&initial_comment=InitialComment&title=Title");
     }
 }
