@@ -20,13 +20,15 @@ public class FilesCommentsEditTest extends TestCase {
 
     public void testBuild() throws IOException
     {
-        ChannelsCreate channelsCreate = new ChannelsCreate();
-        channelsCreate.setToken("Token");
-        channelsCreate.setName("Channel");
-        channelsCreate.setValidate(true);
-        assertEquals(channelsCreate.getToken(), "Token");
-        assertEquals(channelsCreate.getName(), "Channel");
-        assertTrue(channelsCreate.getValidate());
-        assertEquals(channelsCreate.build(), "token=Token&name=Channel&validate=true");
+        FilesCommentsEdit filesCommentsEdit = new FilesCommentsEdit();
+        filesCommentsEdit.setToken("Token");
+        filesCommentsEdit.setComment("Comment");
+        filesCommentsEdit.setFile("File");
+        filesCommentsEdit.setId("ID");
+        assertEquals(filesCommentsEdit.getToken(), "Token");
+        assertEquals(filesCommentsEdit.getComment(), "Comment");
+        assertEquals(filesCommentsEdit.getFile(), "File");
+        assertEquals(filesCommentsEdit.getId(), "ID");
+        assertEquals(filesCommentsEdit.build(), "token=Token&comment=Comment&file=File&id=ID");
     }
 }
