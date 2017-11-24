@@ -20,13 +20,11 @@ public class ConversationsArchiveTest extends TestCase {
 
     public void testBuild() throws IOException
     {
-        ChannelsCreate channelsCreate = new ChannelsCreate();
-        channelsCreate.setToken("Token");
-        channelsCreate.setName("Channel");
-        channelsCreate.setValidate(true);
-        assertEquals(channelsCreate.getToken(), "Token");
-        assertEquals(channelsCreate.getName(), "Channel");
-        assertTrue(channelsCreate.getValidate());
-        assertEquals(channelsCreate.build(), "token=Token&name=Channel&validate=true");
+        ConversationsArchive conversationsArchive = new ConversationsArchive();
+        conversationsArchive.setToken("Token");
+        conversationsArchive.setChannel("Channel");
+        assertEquals(conversationsArchive.getToken(), "Token");
+        assertEquals(conversationsArchive.getChannel(), "Channel");
+        assertEquals(conversationsArchive.build(), "token=Token&channel=Channel");
     }
 }
