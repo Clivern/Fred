@@ -20,13 +20,9 @@ public class EmojiListTest extends TestCase {
 
     public void testBuild() throws IOException
     {
-        ChannelsCreate channelsCreate = new ChannelsCreate();
-        channelsCreate.setToken("Token");
-        channelsCreate.setName("Channel");
-        channelsCreate.setValidate(true);
-        assertEquals(channelsCreate.getToken(), "Token");
-        assertEquals(channelsCreate.getName(), "Channel");
-        assertTrue(channelsCreate.getValidate());
-        assertEquals(channelsCreate.build(), "token=Token&name=Channel&validate=true");
+        EmojiList emojiList = new EmojiList();
+        emojiList.setToken("Token");
+        assertEquals(emojiList.getToken(), "Token");
+        assertEquals(emojiList.build(), "token=Token");
     }
 }
