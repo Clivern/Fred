@@ -20,13 +20,11 @@ public class FilesRevokePublicURLTest extends TestCase {
 
     public void testBuild() throws IOException
     {
-        ChannelsCreate channelsCreate = new ChannelsCreate();
-        channelsCreate.setToken("Token");
-        channelsCreate.setName("Channel");
-        channelsCreate.setValidate(true);
-        assertEquals(channelsCreate.getToken(), "Token");
-        assertEquals(channelsCreate.getName(), "Channel");
-        assertTrue(channelsCreate.getValidate());
-        assertEquals(channelsCreate.build(), "token=Token&name=Channel&validate=true");
+        FilesRevokePublicURL filesRevokePublicURL = new FilesRevokePublicURL();
+        filesRevokePublicURL.setToken("Token");
+        filesRevokePublicURL.setFile("File");
+        assertEquals(filesRevokePublicURL.getToken(), "Token");
+        assertEquals(filesRevokePublicURL.getFile(), "File");
+        assertEquals(filesRevokePublicURL.build(), "token=Token&file=File");
     }
 }
