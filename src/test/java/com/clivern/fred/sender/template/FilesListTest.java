@@ -20,13 +20,23 @@ public class FilesListTest extends TestCase {
 
     public void testBuild() throws IOException
     {
-        ChannelsCreate channelsCreate = new ChannelsCreate();
-        channelsCreate.setToken("Token");
-        channelsCreate.setName("Channel");
-        channelsCreate.setValidate(true);
-        assertEquals(channelsCreate.getToken(), "Token");
-        assertEquals(channelsCreate.getName(), "Channel");
-        assertTrue(channelsCreate.getValidate());
-        assertEquals(channelsCreate.build(), "token=Token&name=Channel&validate=true");
+        FilesList filesList = new FilesList();
+        filesList.setToken("Token");
+        filesList.setChannel("Channel");
+        filesList.setCount(5);
+        filesList.setPage(6);
+        filesList.setTsFrom("TsFrom");
+        filesList.setTsTo("TsTo");
+        filesList.setTypes("Types");
+        filesList.setUser("User");
+        assertEquals(filesList.getToken(), "Token");
+        assertEquals(filesList.getChannel(), "Channel");
+        assertEquals(filesList.getCount(), new Integer(5));
+        assertEquals(filesList.getPage(), new Integer(6));
+        assertEquals(filesList.getTsFrom(), "TsFrom");
+        assertEquals(filesList.getTsTo(), "TsTo");
+        assertEquals(filesList.getTypes(), "Types");
+        assertEquals(filesList.getUser(), "User");
+        assertEquals(filesList.build(), "token=Token&channel=Channel&count=5&page=6&ts_from=TsFrom&ts_to=TsTo&types=Types&user=User");
     }
 }
