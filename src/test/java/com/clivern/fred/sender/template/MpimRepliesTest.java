@@ -20,6 +20,13 @@ public class MpimRepliesTest extends TestCase {
 
     public void testBuild() throws IOException
     {
-        assertTrue(true);
+        MpimReplies mpimReplies = new MpimReplies();
+        mpimReplies.setToken("Token");
+        mpimReplies.setChannel("Channel");
+        mpimReplies.setThreadTs("ThreadTs");
+        assertEquals(mpimReplies.getToken(), "Token");
+        assertEquals(mpimReplies.getChannel(), "Channel");
+        assertEquals(mpimReplies.getThreadTs(), "ThreadTs");
+        assertEquals(mpimReplies.build(), "token=Token&channel=Channel&thread_ts=ThreadTs");
     }
 }

@@ -20,6 +20,9 @@ public class MpimListTest extends TestCase {
 
     public void testBuild() throws IOException
     {
-        assertTrue(true);
+        MpimList mpimList = new MpimList();
+        mpimList.setToken("Token");
+        assertEquals(mpimList.getToken(), "Token");
+        assertEquals(mpimList.build(), "token=Token");
     }
 }

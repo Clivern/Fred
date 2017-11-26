@@ -20,6 +20,11 @@ public class MpimCloseTest extends TestCase {
 
     public void testBuild() throws IOException
     {
-        assertTrue(true);
+        MpimClose mpimClose = new MpimClose();
+        mpimClose.setToken("Token");
+        mpimClose.setChannel("Channel");
+        assertEquals(mpimClose.getToken(), "Token");
+        assertEquals(mpimClose.getChannel(), "Channel");
+        assertEquals(mpimClose.build(), "token=Token&channel=Channel");
     }
 }

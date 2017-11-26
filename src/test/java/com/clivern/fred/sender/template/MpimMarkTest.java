@@ -20,6 +20,13 @@ public class MpimMarkTest extends TestCase {
 
     public void testBuild() throws IOException
     {
-        assertTrue(true);
+        MpimMark mpimMark = new MpimMark();
+        mpimMark.setToken("Token");
+        mpimMark.setChannel("Channel");
+        mpimMark.setTs("Ts");
+        assertEquals(mpimMark.getToken(), "Token");
+        assertEquals(mpimMark.getChannel(), "Channel");
+        assertEquals(mpimMark.getTs(), "Ts");
+        assertEquals(mpimMark.build(), "token=Token&channel=Channel&ts=Ts");
     }
 }

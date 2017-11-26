@@ -20,6 +20,21 @@ public class MpimHistoryTest extends TestCase {
 
     public void testBuild() throws IOException
     {
-        assertTrue(true);
+        MpimHistory mpimHistory = new MpimHistory();
+        mpimHistory.setToken("Token");
+        mpimHistory.setChannel("Channel");
+        mpimHistory.setCount(30);
+        mpimHistory.setInclusive(true);
+        mpimHistory.setLatest("Latest");
+        mpimHistory.setOldest("Oldest");
+        mpimHistory.setUnreads(false);
+        assertEquals(mpimHistory.getToken(), "Token");
+        assertEquals(mpimHistory.getChannel(), "Channel");
+        assertEquals(mpimHistory.getCount(), new Integer(30));
+        assertTrue(mpimHistory.getInclusive());
+        assertEquals(mpimHistory.getLatest(), "Latest");
+        assertEquals(mpimHistory.getOldest(), "Oldest");
+        assertFalse(mpimHistory.getUnreads());
+        assertEquals(mpimHistory.build(), "token=Token&channel=Channel&count=30&inclusive=true&latest=Latest&oldest=Oldest&unreads=false");
     }
 }
