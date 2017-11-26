@@ -20,6 +20,17 @@ public class UsersSetPhotoTest extends TestCase {
 
     public void testBuild() throws IOException
     {
-        assertTrue(true);
+        UsersSetPhoto usersSetPhoto = new UsersSetPhoto();
+        usersSetPhoto.setToken("Token");
+        usersSetPhoto.setImage("Image");
+        usersSetPhoto.setCropW(10);
+        usersSetPhoto.setCropX(20);
+        usersSetPhoto.setCropY(30);
+        assertEquals(usersSetPhoto.getToken(), "Token");
+        assertEquals(usersSetPhoto.getImage(), "Image");
+        assertEquals(usersSetPhoto.getCropW(), new Integer(10));
+        assertEquals(usersSetPhoto.getCropX(), new Integer(20));
+        assertEquals(usersSetPhoto.getCropY(), new Integer(30));
+        assertEquals(usersSetPhoto.build(), "token=Token&image=Image&crop_w=10&crop_x=20&crop_y=30");
     }
 }
