@@ -20,6 +20,11 @@ public class UsersSetPresenceTest extends TestCase {
 
     public void testBuild() throws IOException
     {
-        assertTrue(true);
+        UsersSetPresence usersSetPresence = new UsersSetPresence();
+        usersSetPresence.setToken("Token");
+        usersSetPresence.setPresence("Presence");
+        assertEquals(usersSetPresence.getToken(), "Token");
+        assertEquals(usersSetPresence.getPresence(), "Presence");
+        assertEquals(usersSetPresence.build(), "token=Token&presence=Presence");
     }
 }
