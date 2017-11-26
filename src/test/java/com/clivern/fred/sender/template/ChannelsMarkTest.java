@@ -20,13 +20,13 @@ public class ChannelsMarkTest extends TestCase {
 
     public void testBuild() throws IOException
     {
-        ChannelsCreate channelsCreate = new ChannelsCreate();
-        channelsCreate.setToken("Token");
-        channelsCreate.setName("Channel");
-        channelsCreate.setValidate(true);
-        assertEquals(channelsCreate.getToken(), "Token");
-        assertEquals(channelsCreate.getName(), "Channel");
-        assertTrue(channelsCreate.getValidate());
-        assertEquals(channelsCreate.build(), "token=Token&name=Channel&validate=true");
+        ChannelsMark channelsMark = new ChannelsMark();
+        channelsMark.setToken("Token");
+        channelsMark.setChannel("Channel");
+        channelsMark.setTs("Ts");
+        assertEquals(channelsMark.getToken(), "Token");
+        assertEquals(channelsMark.getChannel(), "Channel");
+        assertEquals(channelsMark.getTs(), "Ts");
+        assertEquals(channelsMark.build(), "token=Token&channel=Channel&ts=Ts");
     }
 }

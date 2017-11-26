@@ -20,13 +20,13 @@ public class ChannelsInfoTest extends TestCase {
 
     public void testBuild() throws IOException
     {
-        ChannelsCreate channelsCreate = new ChannelsCreate();
-        channelsCreate.setToken("Token");
-        channelsCreate.setName("Channel");
-        channelsCreate.setValidate(true);
-        assertEquals(channelsCreate.getToken(), "Token");
-        assertEquals(channelsCreate.getName(), "Channel");
-        assertTrue(channelsCreate.getValidate());
-        assertEquals(channelsCreate.build(), "token=Token&name=Channel&validate=true");
+        ChannelsInfo channelsInfo = new ChannelsInfo();
+        channelsInfo.setToken("Token");
+        channelsInfo.setChannel("Channel");
+        channelsInfo.setIncludeLocale(true);
+        assertEquals(channelsInfo.getToken(), "Token");
+        assertEquals(channelsInfo.getChannel(), "Channel");
+        assertTrue(channelsInfo.getIncludeLocale());
+        assertEquals(channelsInfo.build(), "token=Token&channel=Channel&include_locale=true");
     }
 }

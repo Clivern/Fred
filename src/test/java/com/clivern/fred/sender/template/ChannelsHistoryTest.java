@@ -20,13 +20,21 @@ public class ChannelsHistoryTest extends TestCase {
 
     public void testBuild() throws IOException
     {
-        ChannelsCreate channelsCreate = new ChannelsCreate();
-        channelsCreate.setToken("Token");
-        channelsCreate.setName("Channel");
-        channelsCreate.setValidate(true);
-        assertEquals(channelsCreate.getToken(), "Token");
-        assertEquals(channelsCreate.getName(), "Channel");
-        assertTrue(channelsCreate.getValidate());
-        assertEquals(channelsCreate.build(), "token=Token&name=Channel&validate=true");
+        ChannelsHistory channelsHistory = new ChannelsHistory();
+        channelsHistory.setToken("Token");
+        channelsHistory.setChannel("Channel");
+        channelsHistory.setCount(20);
+        channelsHistory.setInclusive(true);
+        channelsHistory.setLatest("Latest");
+        channelsHistory.setOldest("Oldest");
+        channelsHistory.setUnreads(false);
+        assertEquals(channelsHistory.getToken(), "Token");
+        assertEquals(channelsHistory.getChannel(), "Channel");
+        assertEquals(channelsHistory.getCount(), new Integer(20));
+        assertTrue(channelsHistory.getInclusive());
+        assertEquals(channelsHistory.getLatest(), "Latest");
+        assertEquals(channelsHistory.getOldest(), "Oldest");
+        assertFalse(channelsHistory.getUnreads());
+        assertEquals(channelsHistory.build(), "token=Token&channel=Channel&count=20&inclusive=true&latest=Latest&oldest=Oldest&unreads=false");
     }
 }

@@ -20,13 +20,13 @@ public class ChannelsJoinTest extends TestCase {
 
     public void testBuild() throws IOException
     {
-        ChannelsCreate channelsCreate = new ChannelsCreate();
-        channelsCreate.setToken("Token");
-        channelsCreate.setName("Channel");
-        channelsCreate.setValidate(true);
-        assertEquals(channelsCreate.getToken(), "Token");
-        assertEquals(channelsCreate.getName(), "Channel");
-        assertTrue(channelsCreate.getValidate());
-        assertEquals(channelsCreate.build(), "token=Token&name=Channel&validate=true");
+        ChannelsJoin channelsJoin = new ChannelsJoin();
+        channelsJoin.setToken("Token");
+        channelsJoin.setName("Channel");
+        channelsJoin.setValidate(true);
+        assertEquals(channelsJoin.getToken(), "Token");
+        assertEquals(channelsJoin.getName(), "Channel");
+        assertTrue(channelsJoin.getValidate());
+        assertEquals(channelsJoin.build(), "token=Token&name=Channel&validate=true");
     }
 }

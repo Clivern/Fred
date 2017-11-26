@@ -20,13 +20,17 @@ public class ChannelsListTest extends TestCase {
 
     public void testBuild() throws IOException
     {
-        ChannelsCreate channelsCreate = new ChannelsCreate();
-        channelsCreate.setToken("Token");
-        channelsCreate.setName("Channel");
-        channelsCreate.setValidate(true);
-        assertEquals(channelsCreate.getToken(), "Token");
-        assertEquals(channelsCreate.getName(), "Channel");
-        assertTrue(channelsCreate.getValidate());
-        assertEquals(channelsCreate.build(), "token=Token&name=Channel&validate=true");
+        ChannelsList channelsList = new ChannelsList();
+        channelsList.setToken("Token");
+        channelsList.setCursor("Cursor");
+        channelsList.setExcludeArchived(true);
+        channelsList.setExcludeMembers(false);
+        channelsList.setLimit(20);
+        assertEquals(channelsList.getToken(), "Token");
+        assertEquals(channelsList.getCursor(), "Cursor");
+        assertTrue(channelsList.getExcludeArchived());
+        assertFalse(channelsList.getExcludeMembers());
+        assertEquals(channelsList.getLimit(), new Integer(20));
+        assertEquals(channelsList.build(), "token=Token&cursor=Cursor&exclude_archived=true&exclude_members=false&limit=20");
     }
 }

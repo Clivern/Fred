@@ -20,13 +20,13 @@ public class ChannelsSetPurposeTest extends TestCase {
 
     public void testBuild() throws IOException
     {
-        ChannelsCreate channelsCreate = new ChannelsCreate();
-        channelsCreate.setToken("Token");
-        channelsCreate.setName("Channel");
-        channelsCreate.setValidate(true);
-        assertEquals(channelsCreate.getToken(), "Token");
-        assertEquals(channelsCreate.getName(), "Channel");
-        assertTrue(channelsCreate.getValidate());
-        assertEquals(channelsCreate.build(), "token=Token&name=Channel&validate=true");
+        ChannelsSetPurpose channelsSetPurpose = new ChannelsSetPurpose();
+        channelsSetPurpose.setToken("Token");
+        channelsSetPurpose.setChannel("Channel");
+        channelsSetPurpose.setPurpose("Purpose");
+        assertEquals(channelsSetPurpose.getToken(), "Token");
+        assertEquals(channelsSetPurpose.getChannel(), "Channel");
+        assertEquals(channelsSetPurpose.getPurpose(), "Purpose");
+        assertEquals(channelsSetPurpose.build(), "token=Token&channel=Channel&purpose=Purpose");
     }
 }

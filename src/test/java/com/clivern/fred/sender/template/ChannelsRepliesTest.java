@@ -20,13 +20,13 @@ public class ChannelsRepliesTest extends TestCase {
 
     public void testBuild() throws IOException
     {
-        ChannelsCreate channelsCreate = new ChannelsCreate();
-        channelsCreate.setToken("Token");
-        channelsCreate.setName("Channel");
-        channelsCreate.setValidate(true);
-        assertEquals(channelsCreate.getToken(), "Token");
-        assertEquals(channelsCreate.getName(), "Channel");
-        assertTrue(channelsCreate.getValidate());
-        assertEquals(channelsCreate.build(), "token=Token&name=Channel&validate=true");
+        ChannelsReplies channelsReplies = new ChannelsReplies();
+        channelsReplies.setToken("Token");
+        channelsReplies.setChannel("Channel");
+        channelsReplies.setThreadTs("ThreadTs");
+        assertEquals(channelsReplies.getToken(), "Token");
+        assertEquals(channelsReplies.getChannel(), "Channel");
+        assertEquals(channelsReplies.getThreadTs(), "ThreadTs");
+        assertEquals(channelsReplies.build(), "token=Token&channel=Channel&thread_ts=ThreadTs");
     }
 }
