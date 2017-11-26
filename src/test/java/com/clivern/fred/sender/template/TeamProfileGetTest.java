@@ -20,6 +20,11 @@ public class TeamProfileGetTest extends TestCase {
 
     public void testBuild() throws IOException
     {
-        assertTrue(true);
+        TeamProfileGet teamProfileGet = new TeamProfileGet();
+        teamProfileGet.setToken("Token");
+        teamProfileGet.setVisibility("Visibility");
+        assertEquals(teamProfileGet.getToken(), "Token");
+        assertEquals(teamProfileGet.getVisibility(), "Visibility");
+        assertEquals(teamProfileGet.build(), "token=Token&visibility=Visibility");
     }
 }

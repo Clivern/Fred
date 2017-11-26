@@ -20,6 +20,15 @@ public class TeamAccessLogsTest extends TestCase {
 
     public void testBuild() throws IOException
     {
-        assertTrue(true);
+        TeamAccessLogs teamAccessLogs = new TeamAccessLogs();
+        teamAccessLogs.setToken("Token");
+        teamAccessLogs.setBefore("Before");
+        teamAccessLogs.setCount(20);
+        teamAccessLogs.setPage(30);
+        assertEquals(teamAccessLogs.getToken(), "Token");
+        assertEquals(teamAccessLogs.getBefore(), "Before");
+        assertEquals(teamAccessLogs.getCount(), new Integer(20));
+        assertEquals(teamAccessLogs.getPage(), new Integer(30));
+        assertEquals(teamAccessLogs.build(), "token=Token&before=Before&count=20&page=30");
     }
 }

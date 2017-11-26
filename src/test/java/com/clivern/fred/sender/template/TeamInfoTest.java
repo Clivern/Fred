@@ -20,6 +20,9 @@ public class TeamInfoTest extends TestCase {
 
     public void testBuild() throws IOException
     {
-        assertTrue(true);
+        TeamInfo teamInfo = new TeamInfo();
+        teamInfo.setToken("Token");
+        assertEquals(teamInfo.getToken(), "Token");
+        assertEquals(teamInfo.build(), "token=Token");
     }
 }
