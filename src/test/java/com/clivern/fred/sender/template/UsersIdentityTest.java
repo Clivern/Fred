@@ -20,6 +20,9 @@ public class UsersIdentityTest extends TestCase {
 
     public void testBuild() throws IOException
     {
-        assertTrue(true);
+        UsersIdentity usersIdentity = new UsersIdentity();
+        usersIdentity.setToken("Token");
+        assertEquals(usersIdentity.getToken(), "Token");
+        assertEquals(usersIdentity.build(), "token=Token");
     }
 }
