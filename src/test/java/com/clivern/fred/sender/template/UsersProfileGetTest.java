@@ -20,6 +20,13 @@ public class UsersProfileGetTest extends TestCase {
 
     public void testBuild() throws IOException
     {
-        assertTrue(true);
+        UsersProfileGet usersProfileGet = new UsersProfileGet();
+        usersProfileGet.setToken("Token");
+        usersProfileGet.setUser("User");
+        usersProfileGet.setIncludeLabels(true);
+        assertEquals(usersProfileGet.getToken(), "Token");
+        assertEquals(usersProfileGet.getUser(), "User");
+        assertTrue(usersProfileGet.getIncludeLabels());
+        assertEquals(usersProfileGet.build(), "token=Token&include_labels=true&user=User");
     }
 }
