@@ -20,6 +20,11 @@ public class RemindersDeleteTest extends TestCase {
 
     public void testBuild() throws IOException
     {
-        assertTrue(true);
+        RemindersDelete remindersDelete = new RemindersDelete();
+        remindersDelete.setToken("Token");
+        remindersDelete.setReminder("Reminder");
+        assertEquals(remindersDelete.getToken(), "Token");
+        assertEquals(remindersDelete.getReminder(), "Reminder");
+        assertEquals(remindersDelete.build(), "token=Token&reminder=Reminder");
     }
 }

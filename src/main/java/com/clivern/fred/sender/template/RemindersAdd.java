@@ -35,7 +35,7 @@ public class RemindersAdd extends BasicTemplate {
     protected String token;
     protected String text;
     protected String time;
-    protected Long timestamp;
+    protected String timestamp;
     protected String user;
 
     /**
@@ -73,7 +73,7 @@ public class RemindersAdd extends BasicTemplate {
      *
      * @param timestamp
      */
-    public void setTimestamp(Long timestamp)
+    public void setTimestamp(String timestamp)
     {
         this.timestamp = timestamp;
     }
@@ -123,7 +123,7 @@ public class RemindersAdd extends BasicTemplate {
      *
      * @return String
      */
-    public Long getTimestamp()
+    public String getTimestamp()
     {
         return this.timestamp;
     }
@@ -159,7 +159,7 @@ public class RemindersAdd extends BasicTemplate {
             this.body += "&time=" + this.time;
         }
 
-        if( this.timestamp != null ){
+        if( !this.timestamp.isEmpty() ){
             this.body += "&time=" + this.timestamp;
         }
 

@@ -20,6 +20,11 @@ public class RemindersCompleteTest extends TestCase {
 
     public void testBuild() throws IOException
     {
-        assertTrue(true);
+        RemindersComplete remindersComplete = new RemindersComplete();
+        remindersComplete.setToken("Token");
+        remindersComplete.setReminder("Reminder");
+        assertEquals(remindersComplete.getToken(), "Token");
+        assertEquals(remindersComplete.getReminder(), "Reminder");
+        assertEquals(remindersComplete.build(), "token=Token&reminder=Reminder");
     }
 }
