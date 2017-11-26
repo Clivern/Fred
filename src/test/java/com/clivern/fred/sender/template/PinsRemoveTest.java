@@ -20,6 +20,17 @@ public class PinsRemoveTest extends TestCase {
 
     public void testBuild() throws IOException
     {
-        assertTrue(true);
+        PinsRemove pinsRemove = new PinsRemove();
+        pinsRemove.setToken("Token");
+        pinsRemove.setChannel("Channel");
+        pinsRemove.setFile("File");
+        pinsRemove.setFileComment("FileComment");
+        pinsRemove.setTimestamp("Timestamp");
+        assertEquals(pinsRemove.getToken(), "Token");
+        assertEquals(pinsRemove.getChannel(), "Channel");
+        assertEquals(pinsRemove.getFile(), "File");
+        assertEquals(pinsRemove.getFileComment(), "FileComment");
+        assertEquals(pinsRemove.getTimestamp(), "Timestamp");
+        assertEquals(pinsRemove.build(), "token=Token&channel=Channel&file=File&file_comment=FileComment&timestamp=Timestamp");
     }
 }

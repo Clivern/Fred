@@ -20,6 +20,11 @@ public class PinsListTest extends TestCase {
 
     public void testBuild() throws IOException
     {
-        assertTrue(true);
+        PinsList pinsList = new PinsList();
+        pinsList.setToken("Token");
+        pinsList.setChannel("Channel");
+        assertEquals(pinsList.getToken(), "Token");
+        assertEquals(pinsList.getChannel(), "Channel");
+        assertEquals(pinsList.build(), "token=Token&channel=Channel");
     }
 }
