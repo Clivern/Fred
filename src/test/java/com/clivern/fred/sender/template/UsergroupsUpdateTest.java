@@ -20,6 +20,21 @@ public class UsergroupsUpdateTest extends TestCase {
 
     public void testBuild() throws IOException
     {
-        assertTrue(true);
+        UsergroupsUpdate usergroupsUpdate = new UsergroupsUpdate();
+        usergroupsUpdate.setToken("Token");
+        usergroupsUpdate.setUserGroup("UserGroup");
+        usergroupsUpdate.setName("Name");
+        usergroupsUpdate.setChannels("Channels");
+        usergroupsUpdate.setDescription("Description");
+        usergroupsUpdate.setHandle("Handle");
+        usergroupsUpdate.setIncludeCount(true);
+        assertEquals(usergroupsUpdate.getToken(), "Token");
+        assertEquals(usergroupsUpdate.getUserGroup(), "UserGroup");
+        assertEquals(usergroupsUpdate.getName(), "Name");
+        assertEquals(usergroupsUpdate.getChannels(), "Channels");
+        assertEquals(usergroupsUpdate.getDescription(), "Description");
+        assertEquals(usergroupsUpdate.getHandle(), "Handle");
+        assertTrue(usergroupsUpdate.getIncludeCount());
+        assertEquals(usergroupsUpdate.build(), "token=Token&usergroup=UserGroup&name=Name&channels=Channels&description=Description&handle=Handle&include_count=true");
     }
 }

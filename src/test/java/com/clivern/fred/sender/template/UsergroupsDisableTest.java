@@ -20,6 +20,13 @@ public class UsergroupsDisableTest extends TestCase {
 
     public void testBuild() throws IOException
     {
-        assertTrue(true);
+        UsergroupsDisable usergroupsDisable = new UsergroupsDisable();
+        usergroupsDisable.setToken("Token");
+        usergroupsDisable.setUserGroup("UserGroup");
+        usergroupsDisable.setIncludeCount(true);
+        assertEquals(usergroupsDisable.getToken(), "Token");
+        assertEquals(usergroupsDisable.getUserGroup(), "UserGroup");
+        assertTrue(usergroupsDisable.getIncludeCount());
+        assertEquals(usergroupsDisable.build(), "token=Token&usergroup=UserGroup&include_count=true");
     }
 }
