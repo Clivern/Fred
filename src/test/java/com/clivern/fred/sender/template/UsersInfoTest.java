@@ -20,6 +20,13 @@ public class UsersInfoTest extends TestCase {
 
     public void testBuild() throws IOException
     {
-        assertTrue(true);
+        UsersInfo usersInfo = new UsersInfo();
+        usersInfo.setToken("Token");
+        usersInfo.setUser("User");
+        usersInfo.setIncludeLocale(true);
+        assertEquals(usersInfo.getToken(), "Token");
+        assertEquals(usersInfo.getUser(), "User");
+        assertTrue(usersInfo.getIncludeLocale());
+        assertEquals(usersInfo.build(), "token=Token&user=User&include_locale=true");
     }
 }
