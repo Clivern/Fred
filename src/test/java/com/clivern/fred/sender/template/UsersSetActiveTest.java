@@ -20,6 +20,9 @@ public class UsersSetActiveTest extends TestCase {
 
     public void testBuild() throws IOException
     {
-        assertTrue(true);
+        UsersSetActive usersSetActive = new UsersSetActive();
+        usersSetActive.setToken("Token");
+        assertEquals(usersSetActive.getToken(), "Token");
+        assertEquals(usersSetActive.build(), "token=Token");
     }
 }
