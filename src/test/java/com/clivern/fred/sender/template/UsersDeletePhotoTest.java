@@ -20,6 +20,9 @@ public class UsersDeletePhotoTest extends TestCase {
 
     public void testBuild() throws IOException
     {
-        assertTrue(true);
+        UsersDeletePhoto usersDeletePhoto = new UsersDeletePhoto();
+        usersDeletePhoto.setToken("Token");
+        assertEquals(usersDeletePhoto.getToken(), "Token");
+        assertEquals(usersDeletePhoto.build(), "token=Token");
     }
 }
