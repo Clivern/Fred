@@ -20,6 +20,17 @@ public class ReactionsListTest extends TestCase {
 
     public void testBuild() throws IOException
     {
-        assertTrue(true);
+        ReactionsList reactionsList = new ReactionsList();
+        reactionsList.setToken("Token");
+        reactionsList.setCount(20);
+        reactionsList.setFull(true);
+        reactionsList.setPage(30);
+        reactionsList.setUser("User");
+        assertEquals(reactionsList.getToken(), "Token");
+        assertEquals(reactionsList.getCount(), new Integer(20));
+        assertTrue(reactionsList.getFull());
+        assertEquals(reactionsList.getPage(), new Integer(30));
+        assertEquals(reactionsList.getUser(), "User");
+        assertEquals(reactionsList.build(), "token=Token&count=20&full=true&page=30&user=User");
     }
 }

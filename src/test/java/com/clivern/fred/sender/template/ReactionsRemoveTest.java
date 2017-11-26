@@ -20,6 +20,19 @@ public class ReactionsRemoveTest extends TestCase {
 
     public void testBuild() throws IOException
     {
-        assertTrue(true);
+        ReactionsRemove reactionsRemove = new ReactionsRemove();
+        reactionsRemove.setToken("Token");
+        reactionsRemove.setName("Name");
+        reactionsRemove.setChannel("Channel");
+        reactionsRemove.setFile("File");
+        reactionsRemove.setFileComment("FileComment");
+        reactionsRemove.setTimestamp("Timestamp");
+        assertEquals(reactionsRemove.getToken(), "Token");
+        assertEquals(reactionsRemove.getName(), "Name");
+        assertEquals(reactionsRemove.getChannel(), "Channel");
+        assertEquals(reactionsRemove.getFile(), "File");
+        assertEquals(reactionsRemove.getFileComment(), "FileComment");
+        assertEquals(reactionsRemove.getTimestamp(), "Timestamp");
+        assertEquals(reactionsRemove.build(), "token=Token&name=Name&channel=Channel&file=File&file_comment=FileComment&timestamp=Timestamp");
     }
 }

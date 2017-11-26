@@ -20,6 +20,19 @@ public class ReactionsGetTest extends TestCase {
 
     public void testBuild() throws IOException
     {
-        assertTrue(true);
+        ReactionsGet reactionsGet = new ReactionsGet();
+        reactionsGet.setToken("Token");
+        reactionsGet.setChannel("Channel");
+        reactionsGet.setFile("File");
+        reactionsGet.setFileComment("FileComment");
+        reactionsGet.setFull(false);
+        reactionsGet.setTimestamp("Timestamp");
+        assertEquals(reactionsGet.getToken(), "Token");
+        assertEquals(reactionsGet.getChannel(), "Channel");
+        assertEquals(reactionsGet.getFile(), "File");
+        assertEquals(reactionsGet.getFileComment(), "FileComment");
+        assertFalse(reactionsGet.getFull());
+        assertEquals(reactionsGet.getTimestamp(), "Timestamp");
+        assertEquals(reactionsGet.build(), "token=Token&channel=Channel&file=File&file_comment=FileComment&full=false&timestamp=Timestamp");
     }
 }
