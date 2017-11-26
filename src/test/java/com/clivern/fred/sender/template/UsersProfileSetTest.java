@@ -20,6 +20,15 @@ public class UsersProfileSetTest extends TestCase {
 
     public void testBuild() throws IOException
     {
-        assertTrue(true);
+        UsersProfileSet usersProfileSet = new UsersProfileSet();
+        usersProfileSet.setToken("Token");
+        usersProfileSet.setUser("User");
+        usersProfileSet.setName("Name");
+        usersProfileSet.setValue("Value");
+        assertEquals(usersProfileSet.getToken(), "Token");
+        assertEquals(usersProfileSet.getUser(), "User");
+        assertEquals(usersProfileSet.getName(), "Name");
+        assertEquals(usersProfileSet.getValue(), "Value");
+        assertEquals(usersProfileSet.build(), "token=Token&user=User&name=Name&value=Value");
     }
 }
