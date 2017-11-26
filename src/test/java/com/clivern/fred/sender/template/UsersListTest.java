@@ -20,6 +20,17 @@ public class UsersListTest extends TestCase {
 
     public void testBuild() throws IOException
     {
-        assertTrue(true);
+        UsersList usersList = new UsersList();
+        usersList.setToken("Token");
+        usersList.setCursor("Cursor");
+        usersList.setIncludeLocale(true);
+        usersList.setLimit(20);
+        usersList.setPresence(false);
+        assertEquals(usersList.getToken(), "Token");
+        assertEquals(usersList.getCursor(), "Cursor");
+        assertTrue(usersList.getIncludeLocale());
+        assertEquals(usersList.getLimit(), new Integer(20));
+        assertFalse(usersList.getPresence());
+        assertEquals(usersList.build(), "token=Token&cursor=Cursor&include_locale=true&limit=20&presence=false");
     }
 }
