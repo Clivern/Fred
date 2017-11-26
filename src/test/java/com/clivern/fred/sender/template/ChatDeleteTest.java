@@ -20,13 +20,15 @@ public class ChatDeleteTest extends TestCase {
 
     public void testBuild() throws IOException
     {
-        ChannelsCreate channelsCreate = new ChannelsCreate();
-        channelsCreate.setToken("Token");
-        channelsCreate.setName("Channel");
-        channelsCreate.setValidate(true);
-        assertEquals(channelsCreate.getToken(), "Token");
-        assertEquals(channelsCreate.getName(), "Channel");
-        assertTrue(channelsCreate.getValidate());
-        assertEquals(channelsCreate.build(), "token=Token&name=Channel&validate=true");
+        ChatDelete chatDelete = new ChatDelete();
+        chatDelete.setToken("Token");
+        chatDelete.setChannel("Channel");
+        chatDelete.setTs("Ts");
+        chatDelete.setAsUser(false);
+        assertEquals(chatDelete.getToken(), "Token");
+        assertEquals(chatDelete.getChannel(), "Channel");
+        assertEquals(chatDelete.getTs(), "Ts");
+        assertFalse(chatDelete.getAsUser());
+        assertEquals(chatDelete.build(), "token=Token&channel=Channel&ts=Ts&as_user=false");
     }
 }

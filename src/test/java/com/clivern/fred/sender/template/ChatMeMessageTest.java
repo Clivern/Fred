@@ -20,13 +20,13 @@ public class ChatMeMessageTest extends TestCase {
 
     public void testBuild() throws IOException
     {
-        ChannelsCreate channelsCreate = new ChannelsCreate();
-        channelsCreate.setToken("Token");
-        channelsCreate.setName("Channel");
-        channelsCreate.setValidate(true);
-        assertEquals(channelsCreate.getToken(), "Token");
-        assertEquals(channelsCreate.getName(), "Channel");
-        assertTrue(channelsCreate.getValidate());
-        assertEquals(channelsCreate.build(), "token=Token&name=Channel&validate=true");
+        ChatMeMessage chatMeMessage = new ChatMeMessage();
+        chatMeMessage.setToken("Token");
+        chatMeMessage.setChannel("Channel");
+        chatMeMessage.setText("Text");
+        assertEquals(chatMeMessage.getToken(), "Token");
+        assertEquals(chatMeMessage.getChannel(), "Channel");
+        assertEquals(chatMeMessage.getText(), "Text");
+        assertEquals(chatMeMessage.build(), "token=Token&channel=Channel&text=Text");
     }
 }
