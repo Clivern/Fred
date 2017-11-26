@@ -20,6 +20,21 @@ public class SearchMessagesTest extends TestCase {
 
     public void testBuild() throws IOException
     {
-        assertTrue(true);
+        SearchMessages searchMessages = new SearchMessages();
+        searchMessages.setToken("Token");
+        searchMessages.setQuery("Query");
+        searchMessages.setCount(23);
+        searchMessages.setPage(34);
+        searchMessages.setHighlight(true);
+        searchMessages.setSort("Sort");
+        searchMessages.setSortDir("SortDir");
+        assertEquals(searchMessages.getToken(), "Token");
+        assertEquals(searchMessages.getQuery(), "Query");
+        assertEquals(searchMessages.getCount(), new Integer(23));
+        assertEquals(searchMessages.getPage(), new Integer(34));
+        assertTrue(searchMessages.getHighlight());
+        assertEquals(searchMessages.getSort(), "Sort");
+        assertEquals(searchMessages.getSortDir(), "SortDir");
+        assertEquals(searchMessages.build(), "token=Token&query=Query&count=23&page=34&highlight=true&sort=Sort&sort_dir=SortDir");
     }
 }

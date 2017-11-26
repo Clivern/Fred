@@ -20,6 +20,21 @@ public class SearchFilesTest extends TestCase {
 
     public void testBuild() throws IOException
     {
-        assertTrue(true);
+        SearchFiles searchFiles = new SearchFiles();
+        searchFiles.setToken("Token");
+        searchFiles.setQuery("Query");
+        searchFiles.setCount(23);
+        searchFiles.setPage(34);
+        searchFiles.setHighlight(true);
+        searchFiles.setSort("Sort");
+        searchFiles.setSortDir("SortDir");
+        assertEquals(searchFiles.getToken(), "Token");
+        assertEquals(searchFiles.getQuery(), "Query");
+        assertEquals(searchFiles.getCount(), new Integer(23));
+        assertEquals(searchFiles.getPage(), new Integer(34));
+        assertTrue(searchFiles.getHighlight());
+        assertEquals(searchFiles.getSort(), "Sort");
+        assertEquals(searchFiles.getSortDir(), "SortDir");
+        assertEquals(searchFiles.build(), "token=Token&query=Query&count=23&page=34&highlight=true&sort=Sort&sort_dir=SortDir");
     }
 }
