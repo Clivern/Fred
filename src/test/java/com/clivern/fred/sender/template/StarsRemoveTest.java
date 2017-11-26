@@ -20,6 +20,17 @@ public class StarsRemoveTest extends TestCase {
 
     public void testBuild() throws IOException
     {
-        assertTrue(true);
+        StarsRemove starsRemove = new StarsRemove();
+        starsRemove.setToken("Token");
+        starsRemove.setChannel("Channel");
+        starsRemove.setFile("File");
+        starsRemove.setFileComment("FileComment");
+        starsRemove.setTimestamp("Timestamp");
+        assertEquals(starsRemove.getToken(), "Token");
+        assertEquals(starsRemove.getChannel(), "Channel");
+        assertEquals(starsRemove.getFile(), "File");
+        assertEquals(starsRemove.getFileComment(), "FileComment");
+        assertEquals(starsRemove.getTimestamp(), "Timestamp");
+        assertEquals(starsRemove.build(), "token=Token&channel=Channel&file=File&file_comment=FileComment&timestamp=Timestamp");
     }
 }

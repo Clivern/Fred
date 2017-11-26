@@ -20,6 +20,17 @@ public class StarsAddTest extends TestCase {
 
     public void testBuild() throws IOException
     {
-        assertTrue(true);
+        StarsAdd starsAdd = new StarsAdd();
+        starsAdd.setToken("Token");
+        starsAdd.setChannel("Channel");
+        starsAdd.setFile("File");
+        starsAdd.setFileComment("FileComment");
+        starsAdd.setTimestamp("Timestamp");
+        assertEquals(starsAdd.getToken(), "Token");
+        assertEquals(starsAdd.getChannel(), "Channel");
+        assertEquals(starsAdd.getFile(), "File");
+        assertEquals(starsAdd.getFileComment(), "FileComment");
+        assertEquals(starsAdd.getTimestamp(), "Timestamp");
+        assertEquals(starsAdd.build(), "token=Token&channel=Channel&file=File&file_comment=FileComment&timestamp=Timestamp");
     }
 }

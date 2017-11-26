@@ -20,6 +20,13 @@ public class StarsListTest extends TestCase {
 
     public void testBuild() throws IOException
     {
-        assertTrue(true);
+        StarsList starsList = new StarsList();
+        starsList.setToken("Token");
+        starsList.setCount(35);
+        starsList.setPage(45);
+        assertEquals(starsList.getToken(), "Token");
+        assertEquals(starsList.getCount(), new Integer(35));
+        assertEquals(starsList.getPage(), new Integer(45));
+        assertEquals(starsList.build(), "token=Token&count=35&page=45");
     }
 }
