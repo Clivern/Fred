@@ -20,6 +20,13 @@ public class UsergroupsUsersListTest extends TestCase {
 
     public void testBuild() throws IOException
     {
-        assertTrue(true);
+        UsergroupsUsersList usergroupsUsersList = new UsergroupsUsersList();
+        usergroupsUsersList.setToken("Token");
+        usergroupsUsersList.setUserGroup("UserGroup");
+        usergroupsUsersList.setIncludeDisabled(false);
+        assertEquals(usergroupsUsersList.getToken(), "Token");
+        assertEquals(usergroupsUsersList.getUserGroup(), "UserGroup");
+        assertFalse(usergroupsUsersList.getIncludeDisabled());
+        assertEquals(usergroupsUsersList.build(), "token=Token&usergroup=UserGroup&include_disabled=false");
     }
 }
