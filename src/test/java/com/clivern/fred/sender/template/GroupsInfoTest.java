@@ -20,6 +20,13 @@ public class GroupsInfoTest extends TestCase {
 
     public void testBuild() throws IOException
     {
-        assertTrue(true);
+        GroupsInfo groupsInfo = new GroupsInfo();
+        groupsInfo.setToken("Token");
+        groupsInfo.setChannel("Channel");
+        groupsInfo.setIncludeLocale(true);
+        assertEquals(groupsInfo.getToken(), "Token");
+        assertEquals(groupsInfo.getChannel(), "Channel");
+        assertTrue(groupsInfo.getIncludeLocale());
+        assertEquals(groupsInfo.build(), "token=Token&channel=Channel&include_locale=true");
     }
 }
