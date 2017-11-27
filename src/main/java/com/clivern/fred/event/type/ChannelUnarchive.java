@@ -13,6 +13,8 @@
  */
 package com.clivern.fred.event.type;
 
+import com.clivern.fred.contract.event.type.EventTemplate;
+
 /**
  * Channel Unarchive Event
  *
@@ -23,7 +25,7 @@ package com.clivern.fred.event.type;
  * @author A.F
  * @since 1.0.0
  */
-public class ChannelUnarchive {
+public class ChannelUnarchive extends EventTemplate {
 
     /**
      * Set Event Type. It should be channel_unarchive

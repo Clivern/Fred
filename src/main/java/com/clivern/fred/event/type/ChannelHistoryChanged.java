@@ -13,6 +13,8 @@
  */
 package com.clivern.fred.event.type;
 
+import com.clivern.fred.contract.event.type.EventTemplate;
+
 /**
  * Channel History Changed Event
  *
