@@ -20,6 +20,13 @@ public class GroupsKickTest extends TestCase {
 
     public void testBuild() throws IOException
     {
-        assertTrue(true);
+        GroupsKick groupsKick = new GroupsKick();
+        groupsKick.setToken("Token");
+        groupsKick.setChannel("Channel");
+        groupsKick.setUser("User");
+        assertEquals(groupsKick.getToken(), "Token");
+        assertEquals(groupsKick.getChannel(), "Channel");
+        assertEquals(groupsKick.getUser(), "User");
+        assertEquals(groupsKick.build(), "token=Token&channel=Channel&user=User");
     }
 }
