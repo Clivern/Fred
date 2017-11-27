@@ -13,12 +13,87 @@
  */
 package com.clivern.fred.event.type;
 
+import com.clivern.fred.contract.event.type.EventTemplate;
+
 /**
  * Group Close Event
+ *
+ * Expected scopes: groups:read
+ *
+ * <a href="https://api.slack.com/events/group_archive">For More Info</a>
  *
  * @author A.F
  * @since 1.0.0
  */
-public class GroupClose {
+public class GroupClose extends EventTemplate {
 
+    /**
+     * Set Event Type. It should be group_archive
+     *
+     * @param eventType
+     */
+    public void setEventType(String eventType)
+    {
+        this.setIncomingItem("event.type", eventType);
+    }
+
+    /**
+     * Set Channel Name
+     *
+     * @param channel
+     */
+    public void setChannel(String channel)
+    {
+        this.setIncomingItem("event.channel", channel);
+    }
+
+    /**
+     * Set User
+     *
+     * @param user
+     */
+    public void setUser(String user)
+    {
+        this.setIncomingItem("event.user", user);
+    }
+
+    /**
+     * Get Event Type. It should be group_archive
+     *
+     * @return String
+     */
+    public String getEventType()
+    {
+        return this.getIncomingItem("event.type", "");
+    }
+
+    /**
+     * Get Channel Name
+     *
+     * @return String
+     */
+    public String getChannel()
+    {
+        return this.getIncomingItem("event.channel", "");
+    }
+
+    /**
+     * Get User
+     *
+     * @return String
+     */
+    public String getUser()
+    {
+        return this.getIncomingItem("event.user", "");
+    }
+
+    /**
+     * Parse Event Incoming Data
+     *
+     * @return Boolean
+     */
+    public Boolean parse()
+    {
+        return true;
+    }
 }
