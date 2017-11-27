@@ -20,6 +20,11 @@ public class GroupsLeaveTest extends TestCase {
 
     public void testBuild() throws IOException
     {
-        assertTrue(true);
+        GroupsLeave groupsLeave = new GroupsLeave();
+        groupsLeave.setToken("Token");
+        groupsLeave.setChannel("Channel");
+        assertEquals(groupsLeave.getToken(), "Token");
+        assertEquals(groupsLeave.getChannel(), "Channel");
+        assertEquals(groupsLeave.build(), "token=Token&channel=Channel");
     }
 }
