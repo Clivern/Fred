@@ -18,6 +18,8 @@ import com.clivern.fred.contract.event.type.EventTemplate;
 /**
  * Channel Archive Event
  *
+ * Expected scopes: channels:read
+ *
  * <a href="https://api.slack.com/events/channel_archive">For More Info</a>
  *
  * @author A.F
@@ -26,7 +28,7 @@ import com.clivern.fred.contract.event.type.EventTemplate;
 public class ChannelArchive extends EventTemplate {
 
     /**
-     * Set Event Type. It should be channel_deleted
+     * Set Event Type. It should be channel_archive
      *
      * @param eventType
      */
@@ -56,7 +58,7 @@ public class ChannelArchive extends EventTemplate {
     }
 
     /**
-     * Get Event Type. It should be channel_deleted
+     * Get Event Type. It should be channel_archive
      *
      * @return String
      */
