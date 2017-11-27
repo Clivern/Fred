@@ -20,6 +20,13 @@ public class GroupsListTest extends TestCase {
 
     public void testBuild() throws IOException
     {
-        assertTrue(true);
+        GroupsList groupsList = new GroupsList();
+        groupsList.setToken("Token");
+        groupsList.setExcludeArchived(true);
+        groupsList.setExcludeMembers(false);
+        assertEquals(groupsList.getToken(), "Token");
+        assertTrue(groupsList.getExcludeArchived());
+        assertFalse(groupsList.getExcludeMembers());
+        assertEquals(groupsList.build(), "token=Token&exclude_archived=true&exclude_members=false");
     }
 }
