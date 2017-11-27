@@ -20,6 +20,11 @@ public class GroupsUnarchiveTest extends TestCase {
 
     public void testBuild() throws IOException
     {
-        assertTrue(true);
+        GroupsUnarchive groupsUnarchive = new GroupsUnarchive();
+        groupsUnarchive.setToken("Token");
+        groupsUnarchive.setChannel("Channel");
+        assertEquals(groupsUnarchive.getToken(), "Token");
+        assertEquals(groupsUnarchive.getChannel(), "Channel");
+        assertEquals(groupsUnarchive.build(), "token=Token&channel=Channel");
     }
 }
