@@ -20,6 +20,15 @@ public class GroupsRenameTest extends TestCase {
 
     public void testBuild() throws IOException
     {
-        assertTrue(true);
+        GroupsRename groupsRename = new GroupsRename();
+        groupsRename.setToken("Token");
+        groupsRename.setName("Name");
+        groupsRename.setChannel("Channel");
+        groupsRename.setValidate(true);
+        assertEquals(groupsRename.getToken(), "Token");
+        assertEquals(groupsRename.getName(), "Name");
+        assertEquals(groupsRename.getChannel(), "Channel");
+        assertTrue(groupsRename.getValidate());
+        assertEquals(groupsRename.build(), "token=Token&channel=Channel&name=Name&validate=true");
     }
 }
