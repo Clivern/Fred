@@ -20,6 +20,13 @@ public class GroupsSetTopicTest extends TestCase {
 
     public void testBuild() throws IOException
     {
-        assertTrue(true);
+        GroupsSetTopic groupsSetTopic = new GroupsSetTopic();
+        groupsSetTopic.setToken("Token");
+        groupsSetTopic.setChannel("Channel");
+        groupsSetTopic.setTopic("Topic");
+        assertEquals(groupsSetTopic.getToken(), "Token");
+        assertEquals(groupsSetTopic.getChannel(), "Channel");
+        assertEquals(groupsSetTopic.getTopic(), "Topic");
+        assertEquals(groupsSetTopic.build(), "token=Token&channel=Channel&topic=Topic");
     }
 }
