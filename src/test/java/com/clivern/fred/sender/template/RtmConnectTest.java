@@ -20,6 +20,11 @@ public class RtmConnectTest extends TestCase {
 
     public void testBuild() throws IOException
     {
-        assertTrue(true);
+        RtmConnect rtmConnect = new RtmConnect();
+        rtmConnect.setToken("Token");
+        rtmConnect.setBatchPresenceAware(50);
+        assertEquals(rtmConnect.getToken(), "Token");
+        assertEquals(rtmConnect.getBatchPresenceAware(), new Integer(50));
+        assertEquals(rtmConnect.build(), "token=Token&batch_presence_aware=50");
     }
 }

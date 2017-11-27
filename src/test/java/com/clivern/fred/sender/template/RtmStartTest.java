@@ -20,6 +20,21 @@ public class RtmStartTest extends TestCase {
 
     public void testBuild() throws IOException
     {
-        assertTrue(true);
+        RtmStart rtmStart = new RtmStart();
+        rtmStart.setToken("Token");
+        rtmStart.setBatchPresenceAware(50);
+        rtmStart.setNoLatest(60);
+        rtmStart.setIncludeLocale(true);
+        rtmStart.setMpimAware(false);
+        rtmStart.setNoUnreads(true);
+        rtmStart.setSimpleLatest(false);
+        assertEquals(rtmStart.getToken(), "Token");
+        assertEquals(rtmStart.getBatchPresenceAware(), new Integer(50));
+        assertEquals(rtmStart.getNoLatest(), new Integer(60));
+        assertTrue(rtmStart.getIncludeLocale());
+        assertFalse(rtmStart.getMpimAware());
+        assertTrue(rtmStart.getNoUnreads());
+        assertFalse(rtmStart.getSimpleLatest());
+        assertEquals(rtmStart.build(), "token=Token&batch_presence_aware=50&no_latest=60&include_locale=true&mpim_aware=false&no_unreads=true&simple_latest=false");
     }
 }
