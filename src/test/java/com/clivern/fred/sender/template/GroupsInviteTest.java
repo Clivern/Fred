@@ -20,6 +20,13 @@ public class GroupsInviteTest extends TestCase {
 
     public void testBuild() throws IOException
     {
-        assertTrue(true);
+        GroupsInvite groupsInvite = new GroupsInvite();
+        groupsInvite.setToken("Token");
+        groupsInvite.setChannel("Channel");
+        groupsInvite.setUser("User");
+        assertEquals(groupsInvite.getToken(), "Token");
+        assertEquals(groupsInvite.getChannel(), "Channel");
+        assertEquals(groupsInvite.getUser(), "User");
+        assertEquals(groupsInvite.build(), "token=Token&channel=Channel&user=User");
     }
 }
