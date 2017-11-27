@@ -113,5 +113,4 @@ public class TokensRevoked extends EventTemplate {
     {
         return true;
     }
-
 }
