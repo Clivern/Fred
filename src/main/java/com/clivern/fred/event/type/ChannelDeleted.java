@@ -18,6 +18,8 @@ import com.clivern.fred.contract.event.type.EventTemplate;
 /**
  * Channel Deleted Event
  *
+ * Expected scopes: channels:read
+ *
  * <a href="https://api.slack.com/events/channel_deleted">For More Info</a>
  *
  * @author A.F
