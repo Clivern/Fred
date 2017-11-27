@@ -20,6 +20,21 @@ public class ImHistoryTest extends TestCase {
 
     public void testBuild() throws IOException
     {
-        assertTrue(true);
+        ImHistory imHistory = new ImHistory();
+        imHistory.setToken("Token");
+        imHistory.setChannel("Channel");
+        imHistory.setCount(70);
+        imHistory.setInclusive(true);
+        imHistory.setLatest("Latest");
+        imHistory.setOldest("Oldest");
+        imHistory.setUnreads(false);
+        assertEquals(imHistory.getToken(), "Token");
+        assertEquals(imHistory.getChannel(), "Channel");
+        assertEquals(imHistory.getCount(), new Integer(70));
+        assertTrue(imHistory.getInclusive());
+        assertEquals(imHistory.getLatest(), "Latest");
+        assertEquals(imHistory.getOldest(), "Oldest");
+        assertFalse(imHistory.getUnreads());
+        assertEquals(imHistory.build(), "token=Token&channel=Channel&count=70&inclusive=true&latest=Latest&oldest=Oldest&unreads=false");
     }
 }

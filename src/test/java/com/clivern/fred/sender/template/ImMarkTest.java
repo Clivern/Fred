@@ -20,6 +20,13 @@ public class ImMarkTest extends TestCase {
 
     public void testBuild() throws IOException
     {
-        assertTrue(true);
+        ImMark imMark = new ImMark();
+        imMark.setToken("Token");
+        imMark.setChannel("Channel");
+        imMark.setTs("Ts");
+        assertEquals(imMark.getToken(), "Token");
+        assertEquals(imMark.getChannel(), "Channel");
+        assertEquals(imMark.getTs(), "Ts");
+        assertEquals(imMark.build(), "token=Token&channel=Channel&ts=Ts");
     }
 }

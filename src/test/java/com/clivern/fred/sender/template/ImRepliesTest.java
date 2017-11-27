@@ -20,6 +20,13 @@ public class ImRepliesTest extends TestCase {
 
     public void testBuild() throws IOException
     {
-        assertTrue(true);
+        ImReplies imReplies = new ImReplies();
+        imReplies.setToken("Token");
+        imReplies.setChannel("Channel");
+        imReplies.setThreadTs("ThreadTs");
+        assertEquals(imReplies.getToken(), "Token");
+        assertEquals(imReplies.getChannel(), "Channel");
+        assertEquals(imReplies.getThreadTs(), "ThreadTs");
+        assertEquals(imReplies.build(), "token=Token&channel=Channel&thread_ts=ThreadTs");
     }
 }

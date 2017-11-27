@@ -20,6 +20,11 @@ public class ImCloseTest extends TestCase {
 
     public void testBuild() throws IOException
     {
-        assertTrue(true);
+        ImClose imClose = new ImClose();
+        imClose.setToken("Token");
+        imClose.setChannel("Channel");
+        assertEquals(imClose.getToken(), "Token");
+        assertEquals(imClose.getChannel(), "Channel");
+        assertEquals(imClose.build(), "token=Token&channel=Channel");
     }
 }

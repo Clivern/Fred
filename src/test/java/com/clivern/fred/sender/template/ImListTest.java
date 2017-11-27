@@ -20,6 +20,13 @@ public class ImListTest extends TestCase {
 
     public void testBuild() throws IOException
     {
-        assertTrue(true);
+        ImList imList = new ImList();
+        imList.setToken("Token");
+        imList.setCursor("Cursor");
+        imList.setLimit(80);
+        assertEquals(imList.getToken(), "Token");
+        assertEquals(imList.getCursor(), "Cursor");
+        assertEquals(imList.getLimit(), new Integer(80));
+        assertEquals(imList.build(), "token=Token&cursor=Cursor&limit=80");
     }
 }
