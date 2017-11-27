@@ -20,6 +20,13 @@ public class GroupsMarkTest extends TestCase {
 
     public void testBuild() throws IOException
     {
-        assertTrue(true);
+        GroupsMark groupsMark = new GroupsMark();
+        groupsMark.setToken("Token");
+        groupsMark.setChannel("Channel");
+        groupsMark.setTs("Ts");
+        assertEquals(groupsMark.getToken(), "Token");
+        assertEquals(groupsMark.getChannel(), "Channel");
+        assertEquals(groupsMark.getTs(), "Ts");
+        assertEquals(groupsMark.build(), "token=Token&channel=Channel&ts=Ts");
     }
 }
