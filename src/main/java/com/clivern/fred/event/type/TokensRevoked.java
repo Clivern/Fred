@@ -13,12 +13,105 @@
  */
 package com.clivern.fred.event.type;
 
+import com.clivern.fred.contract.event.type.EventTemplate;
+import java.util.ArrayList;
+
 /**
  * Tokens Revoked Event
+ *
+ * <a href="https://api.slack.com/events/tokens_revoked">For More Info</a>
  *
  * @author A.F
  * @since 1.0.0
  */
-public class TokensRevoked {
+public class TokensRevoked extends EventTemplate {
+
+    /**
+     * Set Event Type. It should be tokens_revoked
+     *
+     * @param eventType
+     */
+    public void setEventType(String eventType)
+    {
+        this.setIncomingItem("event.type", eventType);
+    }
+
+    /**
+     * Set Oauth Tokens (Comma Separated)
+     *
+     * @param oauthTokens
+     */
+    public void setOauthTokens(ArrayList<String> oauthTokens)
+    {
+        String oauthTokenStr = "";
+
+        for (String oauthToken : oauthTokens) {
+            if( !oauthTokenStr.equals("") ){
+                oauthTokenStr += ",";
+            }
+            oauthTokenStr += oauthToken;
+        }
+
+        this.setIncomingItem("tokens.oauth", oauthTokenStr);
+    }
+
+    /**
+     * Set Bot Tokens (Comma Separated)
+     *
+     * @param botTokens
+     */
+    public void setBotTokens(ArrayList<String> botTokens)
+    {
+        String botTokenStr = "";
+
+        for (String botToken : botTokens) {
+            if( !botTokenStr.equals("") ){
+                botTokenStr += ",";
+            }
+            botTokenStr += botToken;
+        }
+
+        this.setIncomingItem("tokens.bot", botTokenStr);
+    }
+
+    /**
+     * Get Event Type. It should be tokens_revoked
+     *
+     * @return String
+     */
+    public String getEventType()
+    {
+        return this.getIncomingItem("event.type", "");
+    }
+
+    /**
+     * Get Oauth Tokens (Comma Separated)
+     *
+     * @return String
+     */
+    public String getOauthTokens()
+    {
+        return this.getIncomingItem("tokens.oauth", "");
+    }
+
+    /**
+     * Get Bot Tokens (Comma Separated)
+     *
+     * @return String
+     */
+    public String getBotTokens()
+    {
+        return this.getIncomingItem("tokens.bot", "");
+    }
+
+    /**
+     * Parse Event Incoming Data
+     *
+     * @return Boolean
+     */
+    public Boolean parse()
+    {
+        return true;
+    }
 
 }
