@@ -16,9 +16,82 @@ package com.clivern.fred.event.type;
 /**
  * Channel Unarchive Event
  *
+ * Expected scopes: channels:read
+ *
+ * <a href="https://api.slack.com/events/channel_unarchive">For More Info</a>
+ *
  * @author A.F
  * @since 1.0.0
  */
 public class ChannelUnarchive {
 
+    /**
+     * Set Event Type. It should be channel_unarchive
+     *
+     * @param eventType
+     */
+    public void setEventType(String eventType)
+    {
+        this.setIncomingItem("event.type", eventType);
+    }
+
+    /**
+     * Set Channel Name
+     *
+     * @param channel
+     */
+    public void setChannel(String channel)
+    {
+        this.setIncomingItem("event.channel", channel);
+    }
+
+    /**
+     * Set User
+     *
+     * @param user
+     */
+    public void setUser(String user)
+    {
+        this.setIncomingItem("event.user", user);
+    }
+
+    /**
+     * Get Event Type. It should be channel_unarchive
+     *
+     * @return String
+     */
+    public String getEventType()
+    {
+        return this.getIncomingItem("event.type", "");
+    }
+
+    /**
+     * Get Channel Name
+     *
+     * @return String
+     */
+    public String getChannel()
+    {
+        return this.getIncomingItem("event.channel", "");
+    }
+
+    /**
+     * Get User
+     *
+     * @return String
+     */
+    public String getUser()
+    {
+        return this.getIncomingItem("event.user", "");
+    }
+
+    /**
+     * Parse Event Incoming Data
+     *
+     * @return Boolean
+     */
+    public Boolean parse()
+    {
+        return true;
+    }
 }
