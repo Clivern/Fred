@@ -20,6 +20,21 @@ public class GroupsHistoryTest extends TestCase {
 
     public void testBuild() throws IOException
     {
-        assertTrue(true);
+        GroupsHistory groupsHistory = new GroupsHistory();
+        groupsHistory.setToken("Token");
+        groupsHistory.setChannel("Channel");
+        groupsHistory.setCount(20);
+        groupsHistory.setInclusive(true);
+        groupsHistory.setLatest("Latest");
+        groupsHistory.setOldest("Oldest");
+        groupsHistory.setUnreads(false);
+        assertEquals(groupsHistory.getToken(), "Token");
+        assertEquals(groupsHistory.getChannel(), "Channel");
+        assertEquals(groupsHistory.getCount(), new Integer(20));
+        assertTrue(groupsHistory.getInclusive());
+        assertEquals(groupsHistory.getLatest(), "Latest");
+        assertEquals(groupsHistory.getOldest(), "Oldest");
+        assertFalse(groupsHistory.getUnreads());
+        assertEquals(groupsHistory.build(), "token=Token&channel=Channel&count=20&inclusive=true&latest=Latest&oldest=Oldest&unreads=false");
     }
 }
