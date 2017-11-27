@@ -20,6 +20,13 @@ public class GroupsRepliesTest extends TestCase {
 
     public void testBuild() throws IOException
     {
-        assertTrue(true);
+        GroupsReplies groupsReplies = new GroupsReplies();
+        groupsReplies.setToken("Token");
+        groupsReplies.setChannel("Channel");
+        groupsReplies.setThreadTs("ThreadTs");
+        assertEquals(groupsReplies.getToken(), "Token");
+        assertEquals(groupsReplies.getChannel(), "Channel");
+        assertEquals(groupsReplies.getThreadTs(), "ThreadTs");
+        assertEquals(groupsReplies.build(), "token=Token&channel=Channel&thread_ts=ThreadTs");
     }
 }
