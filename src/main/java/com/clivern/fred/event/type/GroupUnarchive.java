@@ -13,12 +13,67 @@
  */
 package com.clivern.fred.event.type;
 
+import com.clivern.fred.contract.event.type.EventTemplate;
+
 /**
  * Group Unarchive Event
+ *
+ * Expected scopes: groups:read
+ *
+ * <a href="https://api.slack.com/events/group_unarchive">For More Info</a>
  *
  * @author A.F
  * @since 1.0.0
  */
-public class GroupUnarchive {
+public class GroupUnarchive extends EventTemplate {
 
+    /**
+     * Set Event Type. It should be group_unarchive
+     *
+     * @param eventType
+     */
+    public void setEventType(String eventType)
+    {
+        this.setIncomingItem("event.type", eventType);
+    }
+
+    /**
+     * Set Channel Name
+     *
+     * @param channel
+     */
+    public void setChannel(String channel)
+    {
+        this.setIncomingItem("event.channel", channel);
+    }
+
+    /**
+     * Get Event Type. It should be group_unarchive
+     *
+     * @return String
+     */
+    public String getEventType()
+    {
+        return this.getIncomingItem("event.type", "");
+    }
+
+    /**
+     * Get Channel Name
+     *
+     * @return String
+     */
+    public String getChannel()
+    {
+        return this.getIncomingItem("event.channel", "");
+    }
+
+    /**
+     * Parse Event Incoming Data
+     *
+     * @return Boolean
+     */
+    public Boolean parse()
+    {
+        return true;
+    }
 }

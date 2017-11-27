@@ -13,12 +13,107 @@
  */
 package com.clivern.fred.event.type;
 
+import com.clivern.fred.contract.event.type.EventTemplate;
+
 /**
  * Group Rename Event
+ *
+ * Expected scopes: groups:read
+ *
+ * <a href="https://api.slack.com/events/group_rename">For More Info</a>
  *
  * @author A.F
  * @since 1.0.0
  */
-public class GroupRename {
+public class GroupRename extends EventTemplate {
 
+    /**
+     * Set Event Type. It should be group_rename
+     *
+     * @param eventType
+     */
+    public void setEventType(String eventType)
+    {
+        this.setIncomingItem("event.type", eventType);
+    }
+
+    /**
+     * Set Channel Id
+     *
+     * @param channelId
+     */
+    public void setChannelId(String channelId)
+    {
+        this.setIncomingItem("event.channel.id", channelId);
+    }
+
+    /**
+     * Set Channel Name
+     *
+     * @param channelName
+     */
+    public void setChannelName(String channelName)
+    {
+        this.setIncomingItem("event.channel.name", channelName);
+    }
+
+    /**
+     * Set Channel Created
+     *
+     * @param channelCreated
+     */
+    public void setChannelCreated(String channelCreated)
+    {
+        this.setIncomingItem("event.channel.created", channelCreated);
+    }
+
+    /**
+     * Get Event Type. It should be group_rename
+     *
+     * @return String
+     */
+    public String getEventType()
+    {
+        return this.getIncomingItem("event.type", "");
+    }
+
+    /**
+     * Get Channel Id
+     *
+     * @return String
+     */
+    public String getChannelId()
+    {
+        return this.getIncomingItem("event.channel.id", "");
+    }
+
+    /**
+     * Get Channel Name
+     *
+     * @return String
+     */
+    public String getChannelName()
+    {
+        return this.getIncomingItem("event.channel.name", "");
+    }
+
+    /**
+     * Get Channel Created
+     *
+     * @return String
+     */
+    public String getChannelCreated()
+    {
+        return this.getIncomingItem("event.channel.created", "");
+    }
+
+    /**
+     * Parse Event Incoming Data
+     *
+     * @return Boolean
+     */
+    public Boolean parse()
+    {
+        return true;
+    }
 }

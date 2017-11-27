@@ -13,12 +13,107 @@
  */
 package com.clivern.fred.event.type;
 
+import com.clivern.fred.contract.event.type.EventTemplate;
+
 /**
  * Group History Changed Event
+ *
+ * Expected scopes: groups:read
+ *
+ * <a href="https://api.slack.com/events/group_history_changed">For More Info</a>
  *
  * @author A.F
  * @since 1.0.0
  */
-public class GroupHistoryChanged {
+public class GroupHistoryChanged extends EventTemplate {
 
+    /**
+     * Set Event Type. It should be group_history_changed
+     *
+     * @param eventType
+     */
+    public void setEventType(String eventType)
+    {
+        this.setIncomingItem("event.type", eventType);
+    }
+
+    /**
+     * Set Latest
+     *
+     * @param latest
+     */
+    public void setLatest(String latest)
+    {
+        this.setIncomingItem("event.latest", latest);
+    }
+
+    /**
+     * Set Ts
+     *
+     * @param ts
+     */
+    public void setTs(String ts)
+    {
+        this.setIncomingItem("event.ts", ts);
+    }
+
+    /**
+     * Set Event Ts
+     *
+     * @param eventTs
+     */
+    public void setEventTs(String eventTs)
+    {
+        this.setIncomingItem("event.event_ts", eventTs);
+    }
+
+    /**
+     * Get Event Type. It should be group_history_changed
+     *
+     * @return String
+     */
+    public String getEventType()
+    {
+        return this.getIncomingItem("event.type", "");
+    }
+
+    /**
+     * Get Latest
+     *
+     * @return String
+     */
+    public String getLatest()
+    {
+        return this.getIncomingItem("event.latest", "");
+    }
+
+    /**
+     * Get Ts
+     *
+     * @return String
+     */
+    public String getTs()
+    {
+        return this.getIncomingItem("event.ts", "");
+    }
+
+    /**
+     * Get EventTs
+     *
+     * @return String
+     */
+    public String getEventTs()
+    {
+        return this.getIncomingItem("event.event_ts", "");
+    }
+
+    /**
+     * Parse Event Incoming Data
+     *
+     * @return Boolean
+     */
+    public Boolean parse()
+    {
+        return true;
+    }
 }
