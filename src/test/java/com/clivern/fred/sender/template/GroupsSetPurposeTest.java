@@ -20,6 +20,13 @@ public class GroupsSetPurposeTest extends TestCase {
 
     public void testBuild() throws IOException
     {
-        assertTrue(true);
+        GroupsSetPurpose groupsSetPurpose = new GroupsSetPurpose();
+        groupsSetPurpose.setToken("Token");
+        groupsSetPurpose.setChannel("Channel");
+        groupsSetPurpose.setPurpose("Purpose");
+        assertEquals(groupsSetPurpose.getToken(), "Token");
+        assertEquals(groupsSetPurpose.getChannel(), "Channel");
+        assertEquals(groupsSetPurpose.getPurpose(), "Purpose");
+        assertEquals(groupsSetPurpose.build(), "token=Token&channel=Channel&purpose=Purpose");
     }
 }
