@@ -18,6 +18,8 @@ import com.clivern.fred.contract.event.type.EventTemplate;
 /**
  * Channel Deleted Event
  *
+ * A channel was deleted. It Works with RTM & Events API
+ *
  * Expected scopes: channels:read
  *
  * <a href="https://api.slack.com/events/channel_deleted">For More Info</a>

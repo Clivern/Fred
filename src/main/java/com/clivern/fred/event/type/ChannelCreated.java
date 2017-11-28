@@ -18,6 +18,8 @@ import com.clivern.fred.contract.event.type.EventTemplate;
 /**
  * Channel Created Event
  *
+ * A channel was created. It Works with RTM & Events API
+ *
  * Expected scopes: channels:read
  *
  * <a href="https://api.slack.com/events/channel_created">For More Info</a>

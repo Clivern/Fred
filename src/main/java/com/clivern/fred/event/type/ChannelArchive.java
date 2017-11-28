@@ -18,6 +18,8 @@ import com.clivern.fred.contract.event.type.EventTemplate;
 /**
  * Channel Archive Event
  *
+ * A channel was archived. It Works with RTM & Events API
+ *
  * Expected scopes: channels:read
  *
  * <a href="https://api.slack.com/events/channel_archive">For More Info</a>

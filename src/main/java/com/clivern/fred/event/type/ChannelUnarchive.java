@@ -18,6 +18,8 @@ import com.clivern.fred.contract.event.type.EventTemplate;
 /**
  * Channel Unarchive Event
  *
+ * A channel was unarchived. It Works with RTM & Events API
+ *
  * Expected scopes: channels:read
  *
  * <a href="https://api.slack.com/events/channel_unarchive">For More Info</a>

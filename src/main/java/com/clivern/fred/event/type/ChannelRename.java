@@ -18,6 +18,8 @@ import com.clivern.fred.contract.event.type.EventTemplate;
 /**
  * Channel Rename Event
  *
+ * A channel was renamed. It Works with RTM & Events API
+ *
  * Expected scopes: channels:read
  *
  * <a href="https://api.slack.com/events/channel_rename">For More Info</a>
