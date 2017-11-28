@@ -18,6 +18,8 @@ import com.clivern.fred.contract.event.type.EventTemplate;
 /**
  * App Uninstalled Event
  *
+ * Your Slack app was uninstalled. It Works with Events API
+ *
  * <a href="https://api.slack.com/events/app_uninstalled">For More Info</a>
  *
  * @author A.F

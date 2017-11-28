@@ -18,6 +18,8 @@ import com.clivern.fred.contract.event.type.EventTemplate;
 /**
  * Accounts Changed Event
  *
+ * The list of accounts a user is signed into has changed. It Works with RTM.
+ *
  * <a href="https://api.slack.com/events/accounts_changed">For More Info</a>
  *
  * @author A.F
