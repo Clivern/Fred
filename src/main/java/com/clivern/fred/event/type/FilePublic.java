@@ -13,12 +13,69 @@
  */
 package com.clivern.fred.event.type;
 
+import com.clivern.fred.contract.event.type.EventTemplate;
+
 /**
  * File Public Event
+ *
+ * A file was public. It Works with RTM & Events API
+ *
+ * Expected scopes: files:read
+ *
+ * <a href="https://api.slack.com/events/file_public">For More Info</a>
  *
  * @author A.F
  * @since 1.0.0
  */
-public class FilePublic {
+public class FilePublic extends EventTemplate {
 
+    /**
+     * Set Event Type. It should be file_public
+     *
+     * @param eventType
+     */
+    public void setEventType(String eventType)
+    {
+        this.setIncomingItem("event.type", eventType);
+    }
+
+    /**
+     * Set File ID
+     *
+     * @param fileId
+     */
+    public void setFileId(String fileId)
+    {
+        this.setIncomingItem("event.file_id", fileId);
+    }
+
+    /**
+     * Get Event Type. It should be file_public
+     *
+     * @return String
+     */
+    public String getEventType()
+    {
+        return this.getIncomingItem("event.type", "");
+    }
+
+    /**
+     * Get File ID
+     *
+     * @return String
+     */
+    public String getFileId()
+    {
+        return this.getIncomingItem("event.file_id", "");
+    }
+
+    /**
+     * Parse Event Incoming Data
+     *
+     * @return Boolean
+     */
+    public Boolean parse()
+    {
+        return true;
+    }
 }
