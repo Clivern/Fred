@@ -13,12 +13,69 @@
  */
 package com.clivern.fred.event.type;
 
+import com.clivern.fred.contract.event.type.EventTemplate;
+
 /**
  * File Created Event
+ *
+ * A file was created. It Works with RTM & Events API
+ *
+ * Expected scopes: files:read
+ *
+ * <a href="https://api.slack.com/events/file_created">For More Info</a>
  *
  * @author A.F
  * @since 1.0.0
  */
-public class FileCreated {
+public class FileCreated extends EventTemplate {
 
+    /**
+     * Set Event Type. It should be file_created
+     *
+     * @param eventType
+     */
+    public void setEventType(String eventType)
+    {
+        this.setIncomingItem("event.type", eventType);
+    }
+
+    /**
+     * Set File ID
+     *
+     * @param fileId
+     */
+    public void setFileId(String fileId)
+    {
+        this.setIncomingItem("event.file_id", fileId);
+    }
+
+    /**
+     * Get Event Type. It should be file_created
+     *
+     * @return String
+     */
+    public String getEventType()
+    {
+        return this.getIncomingItem("event.type", "");
+    }
+
+    /**
+     * Get File ID
+     *
+     * @return String
+     */
+    public String getFileId()
+    {
+        return this.getIncomingItem("event.file_id", "");
+    }
+
+    /**
+     * Parse Event Incoming Data
+     *
+     * @return Boolean
+     */
+    public Boolean parse()
+    {
+        return true;
+    }
 }
