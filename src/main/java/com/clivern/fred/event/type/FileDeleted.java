@@ -13,12 +13,89 @@
  */
 package com.clivern.fred.event.type;
 
+import com.clivern.fred.contract.event.type.EventTemplate;
+
 /**
  * File Deleted Event
+ *
+ * A file was deleted. It Works with RTM & Events API
+ *
+ * Expected scopes: files:read
+ *
+ * <a href="https://api.slack.com/events/file_deleted">For More Info</a>
  *
  * @author A.F
  * @since 1.0.0
  */
-public class FileDeleted {
+public class FileDeleted extends EventTemplate {
 
+    /**
+     * Set Event Type. It should be file_deleted
+     *
+     * @param eventType
+     */
+    public void setEventType(String eventType)
+    {
+        this.setIncomingItem("event.type", eventType);
+    }
+
+    /**
+     * Set File ID
+     *
+     * @param fileId
+     */
+    public void setFileId(String fileId)
+    {
+        this.setIncomingItem("event.file_id", fileId);
+    }
+
+    /**
+     * Set Event Ts
+     *
+     * @param eventTs
+     */
+    public void setEventTs(String eventTs)
+    {
+        this.setIncomingItem("event.event_ts", eventTs);
+    }
+
+    /**
+     * Get Event Type. It should be file_deleted
+     *
+     * @return String
+     */
+    public String getEventType()
+    {
+        return this.getIncomingItem("event.type", "");
+    }
+
+    /**
+     * Get File ID
+     *
+     * @return String
+     */
+    public String getFileId()
+    {
+        return this.getIncomingItem("event.file_id", "");
+    }
+
+    /**
+     * Get Event Ts
+     *
+     * @return String
+     */
+    public String getEventTs()
+    {
+        return this.getIncomingItem("event.event_ts", "");
+    }
+
+    /**
+     * Parse Event Incoming Data
+     *
+     * @return Boolean
+     */
+    public Boolean parse()
+    {
+        return true;
+    }
 }
