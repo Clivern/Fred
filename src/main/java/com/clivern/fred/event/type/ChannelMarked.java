@@ -28,7 +28,7 @@ import com.clivern.fred.contract.event.type.EventTemplate;
 public class ChannelMarked extends EventTemplate {
 
     /**
-     * Set Event Type. It should be channel_archive
+     * Set Event Type. It should be channel_marked
      *
      * @param eventType
      */
@@ -58,7 +58,7 @@ public class ChannelMarked extends EventTemplate {
     }
 
     /**
-     * Get Event Type. It should be channel_archive
+     * Get Event Type. It should be channel_marked
      *
      * @return String
      */
