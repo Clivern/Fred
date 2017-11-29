@@ -13,12 +13,89 @@
  */
 package com.clivern.fred.event.type;
 
+import com.clivern.fred.contract.event.type.EventTemplate;
+
 /**
  * Star Removed Event
+ *
+ * A member removed a star. It Works with RTM & Events API
+ *
+ * Expected scopes: stars:read
+ *
+ * <a href="https://api.slack.com/events/star_removed">For More Info</a>
  *
  * @author A.F
  * @since 1.0.0
  */
-public class StarRemoved {
+public class StarRemoved extends EventTemplate {
 
+    /**
+     * Set Event Type. It should be star_removed
+     *
+     * @param eventType
+     */
+    public void setEventType(String eventType)
+    {
+        this.setIncomingItem("event.type", eventType);
+    }
+
+    /**
+     * Set User Name
+     *
+     * @param user
+     */
+    public void setUser(String user)
+    {
+        this.setIncomingItem("event.user", user);
+    }
+
+    /**
+     * Set Event Ts
+     *
+     * @param eventTs
+     */
+    public void setEventTs(String eventTs)
+    {
+        this.setIncomingItem("event.event_ts", eventTs);
+    }
+
+    /**
+     * Get Event Type. It should be star_removed
+     *
+     * @return String
+     */
+    public String getEventType()
+    {
+        return this.getIncomingItem("event.type", "");
+    }
+
+    /**
+     * Get User Name
+     *
+     * @return String
+     */
+    public String getUser()
+    {
+        return this.getIncomingItem("event.user", "");
+    }
+
+    /**
+     * Get Event Ts
+     *
+     * @return String
+     */
+    public String getEventTs()
+    {
+        return this.getIncomingItem("event.event_ts", "");
+    }
+
+    /**
+     * Parse Event Incoming Data
+     *
+     * @return Boolean
+     */
+    public Boolean parse()
+    {
+        return true;
+    }
 }
