@@ -13,12 +13,47 @@
  */
 package com.clivern.fred.event.type;
 
+import com.clivern.fred.contract.event.type.EventTemplate;
+
 /**
  * Scope Denied Event
+ *
+ * OAuth scopes were denied to your app. It Works with Events API
+ *
+ * <a href="https://api.slack.com/events/scope_denied">For More Info</a>
  *
  * @author A.F
  * @since 1.0.0
  */
-public class ScopeDenied {
+public class ScopeDenied extends EventTemplate {
 
+    /**
+     * Set Event Type. It should be scope_denied
+     *
+     * @param eventType
+     */
+    public void setEventType(String eventType)
+    {
+        this.setIncomingItem("event.type", eventType);
+    }
+
+    /**
+     * Get Event Type. It should be scope_denied
+     *
+     * @return String
+     */
+    public String getEventType()
+    {
+        return this.getIncomingItem("event.type", "");
+    }
+
+    /**
+     * Parse Event Incoming Data
+     *
+     * @return Boolean
+     */
+    public Boolean parse()
+    {
+        return true;
+    }
 }

@@ -13,12 +13,47 @@
  */
 package com.clivern.fred.event.type;
 
+import com.clivern.fred.contract.event.type.EventTemplate;
+
 /**
  * Scope Granted Event
+ *
+ * OAuth scopes were granted to your app. It Works with Events API
+ *
+ * <a href="https://api.slack.com/events/scope_granted">For More Info</a>
  *
  * @author A.F
  * @since 1.0.0
  */
-public class ScopeGranted {
+public class ScopeGranted extends EventTemplate {
 
+    /**
+     * Set Event Type. It should be scope_granted
+     *
+     * @param eventType
+     */
+    public void setEventType(String eventType)
+    {
+        this.setIncomingItem("event.type", eventType);
+    }
+
+    /**
+     * Get Event Type. It should be scope_granted
+     *
+     * @return String
+     */
+    public String getEventType()
+    {
+        return this.getIncomingItem("event.type", "");
+    }
+
+    /**
+     * Parse Event Incoming Data
+     *
+     * @return Boolean
+     */
+    public Boolean parse()
+    {
+        return true;
+    }
 }
