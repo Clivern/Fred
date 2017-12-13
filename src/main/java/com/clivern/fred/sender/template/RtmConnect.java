@@ -31,9 +31,16 @@ import com.clivern.fred.contract.sender.template.BasicTemplate;
  */
 public class RtmConnect extends BasicTemplate {
 
-    protected String url = Basic.methodURL(Basic.rtmConnectMethod);
     protected String token;
     protected Integer batchPresenceAware;
+
+    /**
+     * Class Constructor
+     */
+    public RtmConnect()
+    {
+        this.setURL(Basic.methodURL(Basic.rtmConnectMethod));
+    }
 
     /**
      * Set Token
@@ -91,6 +98,8 @@ public class RtmConnect extends BasicTemplate {
         if( this.batchPresenceAware != null ){
             this.body += "&batch_presence_aware=" + this.batchPresenceAware;
         }
+
+        this.setBody(this.body);
 
         return this.body;
     }

@@ -31,7 +31,6 @@ import com.clivern.fred.contract.sender.template.BasicTemplate;
  */
 public class RtmStart extends BasicTemplate {
 
-    protected String url = Basic.methodURL(Basic.rtmStartMethod);
     protected String token;
     protected Integer batchPresenceAware;
     protected Integer noLatest;
@@ -40,6 +39,13 @@ public class RtmStart extends BasicTemplate {
 	protected Boolean noUnreads;
 	protected Boolean simpleLatest;
 
+    /**
+     * Class Constructor
+     */
+    public RtmStart()
+    {
+        this.setURL(Basic.methodURL(Basic.rtmStartMethod));
+    }
 
     /**
      * Set Token
@@ -216,6 +222,8 @@ public class RtmStart extends BasicTemplate {
         if( this.simpleLatest != null ){
             this.body += "&simple_latest=" + ((this.simpleLatest) ? "true" : "false");
         }
+
+        this.setBody(this.body);
 
         return this.body;
     }
