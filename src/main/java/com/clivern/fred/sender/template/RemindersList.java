@@ -31,8 +31,15 @@ import com.clivern.fred.contract.sender.template.BasicTemplate;
  */
 public class RemindersList extends BasicTemplate {
 
-    protected String url = Basic.methodURL(Basic.remindersListMethod);
     protected String token;
+
+    /**
+     * Class Constructor
+     */
+    public RemindersList()
+    {
+        this.setURL(Basic.methodURL(Basic.remindersListMethod));
+    }
 
     /**
      * Set Token
@@ -66,6 +73,8 @@ public class RemindersList extends BasicTemplate {
         if( !this.token.isEmpty() ){
             this.body += "token=" + this.token;
         }
+
+        this.setBody(this.body);
 
         return this.body;
     }

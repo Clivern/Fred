@@ -31,12 +31,19 @@ import com.clivern.fred.contract.sender.template.BasicTemplate;
  */
 public class RemindersAdd extends BasicTemplate {
 
-    protected String url = Basic.methodURL(Basic.remindersAddMethod);
     protected String token;
     protected String text;
     protected String time;
     protected String timestamp;
     protected String user;
+
+    /**
+     * Class Constructor
+     */
+    public RemindersAdd()
+    {
+        this.setURL(Basic.methodURL(Basic.remindersAddMethod));
+    }
 
     /**
      * Set Token
@@ -143,7 +150,7 @@ public class RemindersAdd extends BasicTemplate {
      */
     public String build()
     {
-        if( this.token.isEmpty() || this.text.isEmpty() || (this.time.isEmpty() && this.timestamp != null) ){
+        if( this.token.isEmpty() || this.text.isEmpty() || (this.time.isEmpty() && this.timestamp.isEmpty()) ){
             return "";
         }
 
@@ -166,6 +173,8 @@ public class RemindersAdd extends BasicTemplate {
         if( !this.user.isEmpty() ){
             this.body += "&user=" + this.user;
         }
+
+        this.setBody(this.body);
 
         return this.body;
     }

@@ -31,9 +31,16 @@ import com.clivern.fred.contract.sender.template.BasicTemplate;
  */
 public class RemindersDelete extends BasicTemplate {
 
-    protected String url = Basic.methodURL(Basic.remindersDeleteMethod);
     protected String token;
     protected String reminder;
+
+    /**
+     * Class Constructor
+     */
+    public RemindersDelete()
+    {
+        this.setURL(Basic.methodURL(Basic.remindersDeleteMethod));
+    }
 
     /**
      * Set Token
@@ -91,6 +98,8 @@ public class RemindersDelete extends BasicTemplate {
         if( !this.reminder.isEmpty() ){
             this.body += "&reminder=" + this.reminder;
         }
+
+        this.setBody(this.body);
 
         return this.body;
     }
