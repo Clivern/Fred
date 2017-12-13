@@ -32,11 +32,18 @@ import com.clivern.fred.contract.sender.template.BasicTemplate;
  */
 public class ChannelsRename extends BasicTemplate {
 
-    protected String url = Basic.methodURL(Basic.channelsRenameMethod);
     protected String token;
     protected String channel;
     protected String name;
     protected Boolean validate;
+
+    /**
+     * Class Constructor
+     */
+    public ChannelsRename()
+    {
+        this.setURL(Basic.methodURL(Basic.channelsRenameMethod));
+    }
 
     /**
      * Set Token
@@ -142,6 +149,8 @@ public class ChannelsRename extends BasicTemplate {
         if( this.validate != null ){
             this.body += "&validate=" + ((this.validate) ? "true" : "false");
         }
+
+        this.setBody(this.body);
 
         return this.body;
     }

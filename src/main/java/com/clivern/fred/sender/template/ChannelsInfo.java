@@ -32,10 +32,17 @@ import com.clivern.fred.contract.sender.template.BasicTemplate;
  */
 public class ChannelsInfo extends BasicTemplate {
 
-    protected String url = Basic.methodURL(Basic.channelsInfoMethod);
     protected String token;
     protected String channel;
     protected Boolean includeLocale;
+
+    /**
+     * Class Constructor
+     */
+    public ChannelsInfo()
+    {
+        this.setURL(Basic.methodURL(Basic.channelsInfoMethod));
+    }
 
     /**
      * Set Token
@@ -117,6 +124,8 @@ public class ChannelsInfo extends BasicTemplate {
         if( this.includeLocale != null ){
             this.body += "&include_locale=" + ((this.includeLocale) ? "true" : "false");
         }
+
+        this.setBody(this.body);
 
         return this.body;
     }

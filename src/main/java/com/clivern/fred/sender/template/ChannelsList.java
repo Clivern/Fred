@@ -36,12 +36,19 @@ import com.clivern.fred.contract.sender.template.BasicTemplate;
  */
 public class ChannelsList extends BasicTemplate {
 
-    protected String url = Basic.methodURL(Basic.channelsListMethod);
     protected String token;
     protected String cursor;
     protected Boolean excludeArchived;
     protected Boolean excludeMembers;
     protected Integer limit;
+
+    /**
+     * Class Constructor
+     */
+    public ChannelsList()
+    {
+        this.setURL(Basic.methodURL(Basic.channelsListMethod));
+    }
 
     /**
      * Set Token
@@ -171,6 +178,8 @@ public class ChannelsList extends BasicTemplate {
         if( this.limit != null ){
             this.body += "&limit=" + this.limit;
         }
+
+        this.setBody(this.body);
 
         return this.body;
     }

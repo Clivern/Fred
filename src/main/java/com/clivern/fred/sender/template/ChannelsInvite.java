@@ -31,10 +31,17 @@ import com.clivern.fred.contract.sender.template.BasicTemplate;
  */
 public class ChannelsInvite extends BasicTemplate {
 
-    protected String url = Basic.methodURL(Basic.channelsInviteMethod);
     protected String token;
     protected String channel;
     protected String user;
+
+    /**
+     * Class Constructor
+     */
+    public ChannelsInvite()
+    {
+        this.setURL(Basic.methodURL(Basic.channelsInviteMethod));
+    }
 
     /**
      * Set Token
@@ -116,6 +123,8 @@ public class ChannelsInvite extends BasicTemplate {
         if( !this.user.isEmpty() ){
             this.body += "&user=" + this.user;
         }
+
+        this.setBody(this.body);
 
         return this.body;
     }

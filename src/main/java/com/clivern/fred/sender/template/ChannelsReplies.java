@@ -31,10 +31,17 @@ import com.clivern.fred.contract.sender.template.BasicTemplate;
  */
 public class ChannelsReplies extends BasicTemplate {
 
-    protected String url = Basic.methodURL(Basic.channelsRepliesMethod);
     protected String token;
     protected String channel;
     protected String threadTs;
+
+    /**
+     * Class Constructor
+     */
+    public ChannelsReplies()
+    {
+        this.setURL(Basic.methodURL(Basic.channelsRepliesMethod));
+    }
 
     /**
      * Set Token
@@ -116,6 +123,8 @@ public class ChannelsReplies extends BasicTemplate {
         if( !this.threadTs.isEmpty() ){
             this.body += "&thread_ts=" + this.threadTs;
         }
+
+        this.setBody(this.body);
 
         return this.body;
     }

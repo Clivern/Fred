@@ -31,10 +31,17 @@ import com.clivern.fred.contract.sender.template.BasicTemplate;
  */
 public class ChannelsCreate extends BasicTemplate {
 
-    protected String url = Basic.methodURL(Basic.channelsCreateMethod);
     protected String token;
     protected String name;
     protected Boolean validate;
+
+    /**
+     * Class Constructor
+     */
+    public ChannelsCreate()
+    {
+        this.setURL(Basic.methodURL(Basic.channelsCreateMethod));
+    }
 
     /**
      * Set Token
@@ -116,6 +123,8 @@ public class ChannelsCreate extends BasicTemplate {
         if( this.validate != null ){
             this.body += "&validate=" + ((this.validate) ? "true" : "false");
         }
+
+        this.setBody(this.body);
 
         return this.body;
     }

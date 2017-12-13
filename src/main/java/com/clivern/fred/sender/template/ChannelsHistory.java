@@ -35,7 +35,6 @@ import com.clivern.fred.contract.sender.template.BasicTemplate;
  */
 public class ChannelsHistory extends BasicTemplate {
 
-    protected String url = Basic.methodURL(Basic.channelsHistoryMethod);
     protected String token;
     protected String channel;
     protected Integer count;
@@ -43,6 +42,14 @@ public class ChannelsHistory extends BasicTemplate {
     protected String latest;
     protected String oldest;
     protected Boolean unreads;
+
+    /**
+     * Class Constructor
+     */
+    public ChannelsHistory()
+    {
+        this.setURL(Basic.methodURL(Basic.channelsHistoryMethod));
+    }
 
     /**
      * Set Token
@@ -220,6 +227,8 @@ public class ChannelsHistory extends BasicTemplate {
         if( this.unreads != null ){
             this.body += "&unreads=" + ((this.unreads) ? "true" : "false");
         }
+
+        this.setBody(this.body);
 
         return this.body;
     }

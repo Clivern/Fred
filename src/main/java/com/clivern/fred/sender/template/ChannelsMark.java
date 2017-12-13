@@ -31,10 +31,17 @@ import com.clivern.fred.contract.sender.template.BasicTemplate;
  */
 public class ChannelsMark extends BasicTemplate {
 
-    protected String url = Basic.methodURL(Basic.channelsMarkMethod);
     protected String token;
     protected String channel;
     protected String ts;
+
+    /**
+     * Class Constructor
+     */
+    public ChannelsMark()
+    {
+        this.setURL(Basic.methodURL(Basic.channelsMarkMethod));
+    }
 
     /**
      * Set Token
@@ -116,6 +123,8 @@ public class ChannelsMark extends BasicTemplate {
         if( !this.ts.isEmpty() ){
             this.body += "&ts=" + this.ts;
         }
+
+        this.setBody(this.body);
 
         return this.body;
     }

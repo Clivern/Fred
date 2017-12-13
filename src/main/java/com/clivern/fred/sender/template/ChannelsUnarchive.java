@@ -31,9 +31,16 @@ import com.clivern.fred.contract.sender.template.BasicTemplate;
  */
 public class ChannelsUnarchive extends BasicTemplate {
 
-    protected String url = Basic.methodURL(Basic.channelsUnarchiveMethod);
     protected String token;
     protected String channel;
+
+    /**
+     * Class Constructor
+     */
+    public ChannelsUnarchive()
+    {
+        this.setURL(Basic.methodURL(Basic.channelsUnarchiveMethod));
+    }
 
     /**
      * Set Token
@@ -91,6 +98,8 @@ public class ChannelsUnarchive extends BasicTemplate {
         if( !this.channel.isEmpty() ){
             this.body += "&channel=" + this.channel;
         }
+
+        this.setBody(this.body);
 
         return this.body;
     }

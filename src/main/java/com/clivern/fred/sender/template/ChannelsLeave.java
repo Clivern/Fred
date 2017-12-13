@@ -31,9 +31,16 @@ import com.clivern.fred.contract.sender.template.BasicTemplate;
  */
 public class ChannelsLeave extends BasicTemplate {
 
-    protected String url = Basic.methodURL(Basic.channelsLeaveMethod);
     protected String token;
     protected String channel;
+
+    /**
+     * Class Constructor
+     */
+    public ChannelsLeave()
+    {
+        this.setURL(Basic.methodURL(Basic.channelsLeaveMethod));
+    }
 
     /**
      * Set Token
@@ -91,6 +98,8 @@ public class ChannelsLeave extends BasicTemplate {
         if( !this.channel.isEmpty() ){
             this.body += "&channel=" + this.channel;
         }
+
+        this.setBody(this.body);
 
         return this.body;
     }
