@@ -31,10 +31,17 @@ import com.clivern.fred.contract.sender.template.BasicTemplate;
  */
 public class StarsList extends BasicTemplate {
 
-    protected String url = Basic.methodURL(Basic.starsListMethod);
     protected String token;
     protected Integer count;
     protected Integer page;
+
+    /**
+     * Class Constructor
+     */
+    public StarsList()
+    {
+        this.setURL(Basic.methodURL(Basic.starsListMethod));
+    }
 
     /**
      * Set Token
@@ -116,6 +123,8 @@ public class StarsList extends BasicTemplate {
         if( this.page != null ){
             this.body += "&page=" + this.page;
         }
+
+        this.setBody(this.body);
 
         return this.body;
     }

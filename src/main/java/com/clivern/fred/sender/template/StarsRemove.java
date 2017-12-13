@@ -31,12 +31,19 @@ import com.clivern.fred.contract.sender.template.BasicTemplate;
  */
 public class StarsRemove extends BasicTemplate {
 
-    protected String url = Basic.methodURL(Basic.starsRemoveMethod);
     protected String token;
     protected String channel;
     protected String file;
     protected String fileComment;
     protected String timestamp;
+
+    /**
+     * Class Constructor
+     */
+    public StarsRemove()
+    {
+        this.setURL(Basic.methodURL(Basic.starsRemoveMethod));
+    }
 
     /**
      * Set Token
@@ -166,6 +173,8 @@ public class StarsRemove extends BasicTemplate {
         if( !this.timestamp.isEmpty() ){
             this.body += "&timestamp=" + this.timestamp;
         }
+
+        this.setBody(this.body);
 
         return this.body;
     }

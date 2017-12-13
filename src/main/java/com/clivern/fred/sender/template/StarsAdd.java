@@ -31,12 +31,19 @@ import com.clivern.fred.contract.sender.template.BasicTemplate;
  */
 public class StarsAdd extends BasicTemplate {
 
-    protected String url = Basic.methodURL(Basic.starsAddMethod);
     protected String token;
     protected String channel;
     protected String file;
     protected String fileComment;
     protected String timestamp;
+
+    /**
+     * Class Constructor
+     */
+    public StarsAdd()
+    {
+        this.setURL(Basic.methodURL(Basic.starsAddMethod));
+    }
 
     /**
      * Set Token
@@ -166,6 +173,8 @@ public class StarsAdd extends BasicTemplate {
         if( !this.timestamp.isEmpty() ){
             this.body += "&timestamp=" + this.timestamp;
         }
+
+        this.setBody(this.body);
 
         return this.body;
     }
