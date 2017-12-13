@@ -31,10 +31,17 @@ import com.clivern.fred.contract.sender.template.BasicTemplate;
  */
 public class UsergroupsDisable extends BasicTemplate {
 
-    protected String url = Basic.methodURL(Basic.usergroupsDisableMethod);
     protected String token;
     protected String usergroup;
     protected Boolean includeCount;
+
+    /**
+     * Class Constructor
+     */
+    public UsergroupsDisable()
+    {
+        this.setURL(Basic.methodURL(Basic.usergroupsDisableMethod));
+    }
 
     /**
      * Set Token
@@ -116,6 +123,8 @@ public class UsergroupsDisable extends BasicTemplate {
         if( this.includeCount != null ){
             this.body += "&include_count=" + ((this.includeCount) ? "true" : "false");
         }
+
+        this.setBody(this.body);
 
         return this.body;
     }

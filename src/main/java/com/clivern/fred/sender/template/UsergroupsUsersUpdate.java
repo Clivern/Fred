@@ -31,11 +31,18 @@ import com.clivern.fred.contract.sender.template.BasicTemplate;
  */
 public class UsergroupsUsersUpdate extends BasicTemplate {
 
-    protected String url = Basic.methodURL(Basic.usergroupsUsersUpdateMethod);
     protected String token;
     protected String usergroup;
     protected String users;
     protected Boolean includeCount;
+
+    /**
+     * Class Constructor
+     */
+    public UsergroupsUsersUpdate()
+    {
+        this.setURL(Basic.methodURL(Basic.usergroupsUsersUpdateMethod));
+    }
 
     /**
      * Set Token
@@ -141,6 +148,8 @@ public class UsergroupsUsersUpdate extends BasicTemplate {
         if( this.includeCount != null ){
             this.body += "&include_count=" + ((this.includeCount) ? "true" : "false");
         }
+
+        this.setBody(this.body);
 
         return this.body;
     }

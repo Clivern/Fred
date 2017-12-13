@@ -31,11 +31,17 @@ import com.clivern.fred.contract.sender.template.BasicTemplate;
  */
 public class UsergroupsUsersList extends BasicTemplate {
 
-    protected String url = Basic.methodURL(Basic.usergroupsUsersListMethod);
     protected String token;
     protected String usergroup;
     protected Boolean includeDisabled;
 
+    /**
+     * Class Constructor
+     */
+    public UsergroupsUsersList()
+    {
+        this.setURL(Basic.methodURL(Basic.usergroupsUsersListMethod));
+    }
 
     /**
      * Set Token
@@ -117,6 +123,8 @@ public class UsergroupsUsersList extends BasicTemplate {
         if( this.includeDisabled != null ){
             this.body += "&include_disabled=" + ((this.includeDisabled) ? "true" : "false");
         }
+
+        this.setBody(this.body);
 
         return this.body;
     }
