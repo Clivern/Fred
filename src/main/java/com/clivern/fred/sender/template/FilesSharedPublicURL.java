@@ -31,9 +31,16 @@ import com.clivern.fred.contract.sender.template.BasicTemplate;
  */
 public class FilesSharedPublicURL extends BasicTemplate {
 
-    protected String url = Basic.methodURL(Basic.filesSharedPublicURLMethod);
     protected String token;
     protected String file;
+
+    /**
+     * Class Constructor
+     */
+    public FilesSharedPublicURL()
+    {
+        this.setURL(Basic.methodURL(Basic.filesSharedPublicURLMethod));
+    }
 
     /**
      * Set Token
@@ -91,6 +98,8 @@ public class FilesSharedPublicURL extends BasicTemplate {
         if( !this.file.isEmpty() ){
             this.body += "&file=" + this.file;
         }
+
+        this.setBody(this.body);
 
         return this.body;
     }

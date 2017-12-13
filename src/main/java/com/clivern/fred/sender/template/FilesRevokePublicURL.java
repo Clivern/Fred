@@ -31,9 +31,16 @@ import com.clivern.fred.contract.sender.template.BasicTemplate;
  */
 public class FilesRevokePublicURL extends BasicTemplate {
 
-    protected String url = Basic.methodURL(Basic.filesRevokePublicURLMethod);
     protected String token;
     protected String file;
+
+    /**
+     * Class Constructor
+     */
+    public FilesRevokePublicURL()
+    {
+        this.setURL(Basic.methodURL(Basic.filesRevokePublicURLMethod));
+    }
 
     /**
      * Set Token
@@ -91,6 +98,8 @@ public class FilesRevokePublicURL extends BasicTemplate {
         if( !this.file.isEmpty() ){
             this.body += "&file=" + this.file;
         }
+
+        this.setBody(this.body);
 
         return this.body;
     }

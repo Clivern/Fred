@@ -31,10 +31,17 @@ import com.clivern.fred.contract.sender.template.BasicTemplate;
  */
 public class FilesCommentsAdd extends BasicTemplate {
 
-    protected String url = Basic.methodURL(Basic.filesCommentsAddMethod);
     protected String token;
     protected String comment;
     protected String file;
+
+    /**
+     * Class Constructor
+     */
+    public FilesCommentsAdd()
+    {
+        this.setURL(Basic.methodURL(Basic.filesCommentsAddMethod));
+    }
 
     /**
      * Set Token
@@ -116,6 +123,8 @@ public class FilesCommentsAdd extends BasicTemplate {
         if( !this.file.isEmpty() ){
             this.body += "&file=" + this.file;
         }
+
+        this.setBody(this.body);
 
         return this.body;
     }

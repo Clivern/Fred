@@ -31,11 +31,18 @@ import com.clivern.fred.contract.sender.template.BasicTemplate;
  */
 public class FilesInfo extends BasicTemplate {
 
-    protected String url = Basic.methodURL(Basic.filesInfoMethod);
     protected String token;
     protected String file;
     protected Integer count;
     protected Integer page;
+
+    /**
+     * Class Constructor
+     */
+    public FilesInfo()
+    {
+        this.setURL(Basic.methodURL(Basic.filesInfoMethod));
+    }
 
     /**
      * Set Token
@@ -141,6 +148,8 @@ public class FilesInfo extends BasicTemplate {
         if( this.page != null ){
             this.body += "&page=" + this.page;
         }
+
+        this.setBody(this.body);
 
         return this.body;
     }

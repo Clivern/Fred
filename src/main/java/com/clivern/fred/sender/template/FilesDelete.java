@@ -31,9 +31,16 @@ import com.clivern.fred.contract.sender.template.BasicTemplate;
  */
 public class FilesDelete extends BasicTemplate {
 
-    protected String url = Basic.methodURL(Basic.filesDeleteMethod);
     protected String token;
     protected String file;
+
+    /**
+     * Class Constructor
+     */
+    public FilesDelete()
+    {
+        this.setURL(Basic.methodURL(Basic.filesDeleteMethod));
+    }
 
     /**
      * Set Token
@@ -91,6 +98,8 @@ public class FilesDelete extends BasicTemplate {
         if( !this.file.isEmpty() ){
             this.body += "&file=" + this.file;
         }
+
+        this.setBody(this.body);
 
         return this.body;
     }

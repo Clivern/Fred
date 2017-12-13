@@ -31,7 +31,6 @@ import com.clivern.fred.contract.sender.template.BasicTemplate;
  */
 public class FilesList extends BasicTemplate {
 
-    protected String url = Basic.methodURL(Basic.filesListMethod);
     protected String token;
     protected String channel;
     protected Integer count;
@@ -40,6 +39,14 @@ public class FilesList extends BasicTemplate {
     protected String tsTo;
     protected String types;
     protected String user;
+
+    /**
+     * Class Constructor
+     */
+    public FilesList()
+    {
+        this.setURL(Basic.methodURL(Basic.filesListMethod));
+    }
 
     /**
      * Set Token
@@ -241,6 +248,8 @@ public class FilesList extends BasicTemplate {
         if( !this.user.isEmpty() ){
             this.body += "&user=" + this.user;
         }
+
+        this.setBody(this.body);
 
         return this.body;
     }

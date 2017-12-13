@@ -31,7 +31,6 @@ import com.clivern.fred.contract.sender.template.BasicTemplate;
  */
 public class FilesUpload extends BasicTemplate {
 
-    protected String url = Basic.methodURL(Basic.filesUploadMethod);
     protected String token;
     protected String channels;
     protected String content;
@@ -40,6 +39,14 @@ public class FilesUpload extends BasicTemplate {
     protected String filetype;
     protected String initialComment;
     protected String title;
+
+    /**
+     * Class Constructor
+     */
+    public FilesUpload()
+    {
+        this.setURL(Basic.methodURL(Basic.filesUploadMethod));
+    }
 
     /**
      * Set Token
@@ -241,6 +248,8 @@ public class FilesUpload extends BasicTemplate {
         if( !this.title.isEmpty() ){
             this.body += "&title=" + this.title;
         }
+
+        this.setBody(this.body);
 
         return this.body;
     }
