@@ -29,6 +29,32 @@ import com.clivern.fred.contract.receiver.command.CommandTemplate;
  */
 public class Command extends CommandTemplate {
 
+    /**
+     * Class Constructor
+     *
+     * @param command
+     * @param requestURL
+     * @param expandedText
+     */
+    public Command(String command, String requestURL, Boolean expandedText)
+    {
+        super(command, requestURL, expandedText);
+    }
+
+    /**
+     * Class Constructor
+     *
+     * @param command
+     * @param requestURL
+     * @param expandedText
+     * @param shortDescription
+     * @param usageHint
+     */
+    public Command(String command, String requestURL, Boolean expandedText, String shortDescription, String usageHint)
+    {
+        super(command, requestURL, expandedText, shortDescription, usageHint);
+    }
+
     public Boolean parse()
     {
         return true;

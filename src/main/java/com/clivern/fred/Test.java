@@ -14,10 +14,14 @@
 package com.clivern.fred;
 
 import static spark.Spark.*;
+import java.util.HashMap;
+import java.util.Map;
 import com.clivern.fred.util.*;
 import com.clivern.fred.sender.BaseSender;
 import com.clivern.fred.sender.template.RemindersAdd;
 import com.mashape.unirest.http.exceptions.UnirestException;
+import com.clivern.fred.receiver.BaseReceiver;
+import com.clivern.fred.receiver.command.Command;
 
 /**
  * Test Package
@@ -35,6 +39,43 @@ public class Test {
             Log log = new Log(config);
             Oauth oauth = new Oauth(config, log);
             return "<a href='" + oauth.getRedirectURL() + "'>Auth</a>";
+        });
+
+        post("/commands", (request, response) -> {
+            Config config = new Config();
+            config.loadPropertiesFile("src/main/java/resources/config_test.properties");
+            Log log = new Log(config);
+            BaseReceiver baseReceiver = new BaseReceiver(config, log);
+
+            // Build Our /Fred Command
+            Command fredCommand = new Command("/fred", "https://9fccb549.ngrok.io/fred", false, "Launch The Rocket!", "");
+            baseReceiver.setCommand("/fred", fredCommand);
+
+            if( baseReceiver.commandExists(request.queryParams("command")) ){
+
+                // Check For /Fred Command
+                if( request.queryParams("command").equals("/fred") ){
+
+                    // Fetch data from request
+                    Map<String, String> incomingData = new HashMap<String, String>();
+                    incomingData.put("channel_name", request.queryParams("channel_name"));
+                    incomingData.put("user_id", request.queryParams("user_id"));
+                    incomingData.put("user_name", request.queryParams("user_name"));
+                    incomingData.put("trigger_id", request.queryParams("trigger_id"));
+                    incomingData.put("team_domain", request.queryParams("team_domain"));
+                    incomingData.put("team_id", request.queryParams("team_id"));
+                    incomingData.put("text", request.queryParams("text"));
+                    incomingData.put("channel_id", request.queryParams("channel_id"));
+                    incomingData.put("command", request.queryParams("command"));
+                    incomingData.put("token", request.queryParams("token"));
+                    incomingData.put("response_url", request.queryParams("response_url"));
+                    // Pass these data to the command template
+                    fredCommand = (Command) baseReceiver.getCurrentCommand(request.queryParams("command"), incomingData);
+
+                    return fredCommand.getText();
+                }
+            }
+            return "Cool!";
         });
 
         get("/oauth", (request, response) -> {

@@ -48,14 +48,12 @@ public abstract class CommandTemplate {
      *
      * @param command
      * @param requestURL
-     * @param validationToken
      * @param expandedText
      */
-    public void Command(String command, String requestURL, String validationToken, Boolean expandedText)
+    public CommandTemplate(String command, String requestURL, Boolean expandedText)
     {
         this.command = command;
         this.requestURL = requestURL;
-        this.validationToken = validationToken;
         this.expandedText = expandedText;
     }
 
@@ -64,16 +62,14 @@ public abstract class CommandTemplate {
      *
      * @param command
      * @param requestURL
-     * @param validationToken
      * @param expandedText
      * @param shortDescription
      * @param usageHint
      */
-    public void Command(String command, String requestURL, String validationToken, Boolean expandedText, String shortDescription, String usageHint)
+    public CommandTemplate(String command, String requestURL, Boolean expandedText, String shortDescription, String usageHint)
     {
         this.command = command;
         this.requestURL = requestURL;
-        this.validationToken = validationToken;
         this.expandedText = expandedText;
         this.shortDescription = shortDescription;
         this.usageHint = usageHint;

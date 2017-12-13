@@ -56,6 +56,7 @@ public class BaseReceiver {
      */
     public void setCommand(String command, CommandTemplate template)
     {
+        template.setValidationToken(this.configs.get("verification_token", ""));
         this.commands.put(command, template);
     }
 
