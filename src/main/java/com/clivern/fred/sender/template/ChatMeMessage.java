@@ -31,10 +31,17 @@ import com.clivern.fred.contract.sender.template.BasicTemplate;
  */
 public class ChatMeMessage extends BasicTemplate {
 
-    protected String url = Basic.methodURL(Basic.chatMeMessageMethod);
     protected String token;
     protected String channel;
     protected String text;
+
+    /**
+     * Class Constructor
+     */
+    public ChatMeMessage()
+    {
+        this.setURL(Basic.methodURL(Basic.chatMeMessageMethod));
+    }
 
     /**
      * Set Token
@@ -116,6 +123,8 @@ public class ChatMeMessage extends BasicTemplate {
         if( !this.text.isEmpty() ){
             this.body += "&text=" + this.text;
         }
+
+        this.setBody(this.body);
 
         return this.body;
     }

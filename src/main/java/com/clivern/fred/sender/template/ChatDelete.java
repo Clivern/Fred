@@ -34,11 +34,18 @@ import com.clivern.fred.contract.sender.template.BasicTemplate;
  */
 public class ChatDelete extends BasicTemplate {
 
-    protected String url = Basic.methodURL(Basic.chatDeleteMethod);
     protected String token;
     protected String channel;
     protected String ts;
     protected Boolean asUser;
+
+    /**
+     * Class Constructor
+     */
+    public ChatDelete()
+    {
+        this.setURL(Basic.methodURL(Basic.chatDeleteMethod));
+    }
 
     /**
      * Set Token
@@ -144,6 +151,8 @@ public class ChatDelete extends BasicTemplate {
         if( this.asUser != null ){
             this.body += "&as_user=" + ((this.asUser) ? "true" : "false");
         }
+
+        this.setBody(this.body);
 
         return this.body;
     }
