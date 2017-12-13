@@ -30,8 +30,15 @@ import com.clivern.fred.contract.sender.template.BasicTemplate;
  */
 public class AuthRevoke extends BasicTemplate {
 
-    protected String url = Basic.methodURL(Basic.authRevokeMethod);
     protected String token;
+
+    /**
+     * Class Constructor
+     */
+    public AuthRevoke()
+    {
+        this.setURL(Basic.methodURL(Basic.authRevokeMethod));
+    }
 
     /**
      * Set Token
@@ -65,6 +72,8 @@ public class AuthRevoke extends BasicTemplate {
         if( !this.token.isEmpty() ){
             this.body += "token=" + this.token;
         }
+
+        this.setBody(this.body);
 
         return this.body;
     }

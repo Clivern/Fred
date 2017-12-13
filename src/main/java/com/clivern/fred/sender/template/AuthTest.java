@@ -30,8 +30,15 @@ import com.clivern.fred.contract.sender.template.BasicTemplate;
  */
 public class AuthTest extends BasicTemplate {
 
-    protected String url = Basic.methodURL(Basic.authTestMethod);
     protected String token;
+
+    /**
+     * Class Constructor
+     */
+    public AuthTest()
+    {
+        this.setURL(Basic.methodURL(Basic.authTestMethod));
+    }
 
     /**
      * Set Token
@@ -65,6 +72,8 @@ public class AuthTest extends BasicTemplate {
         if( !this.token.isEmpty() ){
             this.body += "token=" + this.token;
         }
+
+        this.setBody(this.body);
 
         return this.body;
     }
