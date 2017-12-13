@@ -31,8 +31,15 @@ import com.clivern.fred.contract.sender.template.BasicTemplate;
  */
 public class DndEndSnooze extends BasicTemplate {
 
-    protected String url = Basic.methodURL(Basic.dndEndSnoozeMethod);
     protected String token;
+
+    /**
+     * Class Constructor
+     */
+    public DndEndSnooze()
+    {
+        this.setURL(Basic.methodURL(Basic.dndEndSnoozeMethod));
+    }
 
     /**
      * Set Token
@@ -66,6 +73,8 @@ public class DndEndSnooze extends BasicTemplate {
         if( !this.token.isEmpty() ){
             this.body += "token=" + this.token;
         }
+
+        this.setBody(this.body);
 
         return this.body;
     }

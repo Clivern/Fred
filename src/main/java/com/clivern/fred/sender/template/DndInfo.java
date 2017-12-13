@@ -31,9 +31,16 @@ import com.clivern.fred.contract.sender.template.BasicTemplate;
  */
 public class DndInfo extends BasicTemplate {
 
-    protected String url = Basic.methodURL(Basic.dndInfoMethod);
     protected String token;
     protected String user;
+
+    /**
+     * Class Constructor
+     */
+    public DndInfo()
+    {
+        this.setURL(Basic.methodURL(Basic.dndInfoMethod));
+    }
 
     /**
      * Set Token
@@ -91,6 +98,8 @@ public class DndInfo extends BasicTemplate {
         if( !this.user.isEmpty() ){
             this.body += "&user=" + this.user;
         }
+
+        this.setBody(this.body);
 
         return this.body;
     }

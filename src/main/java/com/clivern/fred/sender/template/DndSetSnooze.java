@@ -31,9 +31,16 @@ import com.clivern.fred.contract.sender.template.BasicTemplate;
  */
 public class DndSetSnooze extends BasicTemplate {
 
-    protected String url = Basic.methodURL(Basic.dndSetSnoozeMethod);
     protected String token;
     protected Integer numMinutes;
+
+    /**
+     * Class Constructor
+     */
+    public DndSetSnooze()
+    {
+        this.setURL(Basic.methodURL(Basic.dndSetSnoozeMethod));
+    }
 
     /**
      * Set Token
@@ -91,6 +98,8 @@ public class DndSetSnooze extends BasicTemplate {
         if( this.numMinutes != null ){
             this.body += "&num_minutes=" + this.numMinutes;
         }
+
+        this.setBody(this.body);
 
         return this.body;
     }

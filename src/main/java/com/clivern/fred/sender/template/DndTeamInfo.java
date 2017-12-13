@@ -31,9 +31,16 @@ import com.clivern.fred.contract.sender.template.BasicTemplate;
  */
 public class DndTeamInfo extends BasicTemplate {
 
-    protected String url = Basic.methodURL(Basic.dndTeamInfoMethod);
     protected String token;
     protected String users;
+
+    /**
+     * Class Constructor
+     */
+    public DndTeamInfo()
+    {
+        this.setURL(Basic.methodURL(Basic.dndTeamInfoMethod));
+    }
 
     /**
      * Set Token
@@ -91,6 +98,8 @@ public class DndTeamInfo extends BasicTemplate {
         if( !this.users.isEmpty() ){
             this.body += "&users=" + this.users;
         }
+
+        this.setBody(this.body);
 
         return this.body;
     }

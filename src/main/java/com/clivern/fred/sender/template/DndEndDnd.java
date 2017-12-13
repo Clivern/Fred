@@ -31,8 +31,15 @@ import com.clivern.fred.contract.sender.template.BasicTemplate;
  */
 public class DndEndDnd extends BasicTemplate {
 
-    protected String url = Basic.methodURL(Basic.dndEndDndMethod);
     protected String token;
+
+    /**
+     * Class Constructor
+     */
+    public DndEndDnd()
+    {
+        this.setURL(Basic.methodURL(Basic.dndEndDndMethod));
+    }
 
     /**
      * Set Token
@@ -66,6 +73,8 @@ public class DndEndDnd extends BasicTemplate {
         if( !this.token.isEmpty() ){
             this.body += "token=" + this.token;
         }
+
+        this.setBody(this.body);
 
         return this.body;
     }
