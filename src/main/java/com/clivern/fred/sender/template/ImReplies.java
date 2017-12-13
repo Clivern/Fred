@@ -31,10 +31,17 @@ import com.clivern.fred.contract.sender.template.BasicTemplate;
  */
 public class ImReplies extends BasicTemplate {
 
-    protected String url = Basic.methodURL(Basic.imRepliesMethod);
     protected String token;
     protected String channel;
     protected String threadTs;
+
+    /**
+     * Class Constructor
+     */
+    public ImReplies()
+    {
+        this.setURL(Basic.methodURL(Basic.imRepliesMethod));
+    }
 
     /**
      * Set Token
@@ -116,6 +123,8 @@ public class ImReplies extends BasicTemplate {
         if( !this.threadTs.isEmpty() ){
             this.body += "&thread_ts=" + this.threadTs;
         }
+
+        this.setBody(this.body);
 
         return this.body;
     }

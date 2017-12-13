@@ -41,6 +41,14 @@ public class ImHistory extends BasicTemplate {
     protected Boolean unreads;
 
     /**
+     * Class Constructor
+     */
+    public ImHistory()
+    {
+        this.setURL(Basic.methodURL(Basic.imHistoryMethod));
+    }
+
+    /**
      * Set Token
      *
      * @param token
@@ -216,6 +224,8 @@ public class ImHistory extends BasicTemplate {
         if( this.unreads != null ){
             this.body += "&unreads=" + ((this.unreads) ? "true" : "false");
         }
+
+        this.setBody(this.body);
 
         return this.body;
     }

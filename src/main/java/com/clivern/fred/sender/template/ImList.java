@@ -31,10 +31,17 @@ import com.clivern.fred.contract.sender.template.BasicTemplate;
  */
 public class ImList extends BasicTemplate {
 
-    protected String url = Basic.methodURL(Basic.imListMethod);
     protected String token;
     protected String cursor;
     protected Integer limit;
+
+    /**
+     * Class Constructor
+     */
+    public ImList()
+    {
+        this.setURL(Basic.methodURL(Basic.imListMethod));
+    }
 
     /**
      * Set Token
@@ -116,6 +123,8 @@ public class ImList extends BasicTemplate {
         if( this.limit != null ){
             this.body += "&limit=" + this.limit;
         }
+
+        this.setBody(this.body);
 
         return this.body;
     }

@@ -31,9 +31,16 @@ import com.clivern.fred.contract.sender.template.BasicTemplate;
  */
 public class ImClose extends BasicTemplate {
 
-    protected String url = Basic.methodURL(Basic.imCloseMethod);
     protected String token;
     protected String channel;
+
+    /**
+     * Class Constructor
+     */
+    public ImClose()
+    {
+        this.setURL(Basic.methodURL(Basic.imCloseMethod));
+    }
 
     /**
      * Set Token
@@ -91,6 +98,8 @@ public class ImClose extends BasicTemplate {
         if( !this.channel.isEmpty() ){
             this.body += "&channel=" + this.channel;
         }
+
+        this.setBody(this.body);
 
         return this.body;
     }

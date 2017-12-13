@@ -31,11 +31,18 @@ import com.clivern.fred.contract.sender.template.BasicTemplate;
  */
 public class ImOpen extends BasicTemplate {
 
-    protected String url = Basic.methodURL(Basic.imOpenMethod);
     protected String token;
     protected String user;
     protected Boolean includeLocale;
     protected Boolean returnIm;
+
+    /**
+     * Class Constructor
+     */
+    public ImOpen()
+    {
+        this.setURL(Basic.methodURL(Basic.imOpenMethod));
+    }
 
     /**
      * Set Token
@@ -141,6 +148,8 @@ public class ImOpen extends BasicTemplate {
         if( this.returnIm != null ){
             this.body += "&return_im=" + ((this.returnIm) ? "true" : "false");
         }
+
+        this.setBody(this.body);
 
         return this.body;
     }
