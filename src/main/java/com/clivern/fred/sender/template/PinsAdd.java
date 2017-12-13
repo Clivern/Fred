@@ -31,12 +31,19 @@ import com.clivern.fred.contract.sender.template.BasicTemplate;
  */
 public class PinsAdd extends BasicTemplate {
 
-    protected String url = Basic.methodURL(Basic.pinsAddMethod);
     protected String token;
     protected String channel;
     protected String file;
     protected String fileComment;
     protected String timestamp;
+
+    /**
+     * Class Constructor
+     */
+    public PinsAdd()
+    {
+        this.setURL(Basic.methodURL(Basic.pinsAddMethod));
+    }
 
     /**
      * Set Token
@@ -166,6 +173,8 @@ public class PinsAdd extends BasicTemplate {
         if( !this.timestamp.isEmpty() ){
             this.body += "&timestamp=" + this.timestamp;
         }
+
+        this.setBody(this.body);
 
         return this.body;
     }

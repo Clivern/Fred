@@ -31,9 +31,16 @@ import com.clivern.fred.contract.sender.template.BasicTemplate;
  */
 public class PinsList extends BasicTemplate {
 
-    protected String url = Basic.methodURL(Basic.pinsListMethod);
     protected String token;
     protected String channel;
+
+    /**
+     * Class Constructor
+     */
+    public PinsList()
+    {
+        this.setURL(Basic.methodURL(Basic.pinsListMethod));
+    }
 
     /**
      * Set Token
@@ -91,6 +98,8 @@ public class PinsList extends BasicTemplate {
         if( !this.channel.isEmpty() ){
             this.body += "&channel=" + this.channel;
         }
+
+        this.setBody(this.body);
 
         return this.body;
     }

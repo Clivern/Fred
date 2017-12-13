@@ -31,12 +31,19 @@ import com.clivern.fred.contract.sender.template.BasicTemplate;
  */
 public class PinsRemove extends BasicTemplate {
 
-    protected String url = Basic.methodURL(Basic.pinsRemoveMethod);
     protected String token;
     protected String channel;
     protected String file;
     protected String fileComment;
     protected String timestamp;
+
+    /**
+     * Class Constructor
+     */
+    public PinsRemove()
+    {
+        this.setURL(Basic.methodURL(Basic.pinsRemoveMethod));
+    }
 
     /**
      * Set Token
@@ -166,6 +173,8 @@ public class PinsRemove extends BasicTemplate {
         if( !this.timestamp.isEmpty() ){
             this.body += "&timestamp=" + this.timestamp;
         }
+
+        this.setBody(this.body);
 
         return this.body;
     }
