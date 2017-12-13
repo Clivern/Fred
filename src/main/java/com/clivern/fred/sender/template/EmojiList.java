@@ -31,8 +31,15 @@ import com.clivern.fred.contract.sender.template.BasicTemplate;
  */
 public class EmojiList extends BasicTemplate {
 
-    protected String url = Basic.methodURL(Basic.emojiListMethod);
     protected String token;
+
+    /**
+     * Class Constructor
+     */
+    public EmojiList()
+    {
+        this.setURL(Basic.methodURL(Basic.emojiListMethod));
+    }
 
     /**
      * Set Token
@@ -66,6 +73,8 @@ public class EmojiList extends BasicTemplate {
         if( !this.token.isEmpty() ){
             this.body += "token=" + this.token;
         }
+
+        this.setBody(this.body);
 
         return this.body;
     }
