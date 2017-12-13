@@ -31,9 +31,16 @@ import com.clivern.fred.contract.sender.template.BasicTemplate;
  */
 public class MpimClose extends BasicTemplate {
 
-    protected String url = Basic.methodURL(Basic.mpimCloseMethod);
     protected String token;
     protected String channel;
+
+    /**
+     * Class Constructor
+     */
+    public MpimClose()
+    {
+        this.setURL(Basic.methodURL(Basic.mpimCloseMethod));
+    }
 
     /**
      * Set Token
@@ -91,6 +98,8 @@ public class MpimClose extends BasicTemplate {
         if( !this.channel.isEmpty() ){
             this.body += "&channel=" + this.channel;
         }
+
+        this.setBody(this.body);
 
         return this.body;
     }

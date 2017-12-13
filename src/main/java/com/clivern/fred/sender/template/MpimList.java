@@ -31,8 +31,15 @@ import com.clivern.fred.contract.sender.template.BasicTemplate;
  */
 public class MpimList extends BasicTemplate {
 
-    protected String url = Basic.methodURL(Basic.mpimListMethod);
     protected String token;
+
+    /**
+     * Class Constructor
+     */
+    public MpimList()
+    {
+        this.setURL(Basic.methodURL(Basic.mpimListMethod));
+    }
 
     /**
      * Set Token
@@ -66,6 +73,8 @@ public class MpimList extends BasicTemplate {
         if( !this.token.isEmpty() ){
             this.body += "token=" + this.token;
         }
+
+        this.setBody(this.body);
 
         return this.body;
     }

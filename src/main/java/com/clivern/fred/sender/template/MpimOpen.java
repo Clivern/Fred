@@ -31,9 +31,16 @@ import com.clivern.fred.contract.sender.template.BasicTemplate;
  */
 public class MpimOpen extends BasicTemplate {
 
-    protected String url = Basic.methodURL(Basic.mpimOpenMethod);
     protected String token;
     protected String users;
+
+    /**
+     * Class Constructor
+     */
+    public MpimOpen()
+    {
+        this.setURL(Basic.methodURL(Basic.mpimOpenMethod));
+    }
 
     /**
      * Set Token
@@ -91,6 +98,8 @@ public class MpimOpen extends BasicTemplate {
         if( !this.users.isEmpty() ){
             this.body += "&users=" + this.users;
         }
+
+        this.setBody(this.body);
 
         return this.body;
     }

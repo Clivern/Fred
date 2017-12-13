@@ -31,7 +31,6 @@ import com.clivern.fred.contract.sender.template.BasicTemplate;
  */
 public class MpimHistory extends BasicTemplate {
 
-    protected String url = Basic.methodURL(Basic.mpimHistoryMethod);
     protected String token;
     protected String channel;
     protected Integer count;
@@ -39,6 +38,14 @@ public class MpimHistory extends BasicTemplate {
     protected String latest;
     protected String oldest;
     protected Boolean unreads;
+
+    /**
+     * Class Constructor
+     */
+    public MpimHistory()
+    {
+        this.setURL(Basic.methodURL(Basic.mpimHistoryMethod));
+    }
 
     /**
      * Set Token
@@ -216,6 +223,8 @@ public class MpimHistory extends BasicTemplate {
         if( this.unreads != null ){
             this.body += "&unreads=" + ((this.unreads) ? "true" : "false");
         }
+
+        this.setBody(this.body);
 
         return this.body;
     }

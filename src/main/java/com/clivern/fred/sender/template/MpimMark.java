@@ -31,10 +31,17 @@ import com.clivern.fred.contract.sender.template.BasicTemplate;
  */
 public class MpimMark extends BasicTemplate {
 
-    protected String url = Basic.methodURL(Basic.mpimMarkMethod);
     protected String token;
     protected String channel;
     protected String ts;
+
+    /**
+     * Class Constructor
+     */
+    public MpimMark()
+    {
+        this.setURL(Basic.methodURL(Basic.mpimMarkMethod));
+    }
 
     /**
      * Set Token
@@ -116,6 +123,8 @@ public class MpimMark extends BasicTemplate {
         if( !this.ts.isEmpty() ){
             this.body += "&ts=" + this.ts;
         }
+
+        this.setBody(this.body);
 
         return this.body;
     }
