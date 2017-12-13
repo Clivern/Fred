@@ -31,9 +31,16 @@ import com.clivern.fred.contract.sender.template.BasicTemplate;
  */
 public class UsersGetPresence extends BasicTemplate {
 
-    protected String url = Basic.methodURL(Basic.usersGetPresenceMethod);
     protected String token;
     protected String user;
+
+    /**
+     * Class Constructor
+     */
+    public UsersGetPresence()
+    {
+        this.setURL(Basic.methodURL(Basic.usersGetPresenceMethod));
+    }
 
     /**
      * Set Token
@@ -91,6 +98,8 @@ public class UsersGetPresence extends BasicTemplate {
         if( !this.user.isEmpty() ){
             this.body += "&user=" + this.user;
         }
+
+        this.setBody(this.body);
 
         return this.body;
     }

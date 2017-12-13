@@ -31,12 +31,19 @@ import com.clivern.fred.contract.sender.template.BasicTemplate;
  */
 public class UsersList extends BasicTemplate {
 
-    protected String url = Basic.methodURL(Basic.usersListMethod);
     protected String token;
     protected String cursor;
     protected Boolean includeLocale;
     protected Integer limit;
     protected Boolean presence;
+
+    /**
+     * Class Constructor
+     */
+    public UsersList()
+    {
+        this.setURL(Basic.methodURL(Basic.usersListMethod));
+    }
 
     /**
      * Set Token
@@ -166,6 +173,8 @@ public class UsersList extends BasicTemplate {
         if( this.presence != null ){
             this.body += "&presence=" + ((this.presence) ? "true" : "false");
         }
+
+        this.setBody(this.body);
 
         return this.body;
     }

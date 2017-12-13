@@ -31,11 +31,18 @@ import com.clivern.fred.contract.sender.template.BasicTemplate;
  */
 public class UsersProfileSet extends BasicTemplate {
 
-    protected String url = Basic.methodURL(Basic.usersProfileSetMethod);
     protected String token;
     protected String user;
     protected String name;
     protected String value;
+
+    /**
+     * Class Constructor
+     */
+    public UsersProfileSet()
+    {
+        this.setURL(Basic.methodURL(Basic.usersProfileSetMethod));
+    }
 
     /**
      * Set Token
@@ -141,6 +148,8 @@ public class UsersProfileSet extends BasicTemplate {
         if( !this.value.isEmpty() ){
             this.body += "&value=" + this.value;
         }
+
+        this.setBody(this.body);
 
         return this.body;
     }

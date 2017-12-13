@@ -31,8 +31,15 @@ import com.clivern.fred.contract.sender.template.BasicTemplate;
  */
 public class UsersIdentity extends BasicTemplate {
 
-    protected String url = Basic.methodURL(Basic.usersIdentityMethod);
     protected String token;
+
+    /**
+     * Class Constructor
+     */
+    public UsersIdentity()
+    {
+        this.setURL(Basic.methodURL(Basic.usersIdentityMethod));
+    }
 
     /**
      * Set Token
@@ -66,6 +73,8 @@ public class UsersIdentity extends BasicTemplate {
         if( !this.token.isEmpty() ){
             this.body += "token=" + this.token;
         }
+
+        this.setBody(this.body);
 
         return this.body;
     }

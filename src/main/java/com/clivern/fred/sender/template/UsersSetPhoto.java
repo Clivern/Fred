@@ -37,12 +37,19 @@ import com.clivern.fred.contract.sender.template.BasicTemplate;
  */
 public class UsersSetPhoto extends BasicTemplate {
 
-    protected String url = Basic.methodURL(Basic.usersSetPhotoMethod);
     protected String token;
     protected String image;
     protected Integer cropW;
     protected Integer cropX;
     protected Integer cropY;
+
+    /**
+     * Class Constructor
+     */
+    public UsersSetPhoto()
+    {
+        this.setURL(Basic.methodURL(Basic.usersSetPhotoMethod));
+    }
 
     /**
      * Set Token
@@ -172,6 +179,8 @@ public class UsersSetPhoto extends BasicTemplate {
         if( this.cropY != null ){
             this.body += "&crop_y=" + this.cropY;
         }
+
+        this.setBody(this.body);
 
         return this.body;
     }

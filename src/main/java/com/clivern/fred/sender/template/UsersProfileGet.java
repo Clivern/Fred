@@ -31,10 +31,17 @@ import com.clivern.fred.contract.sender.template.BasicTemplate;
  */
 public class UsersProfileGet extends BasicTemplate {
 
-    protected String url = Basic.methodURL(Basic.usersProfileGetMethod);
     protected String token;
     protected Boolean includeLabels;
     protected String user;
+
+    /**
+     * Class Constructor
+     */
+    public UsersProfileGet()
+    {
+        this.setURL(Basic.methodURL(Basic.usersProfileGetMethod));
+    }
 
     /**
      * Set Token
@@ -116,6 +123,8 @@ public class UsersProfileGet extends BasicTemplate {
         if( !this.user.isEmpty() ){
             this.body += "&user=" + this.user;
         }
+
+        this.setBody(this.body);
 
         return this.body;
     }

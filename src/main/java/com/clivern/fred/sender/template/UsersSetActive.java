@@ -31,8 +31,15 @@ import com.clivern.fred.contract.sender.template.BasicTemplate;
  */
 public class UsersSetActive extends BasicTemplate {
 
-    protected String url = Basic.methodURL(Basic.usersSetActiveMethod);
     protected String token;
+
+    /**
+     * Class Constructor
+     */
+    public UsersSetActive()
+    {
+        this.setURL(Basic.methodURL(Basic.usersSetActiveMethod));
+    }
 
     /**
      * Set Token
@@ -66,6 +73,8 @@ public class UsersSetActive extends BasicTemplate {
         if( !this.token.isEmpty() ){
             this.body += "token=" + this.token;
         }
+
+        this.setBody(this.body);
 
         return this.body;
     }

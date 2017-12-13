@@ -31,8 +31,15 @@ import com.clivern.fred.contract.sender.template.BasicTemplate;
  */
 public class UsersDeletePhoto extends BasicTemplate {
 
-    protected String url = Basic.methodURL(Basic.usersDeletePhotoMethod);
     protected String token;
+
+    /**
+     * Class Constructor
+     */
+    public UsersDeletePhoto()
+    {
+        this.setURL(Basic.methodURL(Basic.usersDeletePhotoMethod));
+    }
 
     /**
      * Set Token
@@ -66,6 +73,8 @@ public class UsersDeletePhoto extends BasicTemplate {
         if( !this.token.isEmpty() ){
             this.body += "token=" + this.token;
         }
+
+        this.setBody(this.body);
 
         return this.body;
     }
