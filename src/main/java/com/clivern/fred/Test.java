@@ -53,13 +53,12 @@ public class Test {
 
             if( status && fetch ){
 
-
                 BaseSender baseSender = new BaseSender(config, log);
 
                 // Build & Send A Reminder
                 RemindersAdd remindersAdd = new RemindersAdd();
                 remindersAdd.setToken(oauth.getIncomingAccessToken());
-                remindersAdd.setText("Thumb Up Task :+1:");
+                remindersAdd.setText("Fred Slack Bot Is On Its Way!");
                 remindersAdd.setTime("in 5 minutes");
                 remindersAdd.setUser(oauth.getIncomingUserId());
                 remindersAdd.build();
@@ -88,7 +87,8 @@ public class Test {
                         "Incoming Webhook Config URL: " +  oauth.getIncomingWebhookConfigUrl() + "<br/>" +
                         "Incoming Bot User ID: " +  oauth.getIncomingBotUserId() + "<br/>" +
                         "Incoming Bot Access Token: " +  oauth.getIncomingBotAccessToken() + "<br/>" +
-                        "RSent: " + ((remindersAddSent) ? "Sent" : "Not Sent");
+                        "RSent: " + ((remindersAddSent) ? "Sent" : "Not Sent") + "<br/>" +
+                        "RData: " + remindersAdd.debug();
 
             }else{
                 return "Error";
