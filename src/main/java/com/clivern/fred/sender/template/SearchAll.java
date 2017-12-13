@@ -31,7 +31,6 @@ import com.clivern.fred.contract.sender.template.BasicTemplate;
  */
 public class SearchAll extends BasicTemplate {
 
-    protected String url = Basic.methodURL(Basic.searchAllMethod);
     protected String token;
     protected String query;
     protected Integer count;
@@ -39,6 +38,14 @@ public class SearchAll extends BasicTemplate {
     protected Boolean highlight;
     protected String sort;
     protected String sortDir;
+
+    /**
+     * Class Constructor
+     */
+    public SearchAll()
+    {
+        this.setURL(Basic.methodURL(Basic.searchAllMethod));
+    }
 
     /**
      * Set Token
@@ -216,6 +223,8 @@ public class SearchAll extends BasicTemplate {
         if( !this.sortDir.isEmpty() ){
             this.body += "&sort_dir=" + this.sortDir;
         }
+
+        this.setBody(this.body);
 
         return this.body;
     }
