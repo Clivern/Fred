@@ -31,12 +31,19 @@ import com.clivern.fred.contract.sender.template.BasicTemplate;
  */
 public class ConversationsList extends BasicTemplate {
 
-    protected String url = Basic.methodURL(Basic.conversationsListMethod);
     protected String token;
     protected String cursor;
     protected Boolean excludeArchived;
     protected String types;
     protected Integer limit;
+
+    /**
+     * Class Constructor
+     */
+    public ConversationsList()
+    {
+        this.setURL(Basic.methodURL(Basic.conversationsListMethod));
+    }
 
     /**
      * Set Token
@@ -166,6 +173,8 @@ public class ConversationsList extends BasicTemplate {
         if( this.limit != null ){
             this.body += "&limit=" + this.limit;
         }
+
+        this.setBody(this.body);
 
         return this.body;
     }

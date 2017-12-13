@@ -32,10 +32,17 @@ import com.clivern.fred.contract.sender.template.BasicTemplate;
  */
 public class ConversationsInvite extends BasicTemplate {
 
-    protected String url = Basic.methodURL(Basic.conversationsInviteMethod);
     protected String token;
     protected String channel;
     protected String users;
+
+    /**
+     * Class Constructor
+     */
+    public ConversationsInvite()
+    {
+        this.setURL(Basic.methodURL(Basic.conversationsInviteMethod));
+    }
 
     /**
      * Set Token
@@ -117,6 +124,8 @@ public class ConversationsInvite extends BasicTemplate {
         if( !this.users.isEmpty() ){
             this.body += "&users=" + this.users;
         }
+
+        this.setBody(this.body);
 
         return this.body;
     }

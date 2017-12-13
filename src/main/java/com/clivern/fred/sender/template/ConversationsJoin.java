@@ -31,9 +31,16 @@ import com.clivern.fred.contract.sender.template.BasicTemplate;
  */
 public class ConversationsJoin extends BasicTemplate {
 
-    protected String url = Basic.methodURL(Basic.conversationsJoinMethod);
     protected String token;
     protected String channel;
+
+    /**
+     * Class Constructor
+     */
+    public ConversationsJoin()
+    {
+        this.setURL(Basic.methodURL(Basic.conversationsJoinMethod));
+    }
 
     /**
      * Set Token
@@ -91,6 +98,8 @@ public class ConversationsJoin extends BasicTemplate {
         if( !this.channel.isEmpty() ){
             this.body += "&channel=" + this.channel;
         }
+
+        this.setBody(this.body);
 
         return this.body;
     }

@@ -31,9 +31,16 @@ import com.clivern.fred.contract.sender.template.BasicTemplate;
  */
 public class ConversationsClose extends BasicTemplate {
 
-    protected String url = Basic.methodURL(Basic.conversationsCloseMethod);
     protected String token;
     protected String channel;
+
+    /**
+     * Class Constructor
+     */
+    public ConversationsClose()
+    {
+        this.setURL(Basic.methodURL(Basic.conversationsCloseMethod));
+    }
 
     /**
      * Set Token
@@ -91,6 +98,8 @@ public class ConversationsClose extends BasicTemplate {
         if( !this.channel.isEmpty() ){
             this.body += "&channel=" + this.channel;
         }
+
+        this.setBody(this.body);
 
         return this.body;
     }

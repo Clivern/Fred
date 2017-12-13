@@ -31,13 +31,20 @@ import com.clivern.fred.contract.sender.template.BasicTemplate;
  */
 public class ConversationsHistory extends BasicTemplate {
 
-    protected String url = Basic.methodURL(Basic.conversationsHistoryMethod);
     protected String token;
     protected String channel;
     protected String cursor;
     protected String latest;
     protected Integer limit;
     protected String oldest;
+
+    /**
+     * Class Constructor
+     */
+    public ConversationsHistory()
+    {
+        this.setURL(Basic.methodURL(Basic.conversationsHistoryMethod));
+    }
 
     /**
      * Set Token
@@ -191,6 +198,8 @@ public class ConversationsHistory extends BasicTemplate {
         if( this.oldest != null ){
             this.body += "&oldest=" + this.oldest;
         }
+
+        this.setBody(this.body);
 
         return this.body;
     }

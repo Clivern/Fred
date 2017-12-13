@@ -32,10 +32,17 @@ import com.clivern.fred.contract.sender.template.BasicTemplate;
  */
 public class ConversationsRename extends BasicTemplate {
 
-    protected String url = Basic.methodURL(Basic.conversationsRenameMethod);
     protected String token;
     protected String channel;
     protected String name;
+
+    /**
+     * Class Constructor
+     */
+    public ConversationsRename()
+    {
+        this.setURL(Basic.methodURL(Basic.conversationsRenameMethod));
+    }
 
     /**
      * Set Token
@@ -117,6 +124,8 @@ public class ConversationsRename extends BasicTemplate {
         if( !this.name.isEmpty() ){
             this.body += "&name=" + this.name;
         }
+
+        this.setBody(this.body);
 
         return this.body;
     }

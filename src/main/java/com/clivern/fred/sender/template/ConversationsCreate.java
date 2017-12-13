@@ -31,10 +31,17 @@ import com.clivern.fred.contract.sender.template.BasicTemplate;
  */
 public class ConversationsCreate extends BasicTemplate {
 
-    protected String url = Basic.methodURL(Basic.conversationsCreateMethod);
     protected String token;
     protected String name;
     protected Boolean isPrivate;
+
+    /**
+     * Class Constructor
+     */
+    public ConversationsCreate()
+    {
+        this.setURL(Basic.methodURL(Basic.conversationsCreateMethod));
+    }
 
     /**
      * Set Token
@@ -116,6 +123,8 @@ public class ConversationsCreate extends BasicTemplate {
         if( this.isPrivate != null ){
             this.body += "&is_private=" + ((this.isPrivate) ? "true" : "false");
         }
+
+        this.setBody(this.body);
 
         return this.body;
     }

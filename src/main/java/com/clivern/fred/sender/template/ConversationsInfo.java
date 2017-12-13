@@ -31,10 +31,17 @@ import com.clivern.fred.contract.sender.template.BasicTemplate;
  */
 public class ConversationsInfo extends BasicTemplate {
 
-    protected String url = Basic.methodURL(Basic.conversationsInfoMethod);
     protected String token;
     protected String channel;
     protected Boolean includeLocale;
+
+    /**
+     * Class Constructor
+     */
+    public ConversationsInfo()
+    {
+        this.setURL(Basic.methodURL(Basic.conversationsInfoMethod));
+    }
 
     /**
      * Set Token
@@ -116,6 +123,8 @@ public class ConversationsInfo extends BasicTemplate {
         if( this.includeLocale != null ){
             this.body += "&include_locale=" + ((this.includeLocale) ? "true" : "false");
         }
+
+        this.setBody(this.body);
 
         return this.body;
     }

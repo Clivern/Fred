@@ -34,10 +34,17 @@ import com.clivern.fred.contract.sender.template.BasicTemplate;
  */
 public class ConversationsKick extends BasicTemplate {
 
-    protected String url = Basic.methodURL(Basic.conversationsKickMethod);
     protected String token;
     protected String channel;
     protected String user;
+
+    /**
+     * Class Constructor
+     */
+    public ConversationsKick()
+    {
+        this.setURL(Basic.methodURL(Basic.conversationsKickMethod));
+    }
 
     /**
      * Set Token
@@ -119,6 +126,8 @@ public class ConversationsKick extends BasicTemplate {
         if( !this.user.isEmpty() ){
             this.body += "&user=" + this.user;
         }
+
+        this.setBody(this.body);
 
         return this.body;
     }

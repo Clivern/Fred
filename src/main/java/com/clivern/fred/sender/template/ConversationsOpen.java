@@ -31,11 +31,18 @@ import com.clivern.fred.contract.sender.template.BasicTemplate;
  */
 public class ConversationsOpen extends BasicTemplate {
 
-    protected String url = Basic.methodURL(Basic.conversationsOpenMethod);
     protected String token;
     protected String channel;
     protected Boolean returnIm;
     protected String users;
+
+    /**
+     * Class Constructor
+     */
+    public ConversationsOpen()
+    {
+        this.setURL(Basic.methodURL(Basic.conversationsOpenMethod));
+    }
 
     /**
      * Set Token
@@ -141,6 +148,8 @@ public class ConversationsOpen extends BasicTemplate {
         if( !this.users.isEmpty() ){
             this.body += "&users=" + this.users;
         }
+
+        this.setBody(this.body);
 
         return this.body;
     }
