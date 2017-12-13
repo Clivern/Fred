@@ -31,9 +31,16 @@ import com.clivern.fred.contract.sender.template.BasicTemplate;
  */
 public class TeamBillableInfo extends BasicTemplate {
 
-    protected String url = Basic.methodURL(Basic.teamBillableInfoMethod);
     protected String token;
     protected String user;
+
+    /**
+     * Class Constructor
+     */
+    public TeamBillableInfo()
+    {
+        this.setURL(Basic.methodURL(Basic.teamBillableInfoMethod));
+    }
 
     /**
      * Set Token
@@ -91,6 +98,8 @@ public class TeamBillableInfo extends BasicTemplate {
         if( !this.user.isEmpty() ){
             this.body += "&user=" + this.user;
         }
+
+        this.setBody(this.body);
 
         return this.body;
     }

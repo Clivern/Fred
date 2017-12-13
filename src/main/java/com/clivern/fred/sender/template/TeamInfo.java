@@ -31,8 +31,15 @@ import com.clivern.fred.contract.sender.template.BasicTemplate;
  */
 public class TeamInfo extends BasicTemplate {
 
-    protected String url = Basic.methodURL(Basic.teamInfoMethod);
     protected String token;
+
+    /**
+     * Class Constructor
+     */
+    public TeamInfo()
+    {
+        this.setURL(Basic.methodURL(Basic.teamInfoMethod));
+    }
 
     /**
      * Set Token
@@ -66,6 +73,8 @@ public class TeamInfo extends BasicTemplate {
         if( !this.token.isEmpty() ){
             this.body += "token=" + this.token;
         }
+
+        this.setBody(this.body);
 
         return this.body;
     }

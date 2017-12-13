@@ -31,9 +31,16 @@ import com.clivern.fred.contract.sender.template.BasicTemplate;
  */
 public class TeamProfileGet extends BasicTemplate {
 
-    protected String url = Basic.methodURL(Basic.teamProfileGetMethod);
     protected String token;
     protected String visibility;
+
+    /**
+     * Class Constructor
+     */
+    public TeamProfileGet()
+    {
+        this.setURL(Basic.methodURL(Basic.teamProfileGetMethod));
+    }
 
     /**
      * Set Token
@@ -91,6 +98,8 @@ public class TeamProfileGet extends BasicTemplate {
         if( !this.visibility.isEmpty() ){
             this.body += "&visibility=" + this.visibility;
         }
+
+        this.setBody(this.body);
 
         return this.body;
     }
