@@ -30,8 +30,15 @@ import com.clivern.fred.contract.sender.template.BasicTemplate;
  */
 public class ApiTest extends BasicTemplate {
 
-    protected String url = Basic.methodURL(Basic.apiTestMethod);
     protected String arg = "Test";
+
+    /**
+     * Class Constructor
+     */
+    public ApiTest()
+    {
+        this.setURL(Basic.methodURL(Basic.apiTestMethod));
+    }
 
     /**
      * Set Arg
@@ -65,6 +72,8 @@ public class ApiTest extends BasicTemplate {
         if( !this.arg.isEmpty() ){
             this.body += "arg=" + this.arg;
         }
+
+        this.setBody(this.body);
 
         return this.body;
     }
