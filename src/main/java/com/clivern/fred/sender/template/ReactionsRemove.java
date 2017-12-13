@@ -31,13 +31,20 @@ import com.clivern.fred.contract.sender.template.BasicTemplate;
  */
 public class ReactionsRemove extends BasicTemplate {
 
-    protected String url = Basic.methodURL(Basic.reactionsRemoveMethod);
     protected String token;
     protected String name;
     protected String channel;
     protected String file;
     protected String fileComment;
     protected String timestamp;
+
+    /**
+     * Class Constructor
+     */
+    public ReactionsRemove()
+    {
+        this.setURL(Basic.methodURL(Basic.reactionsRemoveMethod));
+    }
 
     /**
      * Set Token
@@ -191,6 +198,8 @@ public class ReactionsRemove extends BasicTemplate {
         if( !this.timestamp.isEmpty() ){
             this.body += "&timestamp=" + this.timestamp;
         }
+
+        this.setBody(this.body);
 
         return this.body;
     }

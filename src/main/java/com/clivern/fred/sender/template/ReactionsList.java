@@ -31,12 +31,19 @@ import com.clivern.fred.contract.sender.template.BasicTemplate;
  */
 public class ReactionsList extends BasicTemplate {
 
-    protected String url = Basic.methodURL(Basic.reactionsListMethod);
     protected String token;
     protected Integer count;
     protected Boolean full;
     protected Integer page;
     protected String user;
+
+    /**
+     * Class Constructor
+     */
+    public ReactionsList()
+    {
+        this.setURL(Basic.methodURL(Basic.reactionsListMethod));
+    }
 
     /**
      * Set Token
@@ -166,6 +173,8 @@ public class ReactionsList extends BasicTemplate {
         if( !this.user.isEmpty() ){
             this.body += "&user=" + this.user;
         }
+
+        this.setBody(this.body);
 
         return this.body;
     }

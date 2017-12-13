@@ -31,13 +31,20 @@ import com.clivern.fred.contract.sender.template.BasicTemplate;
  */
 public class ReactionsGet extends BasicTemplate {
 
-    protected String url = Basic.methodURL(Basic.reactionsGetMethod);
     protected String token;
     protected String channel;
     protected String file;
     protected String fileComment;
     protected Boolean full;
     protected String timestamp;
+
+    /**
+     * Class Constructor
+     */
+    public ReactionsGet()
+    {
+        this.setURL(Basic.methodURL(Basic.reactionsGetMethod));
+    }
 
     /**
      * Set Token
@@ -191,6 +198,8 @@ public class ReactionsGet extends BasicTemplate {
         if( !this.timestamp.isEmpty() ){
             this.body += "&timestamp=" + this.timestamp;
         }
+
+        this.setBody(this.body);
 
         return this.body;
     }
