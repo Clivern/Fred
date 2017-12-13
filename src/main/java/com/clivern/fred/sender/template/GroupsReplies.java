@@ -32,10 +32,17 @@ import com.clivern.fred.contract.sender.template.BasicTemplate;
  */
 public class GroupsReplies extends BasicTemplate {
 
-    protected String url = Basic.methodURL(Basic.groupsRepliesMethod);
     protected String token;
     protected String channel;
     protected String threadTs;
+
+    /**
+     * Class Constructor
+     */
+    public GroupsReplies()
+    {
+        this.setURL(Basic.methodURL(Basic.groupsRepliesMethod));
+    }
 
     /**
      * Set Token
@@ -117,6 +124,8 @@ public class GroupsReplies extends BasicTemplate {
         if( !this.threadTs.isEmpty() ){
             this.body += "&thread_ts=" + this.threadTs;
         }
+
+        this.setBody(this.body);
 
         return this.body;
     }

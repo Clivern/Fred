@@ -32,10 +32,17 @@ import com.clivern.fred.contract.sender.template.BasicTemplate;
  */
 public class GroupsList extends BasicTemplate {
 
-    protected String url = Basic.methodURL(Basic.groupsListMethod);
     protected String token;
     protected Boolean excludeArchived;
     protected Boolean excludeMembers;
+
+    /**
+     * Class Constructor
+     */
+    public GroupsList()
+    {
+        this.setURL(Basic.methodURL(Basic.groupsListMethod));
+    }
 
     /**
      * Set Token
@@ -117,6 +124,8 @@ public class GroupsList extends BasicTemplate {
         if( this.excludeMembers != null ){
             this.body += "&exclude_members=" + ((this.excludeMembers) ? "true" : "false");
         }
+
+        this.setBody(this.body);
 
         return this.body;
     }

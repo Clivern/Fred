@@ -31,9 +31,16 @@ import com.clivern.fred.contract.sender.template.BasicTemplate;
  */
 public class GroupsLeave extends BasicTemplate {
 
-    protected String url = Basic.methodURL(Basic.groupsLeaveMethod);
     protected String token;
     protected String channel;
+
+    /**
+     * Class Constructor
+     */
+    public GroupsLeave()
+    {
+        this.setURL(Basic.methodURL(Basic.groupsLeaveMethod));
+    }
 
     /**
      * Set Token
@@ -91,6 +98,8 @@ public class GroupsLeave extends BasicTemplate {
         if( !this.channel.isEmpty() ){
             this.body += "&channel=" + this.channel;
         }
+
+        this.setBody(this.body);
 
         return this.body;
     }

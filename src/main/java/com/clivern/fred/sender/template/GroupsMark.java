@@ -31,10 +31,17 @@ import com.clivern.fred.contract.sender.template.BasicTemplate;
  */
 public class GroupsMark extends BasicTemplate {
 
-    protected String url = Basic.methodURL(Basic.groupsMarkMethod);
     protected String token;
     protected String channel;
     protected String ts;
+
+    /**
+     * Class Constructor
+     */
+    public GroupsMark()
+    {
+        this.setURL(Basic.methodURL(Basic.groupsMarkMethod));
+    }
 
     /**
      * Set Token
@@ -116,6 +123,8 @@ public class GroupsMark extends BasicTemplate {
         if( !this.ts.isEmpty() ){
             this.body += "&ts=" + this.ts;
         }
+
+        this.setBody(this.body);
 
         return this.body;
     }

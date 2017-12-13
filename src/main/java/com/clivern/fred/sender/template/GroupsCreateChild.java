@@ -42,9 +42,16 @@ import com.clivern.fred.contract.sender.template.BasicTemplate;
  */
 public class GroupsCreateChild extends BasicTemplate {
 
-    protected String url = Basic.methodURL(Basic.groupsCreateChildMethod);
     protected String token;
     protected String channel;
+
+    /**
+     * Class Constructor
+     */
+    public GroupsCreateChild()
+    {
+        this.setURL(Basic.methodURL(Basic.groupsCreateChildMethod));
+    }
 
     /**
      * Set Token
@@ -102,6 +109,8 @@ public class GroupsCreateChild extends BasicTemplate {
         if( !this.channel.isEmpty() ){
             this.body += "&channel=" + this.channel;
         }
+
+        this.setBody(this.body);
 
         return this.body;
     }

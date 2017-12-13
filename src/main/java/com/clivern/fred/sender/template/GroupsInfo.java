@@ -31,10 +31,17 @@ import com.clivern.fred.contract.sender.template.BasicTemplate;
  */
 public class GroupsInfo extends BasicTemplate {
 
-    protected String url = Basic.methodURL(Basic.groupsInfoMethod);
     protected String token;
     protected String channel;
     protected Boolean includeLocale;
+
+    /**
+     * Class Constructor
+     */
+    public GroupsInfo()
+    {
+        this.setURL(Basic.methodURL(Basic.groupsInfoMethod));
+    }
 
     /**
      * Set Token
@@ -116,6 +123,8 @@ public class GroupsInfo extends BasicTemplate {
         if( this.includeLocale != null ){
             this.body += "&include_locale=" + ((this.includeLocale) ? "true" : "false");
         }
+
+        this.setBody(this.body);
 
         return this.body;
     }

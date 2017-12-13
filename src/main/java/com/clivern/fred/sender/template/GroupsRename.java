@@ -31,11 +31,18 @@ import com.clivern.fred.contract.sender.template.BasicTemplate;
  */
 public class GroupsRename extends BasicTemplate {
 
-    protected String url = Basic.methodURL(Basic.groupsRenameMethod);
     protected String token;
     protected String channel;
     protected String name;
     protected Boolean validate;
+
+    /**
+     * Class Constructor
+     */
+    public GroupsRename()
+    {
+        this.setURL(Basic.methodURL(Basic.groupsRenameMethod));
+    }
 
     /**
      * Set Token
@@ -141,6 +148,8 @@ public class GroupsRename extends BasicTemplate {
         if( this.validate != null ){
             this.body += "&validate=" + ((this.validate) ? "true" : "false");
         }
+
+        this.setBody(this.body);
 
         return this.body;
     }

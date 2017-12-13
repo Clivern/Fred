@@ -31,10 +31,17 @@ import com.clivern.fred.contract.sender.template.BasicTemplate;
  */
 public class GroupsCreate extends BasicTemplate {
 
-    protected String url = Basic.methodURL(Basic.groupsCreateMethod);
     protected String token;
     protected String name;
     protected Boolean validate;
+
+    /**
+     * Class Constructor
+     */
+    public GroupsCreate()
+    {
+        this.setURL(Basic.methodURL(Basic.groupsCreateMethod));
+    }
 
     /**
      * Set Token
@@ -116,6 +123,8 @@ public class GroupsCreate extends BasicTemplate {
         if( this.validate != null ){
             this.body += "&validate=" + ((this.validate) ? "true" : "false");
         }
+
+        this.setBody(this.body);
 
         return this.body;
     }

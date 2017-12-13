@@ -31,10 +31,17 @@ import com.clivern.fred.contract.sender.template.BasicTemplate;
  */
 public class GroupsSetPurpose extends BasicTemplate {
 
-    protected String url = Basic.methodURL(Basic.groupsSetPurposeMethod);
     protected String token;
     protected String channel;
     protected String purpose;
+
+    /**
+     * Class Constructor
+     */
+    public GroupsSetPurpose()
+    {
+        this.setURL(Basic.methodURL(Basic.groupsSetPurposeMethod));
+    }
 
     /**
      * Set Token
@@ -116,6 +123,8 @@ public class GroupsSetPurpose extends BasicTemplate {
         if( !this.purpose.isEmpty() ){
             this.body += "&purpose=" + this.purpose;
         }
+
+        this.setBody(this.body);
 
         return this.body;
     }

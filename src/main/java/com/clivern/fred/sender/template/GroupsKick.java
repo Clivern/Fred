@@ -31,10 +31,17 @@ import com.clivern.fred.contract.sender.template.BasicTemplate;
  */
 public class GroupsKick extends BasicTemplate {
 
-    protected String url = Basic.methodURL(Basic.groupsKickMethod);
     protected String token;
     protected String channel;
     protected String user;
+
+    /**
+     * Class Constructor
+     */
+    public GroupsKick()
+    {
+        this.setURL(Basic.methodURL(Basic.groupsKickMethod));
+    }
 
     /**
      * Set Token
@@ -116,6 +123,8 @@ public class GroupsKick extends BasicTemplate {
         if( !this.user.isEmpty() ){
             this.body += "&user=" + this.user;
         }
+
+        this.setBody(this.body);
 
         return this.body;
     }
