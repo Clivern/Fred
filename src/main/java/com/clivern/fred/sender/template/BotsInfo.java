@@ -31,9 +31,16 @@ import com.clivern.fred.contract.sender.template.BasicTemplate;
  */
 public class BotsInfo extends BasicTemplate {
 
-    protected String url = Basic.methodURL(Basic.botsInfoMethod);
     protected String token;
     protected String bot;
+
+    /**
+     * Class Constructor
+     */
+    public BotsInfo()
+    {
+        this.setURL(Basic.methodURL(Basic.botsInfoMethod));
+    }
 
     /**
      * Set Token
@@ -91,6 +98,8 @@ public class BotsInfo extends BasicTemplate {
         if( !this.bot.isEmpty() ){
             this.body += "&bot=" + this.bot;
         }
+
+        this.setBody(this.body);
 
         return this.body;
     }
