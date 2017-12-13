@@ -30,8 +30,15 @@ import com.clivern.fred.contract.sender.template.BasicTemplate;
  */
 public class AppsPermissionsInfo extends BasicTemplate {
 
-    protected String url = Basic.methodURL(Basic.appsPermissionsInfoMethod);
     protected String token;
+
+    /**
+     * Class Constructor
+     */
+    public AppsPermissionsInfo()
+    {
+        this.setURL(Basic.methodURL(Basic.appsPermissionsInfoMethod));
+    }
 
     /**
      * Set Token
@@ -65,6 +72,8 @@ public class AppsPermissionsInfo extends BasicTemplate {
         if( !this.token.isEmpty() ){
             this.body += "token=" + this.token;
         }
+
+        this.setBody(this.body);
 
         return this.body;
     }

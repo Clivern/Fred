@@ -31,10 +31,17 @@ import com.clivern.fred.contract.sender.template.BasicTemplate;
  */
 public class AppsPermissionsRequest extends BasicTemplate {
 
-    protected String url = Basic.methodURL(Basic.appsPermissionsRequestMethod);
     protected String token;
     protected String scopes;
     protected String triggerId;
+
+    /**
+     * Class Constructor
+     */
+    public AppsPermissionsRequest()
+    {
+        this.setURL(Basic.methodURL(Basic.appsPermissionsRequestMethod));
+    }
 
     /**
      * Set Token
@@ -116,6 +123,8 @@ public class AppsPermissionsRequest extends BasicTemplate {
         if( !this.triggerId.isEmpty() ){
             this.body += "&trigger_id=" + this.triggerId;
         }
+
+        this.setBody(this.body);
 
         return this.body;
     }
