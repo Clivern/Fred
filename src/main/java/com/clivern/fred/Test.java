@@ -48,32 +48,24 @@ public class Test {
             BaseReceiver baseReceiver = new BaseReceiver(config, log);
 
             // Build Our /Fred Command
-            Command fredCommand = new Command("/fred", "https://9fccb549.ngrok.io/fred", false, "Launch The Rocket!", "");
+            Command fredCommand = new Command("/fred", "https://3dc53bfa.ngrok.io/commands", false, "Launch The Rocket!", "", (ct) -> "Cool -> " + ct.getText());
             baseReceiver.setCommand("/fred", fredCommand);
 
             if( baseReceiver.commandExists(request.queryParams("command")) ){
+                Map<String, String> incomingData = new HashMap<String, String>();
+                incomingData.put("channel_name", request.queryParams("channel_name"));
+                incomingData.put("user_id", request.queryParams("user_id"));
+                incomingData.put("user_name", request.queryParams("user_name"));
+                incomingData.put("trigger_id", request.queryParams("trigger_id"));
+                incomingData.put("team_domain", request.queryParams("team_domain"));
+                incomingData.put("team_id", request.queryParams("team_id"));
+                incomingData.put("text", request.queryParams("text"));
+                incomingData.put("channel_id", request.queryParams("channel_id"));
+                incomingData.put("command", request.queryParams("command"));
+                incomingData.put("token", request.queryParams("token"));
+                incomingData.put("response_url", request.queryParams("response_url"));
 
-                // Check For /Fred Command
-                if( request.queryParams("command").equals("/fred") ){
-
-                    // Fetch data from request
-                    Map<String, String> incomingData = new HashMap<String, String>();
-                    incomingData.put("channel_name", request.queryParams("channel_name"));
-                    incomingData.put("user_id", request.queryParams("user_id"));
-                    incomingData.put("user_name", request.queryParams("user_name"));
-                    incomingData.put("trigger_id", request.queryParams("trigger_id"));
-                    incomingData.put("team_domain", request.queryParams("team_domain"));
-                    incomingData.put("team_id", request.queryParams("team_id"));
-                    incomingData.put("text", request.queryParams("text"));
-                    incomingData.put("channel_id", request.queryParams("channel_id"));
-                    incomingData.put("command", request.queryParams("command"));
-                    incomingData.put("token", request.queryParams("token"));
-                    incomingData.put("response_url", request.queryParams("response_url"));
-                    // Pass these data to the command template
-                    fredCommand = (Command) baseReceiver.getCurrentCommand(request.queryParams("command"), incomingData);
-
-                    return fredCommand.getText();
-                }
+                return baseReceiver.callCurrentCommand(request.queryParams("command"), incomingData);
             }
             return "Cool!";
         });

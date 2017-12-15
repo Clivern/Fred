@@ -15,6 +15,7 @@ package com.clivern.fred.contract.receiver.command;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.function.Function;
 
 /**
  * Command Template Class
@@ -42,6 +43,7 @@ public abstract class CommandTemplate {
 
     protected String plainRequest;
 
+    protected Function<CommandTemplate,String> callback;
 
     /**
      * Class Constructor
@@ -49,12 +51,14 @@ public abstract class CommandTemplate {
      * @param command
      * @param requestURL
      * @param expandedText
+     * @param callback
      */
-    public CommandTemplate(String command, String requestURL, Boolean expandedText)
+    public CommandTemplate(String command, String requestURL, Boolean expandedText, Function<CommandTemplate,String> callback)
     {
         this.command = command;
         this.requestURL = requestURL;
         this.expandedText = expandedText;
+        this.callback = callback;
     }
 
     /**
@@ -65,14 +69,16 @@ public abstract class CommandTemplate {
      * @param expandedText
      * @param shortDescription
      * @param usageHint
+     * @param callback
      */
-    public CommandTemplate(String command, String requestURL, Boolean expandedText, String shortDescription, String usageHint)
+    public CommandTemplate(String command, String requestURL, Boolean expandedText, String shortDescription, String usageHint, Function<CommandTemplate,String> callback)
     {
         this.command = command;
         this.requestURL = requestURL;
         this.expandedText = expandedText;
         this.shortDescription = shortDescription;
         this.usageHint = usageHint;
+        this.callback = callback;
     }
 
     /**
@@ -136,6 +142,16 @@ public abstract class CommandTemplate {
     }
 
     /**
+     * Set Callback
+     *
+     * @param callback
+     */
+    public void setCallback(Function<CommandTemplate,String> callback)
+    {
+        this.callback = callback;
+    }
+
+    /**
      * Get Commnad Name
      *
      * @return String
@@ -193,6 +209,16 @@ public abstract class CommandTemplate {
     public String getUsageHint()
     {
         return this.usageHint;
+    }
+
+    /**
+     * Get Callback
+     *
+     * @return Function<CommandTemplate,String>
+     */
+    public Function<CommandTemplate,String> getCallback()
+    {
+        return this.callback;
     }
 
     /**
@@ -529,9 +555,19 @@ public abstract class CommandTemplate {
     }
 
     /**
-     * Parse the Incoming Request Data
+     * Call Command Callback
      *
-     * @param incomingData
+     * @return String
      */
-    abstract public Boolean parse();
+    public String call()
+    {
+        return this.callback.apply(this);
+    }
+
+    /**
+     * Do Further Processing
+     *
+     * @param Boolean
+     */
+    abstract public Boolean process();
 }

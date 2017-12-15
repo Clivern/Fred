@@ -53,6 +53,7 @@ public class Listener {
     {
         this.configs = configs;
         this.log = log;
+        this.verificationToken = this.configs.get("verification_token", "");
     }
 
     /**
@@ -63,16 +64,6 @@ public class Listener {
     public void setRequestURL(String requestURL)
     {
         this.requestURL = requestURL;
-    }
-
-    /**
-     * Set Verification Token
-     *
-     * @param verificationToken
-     */
-    public void setVerificationToken(String verificationToken)
-    {
-        this.verificationToken = verificationToken;
     }
 
     /**

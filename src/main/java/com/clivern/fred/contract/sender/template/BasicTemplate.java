@@ -138,6 +138,50 @@ public abstract class BasicTemplate {
     }
 
     /**
+     * Check if property is defined
+     *
+     * @param  property
+     * @return Boolean
+     */
+    public Boolean isDefined(String property)
+    {
+        return (property != null && !property.isEmpty());
+    }
+
+    /**
+     * Check if property is defined
+     *
+     * @param  property
+     * @return Boolean
+     */
+    public Boolean isDefined(Integer property)
+    {
+        return (property != null);
+    }
+
+    /**
+     * Check if property is defined
+     *
+     * @param  property
+     * @return Boolean
+     */
+    public Boolean isDefined(Boolean property)
+    {
+        return (property != null);
+    }
+
+    /**
+     * Check if property is defined
+     *
+     * @param  property
+     * @return Boolean
+     */
+    public Boolean isDefined(Long property)
+    {
+        return (property != null);
+    }
+
+    /**
      * Build Message Body
      */
     abstract public String build();

@@ -150,27 +150,27 @@ public class RemindersAdd extends BasicTemplate {
      */
     public String build()
     {
-        if( this.token.isEmpty() || this.text.isEmpty() || (this.time.isEmpty() && this.timestamp.isEmpty()) ){
+        if( !this.isDefined(this.token) || !this.isDefined(this.text) || (!this.isDefined(this.time) && !this.isDefined(this.timestamp)) ){
             return "";
         }
 
-        if( !this.token.isEmpty() ){
+        if( this.isDefined(this.token) ){
             this.body += "token=" + this.token;
         }
 
-        if( !this.text.isEmpty() ){
+        if( this.isDefined(this.text) ){
             this.body += "&text=" + this.text;
         }
 
-        if( !this.time.isEmpty() ){
+        if( this.isDefined(this.time) ){
             this.body += "&time=" + this.time;
         }
 
-        if( !this.timestamp.isEmpty() ){
+        if( this.isDefined(this.timestamp) ){
             this.body += "&time=" + this.timestamp;
         }
 
-        if( !this.user.isEmpty() ){
+        if( this.isDefined(this.user) ){
             this.body += "&user=" + this.user;
         }
 

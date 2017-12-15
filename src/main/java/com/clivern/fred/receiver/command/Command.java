@@ -18,6 +18,7 @@ import java.util.HashMap;
 import java.util.Map;
 import com.clivern.fred.config.Basic;
 import com.clivern.fred.contract.receiver.command.CommandTemplate;
+import java.util.function.Function;
 
 /**
  * App Defined Commands
@@ -36,9 +37,9 @@ public class Command extends CommandTemplate {
      * @param requestURL
      * @param expandedText
      */
-    public Command(String command, String requestURL, Boolean expandedText)
+    public Command(String command, String requestURL, Boolean expandedText, Function<CommandTemplate,String> callback)
     {
-        super(command, requestURL, expandedText);
+        super(command, requestURL, expandedText, callback);
     }
 
     /**
@@ -50,14 +51,18 @@ public class Command extends CommandTemplate {
      * @param shortDescription
      * @param usageHint
      */
-    public Command(String command, String requestURL, Boolean expandedText, String shortDescription, String usageHint)
+    public Command(String command, String requestURL, Boolean expandedText, String shortDescription, String usageHint, Function<CommandTemplate,String> callback)
     {
-        super(command, requestURL, expandedText, shortDescription, usageHint);
+        super(command, requestURL, expandedText, shortDescription, usageHint, callback);
     }
 
-    public Boolean parse()
+    /**
+     * Do Further Processing
+     *
+     * @param Boolean
+     */
+    public Boolean process()
     {
         return true;
     }
-
 }
