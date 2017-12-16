@@ -87,15 +87,15 @@ public class RemindersComplete extends BasicTemplate {
      */
     public String build()
     {
-        if( this.token.isEmpty() || this.reminder.isEmpty() ){
+        if( !this.isDefined(this.token) || !this.isDefined(this.reminder) ){
             return "";
         }
 
-        if( !this.token.isEmpty() ){
+        if( this.isDefined(this.token) ){
             this.body += "token=" + this.token;
         }
 
-        if( !this.reminder.isEmpty() ){
+        if( this.isDefined(this.reminder) ){
             this.body += "&reminder=" + this.reminder;
         }
 
