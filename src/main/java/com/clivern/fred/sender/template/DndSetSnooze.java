@@ -87,15 +87,15 @@ public class DndSetSnooze extends BasicTemplate {
      */
     public String build()
     {
-        if( this.token.isEmpty() || this.numMinutes == null ){
+        if( !this.isDefined(this.token) || !this.isDefined(this.numMinutes) ){
             return "";
         }
 
-        if( !this.token.isEmpty() ){
+        if( this.isDefined(this.token) ){
             this.body += "token=" + this.token;
         }
 
-        if( this.numMinutes != null ){
+        if( this.isDefined(this.numMinutes) ){
             this.body += "&num_minutes=" + this.numMinutes;
         }
 

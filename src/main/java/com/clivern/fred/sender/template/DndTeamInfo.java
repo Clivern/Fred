@@ -87,15 +87,15 @@ public class DndTeamInfo extends BasicTemplate {
      */
     public String build()
     {
-        if( this.token.isEmpty() ){
+        if( !this.isDefined(this.token) ){
             return "";
         }
 
-        if( !this.token.isEmpty() ){
+        if( this.isDefined(this.token) ){
             this.body += "token=" + this.token;
         }
 
-        if( !this.users.isEmpty() ){
+        if( this.isDefined(this.users) ){
             this.body += "&users=" + this.users;
         }
 

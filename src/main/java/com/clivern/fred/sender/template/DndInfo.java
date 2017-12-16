@@ -87,15 +87,15 @@ public class DndInfo extends BasicTemplate {
      */
     public String build()
     {
-        if( this.token.isEmpty() ){
+        if( !this.isDefined(this.token) ){
             return "";
         }
 
-        if( !this.token.isEmpty() ){
+        if( this.isDefined(this.token) ){
             this.body += "token=" + this.token;
         }
 
-        if( !this.user.isEmpty() ){
+        if( this.isDefined(this.user) ){
             this.body += "&user=" + this.user;
         }
 
