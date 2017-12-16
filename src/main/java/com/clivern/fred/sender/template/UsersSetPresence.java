@@ -87,15 +87,15 @@ public class UsersSetPresence extends BasicTemplate {
      */
     public String build()
     {
-        if( this.token.isEmpty() || this.presence.isEmpty() ){
+        if( !this.isDefined(this.token) || !this.isDefined(this.presence) ){
             return "";
         }
 
-        if( !this.token.isEmpty() ){
+        if( this.isDefined(this.token) ){
             this.body += "token=" + this.token;
         }
 
-        if( !this.presence.isEmpty() ){
+        if( this.isDefined(this.presence) ){
             this.body += "&presence=" + this.presence;
         }
 

@@ -150,27 +150,27 @@ public class UsersList extends BasicTemplate {
      */
     public String build()
     {
-        if( this.token.isEmpty() ){
+        if( !this.isDefined(this.token) ){
             return "";
         }
 
-        if( !this.token.isEmpty() ){
+        if( this.isDefined(this.token) ){
             this.body += "token=" + this.token;
         }
 
-        if( !this.cursor.isEmpty() ){
+        if( this.isDefined(this.cursor) ){
             this.body += "&cursor=" + this.cursor;
         }
 
-        if( this.includeLocale != null ){
+        if( this.isDefined(this.includeLocale) ){
             this.body += "&include_locale=" + ((this.includeLocale) ? "true" : "false");
         }
 
-        if( this.limit != null ){
+        if( this.isDefined(this.limit) ){
             this.body += "&limit=" + this.limit;
         }
 
-        if( this.presence != null ){
+        if( this.isDefined(this.presence) ){
             this.body += "&presence=" + ((this.presence) ? "true" : "false");
         }
 

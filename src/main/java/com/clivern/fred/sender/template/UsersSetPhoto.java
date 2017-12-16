@@ -156,27 +156,27 @@ public class UsersSetPhoto extends BasicTemplate {
      */
     public String build()
     {
-        if( this.token.isEmpty() || this.image.isEmpty() ){
+        if( !this.isDefined(this.token) || !this.isDefined(this.image) ){
             return "";
         }
 
-        if( !this.token.isEmpty() ){
+        if( this.isDefined(this.token) ){
             this.body += "token=" + this.token;
         }
 
-        if( !this.image.isEmpty() ){
+        if( this.isDefined(this.image) ){
             this.body += "&image=" + this.image;
         }
 
-        if( this.cropW != null ){
+        if( this.isDefined(this.cropW) ){
             this.body += "&crop_w=" + this.cropW;
         }
 
-        if( this.cropX != null ){
+        if( this.isDefined(this.cropX) ){
             this.body += "&crop_x=" + this.cropX;
         }
 
-        if( this.cropY != null ){
+        if( this.isDefined(this.cropY) ){
             this.body += "&crop_y=" + this.cropY;
         }
 

@@ -108,19 +108,19 @@ public class UsersProfileGet extends BasicTemplate {
      */
     public String build()
     {
-        if( this.token.isEmpty() ){
+        if( !this.isDefined(this.token) ){
             return "";
         }
 
-        if( !this.token.isEmpty() ){
+        if( this.isDefined(this.token) ){
             this.body += "token=" + this.token;
         }
 
-        if( this.includeLabels != null ){
+        if( this.isDefined(this.includeLabels) ){
             this.body += "&include_labels=" + ((this.includeLabels) ? "true" : "false");
         }
 
-        if( !this.user.isEmpty() ){
+        if( this.isDefined(this.user) ){
             this.body += "&user=" + this.user;
         }
 
