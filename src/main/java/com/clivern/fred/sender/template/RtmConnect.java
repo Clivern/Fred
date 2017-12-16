@@ -87,15 +87,15 @@ public class RtmConnect extends BasicTemplate {
      */
     public String build()
     {
-        if( this.token.isEmpty() ){
+        if( !this.isDefined(this.token) ){
             return "";
         }
 
-        if( !this.token.isEmpty() ){
+        if( this.isDefined(this.token) ){
             this.body += "token=" + this.token;
         }
 
-        if( this.batchPresenceAware != null ){
+        if( this.isDefined(this.batchPresenceAware) ){
             this.body += "&batch_presence_aware=" + this.batchPresenceAware;
         }
 

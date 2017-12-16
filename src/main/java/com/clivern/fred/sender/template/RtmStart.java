@@ -192,34 +192,34 @@ public class RtmStart extends BasicTemplate {
      */
     public String build()
     {
-        if( this.token.isEmpty() ){
+        if( !this.isDefined(this.token) ){
             return "";
         }
 
-        if( !this.token.isEmpty() ){
+        if( this.isDefined(this.token) ){
             this.body += "token=" + this.token;
         }
 
-        if( this.batchPresenceAware != null ){
+        if( this.isDefined(this.batchPresenceAware) ){
             this.body += "&batch_presence_aware=" + this.batchPresenceAware;
         }
 
-        if( this.noLatest != null ){
+        if( this.isDefined(this.noLatest) ){
             this.body += "&no_latest=" + this.noLatest;
         }
 
-        if( this.includeLocale != null ){
+        if( this.isDefined(this.includeLocale) ){
             this.body += "&include_locale=" + ((this.includeLocale) ? "true" : "false");
         }
 
-        if( this.mpimAware != null ){
+        if( this.isDefined(this.mpimAware) ){
             this.body += "&mpim_aware=" + ((this.mpimAware) ? "true" : "false");
         }
 
-        if( this.noUnreads != null ){
+        if( this.isDefined(this.noUnreads) ){
             this.body += "&no_unreads=" + ((this.noUnreads) ? "true" : "false");
         }
-        if( this.simpleLatest != null ){
+        if( this.isDefined(this.simpleLatest) ){
             this.body += "&simple_latest=" + ((this.simpleLatest) ? "true" : "false");
         }
 
