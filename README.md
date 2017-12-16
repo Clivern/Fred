@@ -257,7 +257,7 @@ public class Main {
 
         post("/commands", (request, response) -> {
             Config config = new Config();
-            config.loadPropertiesFile("src/main/java/resources/config_test.properties");
+            config.loadPropertiesFile("config.properties");
             Log log = new Log(config);
             BaseReceiver baseReceiver = new BaseReceiver(config, log);
 
