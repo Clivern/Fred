@@ -109,19 +109,19 @@ public class ChannelsInfo extends BasicTemplate {
      */
     public String build()
     {
-        if( this.token.isEmpty() || this.channel.isEmpty() ){
+        if( !this.isDefined(this.token) || !this.isDefined(this.channel) ){
             return "";
         }
 
-        if( !this.token.isEmpty() ){
+        if( this.isDefined(this.token) ){
             this.body += "token=" + this.token;
         }
 
-        if( !this.channel.isEmpty() ){
+        if( this.isDefined(this.channel) ){
             this.body += "&channel=" + this.channel;
         }
 
-        if( this.includeLocale != null ){
+        if( this.isDefined(this.includeLocale) ){
             this.body += "&include_locale=" + ((this.includeLocale) ? "true" : "false");
         }
 

@@ -108,19 +108,19 @@ public class ChannelsJoin extends BasicTemplate {
      */
     public String build()
     {
-        if( this.token.isEmpty() || this.name.isEmpty() ){
+        if( !this.isDefined(this.token) || !this.isDefined(this.name) ){
             return "";
         }
 
-        if( !this.token.isEmpty() ){
+        if( this.isDefined(this.token) ){
             this.body += "token=" + this.token;
         }
 
-        if( !this.name.isEmpty() ){
+        if( this.isDefined(this.name) ){
             this.body += "&name=" + this.name;
         }
 
-        if( this.validate != null ){
+        if( this.isDefined(this.validate) ){
             this.body += "&validate=" + ((this.validate) ? "true" : "false");
         }
 

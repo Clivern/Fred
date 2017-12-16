@@ -130,23 +130,23 @@ public class ChannelsRename extends BasicTemplate {
      */
     public String build()
     {
-        if( this.token.isEmpty() || this.channel.isEmpty() || this.name.isEmpty() ){
+        if( !this.isDefined(this.token) || !this.isDefined(this.channel) || !this.isDefined(this.name) ){
             return "";
         }
 
-        if( !this.token.isEmpty() ){
+        if( this.isDefined(this.token) ){
             this.body += "token=" + this.token;
         }
 
-        if( !this.channel.isEmpty() ){
+        if( this.isDefined(this.channel) ){
             this.body += "&channel=" + this.channel;
         }
 
-        if( !this.name.isEmpty() ){
+        if( this.isDefined(this.name) ){
             this.body += "&name=" + this.name;
         }
 
-        if( this.validate != null ){
+        if( this.isDefined(this.validate) ){
             this.body += "&validate=" + ((this.validate) ? "true" : "false");
         }
 

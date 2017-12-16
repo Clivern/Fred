@@ -108,19 +108,19 @@ public class ChannelsInvite extends BasicTemplate {
      */
     public String build()
     {
-        if( this.token.isEmpty() || this.channel.isEmpty() || this.user.isEmpty() ){
+        if( !this.isDefined(this.token) || !this.isDefined(this.channel) || !this.isDefined(this.user) ){
             return "";
         }
 
-        if( !this.token.isEmpty() ){
+        if( this.isDefined(this.token) ){
             this.body += "token=" + this.token;
         }
 
-        if( !this.channel.isEmpty() ){
+        if( this.isDefined(this.channel) ){
             this.body += "&channel=" + this.channel;
         }
 
-        if( !this.user.isEmpty() ){
+        if( this.isDefined(this.user) ){
             this.body += "&user=" + this.user;
         }
 
