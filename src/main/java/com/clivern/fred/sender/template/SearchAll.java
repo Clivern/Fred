@@ -192,35 +192,35 @@ public class SearchAll extends BasicTemplate {
      */
     public String build()
     {
-        if( this.token.isEmpty() || this.query.isEmpty() ){
+        if( !this.isDefined(this.token) || !this.isDefined(this.query) ){
             return "";
         }
 
-        if( !this.token.isEmpty() ){
+        if( this.isDefined(this.token) ){
             this.body += "token=" + this.token;
         }
 
-        if( !this.query.isEmpty() ){
+        if( this.isDefined(this.query) ){
             this.body += "&query=" + this.query;
         }
 
-        if( this.count != null ){
+        if( this.isDefined(this.count) ){
             this.body += "&count=" + this.count;
         }
 
-        if( this.page != null ){
+        if( this.isDefined(this.page) ){
             this.body += "&page=" + this.page;
         }
 
-        if( this.highlight != null ){
+        if( this.isDefined(this.highlight) ){
             this.body += "&highlight=" + ((this.highlight) ? "true" : "false");
         }
 
-        if( !this.sort.isEmpty() ){
+        if( this.isDefined(this.sort) ){
             this.body += "&sort=" + this.sort;
         }
 
-        if( !this.sortDir.isEmpty() ){
+        if( this.isDefined(this.sortDir) ){
             this.body += "&sort_dir=" + this.sortDir;
         }
 
