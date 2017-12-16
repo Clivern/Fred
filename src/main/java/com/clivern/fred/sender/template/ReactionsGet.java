@@ -171,31 +171,31 @@ public class ReactionsGet extends BasicTemplate {
      */
     public String build()
     {
-        if( this.token.isEmpty() ){
+        if( !this.isDefined(this.token) ){
             return "";
         }
 
-        if( !this.token.isEmpty() ){
+        if( this.isDefined(this.token) ){
             this.body += "token=" + this.token;
         }
 
-        if( !this.channel.isEmpty() ){
+        if( this.isDefined(this.channel) ){
             this.body += "&channel=" + this.channel;
         }
 
-        if( !this.file.isEmpty() ){
+        if( this.isDefined(this.file) ){
             this.body += "&file=" + this.file;
         }
 
-        if( !this.fileComment.isEmpty() ){
+        if( this.isDefined(this.fileComment) ){
             this.body += "&file_comment=" + this.fileComment;
         }
 
-        if( this.full != null ){
+        if( this.isDefined(this.full) ){
             this.body += "&full=" + ((this.full) ? "true" : "false");
         }
 
-        if( !this.timestamp.isEmpty() ){
+        if( this.isDefined(this.timestamp) ){
             this.body += "&timestamp=" + this.timestamp;
         }
 

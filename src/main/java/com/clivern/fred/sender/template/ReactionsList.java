@@ -150,27 +150,27 @@ public class ReactionsList extends BasicTemplate {
      */
     public String build()
     {
-        if( this.token.isEmpty() ){
+        if( !this.isDefined(this.token) ){
             return "";
         }
 
-        if( !this.token.isEmpty() ){
+        if( this.isDefined(this.token) ){
             this.body += "token=" + this.token;
         }
 
-        if( this.count != null ){
+        if( this.isDefined(this.count) ){
             this.body += "&count=" + this.count;
         }
 
-        if( this.full != null ){
+        if( this.isDefined(this.full) ){
             this.body += "&full=" + ((this.full) ? "true" : "false");
         }
 
-        if( this.page != null ){
+        if( this.isDefined(this.page) ){
             this.body += "&page=" + this.page;
         }
 
-        if( !this.user.isEmpty() ){
+        if( this.isDefined(this.user) ){
             this.body += "&user=" + this.user;
         }
 
