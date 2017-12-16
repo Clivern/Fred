@@ -108,19 +108,19 @@ public class AppsPermissionsRequest extends BasicTemplate {
      */
     public String build()
     {
-        if( this.token.isEmpty() || this.scopes.isEmpty() || this.triggerId.isEmpty() ){
+        if( !this.isDefined(this.token) || !this.isDefined(this.scopes) || !this.isDefined(this.triggerId) ){
             return "";
         }
 
-        if( !this.token.isEmpty() ){
+        if( this.isDefined(this.token) ){
             this.body += "token=" + this.token;
         }
 
-        if( !this.scopes.isEmpty() ){
+        if( this.isDefined(this.scopes) ){
             this.body += "&scopes=" + this.scopes;
         }
 
-        if( !this.triggerId.isEmpty() ){
+        if( this.isDefined(this.triggerId) ){
             this.body += "&trigger_id=" + this.triggerId;
         }
 
