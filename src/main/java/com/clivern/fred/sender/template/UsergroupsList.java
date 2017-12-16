@@ -129,23 +129,23 @@ public class UsergroupsList extends BasicTemplate {
      */
     public String build()
     {
-        if( this.token.isEmpty() ){
+        if( !this.isDefined(this.token) ){
             return "";
         }
 
-        if( !this.token.isEmpty() ){
+        if( this.isDefined(this.token) ){
             this.body += "token=" + this.token;
         }
 
-        if( this.includeCount != null ){
+        if( this.isDefined(this.includeCount) ){
             this.body += "&include_count=" + ((this.includeCount) ? "true" : "false");
         }
 
-        if( this.includeDisabled != null ){
+        if( this.isDefined(this.includeDisabled) ){
             this.body += "&include_disabled=" + ((this.includeDisabled) ? "true" : "false");
         }
 
-        if( this.includeUsers != null ){
+        if( this.isDefined(this.includeUsers) ){
             this.body += "&include_users=" + ((this.includeUsers) ? "true" : "false");
         }
 

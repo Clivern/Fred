@@ -129,23 +129,23 @@ public class UsergroupsUsersUpdate extends BasicTemplate {
      */
     public String build()
     {
-        if( this.token.isEmpty() || this.usergroup.isEmpty() || this.users.isEmpty() ){
+        if( !this.isDefined(this.token) || !this.isDefined(this.usergroup) || !this.isDefined(this.users) ){
             return "";
         }
 
-        if( !this.token.isEmpty() ){
+        if( this.isDefined(this.token) ){
             this.body += "token=" + this.token;
         }
 
-        if( !this.usergroup.isEmpty() ){
+        if( this.isDefined(this.usergroup) ){
             this.body += "&usergroup=" + this.usergroup;
         }
 
-        if( !this.users.isEmpty() ){
+        if( this.isDefined(this.users) ){
             this.body += "&users=" + this.users;
         }
 
-        if( this.includeCount != null ){
+        if( this.isDefined(this.includeCount) ){
             this.body += "&include_count=" + ((this.includeCount) ? "true" : "false");
         }
 

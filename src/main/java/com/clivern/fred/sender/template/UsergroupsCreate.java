@@ -171,31 +171,31 @@ public class UsergroupsCreate extends BasicTemplate {
      */
     public String build()
     {
-        if( this.token.isEmpty() || this.name.isEmpty() ){
+        if( !this.isDefined(this.token) || !this.isDefined(this.name) ){
             return "";
         }
 
-        if( !this.token.isEmpty() ){
+        if( this.isDefined(this.token) ){
             this.body += "token=" + this.token;
         }
 
-        if( !this.name.isEmpty() ){
+        if( this.isDefined(this.name) ){
             this.body += "&name=" + this.name;
         }
 
-        if( !this.channels.isEmpty() ){
+        if( this.isDefined(this.channels) ){
             this.body += "&channels=" + this.channels;
         }
 
-        if( !this.description.isEmpty() ){
+        if( this.isDefined(this.description) ){
             this.body += "&description=" + this.description;
         }
 
-        if( !this.handle.isEmpty() ){
+        if( this.isDefined(this.handle) ){
             this.body += "&handle=" + this.handle;
         }
 
-        if( this.includeCount != null ){
+        if( this.isDefined(this.includeCount) ){
             this.body += "&include_count=" + ((this.includeCount) ? "true" : "false");
         }
 

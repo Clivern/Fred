@@ -192,35 +192,35 @@ public class UsergroupsUpdate extends BasicTemplate {
      */
     public String build()
     {
-        if( this.token.isEmpty() || this.usergroup.isEmpty() ){
+        if( !this.isDefined(this.token) || !this.isDefined(this.usergroup) ){
             return "";
         }
 
-        if( !this.token.isEmpty() ){
+        if( this.isDefined(this.token) ){
             this.body += "token=" + this.token;
         }
 
-        if( !this.usergroup.isEmpty() ){
+        if( this.isDefined(this.usergroup) ){
             this.body += "&usergroup=" + this.usergroup;
         }
 
-        if( !this.name.isEmpty() ){
+        if( this.isDefined(this.name) ){
             this.body += "&name=" + this.name;
         }
 
-        if( !this.channels.isEmpty() ){
+        if( this.isDefined(this.channels) ){
             this.body += "&channels=" + this.channels;
         }
 
-        if( !this.description.isEmpty() ){
+        if( this.isDefined(this.description) ){
             this.body += "&description=" + this.description;
         }
 
-        if( !this.handle.isEmpty() ){
+        if( this.isDefined(this.handle) ){
             this.body += "&handle=" + this.handle;
         }
 
-        if( this.includeCount != null ){
+        if( this.isDefined(this.includeCount) ){
             this.body += "&include_count=" + ((this.includeCount) ? "true" : "false");
         }
 
