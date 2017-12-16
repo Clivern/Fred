@@ -150,27 +150,27 @@ public class ConversationsList extends BasicTemplate {
      */
     public String build()
     {
-        if( this.token.isEmpty() ){
+        if( !this.isDefined(this.token) ){
             return "";
         }
 
-        if( !this.token.isEmpty() ){
+        if( this.isDefined(this.token) ){
             this.body += "token=" + this.token;
         }
 
-        if( !this.cursor.isEmpty() ){
+        if( this.isDefined(this.cursor) ){
             this.body += "&cursor=" + this.cursor;
         }
 
-        if( this.excludeArchived != null ){
+        if( this.isDefined(this.excludeArchived) ){
             this.body += "&exclude_archived=" + ((this.excludeArchived) ? "true" : "false");
         }
 
-        if( this.types != null ){
+        if( this.isDefined(this.types) ){
             this.body += "&types=" + this.types;
         }
 
-        if( this.limit != null ){
+        if( this.isDefined(this.limit) ){
             this.body += "&limit=" + this.limit;
         }
 

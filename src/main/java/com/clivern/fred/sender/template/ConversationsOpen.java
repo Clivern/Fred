@@ -129,23 +129,23 @@ public class ConversationsOpen extends BasicTemplate {
      */
     public String build()
     {
-        if( this.token.isEmpty() ){
+        if( !this.isDefined(this.token) ){
             return "";
         }
 
-        if( !this.token.isEmpty() ){
+        if( this.isDefined(this.token) ){
             this.body += "token=" + this.token;
         }
 
-        if( !this.channel.isEmpty() ){
+        if( this.isDefined(this.channel) ){
             this.body += "&channel=" + this.channel;
         }
 
-        if( this.returnIm != null ){
+        if( this.isDefined(this.returnIm) ){
             this.body += "&return_im=" + ((this.returnIm) ? "true" : "false");
         }
 
-        if( !this.users.isEmpty() ){
+        if( this.isDefined(this.users) ){
             this.body += "&users=" + this.users;
         }
 

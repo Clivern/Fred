@@ -108,19 +108,19 @@ public class ConversationsSetPurpose extends BasicTemplate {
      */
     public String build()
     {
-        if( this.token.isEmpty() || this.channel.isEmpty() || this.purpose.isEmpty() ){
+        if( !this.isDefined(this.token) || !this.isDefined(this.channel) || !this.isDefined(this.purpose) ){
             return "";
         }
 
-        if( !this.token.isEmpty() ){
+        if( this.isDefined(this.token) ){
             this.body += "token=" + this.token;
         }
 
-        if( !this.channel.isEmpty() ){
+        if( this.isDefined(this.channel) ){
             this.body += "&channel=" + this.channel;
         }
 
-        if( !this.purpose.isEmpty() ){
+        if( this.isDefined(this.purpose) ){
             this.body += "&purpose=" + this.purpose;
         }
 

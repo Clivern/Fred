@@ -108,19 +108,19 @@ public class ConversationsCreate extends BasicTemplate {
      */
     public String build()
     {
-        if( this.token.isEmpty() || this.name.isEmpty() ){
+        if( !this.isDefined(this.token) || !this.isDefined(this.name) ){
             return "";
         }
 
-        if( !this.token.isEmpty() ){
+        if( this.isDefined(this.token) ){
             this.body += "token=" + this.token;
         }
 
-        if( !this.name.isEmpty() ){
+        if( this.isDefined(this.name) ){
             this.body += "&name=" + this.name;
         }
 
-        if( this.isPrivate != null ){
+        if( this.isDefined(this.isPrivate) ){
             this.body += "&is_private=" + ((this.isPrivate) ? "true" : "false");
         }
 
