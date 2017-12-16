@@ -65,11 +65,11 @@ public class ApiTest extends BasicTemplate {
      */
     public String build()
     {
-        if( this.arg.isEmpty() ){
+        if( !this.isDefined(this.arg) ){
             return "";
         }
 
-        if( !this.arg.isEmpty() ){
+        if( this.isDefined(this.arg) ){
             this.body += "arg=" + this.arg;
         }
 
