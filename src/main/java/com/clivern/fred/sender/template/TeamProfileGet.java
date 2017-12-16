@@ -87,15 +87,15 @@ public class TeamProfileGet extends BasicTemplate {
      */
     public String build()
     {
-        if( this.token.isEmpty() ){
+        if( !this.isDefined(this.token) ){
             return "";
         }
 
-        if( !this.token.isEmpty() ){
+        if( this.isDefined(this.token) ){
             this.body += "token=" + this.token;
         }
 
-        if( !this.visibility.isEmpty() ){
+        if( this.isDefined(this.visibility) ){
             this.body += "&visibility=" + this.visibility;
         }
 
