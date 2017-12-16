@@ -196,35 +196,35 @@ public class GroupsHistory extends BasicTemplate {
      */
     public String build()
     {
-        if( this.token.isEmpty() || this.channel.isEmpty() ){
+        if( !this.isDefined(this.token) || !this.isDefined(this.channel) ){
             return "";
         }
 
-        if( !this.token.isEmpty() ){
+        if( this.isDefined(this.token) ){
             this.body += "token=" + this.token;
         }
 
-        if( !this.channel.isEmpty() ){
+        if( this.isDefined(this.channel) ){
             this.body += "&channel=" + this.channel;
         }
 
-        if( this.count != null ){
+        if( this.isDefined(this.count) ){
             this.body += "&count=" + this.count;
         }
 
-        if( this.inclusive != null ){
+        if( this.isDefined(this.inclusive) ){
             this.body += "&inclusive=" + ((this.inclusive) ? "true" : "false");
         }
 
-        if( this.latest != null ){
+        if( this.isDefined(this.latest) ){
             this.body += "&latest=" + this.latest;
         }
 
-        if( this.oldest != null ){
+        if( this.isDefined(this.oldest) ){
             this.body += "&oldest=" + this.oldest;
         }
 
-        if( this.unreads != null ){
+        if( this.isDefined(this.unreads) ){
             this.body += "&unreads=" + ((this.unreads) ? "true" : "false");
         }
 

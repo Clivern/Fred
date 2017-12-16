@@ -109,19 +109,19 @@ public class GroupsList extends BasicTemplate {
      */
     public String build()
     {
-        if( this.token.isEmpty() ){
+        if( !this.isDefined(this.token) ){
             return "";
         }
 
-        if( !this.token.isEmpty() ){
+        if( this.isDefined(this.token) ){
             this.body += "token=" + this.token;
         }
 
-        if( this.excludeArchived != null ){
+        if( this.isDefined(this.excludeArchived) ){
             this.body += "&exclude_archived=" + ((this.excludeArchived) ? "true" : "false");
         }
 
-        if( this.excludeMembers != null ){
+        if( this.isDefined(this.excludeMembers) ){
             this.body += "&exclude_members=" + ((this.excludeMembers) ? "true" : "false");
         }
 

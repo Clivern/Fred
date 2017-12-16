@@ -108,19 +108,19 @@ public class GroupsSetTopic extends BasicTemplate {
      */
     public String build()
     {
-        if( this.token.isEmpty() || this.channel.isEmpty() || this.topic.isEmpty() ){
+        if( !this.isDefined(this.token) || !this.isDefined(this.channel) || !this.isDefined(this.topic) ){
             return "";
         }
 
-        if( !this.token.isEmpty() ){
+        if( this.isDefined(this.token) ){
             this.body += "token=" + this.token;
         }
 
-        if( !this.channel.isEmpty() ){
+        if( this.isDefined(this.channel) ){
             this.body += "&channel=" + this.channel;
         }
 
-        if( !this.topic.isEmpty() ){
+        if( this.isDefined(this.topic) ){
             this.body += "&topic=" + this.topic;
         }
 
