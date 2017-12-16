@@ -132,23 +132,23 @@ public class ChatDelete extends BasicTemplate {
      */
     public String build()
     {
-        if( this.token.isEmpty() || this.channel.isEmpty() || this.ts.isEmpty() ){
+        if( !this.isDefined(this.token) || !this.isDefined(this.channel) || !this.isDefined(this.ts) ){
             return "";
         }
 
-        if( !this.token.isEmpty() ){
+        if( this.isDefined(this.token) ){
             this.body += "token=" + this.token;
         }
 
-        if( !this.channel.isEmpty() ){
+        if( this.isDefined(this.channel) ){
             this.body += "&channel=" + this.channel;
         }
 
-        if( !this.ts.isEmpty() ){
+        if( this.isDefined(this.ts) ){
             this.body += "&ts=" + this.ts;
         }
 
-        if( this.asUser != null ){
+        if( this.isDefined(this.asUser) ){
             this.body += "&as_user=" + ((this.asUser) ? "true" : "false");
         }
 
