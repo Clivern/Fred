@@ -108,19 +108,19 @@ public class StarsList extends BasicTemplate {
      */
     public String build()
     {
-        if( this.token.isEmpty() ){
+        if( !this.isDefined(this.token) ){
             return "";
         }
 
-        if( !this.token.isEmpty() ){
+        if( this.isDefined(this.token) ){
             this.body += "token=" + this.token;
         }
 
-        if( this.count != null ){
+        if( this.isDefined(this.count) ){
             this.body += "&count=" + this.count;
         }
 
-        if( this.page != null ){
+        if( this.isDefined(this.page) ){
             this.body += "&page=" + this.page;
         }
 
