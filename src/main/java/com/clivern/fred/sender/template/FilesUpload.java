@@ -213,39 +213,39 @@ public class FilesUpload extends BasicTemplate {
      */
     public String build()
     {
-        if( this.token.isEmpty() ){
+        if( !this.isDefined(this.token) ){
             return "";
         }
 
-        if( !this.token.isEmpty() ){
+        if( this.isDefined(this.token) ){
             this.body += "token=" + this.token;
         }
 
-        if( !this.channels.isEmpty() ){
+        if( this.isDefined(this.channels) ){
             this.body += "&channels=" + this.channels;
         }
 
-        if( !this.content.isEmpty() ){
+        if( this.isDefined(this.content) ){
             this.body += "&content=" + this.content;
         }
 
-        if( !this.file.isEmpty() ){
+        if( this.isDefined(this.file) ){
             this.body += "&file=" + this.file;
         }
 
-        if( !this.filename.isEmpty() ){
+        if( this.isDefined(this.filename) ){
             this.body += "&filename=" + this.filename;
       	}
 
-        if( !this.filetype.isEmpty() ){
+        if( this.isDefined(this.filetype) ){
             this.body += "&filetype=" + this.filetype;
         }
 
-        if( !this.initialComment.isEmpty() ){
+        if( this.isDefined(this.initialComment) ){
             this.body += "&initial_comment=" + this.initialComment;
         }
 
-        if( !this.title.isEmpty() ){
+        if( this.isDefined(this.title) ){
             this.body += "&title=" + this.title;
         }
 

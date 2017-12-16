@@ -87,15 +87,15 @@ public class FilesSharedPublicURL extends BasicTemplate {
      */
     public String build()
     {
-        if( this.token.isEmpty() || this.file.isEmpty() ){
+        if( !this.isDefined(this.token) || !this.isDefined(this.file) ){
             return "";
         }
 
-        if( !this.token.isEmpty() ){
+        if( this.isDefined(this.token) ){
             this.body += "token=" + this.token;
         }
 
-        if( !this.file.isEmpty() ){
+        if( this.isDefined(this.file) ){
             this.body += "&file=" + this.file;
         }
 

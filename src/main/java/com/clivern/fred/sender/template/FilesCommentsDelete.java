@@ -108,19 +108,19 @@ public class FilesCommentsDelete extends BasicTemplate {
      */
     public String build()
     {
-        if( this.token.isEmpty() || this.id.isEmpty() || this.file.isEmpty() ){
+        if( !this.isDefined(this.token) || !this.isDefined(this.id) || !this.isDefined(this.file) ){
             return "";
         }
 
-        if( !this.token.isEmpty() ){
+        if( this.isDefined(this.token) ){
             this.body += "token=" + this.token;
         }
 
-        if( !this.id.isEmpty() ){
+        if( this.isDefined(this.id) ){
             this.body += "&id=" + this.id;
         }
 
-        if( !this.file.isEmpty() ){
+        if( this.isDefined(this.file) ){
             this.body += "&file=" + this.file;
         }
 

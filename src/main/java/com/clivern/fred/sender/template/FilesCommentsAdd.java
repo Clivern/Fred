@@ -108,19 +108,19 @@ public class FilesCommentsAdd extends BasicTemplate {
      */
     public String build()
     {
-        if( this.token.isEmpty() || this.comment.isEmpty() || this.file.isEmpty() ){
+        if( !this.isDefined(this.token) || !this.isDefined(this.comment) || !this.isDefined(this.file) ){
             return "";
         }
 
-        if( !this.token.isEmpty() ){
+        if( this.isDefined(this.token) ){
             this.body += "token=" + this.token;
         }
 
-        if( !this.comment.isEmpty() ){
+        if( this.isDefined(this.comment) ){
             this.body += "&comment=" + this.comment;
         }
 
-        if( !this.file.isEmpty() ){
+        if( this.isDefined(this.file) ){
             this.body += "&file=" + this.file;
         }
 

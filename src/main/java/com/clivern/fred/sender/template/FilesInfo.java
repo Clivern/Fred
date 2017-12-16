@@ -129,23 +129,23 @@ public class FilesInfo extends BasicTemplate {
      */
     public String build()
     {
-        if( this.token.isEmpty() || this.file.isEmpty() ){
+        if( !this.isDefined(this.token) || !this.isDefined(this.file) ){
             return "";
         }
 
-        if( !this.token.isEmpty() ){
+        if( this.isDefined(this.token) ){
             this.body += "token=" + this.token;
         }
 
-        if( !this.file.isEmpty() ){
+        if( this.isDefined(this.file) ){
             this.body += "&file=" + this.file;
         }
 
-        if( this.count != null ){
+        if( this.isDefined(this.count) ){
             this.body += "&count=" + this.count;
         }
 
-        if( this.page != null ){
+        if( this.isDefined(this.page) ){
             this.body += "&page=" + this.page;
         }
 

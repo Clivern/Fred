@@ -213,39 +213,39 @@ public class FilesList extends BasicTemplate {
      */
     public String build()
     {
-        if( this.token.isEmpty() ){
+        if( !this.isDefined(this.token) ){
             return "";
         }
 
-        if( !this.token.isEmpty() ){
+        if( this.isDefined(this.token) ){
             this.body += "token=" + this.token;
         }
 
-        if( !this.channel.isEmpty() ){
+        if( this.isDefined(this.channel) ){
             this.body += "&channel=" + this.channel;
         }
 
-        if( this.count != null ){
+        if( this.isDefined(this.count) ){
             this.body += "&count=" + this.count;
         }
 
-        if( this.page != null ){
+        if( this.isDefined(this.page) ){
             this.body += "&page=" + this.page;
         }
 
-        if( !this.tsFrom.isEmpty() ){
+        if( this.isDefined(this.tsFrom) ){
             this.body += "&ts_from=" + this.tsFrom;
       	}
 
-        if( !this.tsTo.isEmpty() ){
+        if( this.isDefined(this.tsTo) ){
             this.body += "&ts_to=" + this.tsTo;
         }
 
-        if( !this.types.isEmpty() ){
+        if( this.isDefined(this.types) ){
             this.body += "&types=" + this.types;
         }
 
-        if( !this.user.isEmpty() ){
+        if( this.isDefined(this.user) ){
             this.body += "&user=" + this.user;
         }
 
