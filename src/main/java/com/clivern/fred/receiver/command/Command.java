@@ -34,26 +34,11 @@ public class Command extends CommandTemplate {
      * Class Constructor
      *
      * @param command
-     * @param requestURL
      * @param expandedText
      */
-    public Command(String command, String requestURL, Boolean expandedText, Function<CommandTemplate,String> callback)
+    public Command(String command, Boolean expandedText, Function<CommandTemplate,String> callback)
     {
-        super(command, requestURL, expandedText, callback);
-    }
-
-    /**
-     * Class Constructor
-     *
-     * @param command
-     * @param requestURL
-     * @param expandedText
-     * @param shortDescription
-     * @param usageHint
-     */
-    public Command(String command, String requestURL, Boolean expandedText, String shortDescription, String usageHint, Function<CommandTemplate,String> callback)
-    {
-        super(command, requestURL, expandedText, shortDescription, usageHint, callback);
+        super(command, expandedText, callback);
     }
 
     /**

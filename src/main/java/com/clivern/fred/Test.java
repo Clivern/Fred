@@ -48,8 +48,10 @@ public class Test {
             BaseReceiver baseReceiver = new BaseReceiver(config, log);
 
             // Build Our /Fred Command
-            Command fredCommand = new Command("/fred", "https://3dc53bfa.ngrok.io/commands", false, "Launch The Rocket!", "", (ct) -> "Cool -> " + ct.getText());
+            Command fredCommand = new Command("/fred", false, (ct) -> "You Typed -> " + ct.getText() + " To /fred");
+            Command frogCommand = new Command("/frog", false, (ct) -> "You Typed -> " + ct.getText() + " To /frog");
             baseReceiver.setCommand("/fred", fredCommand);
+            baseReceiver.setCommand("/frog", frogCommand);
 
             if( baseReceiver.commandExists(request.queryParams("command")) ){
                 Map<String, String> incomingData = new HashMap<String, String>();

@@ -29,12 +29,6 @@ public abstract class CommandTemplate {
 
     protected String command;
 
-    protected String requestURL;
-
-    protected String shortDescription;
-
-    protected String usageHint;
-
     protected String validationToken;
 
     protected Boolean expandedText;
@@ -49,35 +43,13 @@ public abstract class CommandTemplate {
      * Class Constructor
      *
      * @param command
-     * @param requestURL
      * @param expandedText
      * @param callback
      */
-    public CommandTemplate(String command, String requestURL, Boolean expandedText, Function<CommandTemplate,String> callback)
+    public CommandTemplate(String command, Boolean expandedText, Function<CommandTemplate,String> callback)
     {
         this.command = command;
-        this.requestURL = requestURL;
         this.expandedText = expandedText;
-        this.callback = callback;
-    }
-
-    /**
-     * Class Constructor
-     *
-     * @param command
-     * @param requestURL
-     * @param expandedText
-     * @param shortDescription
-     * @param usageHint
-     * @param callback
-     */
-    public CommandTemplate(String command, String requestURL, Boolean expandedText, String shortDescription, String usageHint, Function<CommandTemplate,String> callback)
-    {
-        this.command = command;
-        this.requestURL = requestURL;
-        this.expandedText = expandedText;
-        this.shortDescription = shortDescription;
-        this.usageHint = usageHint;
         this.callback = callback;
     }
 
@@ -89,16 +61,6 @@ public abstract class CommandTemplate {
     public void setCommand(String command)
     {
         this.command = command;
-    }
-
-    /**
-     * Set Request URL
-     *
-     * @param requestURL
-     */
-    public void setRequestURL(String requestURL)
-    {
-        this.requestURL = requestURL;
     }
 
     /**
@@ -122,26 +84,6 @@ public abstract class CommandTemplate {
     }
 
     /**
-     * Set Short Description
-     *
-     * @param shortDescription
-     */
-    public void setShortDescription(String shortDescription)
-    {
-        this.shortDescription = shortDescription;
-    }
-
-    /**
-     * Set Usage Hint
-     *
-     * @param usageHint
-     */
-    public void setUsageHint(String usageHint)
-    {
-        this.usageHint = usageHint;
-    }
-
-    /**
      * Set Callback
      *
      * @param callback
@@ -162,16 +104,6 @@ public abstract class CommandTemplate {
     }
 
     /**
-     * Get request URL
-     *
-     * @return String
-     */
-    public String getRequestURL()
-    {
-        return this.requestURL;
-    }
-
-    /**
      * Get Validation Token
      *
      * @return String
@@ -189,26 +121,6 @@ public abstract class CommandTemplate {
     public Boolean getExpandedText()
     {
         return this.expandedText;
-    }
-
-    /**
-     * Get Short Description
-     *
-     * @return String
-     */
-    public String getShortDescription()
-    {
-        return this.shortDescription;
-    }
-
-    /**
-     * Get Usage Hint
-     *
-     * @return String
-     */
-    public String getUsageHint()
-    {
-        return this.usageHint;
     }
 
     /**

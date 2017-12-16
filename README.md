@@ -217,6 +217,83 @@ public class Main {
 }
 ```
 
+### Build Slash Commands
+
+Slash Command enable users to interact with your app from within Slack. We will have two tasks to do:
+
+1. First to Create the Commnad on Slack Application and Configure its `Request URL` (The URL that slack will POST the command data once used by any user).
+2. Build a New Route (Accept POST Requests) to handle all Incoming Requests from Slack.
+
+So Lets Start by the Easy Part `Creating Commands On Slack App`:
+
+1. Please visit [Your Apps Page from Slack.](https://api.slack.com/apps)
+2. Open You App Settings Page (By clicking on the App).
+3. Go to `Slash Commands` From Side Menu Under `Features`.
+4. Then Click to `Create New Command`. A Command Form Will Open To be Filled.
+5. Set the Commnad for example `/fred`.
+6. Set `Request URL` to you Application URL Handling Slack Commands for example `https://b2f78bbb.ngrok.io/commands`.
+7. Set Short Description for example `Launch The Rocket!`.
+8. Set Usage Hint
+9. And finally Set to `Escape channels, users, and links sent to your app` or Not and Click `Save`.
+
+
+Then Let's Build `Our Route` That will Accept and Process All Incoming Requests for example `https://b2f78bbb.ngrok.io/commands`. Our route and callback will look like the following Using [Spark Java Framework](http://sparkjava.com/):
+
+```
+import static spark.Spark.*;
+import java.util.HashMap;
+import java.util.Map;
+import com.clivern.fred.util.*;
+import com.clivern.fred.sender.BaseSender;
+import com.mashape.unirest.http.exceptions.UnirestException;
+import com.clivern.fred.receiver.BaseReceiver;
+import com.clivern.fred.receiver.command.Command;
+
+
+public class Main {
+
+    public static void main(String[] args) throws UnirestException
+    {
+
+        post("/commands", (request, response) -> {
+            Config config = new Config();
+            config.loadPropertiesFile("src/main/java/resources/config_test.properties");
+            Log log = new Log(config);
+            BaseReceiver baseReceiver = new BaseReceiver(config, log);
+
+            // Build Our First Command (/fred Command)
+            Command fredCommand = new Command("/fred", false, (ct) -> "You Typed -> " + ct.getText() + " To /fred");
+
+            // Build Another Command (/frog Command)
+            Command frogCommand = new Command("/frog", false, (ct) -> "You Typed -> " + ct.getText() + " To /frog");
+
+            // Pass Commands To The Receiver
+            baseReceiver.setCommand("/fred", fredCommand);
+            baseReceiver.setCommand("/frog", frogCommand);
+
+            // Check If Incoming Data Related to Any Configured Command (/fred or /frog)
+            if( baseReceiver.commandExists(request.queryParams("command")) ){
+                Map<String, String> incomingData = new HashMap<String, String>();
+                incomingData.put("channel_name", request.queryParams("channel_name"));
+                incomingData.put("user_id", request.queryParams("user_id"));
+                incomingData.put("user_name", request.queryParams("user_name"));
+                incomingData.put("trigger_id", request.queryParams("trigger_id"));
+                incomingData.put("team_domain", request.queryParams("team_domain"));
+                incomingData.put("team_id", request.queryParams("team_id"));
+                incomingData.put("text", request.queryParams("text"));
+                incomingData.put("channel_id", request.queryParams("channel_id"));
+                incomingData.put("command", request.queryParams("command"));
+                incomingData.put("token", request.queryParams("token"));
+                incomingData.put("response_url", request.queryParams("response_url"));
+
+                return baseReceiver.callCurrentCommand(request.queryParams("command"), incomingData);
+            }
+            return "Command Not Configured In App!";
+        });
+    }
+}
+```
+
 Misc
 ====
 
@@ -224,9 +301,9 @@ Todo & Contributing
 -------------------
 In case you want to share some love, Show your awesomeness in the following sub-packages:
 
-1. :rocket: ~~Config and Oauth `com.clivern.fred.util`~~.
+1. :rocket: ~~Config and Oauth `com.clivern.fred.util`.~~
 2. :rocket: Web API `com.clivern.fred.sender`.
-3. :rocket: Slash Commands `com.clivern.fred.receiver`.
+3. :rocket: ~~Slash Commands `com.clivern.fred.receiver`.~~
 4. :rocket: Events API `com.clivern.fred.event`.
 5. :rocket: Add More Test Cases.
 
