@@ -234,12 +234,12 @@ So Lets Start by the Easy Part `Creating Commands On Slack App`:
 6. Set `Request URL` to you Application URL Handling Slack Commands for example `https://b2f78bbb.ngrok.io/commands`.
 7. Set Short Description for example `Launch The Rocket!`.
 8. Set Usage Hint
-9. And finally Set to `Escape channels, users, and links sent to your app` or Not and Click `Save`.
+9. And Finally Set to `Escape channels, users, and links sent to your app` or Not and Click `Save`.
 
 
-Then Let's Build `Our Route` That will Accept and Process All Incoming Requests for example `https://b2f78bbb.ngrok.io/commands`. Our route and callback will look like the following Using [Spark Java Framework](http://sparkjava.com/):
+Then Let's Build `Our Route` That will Accept and Process All Incoming Requests from Slack for example `https://b2f78bbb.ngrok.io/commands`. Our route and callback will look like the following Using [Spark Java Framework](http://sparkjava.com/):
 
-```
+```java
 import static spark.Spark.*;
 import java.util.HashMap;
 import java.util.Map;
@@ -293,6 +293,10 @@ public class Main {
     }
 }
 ```
+
+Now You Finished, Just go to Slack Messaging and Interact With You Commands. Type `/fred Hello World` and You will Get `You Typed -> Hello World To /fred`.
+
+
 
 Misc
 ====
