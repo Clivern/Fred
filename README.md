@@ -36,6 +36,7 @@ Usage
 After adding the package as a dependency, Please read the following steps:
 
 ### Basic Configurations
+
 In order to cofigure the package create `config.properties` file with the following data
 
 ```java
@@ -298,9 +299,11 @@ Now You Finished, Just go to Slack Messaging and Interact With You Commands. Typ
 
 ### Listen To Slack Events
 
-Slack Event API allows your app to be notified of events in Slack (for example, when a user adds a reaction or creates a file) at a URL you choose. Let's discuss how to implement this using `Fred`.
+Slack Event API allows your app to be notified of events in Slack (for example, when a user adds a reaction or creates a file) at a URL you choose.
 
-1. [URL Verification Event](docs/events/url_verification.md).
+Let's discuss how to implement this using `Fred`.
+
+- [URL Verification Event](docs/events/url_verification.md).
 
 
 Misc
@@ -310,19 +313,19 @@ Todo & Contributing
 -------------------
 In case you want to share some love, Show your awesomeness in the following sub-packages:
 
-1. :rocket: ~~Config and Oauth `com.clivern.fred.util`.~~
-2. :rocket: ~~Slash Commands `com.clivern.fred.receiver`.~~
-3. :rocket: Web API `com.clivern.fred.sender`.
-4. :rocket: Events API `com.clivern.fred.event`.
-5. :rocket: Add More Test Cases.
+- :rocket: ~~Config and Oauth `com.clivern.fred.util`.~~
+- :rocket: ~~Slash Commands `com.clivern.fred.receiver`.~~
+- :rocket: Web API `com.clivern.fred.sender`.
+- :rocket: Events API `com.clivern.fred.event`.
+- :rocket: Add More Test Cases.
 
 And then please do the following:
 
-1. Fork the master branch.
-2. Create a feature branch `git checkout -b my-feature`.
-3. Commit your changes `git commit -am 'new awesome feature'`.
-4. Push to the branch `git push origin my-feature`.
-5. Create new Pull Request.
+- Fork the master branch.
+- Create a feature branch `git checkout -b my-feature`.
+- Commit your changes `git commit -am 'new awesome feature'`.
+- Push to the branch `git push origin my-feature`.
+- Create new Pull Request.
 
 Tutorials & Examples
 --------------------

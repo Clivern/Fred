@@ -1,9 +1,10 @@
 ### URL Verification Event
 
-In order to Enable Events, Slack will ask you to provide a link that It will send HTTP POST requests to this URL when events occur
+In order to Enable Events, Slack will ask you to provide a link and It will send HTTP POST requests to this URL when events occur.
+
 As soon as you enter a URL, Slack will send a request with a challenge parameter, and your endpoint must respond with the challenge value.
 
-Now we see how to create an Event Listener (URL Verification Event) to Pass Slack Confirmation Using [Spark Java Framework](http://sparkjava.com/).
+Now Let's see how to create an Event Listener (URL Verification Event) to Pass Slack Confirmation Using [Spark Java Framework](http://sparkjava.com/).
 
 ```java
 import static spark.Spark.*;
