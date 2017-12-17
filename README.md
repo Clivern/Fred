@@ -296,6 +296,11 @@ public class Main {
 
 Now You Finished, Just go to Slack Messaging and Interact With You Commands. Type `/fred Hello World` and You will Get `You Typed -> Hello World To /fred`.
 
+### Listen To Slack Events
+
+Slack Event API allows your app to be notified of events in Slack (for example, when a user adds a reaction or creates a file) at a URL you choose. Let's discuss how to implement this using `Fred`.
+
+1. [URL Verification Event](docs/events/url_verification.md).
 
 
 Misc

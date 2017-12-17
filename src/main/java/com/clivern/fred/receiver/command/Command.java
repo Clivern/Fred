@@ -13,10 +13,6 @@
  */
 package com.clivern.fred.receiver.command;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
-import com.clivern.fred.config.Basic;
 import com.clivern.fred.contract.receiver.command.CommandTemplate;
 import java.util.function.Function;
 

@@ -22,6 +22,8 @@ import com.clivern.fred.sender.template.RemindersAdd;
 import com.mashape.unirest.http.exceptions.UnirestException;
 import com.clivern.fred.receiver.BaseReceiver;
 import com.clivern.fred.receiver.command.Command;
+import com.clivern.fred.event.Listener;
+import com.clivern.fred.event.type.UrlVerification;
 
 /**
  * Test Package
@@ -39,6 +41,15 @@ public class Test {
             Log log = new Log(config);
             Oauth oauth = new Oauth(config, log);
             return "<a href='" + oauth.getRedirectURL() + "'>Auth</a>";
+        });
+
+        post("/events", (request, response) -> {
+            Config config = new Config();
+            config.loadPropertiesFile("src/main/java/resources/config_test.properties");
+            Log log = new Log(config);
+            Listener listener = new Listener(config, log);
+            listener.addEvent(Listener.URL_VERIFICATION_EVENT, new UrlVerification(et -> et.getChallenge()));
+            return listener.callCurrentEvent(request.body());
         });
 
         post("/commands", (request, response) -> {

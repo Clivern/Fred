@@ -16,6 +16,7 @@ package com.clivern.fred.contract.event.type;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.ArrayList;
+import java.util.function.Function;
 
 /**
  * Event Template Class
@@ -25,42 +26,9 @@ import java.util.ArrayList;
  */
 public abstract class EventTemplate {
 
-    protected String event;
-
     protected Map<String, String> incomingData = new HashMap<String, String>();
 
     protected String plainRequest;
-
-/*
-    {
-        "token": "XXYYZZ",
-        "team_id": "TXXXXXXXX",
-        "api_app_id": "AXXXXXXXXX",
-        "event": {
-                "type": "name_of_event",
-                "event_ts": "1234567890.123456",
-                "user": "UXXXXXXX1",
-                ...
-        },
-        "type": "event_callback",
-        "authed_users": [
-                "UXXXXXXX1",
-                "UXXXXXXX2"
-        ],
-        "event_id": "Ev08MFMKH6",
-        "event_time": 1234567890
-    }
-*/
-
-    /**
-     * Class Constructor
-     *
-     * @param event
-     */
-    public void EventTemplate(String event)
-    {
-        this.event = event;
-    }
 
     /**
      * Set Token
@@ -291,9 +259,23 @@ public abstract class EventTemplate {
     }
 
     /**
+     * Call Event Callback
+     *
+     * @return String
+     */
+    abstract public String call();
+
+    /**
+     * Check if This Event Is Called
+     *
+     * @return Boolean
+     */
+    abstract public Boolean isCalled();
+
+    /**
      * Parse the Incoming Request Data
      *
-     * @param incomingData
+     * @return Boolean
      */
     abstract public Boolean parse();
 

@@ -13,12 +13,99 @@
  */
 package com.clivern.fred.event.type;
 
+import com.clivern.fred.contract.event.type.EventTemplate;
+import org.json.JSONObject;
+import java.util.function.Function;
+
 /**
  * URL Verification Event
  *
  * @author A.F
  * @since 1.0.0
  */
-public class UrlVerification {
+public class UrlVerification extends EventTemplate {
 
+    protected Function<UrlVerification,String> callback;
+
+    /**
+     * Class Constructor
+     *
+     * @param callback
+     */
+    public UrlVerification(Function<UrlVerification,String> callback)
+    {
+        this.callback = callback;
+    }
+
+    /**
+     * Set Challenge
+     *
+     * @param challenge
+     */
+    public void setChallenge(String challenge)
+    {
+        this.setIncomingItem("challenge", challenge);
+    }
+
+    /**
+     * Get Challenge
+     *
+     * @return String
+     */
+    public String getChallenge()
+    {
+        return this.getIncomingItem("challenge", "");
+    }
+
+    /**
+     * Check if This Event Is Called
+     *
+     * @return Boolean
+     */
+    public Boolean isCalled()
+    {
+        JSONObject requestData = new JSONObject(this.getPlainRequest());
+
+        return (requestData.has("token") && requestData.has("challenge") && requestData.has("type"));
+    }
+
+    /**
+     * Parse Event Incoming Data
+     *
+     * @return Boolean
+     */
+    public Boolean parse()
+    {
+        JSONObject requestData = new JSONObject(this.getPlainRequest());
+
+        if( requestData.has("challenge") && !requestData.getString("challenge").equals("") ){
+            this.setChallenge(requestData.getString("challenge"));
+        }else{
+            return false;
+        }
+
+        if( requestData.has("token") && !requestData.getString("token").equals("") ){
+            this.setToken(requestData.getString("token"));
+        }else{
+            return false;
+        }
+
+        if( requestData.has("type") && !requestData.getString("type").equals("") ){
+            this.setType(requestData.getString("type"));
+        }else{
+            return false;
+        }
+
+        return true;
+    }
+
+    /**
+     * Call Event Callback
+     *
+     * @return String
+     */
+    public String call()
+    {
+        return this.callback.apply(this);
+    }
 }
