@@ -22,7 +22,6 @@ public class Main {
 
     public static void main(String[] args) throws UnirestException
     {
-
         post("/events", (request, response) -> {
             Config config = new Config();
             config.loadPropertiesFile("config.properties");

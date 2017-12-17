@@ -315,8 +315,8 @@ In case you want to share some love, Show your awesomeness in the following sub-
 
 - :rocket: ~~Config and Oauth `com.clivern.fred.util`.~~
 - :rocket: ~~Slash Commands `com.clivern.fred.receiver`.~~
-- :rocket: Web API `com.clivern.fred.sender`.
-- :rocket: Events API `com.clivern.fred.event`.
+- :fire: Web API `com.clivern.fred.sender`.
+- :fire: Events API `com.clivern.fred.event`.
 - :rocket: Add More Test Cases.
 
 And then please do the following:
