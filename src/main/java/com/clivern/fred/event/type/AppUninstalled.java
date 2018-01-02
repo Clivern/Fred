@@ -14,6 +14,8 @@
 package com.clivern.fred.event.type;
 
 import com.clivern.fred.contract.event.type.EventTemplate;
+import org.json.JSONObject;
+import java.util.function.Function;
 
 /**
  * App Uninstalled Event
@@ -27,14 +29,16 @@ import com.clivern.fred.contract.event.type.EventTemplate;
  */
 public class AppUninstalled extends EventTemplate {
 
+    protected Function<AppUninstalled,String> callback;
+
     /**
      * Class Constructor
      *
      * @param callback
      */
-    public AppUninstalled(Function<EventTemplate,String> callback)
+    public AppUninstalled(Function<AppUninstalled,String> callback)
     {
-        super(callback);
+        this.callback = callback;
     }
 
     /**
@@ -59,6 +63,16 @@ public class AppUninstalled extends EventTemplate {
         JSONObject requestData = new JSONObject(this.getPlainRequest());
 
         return true;
+    }
+
+    /**
+     * Call Event Callback
+     *
+     * @return String
+     */
+    public String call()
+    {
+        return this.callback.apply(this);
     }
 
     /**
