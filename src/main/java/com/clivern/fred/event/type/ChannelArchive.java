@@ -14,6 +14,8 @@
 package com.clivern.fred.event.type;
 
 import com.clivern.fred.contract.event.type.EventTemplate;
+import org.json.JSONObject;
+import java.util.function.Function;
 
 /**
  * Channel Archive Event
@@ -29,14 +31,16 @@ import com.clivern.fred.contract.event.type.EventTemplate;
  */
 public class ChannelArchive extends EventTemplate {
 
+    protected Function<ChannelArchive,String> callback;
+
     /**
      * Class Constructor
      *
      * @param callback
      */
-    public ChannelArchive(Function<EventTemplate,String> callback)
+    public ChannelArchive(Function<ChannelArchive,String> callback)
     {
-        super(callback);
+        this.callback = callback;
     }
 
     /**
@@ -61,6 +65,16 @@ public class ChannelArchive extends EventTemplate {
         JSONObject requestData = new JSONObject(this.getPlainRequest());
 
         return true;
+    }
+
+    /**
+     * Call Event Callback
+     *
+     * @return String
+     */
+    public String call()
+    {
+        return this.callback.apply(this);
     }
 
     /**
