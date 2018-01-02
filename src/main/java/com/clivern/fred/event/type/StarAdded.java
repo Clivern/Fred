@@ -14,6 +14,8 @@
 package com.clivern.fred.event.type;
 
 import com.clivern.fred.contract.event.type.EventTemplate;
+import org.json.JSONObject;
+import java.util.function.Function;
 
 /**
  * Star Added Event
@@ -29,6 +31,52 @@ import com.clivern.fred.contract.event.type.EventTemplate;
  */
 public class StarAdded extends EventTemplate {
 
+    protected Function<StarAdded,String> callback;
+
+    /**
+     * Class Constructor
+     *
+     * @param callback
+     */
+    public StarAdded(Function<StarAdded,String> callback)
+    {
+        this.callback = callback;
+    }
+
+    /**
+     * Check if This Event Is Called
+     *
+     * @return Boolean
+     */
+    public Boolean isCalled()
+    {
+        JSONObject requestData = new JSONObject(this.getPlainRequest());
+
+        return true;
+    }
+
+    /**
+     * Parse Event Incoming Data
+     *
+     * @return Boolean
+     */
+    public Boolean parse()
+    {
+        JSONObject requestData = new JSONObject(this.getPlainRequest());
+
+        return true;
+    }
+
+    /**
+     * Call Event Callback
+     *
+     * @return String
+     */
+    public String call()
+    {
+        return this.callback.apply(this);
+    }
+    
     /**
      * Set Event Type. It should be star_added
      *
@@ -87,15 +135,5 @@ public class StarAdded extends EventTemplate {
     public String getEventTs()
     {
         return this.getIncomingItem("event.event_ts", "");
-    }
-
-    /**
-     * Parse Event Incoming Data
-     *
-     * @return Boolean
-     */
-    public Boolean parse()
-    {
-        return true;
     }
 }
