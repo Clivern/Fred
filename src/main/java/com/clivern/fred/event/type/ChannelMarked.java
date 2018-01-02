@@ -14,6 +14,8 @@
 package com.clivern.fred.event.type;
 
 import com.clivern.fred.contract.event.type.EventTemplate;
+import org.json.JSONObject;
+import java.util.function.Function;
 
 /**
  * Channel Marked Event
@@ -26,6 +28,52 @@ import com.clivern.fred.contract.event.type.EventTemplate;
  * @since 1.0.0
  */
 public class ChannelMarked extends EventTemplate {
+
+    protected Function<ChannelMarked,String> callback;
+
+    /**
+     * Class Constructor
+     *
+     * @param callback
+     */
+    public ChannelMarked(Function<ChannelMarked,String> callback)
+    {
+        this.callback = callback;
+    }
+
+    /**
+     * Check if This Event Is Called
+     *
+     * @return Boolean
+     */
+    public Boolean isCalled()
+    {
+        JSONObject requestData = new JSONObject(this.getPlainRequest());
+
+        return true;
+    }
+
+    /**
+     * Parse Event Incoming Data
+     *
+     * @return Boolean
+     */
+    public Boolean parse()
+    {
+        JSONObject requestData = new JSONObject(this.getPlainRequest());
+
+        return true;
+    }
+
+    /**
+     * Call Event Callback
+     *
+     * @return String
+     */
+    public String call()
+    {
+        return this.callback.apply(this);
+    }
 
     /**
      * Set Event Type. It should be channel_marked
@@ -85,15 +133,5 @@ public class ChannelMarked extends EventTemplate {
     public String getTs()
     {
         return this.getIncomingItem("event.ts", "");
-    }
-
-    /**
-     * Parse Event Incoming Data
-     *
-     * @return Boolean
-     */
-    public Boolean parse()
-    {
-        return true;
     }
 }
