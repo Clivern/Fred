@@ -14,6 +14,8 @@
 package com.clivern.fred.event.type;
 
 import com.clivern.fred.contract.event.type.EventTemplate;
+import org.json.JSONObject;
+import java.util.function.Function;
 
 /**
  * Channel Left Event
@@ -27,6 +29,52 @@ import com.clivern.fred.contract.event.type.EventTemplate;
  */
 public class ChannelLeft extends EventTemplate {
 
+    protected Function<ChannelLeft,String> callback;
+
+    /**
+     * Class Constructor
+     *
+     * @param callback
+     */
+    public ChannelLeft(Function<ChannelLeft,String> callback)
+    {
+        this.callback = callback;
+    }
+
+    /**
+     * Check if This Event Is Called
+     *
+     * @return Boolean
+     */
+    public Boolean isCalled()
+    {
+        JSONObject requestData = new JSONObject(this.getPlainRequest());
+
+        return true;
+    }
+
+    /**
+     * Parse Event Incoming Data
+     *
+     * @return Boolean
+     */
+    public Boolean parse()
+    {
+        JSONObject requestData = new JSONObject(this.getPlainRequest());
+
+        return true;
+    }
+
+    /**
+     * Call Event Callback
+     *
+     * @return String
+     */
+    public String call()
+    {
+        return this.callback.apply(this);
+    }
+    
     /**
      * Set Event Type. It should be channel_left
      *
@@ -65,15 +113,5 @@ public class ChannelLeft extends EventTemplate {
     public String getChannel()
     {
         return this.getIncomingItem("event.channel", "");
-    }
-
-    /**
-     * Parse Event Incoming Data
-     *
-     * @return Boolean
-     */
-    public Boolean parse()
-    {
-        return true;
     }
 }
