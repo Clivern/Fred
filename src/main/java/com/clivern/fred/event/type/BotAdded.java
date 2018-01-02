@@ -14,6 +14,8 @@
 package com.clivern.fred.event.type;
 
 import com.clivern.fred.contract.event.type.EventTemplate;
+import org.json.JSONObject;
+import java.util.function.Function;
 import java.util.ArrayList;
 
 /**
@@ -28,15 +30,16 @@ import java.util.ArrayList;
  */
 public class BotAdded extends EventTemplate {
 
+    protected Function<BotAdded,String> callback;
 
     /**
      * Class Constructor
      *
      * @param callback
      */
-    public BotAdded(Function<EventTemplate,String> callback)
+    public BotAdded(Function<BotAdded,String> callback)
     {
-        super(callback);
+        this.callback = callback;
     }
 
     /**
@@ -61,6 +64,16 @@ public class BotAdded extends EventTemplate {
         JSONObject requestData = new JSONObject(this.getPlainRequest());
 
         return true;
+    }
+
+    /**
+     * Call Event Callback
+     *
+     * @return String
+     */
+    public String call()
+    {
+        return this.callback.apply(this);
     }
 
     /**
