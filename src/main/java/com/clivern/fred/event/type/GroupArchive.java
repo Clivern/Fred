@@ -14,19 +14,67 @@
 package com.clivern.fred.event.type;
 
 import com.clivern.fred.contract.event.type.EventTemplate;
+import org.json.JSONObject;
+import java.util.function.Function;
 
 /**
  * Group Archive Event
  *
  * Expected scopes: groups:read
  *
- * <a href="https://api.slack.com/events/group_close">For More Info</a>
+ * <a href="https://api.slack.com/events/group_archive">For More Info</a>
  *
  * @author A.F
  * @since 1.0.0
  */
 public class GroupArchive extends EventTemplate {
 
+    protected Function<GroupArchive,String> callback;
+
+    /**
+     * Class Constructor
+     *
+     * @param callback
+     */
+    public GroupArchive(Function<GroupArchive,String> callback)
+    {
+        this.callback = callback;
+    }
+
+    /**
+     * Check if This Event Is Called
+     *
+     * @return Boolean
+     */
+    public Boolean isCalled()
+    {
+        JSONObject requestData = new JSONObject(this.getPlainRequest());
+
+        return true;
+    }
+
+    /**
+     * Parse Event Incoming Data
+     *
+     * @return Boolean
+     */
+    public Boolean parse()
+    {
+        JSONObject requestData = new JSONObject(this.getPlainRequest());
+
+        return true;
+    }
+
+    /**
+     * Call Event Callback
+     *
+     * @return String
+     */
+    public String call()
+    {
+        return this.callback.apply(this);
+    }
+    
     /**
      * Set Event Type. It should be group_archive
      *
@@ -65,15 +113,5 @@ public class GroupArchive extends EventTemplate {
     public String getChannel()
     {
         return this.getIncomingItem("event.channel", "");
-    }
-
-    /**
-     * Parse Event Incoming Data
-     *
-     * @return Boolean
-     */
-    public Boolean parse()
-    {
-        return true;
     }
 }
