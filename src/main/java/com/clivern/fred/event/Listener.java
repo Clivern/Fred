@@ -154,7 +154,7 @@ public class Listener {
     
     public static String SUB_TEAM_SELF_ADDED_EVENT = "SUB_TEAM_SELF_ADDED";
     
-    public static String SUB_TEAM_SELD_REMOVED_EVENT = "SUB_TEAM_SELD_REMOVED";
+    public static String SUB_TEAM_SELF_REMOVED_EVENT = "SUB_TEAM_SELF_REMOVED";
     
     public static String SUB_TEAM_UPDATED_EVENT = "SUB_TEAM_UPDATED";
     
@@ -215,9 +215,272 @@ public class Listener {
     {
         for( String key : this.events.keySet() ){
             EventTemplate event = this.events.get(key);
+            
             if( key.equals(Listener.URL_VERIFICATION_EVENT) ){
+                
                 event = (UrlVerification) this.events.get(key);
+            
+            }else if( key.equals(Listener.ACCOUNTS_CHANGED_EVENT) ){
+                
+                event = (AccountsChanged) this.events.get(key);
+
+            }else if( key.equals(Listener.APP_UNINSTALLED_EVENT) ){
+            
+                event = (AppUninstalled) this.events.get(key);
+                
+            }else if( key.equals(Listener.BOT_ADDED_EVENT) ){
+            
+                event = (BotAdded) this.events.get(key);
+
+            }else if( key.equals(Listener.BOT_CHANGED_EVENT) ){
+            
+                event = (BotChanged) this.events.get(key);
+
+            }else if( key.equals(Listener.CHANNEL_ARCHIVE_EVENT) ){
+            
+                event = (ChannelArchive) this.events.get(key);
+
+            }else if( key.equals(Listener.CHANNEL_CREATED_EVENT) ){
+            
+                event = (ChannelCreated) this.events.get(key);
+
+            }else if( key.equals(Listener.CHANNEL_DELETED_EVENT) ){
+            
+                event = (ChannelDeleted) this.events.get(key);
+
+            }else if( key.equals(Listener.CHANNEL_HISTORY_CHANGED_EVENT) ){
+            
+                event = (ChannelHistoryChanged) this.events.get(key);
+
+            }else if( key.equals(Listener.CHANNEL_LEFT_EVENT) ){
+            
+                event = (ChannelLeft) this.events.get(key);
+
+            }else if( key.equals(Listener.CHANNEL_MARKED_EVENT) ){
+            
+                event = (ChannelMarked) this.events.get(key);
+
+            }else if( key.equals(Listener.CHANNEL_RENAME_EVENT) ){
+            
+                event = (ChannelRename) this.events.get(key);
+
+            }else if( key.equals(Listener.CHANNEL_UNARCHIVE_EVENT) ){
+            
+                event = (ChannelUnarchive) this.events.get(key);
+
+            }else if( key.equals(Listener.DND_UPDATED_EVENT) ){
+            
+                event = (DndUpdated) this.events.get(key);
+
+            }else if( key.equals(Listener.DND_UPDATED_USER_EVENT) ){
+            
+                event = (DndUpdatedUser) this.events.get(key);
+
+            }else if( key.equals(Listener.EMAIL_DOMAIN_CHANGED_EVENT) ){
+            
+                event = (EmailDomainChanged) this.events.get(key);
+
+            }else if( key.equals(Listener.EMOJI_CHANGED_EVENT) ){
+            
+                event = (EmojiChanged) this.events.get(key);
+
+            }else if( key.equals(Listener.FILE_CHANGE_EVENT) ){
+            
+                event = (FileChange) this.events.get(key);
+
+            }else if( key.equals(Listener.FILE_COMMENT_ADDED_EVENT) ){
+            
+                event = (FileCommentAdded) this.events.get(key);
+
+            }else if( key.equals(Listener.FILE_COMMENT_DELETED_EVENT) ){
+            
+                event = (FileCommentDeleted) this.events.get(key);
+
+            }else if( key.equals(Listener.FILE_COMMENT_EDITED_EVENT) ){
+            
+                event = (FileCommentEdited) this.events.get(key);
+
+            }else if( key.equals(Listener.FILE_CREATED_EVENT) ){
+            
+                event = (FileCreated) this.events.get(key);
+
+            }else if( key.equals(Listener.FILE_DELETED_EVENT) ){
+            
+                event = (FileDeleted) this.events.get(key);
+
+            }else if( key.equals(Listener.FILE_PUBLIC_EVENT) ){
+            
+                event = (FilePublic) this.events.get(key);
+
+            }else if( key.equals(Listener.FILE_SHARED_EVENT) ){
+            
+                event = (FileShared) this.events.get(key);
+
+            }else if( key.equals(Listener.FILE_UNSHARED_EVENT) ){
+            
+                event = (FileUnshared) this.events.get(key);
+
+            }else if( key.equals(Listener.GRID_MIGRATION_FINISHED_EVENT) ){
+            
+                event = (GridMigrationFinished) this.events.get(key);
+
+            }else if( key.equals(Listener.GRID_MIGRATION_STARTED_EVENT) ){
+            
+                event = (GridMigrationStarted) this.events.get(key);
+
+            }else if( key.equals(Listener.GROUP_ARCHIVE_EVENT) ){
+            
+                event = (GroupArchive) this.events.get(key);
+
+            }else if( key.equals(Listener.GROUP_CLOSE_EVENT) ){
+            
+                event = (GroupClose) this.events.get(key);
+
+            }else if( key.equals(Listener.GROUP_HISTORY_CHANGED_EVENT) ){
+            
+                event = (GroupHistoryChanged) this.events.get(key);
+
+            }else if( key.equals(Listener.GROUP_OPEN_EVENT) ){
+            
+                event = (GroupOpen) this.events.get(key);
+
+            }else if( key.equals(Listener.GROUP_RENAME_EVENT) ){
+            
+                event = (GroupRename) this.events.get(key);
+
+            }else if( key.equals(Listener.GROUP_UNARCHIVE_EVENT) ){
+            
+                event = (GroupUnarchive) this.events.get(key);
+
+            }else if( key.equals(Listener.IM_CLOSE_EVENT) ){
+            
+                event = (ImClose) this.events.get(key);
+
+            }else if( key.equals(Listener.IM_CREATED_EVENT) ){
+            
+                event = (ImCreated) this.events.get(key);
+
+            }else if( key.equals(Listener.IM_HISTORY_CHANGED_EVENT) ){
+            
+                event = (ImHistoryChanged) this.events.get(key);
+
+            }else if( key.equals(Listener.IM_OPEN_EVENT) ){
+            
+                event = (ImOpen) this.events.get(key);
+
+            }else if( key.equals(Listener.LINK_SHARED_EVENT) ){
+            
+                event = (LinkShared) this.events.get(key);
+
+            }else if( key.equals(Listener.MEMBER_JOINED_CHANNEL_EVENT) ){
+            
+                event = (MemberJoinedChannel) this.events.get(key);
+
+            }else if( key.equals(Listener.MEMBER_LEFT_CHANNEL_EVENT) ){
+            
+                event = (MemberLeftChannel) this.events.get(key);
+
+            }else if( key.equals(Listener.MESSAGE_EVENT) ){
+            
+                event = (Message) this.events.get(key);
+
+            }else if( key.equals(Listener.MESSAGE_CHANNELS_EVENT) ){
+            
+                event = (MessageChannels) this.events.get(key);
+
+            }else if( key.equals(Listener.MESSAGE_GROUPS_EVENT) ){
+            
+                event = (MessageGroups) this.events.get(key);
+
+            }else if( key.equals(Listener.MESSAGE_IM_EVENT) ){
+            
+                event = (MessageIm) this.events.get(key);
+
+            }else if( key.equals(Listener.MESSAGE_MPIM_EVENT) ){
+            
+                event = (MessageMpim) this.events.get(key);
+
+            }else if( key.equals(Listener.PIN_ADDED_EVENT) ){
+
+                event = (PinAdded) this.events.get(key);
+
+            }else if( key.equals(Listener.PIN_REMOVED_EVENT) ){
+
+                event = (PinRemoved) this.events.get(key);
+
+            }else if( key.equals(Listener.REACTION_ADDED_EVENT) ){
+
+                event = (ReactionAdded) this.events.get(key);
+
+            }else if( key.equals(Listener.REACTION_REMOVED_EVENT) ){
+
+                event = (ReactionRemoved) this.events.get(key);
+                
+            }else if( key.equals(Listener.RESOURCES_ADDED_EVENT) ){
+
+                event = (ResourcesAdded) this.events.get(key);
+
+            }else if( key.equals(Listener.RESOURCES_REMOVED_EVENT) ){
+
+                event = (ResourcesRemoved) this.events.get(key);
+
+            }else if( key.equals(Listener.SCOPE_DENIED_EVENT) ){
+
+                event = (ScopeDenied) this.events.get(key);
+
+            }else if( key.equals(Listener.SCOPE_GRANTED_EVENT) ){
+
+                event = (ScopeGranted) this.events.get(key);
+                
+            }else if( key.equals(Listener.STAR_ADDED_EVENT) ){
+
+                event = (StarAdded) this.events.get(key);
+
+            }else if( key.equals(Listener.STAR_REMOVED_EVENT) ){
+
+                event = (StarRemoved) this.events.get(key);
+            
+            }else if( key.equals(Listener.SUB_TEAM_CREATED_EVENT) ){
+
+                event = (SubteamCreated) this.events.get(key);
+                
+            }else if( key.equals(Listener.SUB_TEAM_MEMBERS_CHANGED_EVENT) ){
+
+                event = (SubteamMembersChanged) this.events.get(key);
+                
+            }else if( key.equals(Listener.SUB_TEAM_SELF_ADDED_EVENT) ){
+
+                event = (SubteamSelfAdded) this.events.get(key);
+            
+            }else if( key.equals(Listener.SUB_TEAM_SELF_REMOVED_EVENT) ){
+
+                event = (SubteamSelfRemoved) this.events.get(key);
+        
+            }else if( key.equals(Listener.SUB_TEAM_UPDATED_EVENT) ){
+
+                event = (SubteamUpdated) this.events.get(key);
+                
+            }else if( key.equals(Listener.TEAM_DOMAIN_CHANGE_EVENT) ){
+
+                event = (TeamDomainChange) this.events.get(key);
+
+            }else if( key.equals(Listener.TEAM_JOIN_EVENT) ){
+
+                event = (TeamJoin) this.events.get(key);
+
+            }else if( key.equals(Listener.TEAM_RENAME_EVENT) ){
+
+                event = (TeamRename) this.events.get(key);
+        
+            }else if( key.equals(Listener.TOKENS_REVOKED_EVENT) ){
+
+                event = (TokensRevoked) this.events.get(key);
+
+            }else if( key.equals(Listener.USER_CHANGE_EVENT) ){
+
+                event = (UserChange) this.events.get(key);
             }
+
             event.setPlainRequest(body);
             if( event.isCalled() ){
                 if( event.parse() ){
