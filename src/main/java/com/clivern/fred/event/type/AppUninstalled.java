@@ -50,7 +50,7 @@ public class AppUninstalled extends EventTemplate {
     {
         JSONObject requestData = new JSONObject(this.getPlainRequest());
 
-        return true;
+        return (requestData.has("event") && !requestData.getString("event").equals("") && requestData.getString("event").contains("app_uninstalled") );
     }
 
     /**
@@ -61,6 +61,33 @@ public class AppUninstalled extends EventTemplate {
     public Boolean parse()
     {
         JSONObject requestData = new JSONObject(this.getPlainRequest());
+
+        if( requestData.has("event") && !requestData.getString("event").equals("") ){
+            JSONObject eventData = new JSONObject(requestData.getString("event"));
+            this.setEventType(eventData.has("type") ? eventData.getString("type") : "");
+        }
+
+        if( requestData.has("token") && !requestData.getString("token").equals("") ){
+            this.setToken(requestData.getString("token"));
+        }
+
+        if( requestData.has("team_id") && !requestData.getString("team_id").equals("") ){
+            this.setTeamId(requestData.getString("team_id"));
+        }
+
+        if( requestData.has("api_app_id") && !requestData.getString("api_app_id").equals("") ){
+            this.setApiAppId(requestData.getString("api_app_id"));
+        }
+
+        if( requestData.has("type") && !requestData.getString("type").equals("") ){
+            this.setType(requestData.getString("type"));
+        }
+        if( requestData.has("event_id") && !requestData.getString("event_id").equals("") ){
+            this.setEventId(requestData.getString("event_id"));
+        }
+        if( requestData.has("event_time") && !requestData.getString("event_time").equals("") ){
+            this.setEventTime(requestData.getString("event_time"));
+        }
 
         return true;
     }
@@ -86,6 +113,66 @@ public class AppUninstalled extends EventTemplate {
     }
 
     /**
+     * Set Token
+     * 
+     * @param token
+     */
+    public void setToken(String token)
+    {
+        this.setIncomingItem("token", token);
+    }
+
+    /**
+     * Set Team ID
+     * 
+     * @param teamId
+     */
+    public void setTeamId(String teamId)
+    {
+        this.setIncomingItem("team_id", teamId);
+    }
+
+    /**
+     * Set API App Id
+     * 
+     * @param apiAppId
+     */
+    public void setApiAppId(String apiAppId)
+    {
+        this.setIncomingItem("api_app_id", apiAppId);
+    }
+
+    /**
+     * Set Type
+     * 
+     * @param type
+     */
+    public void setType(String type)
+    {
+        this.setIncomingItem("type", type);
+    }
+
+    /**
+     * Set Event Id
+     * 
+     * @param eventId
+     */
+    public void setEventId(String eventId)
+    {
+        this.setIncomingItem("event_id", eventId);
+    }
+
+    /**
+     * Set Event Time
+     * 
+     * @param eventTime
+     */
+    public void setEventTime(String eventTime)
+    {
+        this.setIncomingItem("event_time", eventTime);
+    }
+    
+    /**
      * Get Event Type. It should be app_uninstalled
      *
      * @return String
@@ -93,5 +180,65 @@ public class AppUninstalled extends EventTemplate {
     public String getEventType()
     {
         return this.getIncomingItem("event.type", "");
+    }
+
+    /**
+     * Get Token
+     * 
+     * @return String
+     */
+    public String getToken()
+    {
+        return this.getIncomingItem("token", "");
+    }
+
+    /**
+     * Get Team Id
+     * 
+     * @return String
+     */
+    public String getTeamId()
+    {
+        return this.getIncomingItem("team_id", "");
+    }
+
+    /**
+     * Get API App ID
+     * 
+     * @return String
+     */
+    public String getApiAppId()
+    {
+        return this.getIncomingItem("api_app_id", "");
+    }
+
+    /**
+     * Get Type
+     * 
+     * @return String
+     */
+    public String getType()
+    {
+        return this.getIncomingItem("type", "");
+    }
+
+    /**
+     * Get Event Id
+     * 
+     * @return String
+     */
+    public String getEventId()
+    {
+        return this.getIncomingItem("event_id", "");
+    }
+
+    /**
+     * Get Event Time
+     * 
+     * @return String
+     */
+    public String getEventTime()
+    {
+        return this.getIncomingItem("event_time", "");
     }
 }
