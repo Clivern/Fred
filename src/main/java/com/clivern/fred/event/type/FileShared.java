@@ -20,7 +20,7 @@ import java.util.function.Function;
 /**
  * File Shared Event
  *
- * A file was shared. It Works with RTM & Events API
+ * A file was shared. It Works with RTM and Events API
  *
  * Expected scopes: files:read
  *

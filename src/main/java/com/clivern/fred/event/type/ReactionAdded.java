@@ -20,7 +20,7 @@ import java.util.function.Function;
 /**
  * Reaction Added Event
  *
- * A member has added an emoji reaction to an item. It Works with RTM & Events API
+ * A member has added an emoji reaction to an item. It Works with RTM and Events API
  *
  * Expected scopes: reactions:read
  *
@@ -240,7 +240,7 @@ public class ReactionAdded extends EventTemplate {
     /**
      * Get Item Channel
      *
-     * @@return String
+     * @return String
      */
     public String getItemChannel()
     {

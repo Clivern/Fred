@@ -116,7 +116,7 @@ public class Config {
     /**
      * Get All Configs
      *
-     * @return Map<String, String>
+     * @return Map
      */
     public Map<String, String> getAll()
     {

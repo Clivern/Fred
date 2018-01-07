@@ -20,7 +20,7 @@ import java.util.function.Function;
 /**
  * Channel Created Event
  *
- * A channel was created. It Works with RTM & Events API
+ * A channel was created. It Works with RTM and Events API
  *
  * Expected scopes: channels:read
  *

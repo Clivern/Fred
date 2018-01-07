@@ -19,7 +19,7 @@ import com.clivern.fred.contract.sender.template.BasicTemplate;
 /**
  * Files List Template Class
  *
- * It Lists & filters team files.
+ * It Lists and filters team files.
  *
  * Supported token types: workspace, user
  * Expected scopes: files:read, read

@@ -20,7 +20,7 @@ import java.util.function.Function;
 /**
  * Channel Rename Event
  *
- * A channel was renamed. It Works with RTM & Events API
+ * A channel was renamed. It Works with RTM and Events API
  *
  * Expected scopes: channels:read
  *

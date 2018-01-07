@@ -19,7 +19,7 @@ import com.clivern.fred.contract.sender.template.BasicTemplate;
 /**
  * Auth Test Template Class
  *
- * It Checks authentication & identity. It checks authentication and tells you who you are.
+ * It Checks authentication and identity. It checks authentication and tells you who you are.
  *
  * Supported token types: bot, workspace, user
  *

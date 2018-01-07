@@ -208,8 +208,6 @@ public abstract class EventTemplate {
 
     /**
      * Set All Incoming Data
-     *
-     * @return incomingData
      */
     public void setIncomigData(Map<String, String> incomingData)
     {
@@ -221,7 +219,7 @@ public abstract class EventTemplate {
     /**
      * Get All Incoming Data
      *
-     * @return Map<String, String>
+     * @return Map
      */
     public Map<String, String> getIncomigData()
     {

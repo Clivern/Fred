@@ -20,7 +20,7 @@ import java.util.function.Function;
 /**
  * File Deleted Event
  *
- * A file was deleted. It Works with RTM & Events API
+ * A file was deleted. It Works with RTM and Events API
  *
  * Expected scopes: files:read
  *

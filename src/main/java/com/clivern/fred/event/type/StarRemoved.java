@@ -20,7 +20,7 @@ import java.util.function.Function;
 /**
  * Star Removed Event
  *
- * A member removed a star. It Works with RTM & Events API
+ * A member removed a star. It Works with RTM and Events API
  *
  * Expected scopes: stars:read
  *

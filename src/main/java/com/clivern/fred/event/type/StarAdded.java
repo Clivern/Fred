@@ -20,7 +20,7 @@ import java.util.function.Function;
 /**
  * Star Added Event
  *
- * A member has starred an item. It Works with RTM & Events API
+ * A member has starred an item. It Works with RTM and Events API
  *
  * Expected scopes: stars:read
  *

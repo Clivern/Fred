@@ -20,7 +20,7 @@ import java.util.function.Function;
 /**
  * File Created Event
  *
- * A file was created. It Works with RTM & Events API
+ * A file was created. It Works with RTM and Events API
  *
  * Expected scopes: files:read
  *

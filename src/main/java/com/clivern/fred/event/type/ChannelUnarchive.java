@@ -20,7 +20,7 @@ import java.util.function.Function;
 /**
  * Channel Unarchive Event
  *
- * A channel was unarchived. It Works with RTM & Events API
+ * A channel was unarchived. It Works with RTM and Events API
  *
  * Expected scopes: channels:read
  *

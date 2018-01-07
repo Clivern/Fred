@@ -20,7 +20,7 @@ import java.util.function.Function;
 /**
  * Reaction Removed Event
  *
- * A member removed an emoji reaction. It Works with RTM & Events API
+ * A member removed an emoji reaction. It Works with RTM and Events API
  *
  * Expected scopes: reactions:read
  *
@@ -240,7 +240,7 @@ public class ReactionRemoved extends EventTemplate {
     /**
      * Get Item Channel
      *
-     * @@return String
+     * @return String
      */
     public String getItemChannel()
     {

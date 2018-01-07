@@ -20,7 +20,7 @@ import java.util.function.Function;
 /**
  * File Unshared Event
  *
- * A file was unshared. It Works with RTM & Events API
+ * A file was unshared. It Works with RTM and Events API
  *
  * Expected scopes: files:read
  *

@@ -20,7 +20,7 @@ import java.util.function.Function;
 /**
  * File Change Event
  *
- * A file was changed. It Works with RTM & Events API
+ * A file was changed. It Works with RTM and Events API
  *
  * Expected scopes: files:read
  *

@@ -20,7 +20,7 @@ import java.util.function.Function;
 /**
  * Channel Archive Event
  *
- * A channel was archived. It Works with RTM & Events API
+ * A channel was archived. It Works with RTM and Events API
  *
  * Expected scopes: channels:read
  *

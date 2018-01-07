@@ -20,7 +20,7 @@ import java.util.function.Function;
 /**
  * File Comment Added Event
  *
- * A file comment was added. It Works with RTM & Events API
+ * A file comment was added. It Works with RTM and Events API
  *
  * Expected scopes: files:read
  *

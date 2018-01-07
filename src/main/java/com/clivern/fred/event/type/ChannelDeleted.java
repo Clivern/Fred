@@ -20,7 +20,7 @@ import java.util.function.Function;
 /**
  * Channel Deleted Event
  *
- * A channel was deleted. It Works with RTM & Events API
+ * A channel was deleted. It Works with RTM and Events API
  *
  * Expected scopes: channels:read
  *
