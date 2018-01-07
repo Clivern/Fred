@@ -3,9 +3,11 @@ Fred
 
 Fred is a Java Framework for Building Slack Bots.
 
-*Current Version: Under Development*
+*Current Version: 1.0.0*
 
 [![Build Status](https://travis-ci.org/Clivern/Fred.svg?branch=master)](https://travis-ci.org/Clivern/Fred)
+![](https://img.shields.io/maven-central/v/com.clivern/racter.svg)
+[![Javadocs](http://www.javadoc.io/badge/com.clivern/racter.svg)](http://www.javadoc.io/doc/com.clivern/racter)
 ![](https://img.shields.io/github/license/clivern/fred.svg)
 
 Installation
@@ -15,20 +17,20 @@ To add a dependency using Maven, use the following:
 <dependency>
   <groupId>com.clivern</groupId>
   <artifactId>fred</artifactId>
-  <version>1.0.0-SNAPSHOT</version>
+  <version>1.0.0</version>
 </dependency>
 ```
 
 To add a dependency using Gradle, use the following:
 ```java
 dependencies {
-  compile 'com.clivern:fred:1.0.0-SNAPSHOT'
+  compile 'com.clivern:fred:1.0.0'
 }
 ```
 
 To add a dependency using Scala SBT, use the following:
 ```java
-libraryDependencies += "com.clivern" % "fred" % "1.0.0-SNAPSHOT"
+libraryDependencies += "com.clivern" % "fred" % "1.0.0"
 ```
 
 Usage
@@ -318,6 +320,8 @@ In case you want to share some love, Show your awesomeness in the following sub-
 - :fire: Web API `com.clivern.fred.sender`.
 - :fire: Events API `com.clivern.fred.event`.
 - :rocket: Add More Test Cases.
+- :rocket: Add More Docs.
+- :rocket: Add Examples & Write Tutorials.
 
 And then please do the following:
 
@@ -341,7 +345,7 @@ Changelog
 
 Version 1.0.0:
 ```
-Coming Soon
+Initial Release.
 ```
 
 Acknowledgements
