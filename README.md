@@ -321,6 +321,7 @@ In case you want to share some love, Show your awesomeness in the following sub-
 - :fire: Events API `com.clivern.fred.event`.
 - :rocket: Add More Test Cases.
 - :rocket: Add More Docs.
+- :rocket: Update and Fix Code Docs and Remove Line `32-38` in `maven-push.gradle`.
 - :rocket: Add Examples & Write Tutorials.
 
 And then please do the following:
