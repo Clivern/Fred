@@ -322,10 +322,14 @@ In case you want to share some love, Show your awesomeness in the following sub-
 And then please do the following:
 
 - Fork the master branch.
-- Create a feature branch `git checkout -b my-feature`.
-- Commit your changes `git commit -am 'new awesome feature'`.
-- Push to the branch `git push origin my-feature`.
-- Create new Pull Request.
+- Create a feature branch `git branch my-feature`.
+- Move to your branch `git checkout my-feature`.
+- Do Your Changes.
+- It will be great if you write some tests to your featute and check `./gradlew test` but not required.
+- Track the changes `git add --all`.
+- Commit your changes `git commit -m 'new awesome feature'`.
+- Push to your newly created branch `git push origin my-feature`.
+- Create a new Pull Request.
 
 Tutorials & Examples
 --------------------
