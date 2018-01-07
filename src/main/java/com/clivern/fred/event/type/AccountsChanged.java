@@ -50,7 +50,7 @@ public class AccountsChanged extends EventTemplate {
     {
         JSONObject requestData = new JSONObject(this.getPlainRequest());
 
-        return true;
+        return (requestData.has("type") && requestData.getString("type").equals("accounts_changed"));
     }
 
     /**
@@ -61,6 +61,10 @@ public class AccountsChanged extends EventTemplate {
     public Boolean parse()
     {
         JSONObject requestData = new JSONObject(this.getPlainRequest());
+
+        if( requestData.has("type") && !requestData.getString("type").equals("") ){
+            this.setEventType(requestData.getString("type"));
+        }
 
         return true;
     }
