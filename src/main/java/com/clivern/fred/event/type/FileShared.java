@@ -68,9 +68,9 @@ public class FileShared extends EventTemplate {
             this.setEventType(requestData.getString("type"));
         }
         if( requestData.has("file_id") && !requestData.getString("file_id").equals("") ){
-            this.setFileId(requestData.getString("type"));
+            this.setFileId(requestData.getString("file_id"));
         }
-        
+
         return true;
     }
 
