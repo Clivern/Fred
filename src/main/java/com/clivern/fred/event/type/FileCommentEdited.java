@@ -52,7 +52,7 @@ public class FileCommentEdited extends EventTemplate {
     {
         JSONObject requestData = new JSONObject(this.getPlainRequest());
 
-        return true;
+        return (requestData.has("type") && requestData.has("comment") && requestData.getString("type").equals("file_comment_edited"));
     }
 
     /**
@@ -63,6 +63,16 @@ public class FileCommentEdited extends EventTemplate {
     public Boolean parse()
     {
         JSONObject requestData = new JSONObject(this.getPlainRequest());
+
+        if( requestData.has("type") && !requestData.getString("type").equals("") ){
+            this.setEventType(requestData.getString("type"));
+        }
+        if( requestData.has("file_id") && !requestData.getString("file_id").equals("") ){
+            this.setFileId(requestData.getString("file_id"));
+        }
+        if( requestData.has("comment") && !requestData.getString("comment").equals("") ){
+            this.setComment(requestData.getString("comment"));
+        }
 
         return true;
     }
