@@ -52,7 +52,7 @@ public class FileShared extends EventTemplate {
     {
         JSONObject requestData = new JSONObject(this.getPlainRequest());
 
-        return true;
+        return (requestData.has("type") && requestData.getString("type").equals("file_shared"));
     }
 
     /**
@@ -64,6 +64,13 @@ public class FileShared extends EventTemplate {
     {
         JSONObject requestData = new JSONObject(this.getPlainRequest());
 
+        if( requestData.has("type") && !requestData.getString("type").equals("") ){
+            this.setEventType(requestData.getString("type"));
+        }
+        if( requestData.has("file_id") && !requestData.getString("file_id").equals("") ){
+            this.setFileId(requestData.getString("type"));
+        }
+        
         return true;
     }
 
