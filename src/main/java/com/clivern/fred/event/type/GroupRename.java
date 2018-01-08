@@ -50,7 +50,7 @@ public class GroupRename extends EventTemplate {
     {
         JSONObject requestData = new JSONObject(this.getPlainRequest());
 
-        return true;
+        return (requestData.has("type") && requestData.getString("type").equals("group_rename"));
     }
 
     /**
@@ -61,6 +61,17 @@ public class GroupRename extends EventTemplate {
     public Boolean parse()
     {
         JSONObject requestData = new JSONObject(this.getPlainRequest());
+
+        if( requestData.has("type") && !requestData.getString("type").equals("") ){
+            this.setEventType(requestData.getString("type"));
+        }
+
+        if( requestData.has("channel") && !requestData.getString("channel").equals("") ){
+            JSONObject channelData = new JSONObject(requestData.getString("channel"));
+            this.setChannelId(channelData.has("id") ? channelData.getString("id") : "");
+            this.setChannelName(channelData.has("name") ? channelData.getString("name") : "");
+            this.setChannelCreated(channelData.has("created") ? channelData.getString("created") : "");
+        }
 
         return true;
     }
