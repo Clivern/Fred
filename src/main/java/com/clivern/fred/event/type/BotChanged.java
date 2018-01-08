@@ -51,7 +51,7 @@ public class BotChanged extends EventTemplate {
     {
         JSONObject requestData = new JSONObject(this.getPlainRequest());
 
-        return true;
+        return ( requestData.has("type") && !requestData.getString("type").equals("") && requestData.getString("type").contains("bot_changed") );
     }
 
     /**
@@ -63,6 +63,16 @@ public class BotChanged extends EventTemplate {
     {
         JSONObject requestData = new JSONObject(this.getPlainRequest());
 
+        if( requestData.has("type") && !requestData.getString("type").equals("") ){
+            this.setEventType(requestData.getString("type"));
+        }
+        if( requestData.has("bot") && !requestData.getString("bot").equals("") ){
+            JSONObject botData = new JSONObject(requestData.getString("bot"));
+            this.setBotId(botData.has("id") ? botData.getString("id") : "");
+            this.setBotAppId(botData.has("app_id") ? botData.getString("app_id") : "");
+            this.setBotName(botData.has("name") ? botData.getString("name") : "");
+        }
+        
         return true;
     }
 
