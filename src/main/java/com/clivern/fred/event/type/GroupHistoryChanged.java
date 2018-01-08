@@ -50,7 +50,7 @@ public class GroupHistoryChanged extends EventTemplate {
     {
         JSONObject requestData = new JSONObject(this.getPlainRequest());
 
-        return true;
+        return (requestData.has("type") && requestData.getString("type").equals("group_history_changed"));
     }
 
     /**
@@ -61,6 +61,19 @@ public class GroupHistoryChanged extends EventTemplate {
     public Boolean parse()
     {
         JSONObject requestData = new JSONObject(this.getPlainRequest());
+
+        if( requestData.has("type") && !requestData.getString("type").equals("") ){
+            this.setEventType(requestData.getString("type"));
+        }
+        if( requestData.has("latest") && !requestData.getString("latest").equals("") ){
+            this.setLatest(requestData.getString("latest"));
+        }
+        if( requestData.has("ts") && !requestData.getString("ts").equals("") ){
+            this.setTs(requestData.getString("ts"));
+        }
+        if( requestData.has("event_ts") && !requestData.getString("event_ts").equals("") ){
+            this.setEventTs(requestData.getString("event_ts"));
+        }
 
         return true;
     }
