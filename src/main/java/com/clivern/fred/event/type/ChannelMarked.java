@@ -50,7 +50,7 @@ public class ChannelMarked extends EventTemplate {
     {
         JSONObject requestData = new JSONObject(this.getPlainRequest());
 
-        return true;
+        return (requestData.has("type") && requestData.getString("type").equals("channel_marked"));
     }
 
     /**
@@ -61,6 +61,16 @@ public class ChannelMarked extends EventTemplate {
     public Boolean parse()
     {
         JSONObject requestData = new JSONObject(this.getPlainRequest());
+
+        if( requestData.has("type") && !requestData.getString("type").equals("") ){
+            this.setEventType(requestData.getString("type"));
+        }
+        if( requestData.has("channel") && !requestData.getString("channel").equals("") ){
+            this.setChannel(requestData.getString("channel"));
+        }
+        if( requestData.has("ts") && !requestData.getString("ts").equals("") ){
+            this.setTs(requestData.getString("ts"));
+        }
 
         return true;
     }
