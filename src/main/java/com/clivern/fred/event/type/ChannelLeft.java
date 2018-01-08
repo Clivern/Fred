@@ -50,7 +50,7 @@ public class ChannelLeft extends EventTemplate {
     {
         JSONObject requestData = new JSONObject(this.getPlainRequest());
 
-        return true;
+        return (requestData.has("type") && requestData.getString("type").equals("channel_left"));
     }
 
     /**
@@ -62,6 +62,13 @@ public class ChannelLeft extends EventTemplate {
     {
         JSONObject requestData = new JSONObject(this.getPlainRequest());
 
+        if( requestData.has("type") && !requestData.getString("type").equals("") ){
+            this.setEventType(requestData.getString("type"));
+        }
+        if( requestData.has("channel") && !requestData.getString("channel").equals("") ){
+            this.setChannel(requestData.getString("channel"));
+        }
+        
         return true;
     }
 
