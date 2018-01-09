@@ -82,7 +82,7 @@ public class ImCreated extends EventTemplate {
     }
     
     /**
-     * Set Event Type. It should be group_open
+     * Set Event Type. It should be im_close
      *
      * @param eventType
      */
@@ -112,7 +112,7 @@ public class ImCreated extends EventTemplate {
     }
 
     /**
-     * Get Event Type. It should be group_open
+     * Get Event Type. It should be im_close
      *
      * @return String
      */

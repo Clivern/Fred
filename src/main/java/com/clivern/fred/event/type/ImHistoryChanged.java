@@ -19,7 +19,10 @@ import java.util.function.Function;
 
 /**
  * Im History Changed Event
+ * 
+ * Bulk updates were made to a DM's history. It Works With RTM and Events API.
  *
+ * <a href="https://api.slack.com/events/im_history_changed">For More Info</a>
  * @author A.F
  * @since 1.0.0
  */
@@ -46,7 +49,7 @@ public class ImHistoryChanged extends EventTemplate {
     {
         JSONObject requestData = new JSONObject(this.getPlainRequest());
 
-        return true;
+        return (requestData.has("type") && requestData.getString("type").equals("im_history_changed"));
     }
 
     /**
@@ -57,6 +60,19 @@ public class ImHistoryChanged extends EventTemplate {
     public Boolean parse()
     {
         JSONObject requestData = new JSONObject(this.getPlainRequest());
+
+        if( requestData.has("type") && !requestData.getString("type").equals("") ){
+            this.setEventType(requestData.getString("type"));
+        }
+        if( requestData.has("latest") && !requestData.getString("latest").equals("") ){
+            this.setLatest(requestData.getString("latest"));
+        }
+        if( requestData.has("ts") && !requestData.getString("ts").equals("") ){
+            this.setTs(requestData.getString("ts"));
+        }
+        if( requestData.has("event_ts") && !requestData.getString("event_ts").equals("") ){
+            this.setEventTs(requestData.getString("event_ts"));
+        }
 
         return true;
     }
@@ -69,5 +85,85 @@ public class ImHistoryChanged extends EventTemplate {
     public String call()
     {
         return this.callback.apply(this);
+    }
+    
+    /**
+     * Set Event Type. It should be im_history_changed
+     *
+     * @param eventType
+     */
+    public void setEventType(String eventType)
+    {
+        this.setIncomingItem("event.type", eventType);
+    }
+
+    /**
+     * Set Latest
+     *
+     * @param latest
+     */
+    public void setLatest(String latest)
+    {
+        this.setIncomingItem("event.latest", latest);
+    }
+
+    /**
+     * Set Ts
+     *
+     * @param ts
+     */
+    public void setTs(String ts)
+    {
+        this.setIncomingItem("event.ts", ts);
+    }
+
+    /**
+     * Set Event Ts
+     *
+     * @param eventTs
+     */
+    public void setEventTs(String eventTs)
+    {
+        this.setIncomingItem("event.event_ts", eventTs);
+    }
+
+    /**
+     * Get Event Type. It should be im_history_changed
+     *
+     * @return String
+     */
+    public String getEventType()
+    {
+        return this.getIncomingItem("event.type", "");
+    }
+
+    /**
+     * Get Latest
+     *
+     * @return String
+     */
+    public String getLatest()
+    {
+        return this.getIncomingItem("event.latest", "");
+    }
+
+    /**
+     * Get Ts
+     *
+     * @return String
+     */
+    public String getTs()
+    {
+        return this.getIncomingItem("event.ts", "");
+    }
+
+    /**
+     * Get EventTs
+     *
+     * @return String
+     */
+    public String getEventTs()
+    {
+        return this.getIncomingItem("event.event_ts", "");
     }
 }
