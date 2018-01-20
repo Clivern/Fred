@@ -20,6 +20,12 @@ import java.util.function.Function;
 /**
  * Dnd Updated Event
  *
+ * Do not Disturb settings changed for the current user. It Works with RTM and Events API
+ *
+ * Expected scopes: dnd:read
+ *
+ * <a href="https://api.slack.com/events/dnd_updated">For More Info</a>
+ *
  * @author A.F
  * @since 1.0.0
  */
@@ -38,6 +44,146 @@ public class DndUpdated extends EventTemplate {
     }
 
     /**
+     * Set Event Type. It should be dnd_updated
+     *
+     * @param eventType
+     */
+    public void setEventType(String eventType)
+    {
+        this.setIncomingItem("event.type", eventType);
+    }
+
+    /**
+     * Set User
+     *
+     * @param user
+     */
+    public void setUser(String user)
+    {
+        this.setIncomingItem("event.user", user);
+    }
+
+    /**
+     * Set Dnd Enabled
+     *
+     * @param dndEnabled
+     */
+    public void setDndEnabled(String dndEnabled)
+    {
+        this.setIncomingItem("event.dnd_status.dnd_enabled", dndEnabled);
+    }
+
+    /**
+     * Set Dnd Start Ts
+     *
+     * @param dndStartTs
+     */
+    public void setDndStartTs(String dndStartTs)
+    {
+        this.setIncomingItem("event.dnd_status.next_dnd_start_ts", dndStartTs);
+    }
+
+    /**
+     * Set Dnd End Ts
+     *
+     * @param dndEndTs
+     */
+    public void setDndEndTs(String dndEndTs)
+    {
+        this.setIncomingItem("event.dnd_status.next_dnd_end_ts", dndEndTs);
+    }
+
+    /**
+     * Set Snooze Enabled
+     *
+     * @param snoozeEnabled
+     */
+    public void setSnoozeEnabled(String snoozeEnabled)
+    {
+        this.setIncomingItem("event.dnd_status.snooze_enabled", snoozeEnabled);
+    }
+
+    /**
+     * Set Snooze End Time
+     *
+     * @param snoozeEndTime
+     */
+    public void setSnoozeEndTime(String snoozeEndTime)
+    {
+        this.setIncomingItem("event.dnd_status.snooze_endtime", snoozeEndTime);
+    }
+
+    /**
+     * Get Event Type. It should be dnd_updated
+     *
+     * @return String
+     */
+    public String getEventType()
+    {
+        return this.getIncomingItem("event.type", "");
+    }
+
+    /**
+     * Get User
+     *
+     * @return String
+     */
+    public String getUser()
+    {
+        return this.getIncomingItem("event.user", "");
+    }
+
+    /**
+     * Get Dnd Enabled
+     *
+     * @return String
+     */
+    public String getDndEnabled()
+    {
+        return this.getIncomingItem("event.dnd_status.dnd_enabled", "");
+    }
+
+    /**
+     * Get Dnd Start Ts
+     *
+     * @return String
+     */
+    public String getDndStartTs()
+    {
+        return this.getIncomingItem("event.dnd_status.next_dnd_start_ts", "");
+    }
+
+    /**
+     * Get Dnd End Ts
+     *
+     * @return String
+     */
+    public String getDndEndTs()
+    {
+        return this.getIncomingItem("event.dnd_status.next_dnd_end_ts", "");
+    }
+
+    /**
+     * Get Snooze Enabled
+     *
+     * @return String
+     */
+    public String getSnoozeEnabled()
+    {
+        return this.getIncomingItem("event.dnd_status.snooze_enabled", "");
+    }
+
+    /**
+     * Get Snooze End Time
+     *
+     * @return String
+     */
+    public String getSnoozeEndTime()
+    {
+        return this.getIncomingItem("event.dnd_status.snooze_endtime", "");
+    }
+
+    /**
      * Check if This Event Is Called
      *
      * @return Boolean
@@ -46,7 +192,7 @@ public class DndUpdated extends EventTemplate {
     {
         JSONObject requestData = new JSONObject(this.getPlainRequest());
 
-        return true;
+        return (requestData.has("type") && requestData.getString("type").equals("dnd_updated"));
     }
 
     /**
@@ -57,6 +203,23 @@ public class DndUpdated extends EventTemplate {
     public Boolean parse()
     {
         JSONObject requestData = new JSONObject(this.getPlainRequest());
+
+        if( requestData.has("type") && !requestData.getString("type").equals("") ){
+            this.setEventType(requestData.getString("type"));
+        }
+
+        if( requestData.has("user") && !requestData.getString("user").equals("") ){
+            this.setUser(requestData.getString("user"));
+        }
+
+        if( requestData.has("dnd_status") && !requestData.getString("dnd_status").equals("") ){
+            JSONObject dndStatus = new JSONObject(requestData.getString("dnd_status"));
+            this.setDndEnabled(dndStatus.has("dnd_enabled") ? dndStatus.getString("dnd_enabled") : "");
+            this.setDndStartTs(dndStatus.has("next_dnd_start_ts") ? dndStatus.getString("next_dnd_start_ts") : "");
+            this.setDndEndTs(dndStatus.has("next_dnd_end_ts") ? dndStatus.getString("next_dnd_end_ts") : "");
+            this.setSnoozeEnabled(dndStatus.has("snooze_enabled") ? dndStatus.getString("snooze_enabled") : "");
+            this.setSnoozeEndTime(dndStatus.has("snooze_endtime") ? dndStatus.getString("snooze_endtime") : "");
+        }
 
         return true;
     }
