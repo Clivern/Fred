@@ -43,50 +43,6 @@ public class BotChanged extends EventTemplate {
     }
 
     /**
-     * Check if This Event Is Called
-     *
-     * @return Boolean
-     */
-    public Boolean isCalled()
-    {
-        JSONObject requestData = new JSONObject(this.getPlainRequest());
-
-        return ( requestData.has("type") && !requestData.getString("type").equals("") && requestData.getString("type").contains("bot_changed") );
-    }
-
-    /**
-     * Parse Event Incoming Data
-     *
-     * @return Boolean
-     */
-    public Boolean parse()
-    {
-        JSONObject requestData = new JSONObject(this.getPlainRequest());
-
-        if( requestData.has("type") && !requestData.getString("type").equals("") ){
-            this.setEventType(requestData.getString("type"));
-        }
-        if( requestData.has("bot") && !requestData.getString("bot").equals("") ){
-            JSONObject botData = new JSONObject(requestData.getString("bot"));
-            this.setBotId(botData.has("id") ? botData.getString("id") : "");
-            this.setBotAppId(botData.has("app_id") ? botData.getString("app_id") : "");
-            this.setBotName(botData.has("name") ? botData.getString("name") : "");
-        }
-        
-        return true;
-    }
-
-    /**
-     * Call Event Callback
-     *
-     * @return String
-     */
-    public String call()
-    {
-        return this.callback.apply(this);
-    }
-
-    /**
      * Set Event Type. It should be bot_changed
      *
      * @param eventType
@@ -192,5 +148,49 @@ public class BotChanged extends EventTemplate {
     public String getBotIcons(ArrayList<String> botIcons)
     {
         return this.getIncomingItem("event.bot.icons", "");
+    }
+
+    /**
+     * Check if This Event Is Called
+     *
+     * @return Boolean
+     */
+    public Boolean isCalled()
+    {
+        JSONObject requestData = new JSONObject(this.getPlainRequest());
+
+        return ( requestData.has("type") && !requestData.getString("type").equals("") && requestData.getString("type").contains("bot_changed") );
+    }
+
+    /**
+     * Parse Event Incoming Data
+     *
+     * @return Boolean
+     */
+    public Boolean parse()
+    {
+        JSONObject requestData = new JSONObject(this.getPlainRequest());
+
+        if( requestData.has("type") && !requestData.getString("type").equals("") ){
+            this.setEventType(requestData.getString("type"));
+        }
+        if( requestData.has("bot") && !requestData.getString("bot").equals("") ){
+            JSONObject botData = new JSONObject(requestData.getString("bot"));
+            this.setBotId(botData.has("id") ? botData.getString("id") : "");
+            this.setBotAppId(botData.has("app_id") ? botData.getString("app_id") : "");
+            this.setBotName(botData.has("name") ? botData.getString("name") : "");
+        }
+
+        return true;
+    }
+
+    /**
+     * Call Event Callback
+     *
+     * @return String
+     */
+    public String call()
+    {
+        return this.callback.apply(this);
     }
 }
