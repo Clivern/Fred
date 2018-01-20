@@ -44,50 +44,6 @@ public class FileCommentEdited extends EventTemplate {
     }
 
     /**
-     * Check if This Event Is Called
-     *
-     * @return Boolean
-     */
-    public Boolean isCalled()
-    {
-        JSONObject requestData = new JSONObject(this.getPlainRequest());
-
-        return (requestData.has("type") && requestData.has("comment") && requestData.getString("type").equals("file_comment_edited"));
-    }
-
-    /**
-     * Parse Event Incoming Data
-     *
-     * @return Boolean
-     */
-    public Boolean parse()
-    {
-        JSONObject requestData = new JSONObject(this.getPlainRequest());
-
-        if( requestData.has("type") && !requestData.getString("type").equals("") ){
-            this.setEventType(requestData.getString("type"));
-        }
-        if( requestData.has("file_id") && !requestData.getString("file_id").equals("") ){
-            this.setFileId(requestData.getString("file_id"));
-        }
-        if( requestData.has("comment") && !requestData.getString("comment").equals("") ){
-            this.setComment(requestData.getString("comment"));
-        }
-
-        return true;
-    }
-
-    /**
-     * Call Event Callback
-     *
-     * @return String
-     */
-    public String call()
-    {
-        return this.callback.apply(this);
-    }
-    
-    /**
      * Set Event Type. It should be file_comment_edited
      *
      * @param eventType
@@ -145,5 +101,49 @@ public class FileCommentEdited extends EventTemplate {
     public String getComment()
     {
         return this.getIncomingItem("event.comment", "");
+    }
+
+    /**
+     * Check if This Event Is Called
+     *
+     * @return Boolean
+     */
+    public Boolean isCalled()
+    {
+        JSONObject requestData = new JSONObject(this.getPlainRequest());
+
+        return (requestData.has("type") && requestData.has("comment") && requestData.getString("type").equals("file_comment_edited"));
+    }
+
+    /**
+     * Parse Event Incoming Data
+     *
+     * @return Boolean
+     */
+    public Boolean parse()
+    {
+        JSONObject requestData = new JSONObject(this.getPlainRequest());
+
+        if( requestData.has("type") && !requestData.getString("type").equals("") ){
+            this.setEventType(requestData.getString("type"));
+        }
+        if( requestData.has("file_id") && !requestData.getString("file_id").equals("") ){
+            this.setFileId(requestData.getString("file_id"));
+        }
+        if( requestData.has("comment") && !requestData.getString("comment").equals("") ){
+            this.setComment(requestData.getString("comment"));
+        }
+
+        return true;
+    }
+
+    /**
+     * Call Event Callback
+     *
+     * @return String
+     */
+    public String call()
+    {
+        return this.callback.apply(this);
     }
 }

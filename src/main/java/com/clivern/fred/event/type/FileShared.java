@@ -44,6 +44,46 @@ public class FileShared extends EventTemplate {
     }
 
     /**
+     * Set Event Type. It should be file_shared
+     *
+     * @param eventType
+     */
+    public void setEventType(String eventType)
+    {
+        this.setIncomingItem("event.type", eventType);
+    }
+
+    /**
+     * Set File ID
+     *
+     * @param fileId
+     */
+    public void setFileId(String fileId)
+    {
+        this.setIncomingItem("event.file_id", fileId);
+    }
+
+    /**
+     * Get Event Type. It should be file_shared
+     *
+     * @return String
+     */
+    public String getEventType()
+    {
+        return this.getIncomingItem("event.type", "");
+    }
+
+    /**
+     * Get File ID
+     *
+     * @return String
+     */
+    public String getFileId()
+    {
+        return this.getIncomingItem("event.file_id", "");
+    }
+
+    /**
      * Check if This Event Is Called
      *
      * @return Boolean
@@ -82,45 +122,5 @@ public class FileShared extends EventTemplate {
     public String call()
     {
         return this.callback.apply(this);
-    }
-    
-    /**
-     * Set Event Type. It should be file_shared
-     *
-     * @param eventType
-     */
-    public void setEventType(String eventType)
-    {
-        this.setIncomingItem("event.type", eventType);
-    }
-
-    /**
-     * Set File ID
-     *
-     * @param fileId
-     */
-    public void setFileId(String fileId)
-    {
-        this.setIncomingItem("event.file_id", fileId);
-    }
-
-    /**
-     * Get Event Type. It should be file_shared
-     *
-     * @return String
-     */
-    public String getEventType()
-    {
-        return this.getIncomingItem("event.type", "");
-    }
-
-    /**
-     * Get File ID
-     *
-     * @return String
-     */
-    public String getFileId()
-    {
-        return this.getIncomingItem("event.file_id", "");
     }
 }
