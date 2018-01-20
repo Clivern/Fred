@@ -20,6 +20,8 @@ import java.util.function.Function;
 /**
  * Group Rename Event
  *
+ * A private channel was renamed. It Works with RTM and Events API
+ *
  * Expected scopes: groups:read
  *
  * <a href="https://api.slack.com/events/group_rename">For More Info</a>
@@ -41,51 +43,6 @@ public class GroupRename extends EventTemplate {
         this.callback = callback;
     }
 
-    /**
-     * Check if This Event Is Called
-     *
-     * @return Boolean
-     */
-    public Boolean isCalled()
-    {
-        JSONObject requestData = new JSONObject(this.getPlainRequest());
-
-        return (requestData.has("type") && requestData.getString("type").equals("group_rename"));
-    }
-
-    /**
-     * Parse Event Incoming Data
-     *
-     * @return Boolean
-     */
-    public Boolean parse()
-    {
-        JSONObject requestData = new JSONObject(this.getPlainRequest());
-
-        if( requestData.has("type") && !requestData.getString("type").equals("") ){
-            this.setEventType(requestData.getString("type"));
-        }
-
-        if( requestData.has("channel") && !requestData.getString("channel").equals("") ){
-            JSONObject channelData = new JSONObject(requestData.getString("channel"));
-            this.setChannelId(channelData.has("id") ? channelData.getString("id") : "");
-            this.setChannelName(channelData.has("name") ? channelData.getString("name") : "");
-            this.setChannelCreated(channelData.has("created") ? channelData.getString("created") : "");
-        }
-
-        return true;
-    }
-
-    /**
-     * Call Event Callback
-     *
-     * @return String
-     */
-    public String call()
-    {
-        return this.callback.apply(this);
-    }
-    
     /**
      * Set Event Type. It should be group_rename
      *
@@ -164,5 +121,50 @@ public class GroupRename extends EventTemplate {
     public String getChannelCreated()
     {
         return this.getIncomingItem("event.channel.created", "");
+    }
+
+    /**
+     * Check if This Event Is Called
+     *
+     * @return Boolean
+     */
+    public Boolean isCalled()
+    {
+        JSONObject requestData = new JSONObject(this.getPlainRequest());
+
+        return (requestData.has("type") && requestData.getString("type").equals("group_rename"));
+    }
+
+    /**
+     * Parse Event Incoming Data
+     *
+     * @return Boolean
+     */
+    public Boolean parse()
+    {
+        JSONObject requestData = new JSONObject(this.getPlainRequest());
+
+        if( requestData.has("type") && !requestData.getString("type").equals("") ){
+            this.setEventType(requestData.getString("type"));
+        }
+
+        if( requestData.has("channel") && !requestData.getString("channel").equals("") ){
+            JSONObject channelData = new JSONObject(requestData.getString("channel"));
+            this.setChannelId(channelData.has("id") ? channelData.getString("id") : "");
+            this.setChannelName(channelData.has("name") ? channelData.getString("name") : "");
+            this.setChannelCreated(channelData.has("created") ? channelData.getString("created") : "");
+        }
+
+        return true;
+    }
+
+    /**
+     * Call Event Callback
+     *
+     * @return String
+     */
+    public String call()
+    {
+        return this.callback.apply(this);
     }
 }

@@ -20,6 +20,8 @@ import java.util.function.Function;
 /**
  * Group Archive Event
  *
+ * A private channel was archived. It Works with RTM and Events API
+ *
  * Expected scopes: groups:read
  *
  * <a href="https://api.slack.com/events/group_archive">For More Info</a>
@@ -39,6 +41,46 @@ public class GroupArchive extends EventTemplate {
     public GroupArchive(Function<GroupArchive,String> callback)
     {
         this.callback = callback;
+    }
+
+    /**
+     * Set Event Type. It should be group_archive
+     *
+     * @param eventType
+     */
+    public void setEventType(String eventType)
+    {
+        this.setIncomingItem("event.type", eventType);
+    }
+
+    /**
+     * Set Channel Name
+     *
+     * @param channel
+     */
+    public void setChannel(String channel)
+    {
+        this.setIncomingItem("event.channel", channel);
+    }
+
+    /**
+     * Get Event Type. It should be group_archive
+     *
+     * @return String
+     */
+    public String getEventType()
+    {
+        return this.getIncomingItem("event.type", "");
+    }
+
+    /**
+     * Get Channel Name
+     *
+     * @return String
+     */
+    public String getChannel()
+    {
+        return this.getIncomingItem("event.channel", "");
     }
 
     /**
@@ -80,45 +122,5 @@ public class GroupArchive extends EventTemplate {
     public String call()
     {
         return this.callback.apply(this);
-    }
-    
-    /**
-     * Set Event Type. It should be group_archive
-     *
-     * @param eventType
-     */
-    public void setEventType(String eventType)
-    {
-        this.setIncomingItem("event.type", eventType);
-    }
-
-    /**
-     * Set Channel Name
-     *
-     * @param channel
-     */
-    public void setChannel(String channel)
-    {
-        this.setIncomingItem("event.channel", channel);
-    }
-
-    /**
-     * Get Event Type. It should be group_archive
-     *
-     * @return String
-     */
-    public String getEventType()
-    {
-        return this.getIncomingItem("event.type", "");
-    }
-
-    /**
-     * Get Channel Name
-     *
-     * @return String
-     */
-    public String getChannel()
-    {
-        return this.getIncomingItem("event.channel", "");
     }
 }
