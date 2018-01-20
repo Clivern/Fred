@@ -20,6 +20,12 @@ import java.util.function.Function;
 /**
  * Emoji Changed Event
  *
+ * A custom emoji has been added or changed. It Works with RTM and Events API
+ *
+ * Expected scopes: emoji:read
+ *
+ * <a href="https://api.slack.com/events/emoji_changed">For More Info</a>
+ *
  * @author A.F
  * @since 1.0.0
  */
@@ -38,6 +44,66 @@ public class EmojiChanged extends EventTemplate {
     }
 
     /**
+     * Set Event Type. It should be emoji_changed
+     *
+     * @param eventType
+     */
+    public void setEventType(String eventType)
+    {
+        this.setIncomingItem("event.type", eventType);
+    }
+
+    /**
+     * Set Subtype
+     *
+     * @param subtype
+     */
+    public void setSubtype(String subtype)
+    {
+        this.setIncomingItem("event.subtype", subtype);
+    }
+
+    /**
+     * Set Event Ts
+     *
+     * @param eventTs
+     */
+    public void setEventTs(String eventTs)
+    {
+        this.setIncomingItem("event.event_ts", eventTs);
+    }
+
+    /**
+     * Get Event Type. It should be emoji_changed
+     *
+     * @return String
+     */
+    public String getEventType()
+    {
+        return this.getIncomingItem("event.type", "");
+    }
+
+    /**
+     * Get Subtype
+     *
+     * @return String
+     */
+    public String getSubtype()
+    {
+        return this.getIncomingItem("event.subtype", "");
+    }
+
+    /**
+     * Get Event Ts
+     *
+     * @return String
+     */
+    public String getEventTs()
+    {
+        return this.getIncomingItem("event.event_ts", "");
+    }
+
+    /**
      * Check if This Event Is Called
      *
      * @return Boolean
@@ -46,7 +112,7 @@ public class EmojiChanged extends EventTemplate {
     {
         JSONObject requestData = new JSONObject(this.getPlainRequest());
 
-        return true;
+        return (requestData.has("type") && requestData.getString("type").equals("mail_domain_changed"));
     }
 
     /**
@@ -57,6 +123,18 @@ public class EmojiChanged extends EventTemplate {
     public Boolean parse()
     {
         JSONObject requestData = new JSONObject(this.getPlainRequest());
+
+        if( requestData.has("type") && !requestData.getString("type").equals("") ){
+            this.setEventType(requestData.getString("type"));
+        }
+
+        if( requestData.has("subtype") && !requestData.getString("subtype").equals("") ){
+            this.setSubtype(requestData.getString("subtype"));
+        }
+
+        if( requestData.has("event_ts") && !requestData.getString("event_ts").equals("") ){
+            this.setEventTs(requestData.getString("event_ts"));
+        }
 
         return true;
     }
