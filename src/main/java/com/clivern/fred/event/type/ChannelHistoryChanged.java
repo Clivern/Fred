@@ -42,53 +42,6 @@ public class ChannelHistoryChanged extends EventTemplate {
     }
 
     /**
-     * Check if This Event Is Called
-     *
-     * @return Boolean
-     */
-    public Boolean isCalled()
-    {
-        JSONObject requestData = new JSONObject(this.getPlainRequest());
-
-        return (requestData.has("type") && requestData.getString("type").equals("channel_history_changed"));
-    }
-
-    /**
-     * Parse Event Incoming Data
-     *
-     * @return Boolean
-     */
-    public Boolean parse()
-    {
-        JSONObject requestData = new JSONObject(this.getPlainRequest());
-
-        if( requestData.has("type") && !requestData.getString("type").equals("") ){
-            this.setEventType(requestData.getString("type"));
-        }
-        if( requestData.has("latest") && !requestData.getString("latest").equals("") ){
-            this.setLatest(requestData.getString("latest"));
-        }
-        if( requestData.has("ts") && !requestData.getString("ts").equals("") ){
-            this.setTs(requestData.getString("ts"));
-        }
-        if( requestData.has("event_ts") && !requestData.getString("event_ts").equals("") ){
-            this.setEventTs(requestData.getString("event_ts"));
-        }
-
-        return true;
-    }
-
-    /**
-     * Call Event Callback
-     *
-     * @return String
-     */
-    public String call()
-    {
-        return this.callback.apply(this);
-    }
-    
-    /**
      * Set Event Type. It should be channel_history_changed
      *
      * @param eventType
@@ -166,5 +119,52 @@ public class ChannelHistoryChanged extends EventTemplate {
     public String getEventTs()
     {
         return this.getIncomingItem("event.event_ts", "");
+    }
+
+    /**
+     * Check if This Event Is Called
+     *
+     * @return Boolean
+     */
+    public Boolean isCalled()
+    {
+        JSONObject requestData = new JSONObject(this.getPlainRequest());
+
+        return (requestData.has("type") && requestData.getString("type").equals("channel_history_changed"));
+    }
+
+    /**
+     * Parse Event Incoming Data
+     *
+     * @return Boolean
+     */
+    public Boolean parse()
+    {
+        JSONObject requestData = new JSONObject(this.getPlainRequest());
+
+        if( requestData.has("type") && !requestData.getString("type").equals("") ){
+            this.setEventType(requestData.getString("type"));
+        }
+        if( requestData.has("latest") && !requestData.getString("latest").equals("") ){
+            this.setLatest(requestData.getString("latest"));
+        }
+        if( requestData.has("ts") && !requestData.getString("ts").equals("") ){
+            this.setTs(requestData.getString("ts"));
+        }
+        if( requestData.has("event_ts") && !requestData.getString("event_ts").equals("") ){
+            this.setEventTs(requestData.getString("event_ts"));
+        }
+
+        return true;
+    }
+
+    /**
+     * Call Event Callback
+     *
+     * @return String
+     */
+    public String call()
+    {
+        return this.callback.apply(this);
     }
 }

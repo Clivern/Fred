@@ -44,50 +44,6 @@ public class ChannelUnarchive extends EventTemplate {
     }
 
     /**
-     * Check if This Event Is Called
-     *
-     * @return Boolean
-     */
-    public Boolean isCalled()
-    {
-        JSONObject requestData = new JSONObject(this.getPlainRequest());
-
-        return (requestData.has("type") && requestData.getString("type").equals("channel_unarchive"));
-    }
-
-    /**
-     * Parse Event Incoming Data
-     *
-     * @return Boolean
-     */
-    public Boolean parse()
-    {
-        JSONObject requestData = new JSONObject(this.getPlainRequest());
-
-        if( requestData.has("type") && !requestData.getString("type").equals("") ){
-            this.setEventType(requestData.getString("type"));
-        }
-        if( requestData.has("channel") && !requestData.getString("channel").equals("") ){
-            this.setChannel(requestData.getString("channel"));
-        }
-        if( requestData.has("user") && !requestData.getString("user").equals("") ){
-            this.setUser(requestData.getString("user"));
-        }
-
-        return true;
-    }
-
-    /**
-     * Call Event Callback
-     *
-     * @return String
-     */
-    public String call()
-    {
-        return this.callback.apply(this);
-    }
-
-    /**
      * Set Event Type. It should be channel_unarchive
      *
      * @param eventType
@@ -145,5 +101,49 @@ public class ChannelUnarchive extends EventTemplate {
     public String getUser()
     {
         return this.getIncomingItem("event.user", "");
+    }
+
+    /**
+     * Check if This Event Is Called
+     *
+     * @return Boolean
+     */
+    public Boolean isCalled()
+    {
+        JSONObject requestData = new JSONObject(this.getPlainRequest());
+
+        return (requestData.has("type") && requestData.getString("type").equals("channel_unarchive"));
+    }
+
+    /**
+     * Parse Event Incoming Data
+     *
+     * @return Boolean
+     */
+    public Boolean parse()
+    {
+        JSONObject requestData = new JSONObject(this.getPlainRequest());
+
+        if( requestData.has("type") && !requestData.getString("type").equals("") ){
+            this.setEventType(requestData.getString("type"));
+        }
+        if( requestData.has("channel") && !requestData.getString("channel").equals("") ){
+            this.setChannel(requestData.getString("channel"));
+        }
+        if( requestData.has("user") && !requestData.getString("user").equals("") ){
+            this.setUser(requestData.getString("user"));
+        }
+
+        return true;
+    }
+
+    /**
+     * Call Event Callback
+     *
+     * @return String
+     */
+    public String call()
+    {
+        return this.callback.apply(this);
     }
 }

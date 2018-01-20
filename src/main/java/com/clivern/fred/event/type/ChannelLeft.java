@@ -42,47 +42,6 @@ public class ChannelLeft extends EventTemplate {
     }
 
     /**
-     * Check if This Event Is Called
-     *
-     * @return Boolean
-     */
-    public Boolean isCalled()
-    {
-        JSONObject requestData = new JSONObject(this.getPlainRequest());
-
-        return (requestData.has("type") && requestData.getString("type").equals("channel_left"));
-    }
-
-    /**
-     * Parse Event Incoming Data
-     *
-     * @return Boolean
-     */
-    public Boolean parse()
-    {
-        JSONObject requestData = new JSONObject(this.getPlainRequest());
-
-        if( requestData.has("type") && !requestData.getString("type").equals("") ){
-            this.setEventType(requestData.getString("type"));
-        }
-        if( requestData.has("channel") && !requestData.getString("channel").equals("") ){
-            this.setChannel(requestData.getString("channel"));
-        }
-        
-        return true;
-    }
-
-    /**
-     * Call Event Callback
-     *
-     * @return String
-     */
-    public String call()
-    {
-        return this.callback.apply(this);
-    }
-    
-    /**
      * Set Event Type. It should be channel_left
      *
      * @param eventType
@@ -120,5 +79,46 @@ public class ChannelLeft extends EventTemplate {
     public String getChannel()
     {
         return this.getIncomingItem("event.channel", "");
+    }
+
+    /**
+     * Check if This Event Is Called
+     *
+     * @return Boolean
+     */
+    public Boolean isCalled()
+    {
+        JSONObject requestData = new JSONObject(this.getPlainRequest());
+
+        return (requestData.has("type") && requestData.getString("type").equals("channel_left"));
+    }
+
+    /**
+     * Parse Event Incoming Data
+     *
+     * @return Boolean
+     */
+    public Boolean parse()
+    {
+        JSONObject requestData = new JSONObject(this.getPlainRequest());
+
+        if( requestData.has("type") && !requestData.getString("type").equals("") ){
+            this.setEventType(requestData.getString("type"));
+        }
+        if( requestData.has("channel") && !requestData.getString("channel").equals("") ){
+            this.setChannel(requestData.getString("channel"));
+        }
+
+        return true;
+    }
+
+    /**
+     * Call Event Callback
+     *
+     * @return String
+     */
+    public String call()
+    {
+        return this.callback.apply(this);
     }
 }

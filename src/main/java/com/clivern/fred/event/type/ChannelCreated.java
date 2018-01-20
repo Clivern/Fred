@@ -44,51 +44,6 @@ public class ChannelCreated extends EventTemplate {
     }
 
     /**
-     * Check if This Event Is Called
-     *
-     * @return Boolean
-     */
-    public Boolean isCalled()
-    {
-        JSONObject requestData = new JSONObject(this.getPlainRequest());
-
-        return (requestData.has("type") && requestData.getString("type").equals("channel_created"));
-    }
-
-    /**
-     * Parse Event Incoming Data
-     *
-     * @return Boolean
-     */
-    public Boolean parse()
-    {
-        JSONObject requestData = new JSONObject(this.getPlainRequest());
-
-        if( requestData.has("type") && !requestData.getString("type").equals("") ){
-            this.setEventType(requestData.getString("type"));
-        }
-
-        if( requestData.has("channel") && !requestData.getString("channel").equals("") ){
-            JSONObject channelData = new JSONObject(requestData.getString("channel"));
-            this.setChannelId(channelData.has("id") ? channelData.getString("id") : "");
-            this.setChannelName(channelData.has("name") ? channelData.getString("name") : "");
-            this.setChannelCreated(channelData.has("created") ? channelData.getString("created") : "");
-            this.setChannelCreator(channelData.has("creator") ? channelData.getString("creator") : "");
-        }
-        return true;
-    }
-
-    /**
-     * Call Event Callback
-     *
-     * @return String
-     */
-    public String call()
-    {
-        return this.callback.apply(this);
-    }
-
-    /**
      * Set Event Type. It should be channel_created
      *
      * @param eventType
@@ -186,5 +141,50 @@ public class ChannelCreated extends EventTemplate {
     public String getChannelCreator()
     {
         return this.getIncomingItem("event.channel.creator", "");
+    }
+
+    /**
+     * Check if This Event Is Called
+     *
+     * @return Boolean
+     */
+    public Boolean isCalled()
+    {
+        JSONObject requestData = new JSONObject(this.getPlainRequest());
+
+        return (requestData.has("type") && requestData.getString("type").equals("channel_created"));
+    }
+
+    /**
+     * Parse Event Incoming Data
+     *
+     * @return Boolean
+     */
+    public Boolean parse()
+    {
+        JSONObject requestData = new JSONObject(this.getPlainRequest());
+
+        if( requestData.has("type") && !requestData.getString("type").equals("") ){
+            this.setEventType(requestData.getString("type"));
+        }
+
+        if( requestData.has("channel") && !requestData.getString("channel").equals("") ){
+            JSONObject channelData = new JSONObject(requestData.getString("channel"));
+            this.setChannelId(channelData.has("id") ? channelData.getString("id") : "");
+            this.setChannelName(channelData.has("name") ? channelData.getString("name") : "");
+            this.setChannelCreated(channelData.has("created") ? channelData.getString("created") : "");
+            this.setChannelCreator(channelData.has("creator") ? channelData.getString("creator") : "");
+        }
+        return true;
+    }
+
+    /**
+     * Call Event Callback
+     *
+     * @return String
+     */
+    public String call()
+    {
+        return this.callback.apply(this);
     }
 }

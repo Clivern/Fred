@@ -44,6 +44,46 @@ public class ChannelDeleted extends EventTemplate {
     }
 
     /**
+     * Set Event Type. It should be channel_deleted
+     *
+     * @param eventType
+     */
+    public void setEventType(String eventType)
+    {
+        this.setIncomingItem("event.type", eventType);
+    }
+
+    /**
+     * Set Channel Name
+     *
+     * @param channel
+     */
+    public void setChannel(String channel)
+    {
+        this.setIncomingItem("event.channel", channel);
+    }
+
+    /**
+     * Get Event Type. It should be channel_deleted
+     *
+     * @return String
+     */
+    public String getEventType()
+    {
+        return this.getIncomingItem("event.type", "");
+    }
+
+    /**
+     * Get Channel Name
+     *
+     * @return String
+     */
+    public String getChannel()
+    {
+        return this.getIncomingItem("event.channel", "");
+    }
+
+    /**
      * Check if This Event Is Called
      *
      * @return Boolean
@@ -82,45 +122,5 @@ public class ChannelDeleted extends EventTemplate {
     public String call()
     {
         return this.callback.apply(this);
-    }
-
-    /**
-     * Set Event Type. It should be channel_deleted
-     *
-     * @param eventType
-     */
-    public void setEventType(String eventType)
-    {
-        this.setIncomingItem("event.type", eventType);
-    }
-
-    /**
-     * Set Channel Name
-     *
-     * @param channel
-     */
-    public void setChannel(String channel)
-    {
-        this.setIncomingItem("event.channel", channel);
-    }
-
-    /**
-     * Get Event Type. It should be channel_deleted
-     *
-     * @return String
-     */
-    public String getEventType()
-    {
-        return this.getIncomingItem("event.type", "");
-    }
-
-    /**
-     * Get Channel Name
-     *
-     * @return String
-     */
-    public String getChannel()
-    {
-        return this.getIncomingItem("event.channel", "");
     }
 }
