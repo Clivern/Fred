@@ -42,6 +42,26 @@ public class AccountsChanged extends EventTemplate {
     }
 
     /**
+     * Set Event Type. It should be accounts_changed
+     *
+     * @param eventType
+     */
+    public void setEventType(String eventType)
+    {
+        this.setIncomingItem("event.type", eventType);
+    }
+
+    /**
+     * Get Event Type. It should be accounts_changed
+     *
+     * @return String
+     */
+    public String getEventType()
+    {
+        return this.getIncomingItem("event.type", "");
+    }
+
+    /**
      * Check if This Event Is Called
      *
      * @return Boolean
@@ -77,25 +97,5 @@ public class AccountsChanged extends EventTemplate {
     public String call()
     {
         return this.callback.apply(this);
-    }
-
-    /**
-     * Set Event Type. It should be accounts_changed
-     *
-     * @param eventType
-     */
-    public void setEventType(String eventType)
-    {
-        this.setIncomingItem("event.type", eventType);
-    }
-
-    /**
-     * Get Event Type. It should be accounts_changed
-     *
-     * @return String
-     */
-    public String getEventType()
-    {
-        return this.getIncomingItem("event.type", "");
     }
 }
