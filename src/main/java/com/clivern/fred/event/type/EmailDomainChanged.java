@@ -20,6 +20,12 @@ import java.util.function.Function;
 /**
  * Email Domain Changed Event
  *
+ * The workspace email domain has changed. It Works with RTM and Events API
+ *
+ * Expected scopes: team:read
+ *
+ * <a href="https://api.slack.com/events/mail_domain_changed">For More Info</a>
+ *
  * @author A.F
  * @since 1.0.0
  */
@@ -38,6 +44,66 @@ public class EmailDomainChanged extends EventTemplate {
     }
 
     /**
+     * Set Event Type. It should be mail_domain_changed
+     *
+     * @param eventType
+     */
+    public void setEventType(String eventType)
+    {
+        this.setIncomingItem("event.type", eventType);
+    }
+
+    /**
+     * Set Email Domain
+     *
+     * @param emailDomain
+     */
+    public void setEmailDomain(String emailDomain)
+    {
+        this.setIncomingItem("event.email_domain", emailDomain);
+    }
+
+    /**
+     * Set Event Ts
+     *
+     * @param eventTs
+     */
+    public void setEventTs(String eventTs)
+    {
+        this.setIncomingItem("event.event_ts", eventTs);
+    }
+
+    /**
+     * Get Event Type. It should be mail_domain_changed
+     *
+     * @return String
+     */
+    public String getEventType()
+    {
+        return this.getIncomingItem("event.type", "");
+    }
+
+    /**
+     * Get Email Domain
+     *
+     * @return String
+     */
+    public String getEmailDomain()
+    {
+        return this.getIncomingItem("event.email_domain", "");
+    }
+
+    /**
+     * Get Event Ts
+     *
+     * @return String
+     */
+    public String getEventTs()
+    {
+        return this.getIncomingItem("event.event_ts", "");
+    }
+
+    /**
      * Check if This Event Is Called
      *
      * @return Boolean
@@ -46,7 +112,7 @@ public class EmailDomainChanged extends EventTemplate {
     {
         JSONObject requestData = new JSONObject(this.getPlainRequest());
 
-        return true;
+        return (requestData.has("type") && requestData.getString("type").equals("mail_domain_changed"));
     }
 
     /**
@@ -57,6 +123,18 @@ public class EmailDomainChanged extends EventTemplate {
     public Boolean parse()
     {
         JSONObject requestData = new JSONObject(this.getPlainRequest());
+
+        if( requestData.has("type") && !requestData.getString("type").equals("") ){
+            this.setEventType(requestData.getString("type"));
+        }
+
+        if( requestData.has("email_domain") && !requestData.getString("email_domain").equals("") ){
+            this.setEmailDomain(requestData.getString("email_domain"));
+        }
+
+        if( requestData.has("event_ts") && !requestData.getString("event_ts").equals("") ){
+            this.setEventTs(requestData.getString("event_ts"));
+        }
 
         return true;
     }
