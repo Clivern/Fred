@@ -20,6 +20,12 @@ import java.util.function.Function;
 /**
  * Im Created Event
  *
+ * A DM was created. It Works With RTM and Events API.
+ *
+ * Expected scopes: im:read
+ *
+ * <a href="https://api.slack.com/events/im_created">For More Info</a>
+ *
  * @author A.F
  * @since 1.0.0
  */
@@ -37,50 +43,6 @@ public class ImCreated extends EventTemplate {
         this.callback = callback;
     }
 
-    /**
-     * Check if This Event Is Called
-     *
-     * @return Boolean
-     */
-    public Boolean isCalled()
-    {
-        JSONObject requestData = new JSONObject(this.getPlainRequest());
-
-        return (requestData.has("type") && requestData.getString("type").equals("im_close"));
-    }
-
-    /**
-     * Parse Event Incoming Data
-     *
-     * @return Boolean
-     */
-    public Boolean parse()
-    {
-        JSONObject requestData = new JSONObject(this.getPlainRequest());
-
-        if( requestData.has("type") && !requestData.getString("type").equals("") ){
-            this.setEventType(requestData.getString("type"));
-        }
-        if( requestData.has("channel") && !requestData.getString("channel").equals("") ){
-            this.setChannel(requestData.getString("channel"));
-        }
-        if( requestData.has("user") && !requestData.getString("user").equals("") ){
-            this.setUser(requestData.getString("user"));
-        }
-        
-        return true;
-    }
-
-    /**
-     * Call Event Callback
-     *
-     * @return String
-     */
-    public String call()
-    {
-        return this.callback.apply(this);
-    }
-    
     /**
      * Set Event Type. It should be im_close
      *
@@ -139,5 +101,49 @@ public class ImCreated extends EventTemplate {
     public String getUser()
     {
         return this.getIncomingItem("event.user", "");
+    }
+
+    /**
+     * Check if This Event Is Called
+     *
+     * @return Boolean
+     */
+    public Boolean isCalled()
+    {
+        JSONObject requestData = new JSONObject(this.getPlainRequest());
+
+        return (requestData.has("type") && requestData.getString("type").equals("im_close"));
+    }
+
+    /**
+     * Parse Event Incoming Data
+     *
+     * @return Boolean
+     */
+    public Boolean parse()
+    {
+        JSONObject requestData = new JSONObject(this.getPlainRequest());
+
+        if( requestData.has("type") && !requestData.getString("type").equals("") ){
+            this.setEventType(requestData.getString("type"));
+        }
+        if( requestData.has("channel") && !requestData.getString("channel").equals("") ){
+            this.setChannel(requestData.getString("channel"));
+        }
+        if( requestData.has("user") && !requestData.getString("user").equals("") ){
+            this.setUser(requestData.getString("user"));
+        }
+
+        return true;
+    }
+
+    /**
+     * Call Event Callback
+     *
+     * @return String
+     */
+    public String call()
+    {
+        return this.callback.apply(this);
     }
 }
