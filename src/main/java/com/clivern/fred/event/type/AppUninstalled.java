@@ -42,6 +42,146 @@ public class AppUninstalled extends EventTemplate {
     }
 
     /**
+     * Set Event Type. It should be app_uninstalled
+     *
+     * @param eventType
+     */
+    public void setEventType(String eventType)
+    {
+        this.setIncomingItem("event.type", eventType);
+    }
+
+    /**
+     * Set Token
+     *
+     * @param token
+     */
+    public void setToken(String token)
+    {
+        this.setIncomingItem("token", token);
+    }
+
+    /**
+     * Set Team ID
+     *
+     * @param teamId
+     */
+    public void setTeamId(String teamId)
+    {
+        this.setIncomingItem("team_id", teamId);
+    }
+
+    /**
+     * Set API App Id
+     *
+     * @param apiAppId
+     */
+    public void setApiAppId(String apiAppId)
+    {
+        this.setIncomingItem("api_app_id", apiAppId);
+    }
+
+    /**
+     * Set Type
+     *
+     * @param type
+     */
+    public void setType(String type)
+    {
+        this.setIncomingItem("type", type);
+    }
+
+    /**
+     * Set Event Id
+     *
+     * @param eventId
+     */
+    public void setEventId(String eventId)
+    {
+        this.setIncomingItem("event_id", eventId);
+    }
+
+    /**
+     * Set Event Time
+     *
+     * @param eventTime
+     */
+    public void setEventTime(String eventTime)
+    {
+        this.setIncomingItem("event_time", eventTime);
+    }
+
+    /**
+     * Get Event Type. It should be app_uninstalled
+     *
+     * @return String
+     */
+    public String getEventType()
+    {
+        return this.getIncomingItem("event.type", "");
+    }
+
+    /**
+     * Get Token
+     *
+     * @return String
+     */
+    public String getToken()
+    {
+        return this.getIncomingItem("token", "");
+    }
+
+    /**
+     * Get Team Id
+     *
+     * @return String
+     */
+    public String getTeamId()
+    {
+        return this.getIncomingItem("team_id", "");
+    }
+
+    /**
+     * Get API App ID
+     *
+     * @return String
+     */
+    public String getApiAppId()
+    {
+        return this.getIncomingItem("api_app_id", "");
+    }
+
+    /**
+     * Get Type
+     *
+     * @return String
+     */
+    public String getType()
+    {
+        return this.getIncomingItem("type", "");
+    }
+
+    /**
+     * Get Event Id
+     *
+     * @return String
+     */
+    public String getEventId()
+    {
+        return this.getIncomingItem("event_id", "");
+    }
+
+    /**
+     * Get Event Time
+     *
+     * @return String
+     */
+    public String getEventTime()
+    {
+        return this.getIncomingItem("event_time", "");
+    }
+
+    /**
      * Check if This Event Is Called
      *
      * @return Boolean
@@ -82,9 +222,11 @@ public class AppUninstalled extends EventTemplate {
         if( requestData.has("type") && !requestData.getString("type").equals("") ){
             this.setType(requestData.getString("type"));
         }
+
         if( requestData.has("event_id") && !requestData.getString("event_id").equals("") ){
             this.setEventId(requestData.getString("event_id"));
         }
+
         if( requestData.has("event_time") && !requestData.getString("event_time").equals("") ){
             this.setEventTime(requestData.getString("event_time"));
         }
@@ -100,145 +242,5 @@ public class AppUninstalled extends EventTemplate {
     public String call()
     {
         return this.callback.apply(this);
-    }
-
-    /**
-     * Set Event Type. It should be app_uninstalled
-     *
-     * @param eventType
-     */
-    public void setEventType(String eventType)
-    {
-        this.setIncomingItem("event.type", eventType);
-    }
-
-    /**
-     * Set Token
-     * 
-     * @param token
-     */
-    public void setToken(String token)
-    {
-        this.setIncomingItem("token", token);
-    }
-
-    /**
-     * Set Team ID
-     * 
-     * @param teamId
-     */
-    public void setTeamId(String teamId)
-    {
-        this.setIncomingItem("team_id", teamId);
-    }
-
-    /**
-     * Set API App Id
-     * 
-     * @param apiAppId
-     */
-    public void setApiAppId(String apiAppId)
-    {
-        this.setIncomingItem("api_app_id", apiAppId);
-    }
-
-    /**
-     * Set Type
-     * 
-     * @param type
-     */
-    public void setType(String type)
-    {
-        this.setIncomingItem("type", type);
-    }
-
-    /**
-     * Set Event Id
-     * 
-     * @param eventId
-     */
-    public void setEventId(String eventId)
-    {
-        this.setIncomingItem("event_id", eventId);
-    }
-
-    /**
-     * Set Event Time
-     * 
-     * @param eventTime
-     */
-    public void setEventTime(String eventTime)
-    {
-        this.setIncomingItem("event_time", eventTime);
-    }
-    
-    /**
-     * Get Event Type. It should be app_uninstalled
-     *
-     * @return String
-     */
-    public String getEventType()
-    {
-        return this.getIncomingItem("event.type", "");
-    }
-
-    /**
-     * Get Token
-     * 
-     * @return String
-     */
-    public String getToken()
-    {
-        return this.getIncomingItem("token", "");
-    }
-
-    /**
-     * Get Team Id
-     * 
-     * @return String
-     */
-    public String getTeamId()
-    {
-        return this.getIncomingItem("team_id", "");
-    }
-
-    /**
-     * Get API App ID
-     * 
-     * @return String
-     */
-    public String getApiAppId()
-    {
-        return this.getIncomingItem("api_app_id", "");
-    }
-
-    /**
-     * Get Type
-     * 
-     * @return String
-     */
-    public String getType()
-    {
-        return this.getIncomingItem("type", "");
-    }
-
-    /**
-     * Get Event Id
-     * 
-     * @return String
-     */
-    public String getEventId()
-    {
-        return this.getIncomingItem("event_id", "");
-    }
-
-    /**
-     * Get Event Time
-     * 
-     * @return String
-     */
-    public String getEventTime()
-    {
-        return this.getIncomingItem("event_time", "");
     }
 }
