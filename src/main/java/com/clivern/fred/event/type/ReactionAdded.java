@@ -44,40 +44,6 @@ public class ReactionAdded extends EventTemplate {
     }
 
     /**
-     * Check if This Event Is Called
-     *
-     * @return Boolean
-     */
-    public Boolean isCalled()
-    {
-        JSONObject requestData = new JSONObject(this.getPlainRequest());
-
-        return true;
-    }
-
-    /**
-     * Parse Event Incoming Data
-     *
-     * @return Boolean
-     */
-    public Boolean parse()
-    {
-        JSONObject requestData = new JSONObject(this.getPlainRequest());
-
-        return true;
-    }
-
-    /**
-     * Call Event Callback
-     *
-     * @return String
-     */
-    public String call()
-    {
-        return this.callback.apply(this);
-    }
-    
-    /**
      * Set Event Type. It should be reaction_added
      *
      * @param eventType
@@ -275,5 +241,74 @@ public class ReactionAdded extends EventTemplate {
     public String getItemFileComment()
     {
         return this.getIncomingItem("event.item.file_comment", "");
+    }
+
+    /**
+     * Check if This Event Is Called
+     *
+     * @return Boolean
+     */
+    public Boolean isCalled()
+    {
+        JSONObject requestData = new JSONObject(this.getPlainRequest());
+
+        return (requestData.has("type") && requestData.getString("type").equals("reaction_added"));
+    }
+
+    /**
+     * Parse Event Incoming Data
+     *
+     * @return Boolean
+     */
+    public Boolean parse()
+    {
+        JSONObject requestData = new JSONObject(this.getPlainRequest());
+
+        if( requestData.has("type") && !requestData.getString("type").equals("") ){
+            this.setEventType(requestData.getString("type"));
+        }
+        if( requestData.has("user") && !requestData.getString("user").equals("") ){
+            this.setUser(requestData.getString("user"));
+        }
+        if( requestData.has("reaction") && !requestData.getString("reaction").equals("") ){
+            this.setReaction(requestData.getString("reaction"));
+        }
+        if( requestData.has("item_user") && !requestData.getString("item_user").equals("") ){
+            this.setItemUser(requestData.getString("item_user"));
+        }
+        if( requestData.has("event_ts") && !requestData.getString("event_ts").equals("") ){
+            this.setEventTs(requestData.getString("event_ts"));
+        }
+
+        if( requestData.has("item") && !requestData.getString("item").equals("") ){
+            JSONObject item = new JSONObject(requestData.getString("item"));
+
+            if( item.has("type") && !item.getString("type").equals("") ){
+                if( item.getString("type").equals("message") ){
+                    this.setItemType("message");
+                    this.setItemChannel(item.has("channel") ? item.getString("channel") : "");
+                    this.setItemTs(item.has("ts") ? item.getString("ts") : "");
+                }else if( item.getString("type").equals("file") ){
+                    this.setItemType("file");
+                    this.setItemFile(item.has("file") ? item.getString("file") : "");
+                }else if( item.getString("type").equals("file_comment") ){
+                    this.setItemType("file_comment");
+                    this.setItemFile(item.has("file") ? item.getString("file") : "");
+                    this.setItemFileComment(item.has("file_comment") ? item.getString("file_comment") : "");
+                }
+            }
+        }
+
+        return true;
+    }
+
+    /**
+     * Call Event Callback
+     *
+     * @return String
+     */
+    public String call()
+    {
+        return this.callback.apply(this);
     }
 }
