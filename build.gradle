@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2017 A.F <http://clivern.com>
+ * Copyright (C) 2017 Clivern <http://clivern.com>
  */
 
 // Apply the java-library plugin to add support for Java Library
@@ -7,7 +7,7 @@ apply plugin: 'java-library'
 apply plugin: 'maven'
 
 archivesBaseName = "fred"
-version = '1.0.0'
+version = '1.0.1'
 
 // In this section you declare where to find the dependencies of your project
 repositories {
@@ -25,7 +25,7 @@ task updatePom {
             project {
                 groupId 'com.clivern'
                 artifactId 'fred'
-                version '1.0.0'
+                version '1.0.1'
                 name 'Fred'
                 description "A Java Framework for Building Slack Bots."
                 url 'https://github.com/clivern/fred'

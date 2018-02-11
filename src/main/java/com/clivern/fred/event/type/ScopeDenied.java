@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2017 A.F <http://clivern.com>
+ * Copyright (C) 2017 Clivern <http://clivern.com>
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except
  * in compliance with the License. You may obtain a copy of the License at
@@ -24,7 +24,7 @@ import java.util.function.Function;
  *
  * <a href="https://api.slack.com/events/scope_denied">For More Info</a>
  *
- * @author A.F
+ * @author Clivern
  * @since 1.0.0
  */
 public class ScopeDenied extends EventTemplate {
@@ -74,7 +74,7 @@ public class ScopeDenied extends EventTemplate {
     {
         return this.callback.apply(this);
     }
-    
+
     /**
      * Set Event Type. It should be scope_denied
      *

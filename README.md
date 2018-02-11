@@ -3,7 +3,7 @@ Fred
 
 Fred is a Java Framework for Building Slack Bots.
 
-*Current Version: 1.0.0*
+*Current Version: 1.0.1*
 
 [![Build Status](https://travis-ci.org/Clivern/Fred.svg?branch=master)](https://travis-ci.org/Clivern/Fred)
 ![](https://img.shields.io/maven-central/v/com.clivern/fred.svg)
@@ -17,20 +17,20 @@ To add a dependency using Maven, use the following:
 <dependency>
   <groupId>com.clivern</groupId>
   <artifactId>fred</artifactId>
-  <version>1.0.0</version>
+  <version>1.0.1</version>
 </dependency>
 ```
 
 To add a dependency using Gradle, use the following:
 ```java
 dependencies {
-  compile 'com.clivern:fred:1.0.0'
+  compile 'com.clivern:fred:1.0.1'
 }
 ```
 
 To add a dependency using Scala SBT, use the following:
 ```java
-libraryDependencies += "com.clivern" % "fred" % "1.0.0"
+libraryDependencies += "com.clivern" % "fred" % "1.0.1"
 ```
 
 Usage
@@ -343,6 +343,11 @@ Tutorials & Examples
 
 Changelog
 ---------
+
+Version 1.0.1:
+```
+Add Java 8 Support.
+```
 
 Version 1.0.0:
 ```
