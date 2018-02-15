@@ -17,3 +17,7 @@ gradle.properties
 .phpintel
 
 .DS_Store
+.classpath
+.project
+.settings
+bin
