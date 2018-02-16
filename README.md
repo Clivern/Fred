@@ -51,14 +51,13 @@ state=State Key
 team=Slack Team Name
 verification_token=Verification Token Goes Here
 
-log_console_status=true or false
-log_console_level=ALL, CONFIG, FINE, FINER, FINEST, INFO, SEVERE, WARNING or OFF
-log_file_status=true or false
-log_file_level=ALL, CONFIG, FINE, FINER, FINEST, INFO, SEVERE, WARNING or OFF
-log_file_path=app.log
-log_file_limit=1
-log_file_count=200000
-log_file_append=true or false
+logging_level=debug
+logging_file_path=src/main/java/resources/
+logging_file_format=current_date
+logging_log_type=file
+logging_current_date_format=yyyy-MM-dd
+logging_append=true
+logging_buffered=false
 ```
 
 ### Build Oauth Redirect URL
