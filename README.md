@@ -3,7 +3,7 @@ Fred
 
 Fred is a Java Framework for Building Slack Bots.
 
-*Current Version: 1.0.1*
+*Current Version: 1.0.2*
 
 [![Build Status](https://travis-ci.org/Clivern/Fred.svg?branch=master)](https://travis-ci.org/Clivern/Fred)
 ![](https://img.shields.io/maven-central/v/com.clivern/fred.svg)
@@ -17,20 +17,20 @@ To add a dependency using Maven, use the following:
 <dependency>
   <groupId>com.clivern</groupId>
   <artifactId>fred</artifactId>
-  <version>1.0.1</version>
+  <version>1.0.2</version>
 </dependency>
 ```
 
 To add a dependency using Gradle, use the following:
 ```java
 dependencies {
-  compile 'com.clivern:fred:1.0.1'
+  compile 'com.clivern:fred:1.0.2'
 }
 ```
 
 To add a dependency using Scala SBT, use the following:
 ```java
-libraryDependencies += "com.clivern" % "fred" % "1.0.1"
+libraryDependencies += "com.clivern" % "fred" % "1.0.2"
 ```
 
 Usage
@@ -72,7 +72,7 @@ import com.mashape.unirest.http.exceptions.UnirestException;
 
 Config config = new Config();
 config.loadPropertiesFile("config.properties");
-Log log = new Log(config);
+config.configLogger();
 Oauth oauth = new Oauth(config, log);
 return "<a href='" + oauth.getRedirectURL() + "'>Auth</a>";
 ```
@@ -91,8 +91,8 @@ public class Main {
         get("/", (request, response) -> {
             Config config = new Config();
             config.loadPropertiesFile("config.properties");
-            Log log = new Log(config);
-            Oauth oauth = new Oauth(config, log);
+            config.configLogger();
+            Oauth oauth = new Oauth(config);
             return "<a href='" + oauth.getRedirectURL() + "'>Auth</a>";
         });
     }
@@ -116,8 +116,8 @@ String error = // Get error query parameter value from the current URL
 
 Config config = new Config();
 config.loadPropertiesFile("config.properties");
-Log log = new Log(config);
-Oauth oauth = new Oauth(config, log);
+config.configLogger();
+Oauth oauth = new Oauth(config);
 
 Boolean status = oauth.issueToken(code, state, error);
 
@@ -168,16 +168,16 @@ public class Main {
         get("/", (request, response) -> {
             Config config = new Config();
             config.loadPropertiesFile("config.properties");
-            Log log = new Log(config);
-            Oauth oauth = new Oauth(config, log);
+            config.configLogger();
+            Oauth oauth = new Oauth(config);
             return "<a href='" + oauth.getRedirectURL() + "'>Auth</a>";
         });
 
         get("/oauth", (request, response) -> {
             Config config = new Config();
             config.loadPropertiesFile("config.properties");
-            Log log = new Log(config);
-            Oauth oauth = new Oauth(config, log);
+            config.configLogger();
+            Oauth oauth = new Oauth(config);
 
             Boolean status = oauth.issueToken(
                 ( request.queryParams("code") != null ) ? request.queryParams("code") : "",
@@ -261,8 +261,8 @@ public class Main {
         post("/commands", (request, response) -> {
             Config config = new Config();
             config.loadPropertiesFile("config.properties");
-            Log log = new Log(config);
-            BaseReceiver baseReceiver = new BaseReceiver(config, log);
+            config.configLogger();
+            BaseReceiver baseReceiver = new BaseReceiver(config);
 
             // Build Our First Command (/fred Command)
             Command fredCommand = new Command("/fred", false, (ct) -> "You Typed -> " + ct.getText() + " To /fred");
@@ -343,6 +343,12 @@ Tutorials & Examples
 
 Changelog
 ---------
+
+Version 1.0.2:
+```
+Update logging package.
+Update Configurations.
+```
 
 Version 1.0.1:
 ```

@@ -15,8 +15,8 @@ package com.clivern.fred.event;
 
 import java.util.HashMap;
 import java.util.Map;
+import org.pmw.tinylog.Logger;
 import com.clivern.fred.util.Config;
-import com.clivern.fred.util.Log;
 import com.clivern.fred.exception.EventNotFound;
 import com.clivern.fred.exception.EventDataNotValid;
 import com.clivern.fred.contract.event.type.EventTemplate;
@@ -31,8 +31,6 @@ import com.clivern.fred.event.type.*;
 public class Listener {
 
     protected Config configs;
-
-    protected Log log;
 
     protected String verificationToken;
 
@@ -175,12 +173,10 @@ public class Listener {
      * Class Constructor
      *
      * @param configs
-     * @param log
      */
-    public Listener(Config configs, Log log)
+    public Listener(Config configs)
     {
         this.configs = configs;
-        this.log = log;
         this.verificationToken = this.configs.get("verification_token", "");
     }
 
@@ -482,9 +478,13 @@ public class Listener {
             }
 
             event.setPlainRequest(body);
+
             if( event.isCalled() ){
+
                 if( event.parse() ){
+                
                     return event.call();
+                
                 }
 
                 throw new EventDataNotValid("Error! Event Data Cannot Be Parsed.");

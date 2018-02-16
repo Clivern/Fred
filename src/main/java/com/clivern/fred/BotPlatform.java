@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.io.IOException;
 import com.clivern.fred.util.Config;
-import com.clivern.fred.util.Log;
+import org.pmw.tinylog.Logger;
 
 /**
  * Bot Platform Base Class
@@ -29,8 +29,6 @@ public class BotPlatform {
 
     protected Config configs;
 
-    protected Log log;
-
     /**
      * Class Constructor
      *
@@ -40,7 +38,7 @@ public class BotPlatform {
     {
         this.configs = new Config();
         this.configs.loadPropertiesFile(popertiesFilePath);
-        this.log = new Log(this.configs);
+        this.configs.configLogger();
     }
 
     /**
@@ -54,7 +52,7 @@ public class BotPlatform {
         for (Map.Entry<String, String> entry : options.entrySet()) {
             this.configs.set(entry.getKey(), options.get(entry.getKey()));
         }
-        this.log = new Log(this.configs);
+        this.configs.configLogger();
     }
 
     /**
@@ -68,16 +66,6 @@ public class BotPlatform {
     }
 
     /**
-     * Get Logger
-     *
-     * @return Log
-     */
-    public Log getLogger()
-    {
-        return this.log;
-    }
-
-    /**
      * Get Package Name
      *
      * @return String
@@ -85,13 +73,5 @@ public class BotPlatform {
     public String getName()
     {
         return "Fred";
-    }
-
-    /**
-     * Close any connections
-     */
-    public void finish()
-    {
-        this.log.close();
     }
 }

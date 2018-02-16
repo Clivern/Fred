@@ -15,7 +15,7 @@ package com.clivern.fred.sender;
 
 import com.clivern.fred.sender.template.*;
 import com.clivern.fred.util.Config;
-import com.clivern.fred.util.Log;
+import org.pmw.tinylog.Logger;
 import com.mashape.unirest.http.*;
 import com.mashape.unirest.http.async.Callback;
 import com.mashape.unirest.http.exceptions.UnirestException;
@@ -34,21 +34,16 @@ public class BaseSender {
 
     protected Config configs;
 
-    protected Log log;
-
     protected String response;
-
 
     /**
      * Class Constructor
      *
      * @param configs
-     * @param log
      */
-    public BaseSender(Config configs, Log log)
+    public BaseSender(Config configs)
     {
         this.configs = configs;
-        this.log = log;
     }
 
     /**
@@ -60,13 +55,14 @@ public class BaseSender {
      */
     public Boolean send(BasicTemplate basicTemplate) throws UnirestException
     {
-        this.log.info(basicTemplate.debug());
+        Logger.info(basicTemplate.debug());
 
         HttpResponse<String> responseObj = Unirest.post(basicTemplate.getURL()).header("Content-Type", basicTemplate.getContentType()).body(basicTemplate.getBody()).asString();
 
         this.response = responseObj.getBody();
 
-        this.log.info(this.response);
+        Logger.info(this.response);
+        
         if( this.response.indexOf("\"ok\":true") > 0 ){
             return true;
         }else{

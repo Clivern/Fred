@@ -25,8 +25,8 @@ public class Main {
         post("/events", (request, response) -> {
             Config config = new Config();
             config.loadPropertiesFile("config.properties");
-            Log log = new Log(config);
-            Listener listener = new Listener(config, log);
+            config.configLogger();
+            Listener listener = new Listener(config);
             listener.addEvent(Listener.URL_VERIFICATION_EVENT, new UrlVerification(et -> et.getChallenge()));
             return listener.callCurrentEvent(request.body());
         });

@@ -15,8 +15,8 @@ package com.clivern.fred.receiver;
 
 import java.util.HashMap;
 import java.util.Map;
+import org.pmw.tinylog.Logger;
 import com.clivern.fred.util.Config;
-import com.clivern.fred.util.Log;
 import com.clivern.fred.exception.CommandNotFound;
 import com.clivern.fred.exception.CommandDataNotValid;
 import com.clivern.fred.contract.receiver.command.CommandTemplate;
@@ -31,20 +31,16 @@ public class BaseReceiver {
 
     protected Config configs;
 
-    protected Log log;
-
     protected Map<String, CommandTemplate> commands = new HashMap<String, CommandTemplate>();
 
     /**
      * Class Constructor
      *
      * @param configs
-     * @param log
      */
-    public BaseReceiver(Config configs, Log log)
+    public BaseReceiver(Config configs)
     {
         this.configs = configs;
-        this.log = log;
     }
 
     /**

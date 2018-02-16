@@ -13,22 +13,19 @@
  */
 package com.clivern.fred.util;
 
-import com.clivern.fred.config.Basic;
-import com.clivern.fred.util.Config;
-import com.clivern.fred.util.Log;
-
+import java.util.Random;
+import java.lang.StringBuilder;
+import org.json.JSONObject;
+import org.json.JSONArray;
+import org.pmw.tinylog.Logger;
 import com.mashape.unirest.http.*;
 import com.mashape.unirest.http.async.Callback;
 import com.mashape.unirest.http.exceptions.UnirestException;
 import com.mashape.unirest.http.options.Options;
 import com.mashape.unirest.request.GetRequest;
 import com.mashape.unirest.request.HttpRequest;
-
-import java.util.Random;
-import java.lang.StringBuilder;
-
-import org.json.JSONObject;
-import org.json.JSONArray;
+import com.clivern.fred.config.Basic;
+import com.clivern.fred.util.Config;
 
 /**
  * Oauth Utils Class
@@ -41,7 +38,6 @@ import org.json.JSONArray;
 public class Oauth {
 
     protected Config configs;
-    protected Log log;
     protected String redirectURL;
     protected String clientId;
     protected String clientSecret;
@@ -76,11 +72,9 @@ public class Oauth {
      * @param  configs
      * @param  log
      */
-    public Oauth(Config configs, Log log)
+    public Oauth(Config configs)
     {
         this.configs = configs;
-        this.log = log;
-
         this.clientId = this.configs.get("client_id", "");
         this.clientSecret = this.configs.get("client_secret", "");
         this.verificationToken = this.configs.get("verification_token", "");
@@ -137,7 +131,7 @@ public class Oauth {
     {
         String url = Basic.methodURL(Basic.oauthAccessMethod);
         String body = "client_id=" + this.clientId + "&client_secret=" + this.clientSecret + "&code=" + this.incomingCode + "&redirect_uri=" + this.redirectUri;
-        this.log.info("curl -X POST -H \"Content-Type: application/x-www-form-urlencoded\" -d '" + body + "' \"" + url + "\"");
+        Logger.info("curl -X POST -H \"Content-Type: application/x-www-form-urlencoded\" -d '" + body + "' \"" + url + "\"");
         HttpResponse<String> responseObj = Unirest.post(url).header("Content-Type", "application/x-www-form-urlencoded").body(body).asString();
 
         String responseStr = responseObj.getBody();
