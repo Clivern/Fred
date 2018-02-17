@@ -51,13 +51,13 @@ state=State Key
 team=Slack Team Name
 verification_token=Verification Token Goes Here
 
-logging_level=debug
+logging_level=tarce or debug or info or warning or error
 logging_file_path=src/main/java/resources/
-logging_file_format=current_date
-logging_log_type=file
+logging_file_format=current_date or app
+logging_log_type=file or console or both
 logging_current_date_format=yyyy-MM-dd
-logging_append=true
-logging_buffered=false
+logging_append=true or false
+logging_buffered=true or false
 ```
 
 ### Build Oauth Redirect URL
